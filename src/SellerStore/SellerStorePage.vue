@@ -21,7 +21,7 @@
           ></v-img>
         </template>
         <v-containe class="pa-0">
-          <v-card-actions justify="center" no-gutters style="width: 100%">
+          <v-row justify="center" no-gutters style="width: 100%">
             <v-col cols="8" md="7" sm="8" lg="7" class="pa-0">
               
               <v-card
@@ -91,7 +91,7 @@
             <v-col cols="12" class="pa-0 mt-4 mt-lg-2 infoo mt-sm-2">
               <seller-info />
             </v-col>
-          </v-card-actions>
+          </v-row>
         </v-containe>
 
         <template v-slot:extension>
