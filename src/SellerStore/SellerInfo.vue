@@ -12,12 +12,11 @@
           style="display: flex; flex-direction: column; justify-content: center"
         >
           <!-- store image -->
-          <v-avatar class="profile" color="grey" size="150" tile>
+          <v-avatar class="profile" color="grey" size="120" tile>
             <v-img
               src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
             ></v-img>
           </v-avatar>
-          <v-row no-gutters> </v-row>
         </div>
         <v-col class="info-lg" cols="3">
           <v-sheet
@@ -73,10 +72,10 @@
               </v-row>
             </v-card>
           </div>
-          <v-card-actions
+          <v-row
             no-gutters
-            style="align-items: center; height: 56% !important"
-            class="fill-height justify-center py-1"
+            style="align-items: center; height: % !important"
+            class=" justify-center py-1"
           >
             <v-chip class="mx-1" text-color="white" color="red">
               <span class="btn">متابعة</span>
@@ -161,7 +160,7 @@
                 </v-card-actions>
               </v-card>
             </v-dialog>
-          </v-card-actions>
+          </v-row>
         </v-col>
         <v-spacer class="info-lg"></v-spacer>
         <div class="mr-3 info-lg">
@@ -309,16 +308,16 @@ ul {
   margin: auto 0;
 
   @media (max-width: 700px) {
-    height: 133px !important;
-    min-width: 130px !important;
-    width: 130px !important;
+    height: 113px !important;
+    min-width: 110px !important;
+    width: 110px !important;
     margin: 0;
     border-radius: 0px !important;
   }
-  @media (max-width: 360px) {
-    height: 160px !important;
-    min-width: 180px !important;
-    width: 180px !important;
+  @media (max-width: 400px) {
+    height: 100px !important;
+    min-width: 100px !important;
+    width: 100px !important;
     margin: 0;
     border-radius: 0px !important;
   }

@@ -118,4 +118,5 @@ export default {
     transform: scale(0.8);
   }
 }
+
 </style>

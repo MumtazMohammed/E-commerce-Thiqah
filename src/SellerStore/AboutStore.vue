@@ -12,7 +12,11 @@
         </v-card-text>
       </v-col>
       <v-col cols="12">
-        <v-sheet height="auto" min-height="200" class="overflow-hidden pa-2">
+        <v-sheet
+          height="auto"
+          min-height="200"
+          class="overflow-hidden transparent"
+        >
           <v-img
             contain
             max-height="300"
