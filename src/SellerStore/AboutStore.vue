@@ -12,17 +12,13 @@
         </v-card-text>
       </v-col>
       <v-col cols="12">
-        <v-carousel
-          height="auto"
-          show-arrows-on-hover
-          delimiter-icon="mdi-minus"
-        >
-          <v-carousel-item v-for="(slide, i) in slides" :key="i">
-            <v-sheet :color="colors[i]" height="100%">
-              <v-img max-height="500" src="https://picsum.photos/510/300?random"></v-img>
-            </v-sheet>
-          </v-carousel-item>
-        </v-carousel>
+        <v-sheet height="auto" min-height="200" class="overflow-hidden pa-2">
+          <v-img
+            contain
+            max-height="300"
+            src="https://picsum.photos/510/300?random"
+          ></v-img>
+        </v-sheet>
       </v-col>
     </v-row>
   </div>
