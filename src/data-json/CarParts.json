@@ -1,0 +1,75 @@
+[
+  {
+    "id": 1,
+    "PartImg": "صدام.png",
+    "PartTital": "الصدامات، الشبوك والواجهة",
+    "folder": "CarPartsCategories"
+  },
+  {
+    "id": 2,
+    "PartImg": "مكينة.png",
+    "PartTital": "المكائن، القيرات وملحقاتها",
+    "folder": "CarPartsCategories"
+  },
+  {
+    "id": 3,
+    "PartImg": "انوار.png",
+    "PartTital": "الشمعات والاصطبات (الاضاءة)",
+    "folder": "CarPartsCategories"
+  },
+  {
+    "id": 4,
+    "PartImg": "بريك.png",
+    "PartTital": "الفرامل والأقمشة",
+    "folder": "CarPartsCategories"
+  },
+  {
+    "id": 5,
+    "PartImg": "باب.png",
+    "PartTital": "الأبواب، الرفرف والكبوت",
+    "folder": "CarPartsCategories"
+  },
+  {
+    "id": 6,
+    "PartImg": "شكمان.png",
+    "PartTital": "الشكمان",
+    "folder": "CarPartsCategories"
+  },
+  {
+    "id": 7,
+    "PartImg": "بتروال.png",
+    "PartTital": "نظام الوقود",
+    "folder": "CarPartsCategories"
+  },
+  {
+    "id": 8,
+    "PartImg": "الدفرنس.png",
+    "PartTital": "العكس، الدفرنس والرمانات",
+    "folder": "CarPartsCategories"
+  },
+  {
+    "id": 9,
+    "PartImg": "بواجي.png",
+    "PartTital": "البواجي، الفلاتر والسيور",
+    "folder": "CarPartsCategories"
+  },
+  {
+    "id": 10,
+    "PartImg": "مساعدات.png",
+    "PartTital": "المساعدات، المقصات وعمود التوازن",
+    "folder": "CarPartsCategories"
+  },
+  {
+    "id": 11,
+    "PartImg": "دركسون.png",
+    "PartTital": "الدركسون وملحقاته",
+    "folder": "CarPartsCategories"
+  },
+  {
+    "id": 12,
+    "PartImg": "تبريد.png",
+    "PartTital": "نظام التكييف والتبريد",
+    "folder": "CarPartsCategories"
+  }
+ 
+]

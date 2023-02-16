@@ -1,0 +1,34 @@
+[
+  {
+    "Shape": "رياضية",
+    "CarShape": "https://syarahcdn.syarah.com/syarah/bundles/sport.svg"
+  },
+  {
+    "Shape": "هـاتـشباك",
+    "CarShape": "https://syarahcdn.syarah.com/syarah/bundles/hatch.svg"
+  },
+  {
+    "Shape": "بيك أب",
+    "CarShape": "https://syarahcdn.syarah.com/syarah/bundles/pickup.svg"
+  },
+  {
+    "Shape": "فـان",
+    "CarShape": "https://syarahcdn.syarah.com/syarah/bundles/van.svg"
+  },
+  {
+    "Shape": "أس يو في",
+    "CarShape": "https://syarahcdn.syarah.com/syarah/bundles/suv.svg"
+  },
+  {
+    "Shape": "كـروس اوفر",
+    "CarShape": "https://syarahcdn.syarah.com/syarah/bundles/cross.svg"
+  },
+  {
+    "Shape": "سـيدان",
+    "CarShape": "https://syarahcdn.syarah.com/syarah/bundles/sedan.svg"
+  },
+  {
+    "Shape": "غـير ذالك",
+    "CarShape": "https://cdn-icons-png.flaticon.com/512/1023/1023706.png"
+  }
+]

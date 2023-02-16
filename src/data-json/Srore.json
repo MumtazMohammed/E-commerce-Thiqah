@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "StoreName": "مركز سامع لقطاع الغيار",
+    "location": "تعز",
+    "category": "قطاع غير | زينة سيارات | زيوت سيارات",
+    "StoreImage": "one.jpg",
+    "folder": "Store",
+    "Followers": 22,
+    "VIP": true,
+    "locationStreet": "تعز-الحوبان-مقابل مدرسة الروضه"
+  },
+  {
+    "id": 2,
+    "StoreName": "مركز سريع لصيانة السيارات",
+    "location": "عدن",
+    "category": "صيانة | سمكرة | رش",
+    "StoreImage": "tow.jpg",
+    "folder": "Store",
+    "Followers": 85,
+    "locationStreet": "تعز-الحوبان-مقابل مدرسة الروضه",
+    "VIP": true
+  },
+  {
+    "id": 3,
+    "StoreName": "مركز ذهبي لقطاع الغيار السيارات",
+    "location": "حرض",
+    "category": "صيانة | سمكرة | رش",
+    "StoreImage": "three.jpg",
+    "folder": "Store",
+    "Followers": 120,
+    "locationStreet": "تعز-الحوبان-مقابل مدرسة الروضه",
+    "VIP": true
+  }
+]
