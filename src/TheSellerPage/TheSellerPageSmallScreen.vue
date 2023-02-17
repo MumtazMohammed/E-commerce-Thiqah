@@ -13,7 +13,7 @@
               src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
             ></v-img>
           </v-avatar>
-          <v-col cols="8">
+          <v-col cols="7">
             <v-list-item color="grey">
               <v-list-item-content>
                 <v-list-item-title class="text mb-2 text-h6">
@@ -43,8 +43,25 @@
             </v-list-item>
           </v-col>
           <v-spacer></v-spacer>
-          <v-btn icon class="white">
-            <v-icon color="blue">mdi-dots-horizontal </v-icon>
+          <v-badge bordered left overlap content="3">
+            <v-btn
+              :to="{
+                name: 'SmallScreenNotification',
+                params: { Notfication: 'الأشعارات' },
+              }"
+              exact-path
+              depressed
+              width="36"
+              height="36"
+              class="btn-noti-cart"
+              fab
+            >
+              <v-icon size="30"> mdi-wechat </v-icon>
+            </v-btn>
+          </v-badge>
+          <v-spacer></v-spacer>
+          <v-btn depressed width="36" height="36" fab class="btn-noti-cart">
+            <v-icon size="30">mdi-dots-horizontal </v-icon>
           </v-btn>
         </v-row>
         <v-row align="center" no-gutters class="fill-height mt-6">
@@ -128,75 +145,28 @@
             <v-row justify="center" no-gutters class="fill-height">
               <span>0.00</span>
             </v-row>
-            <v-card-text
-              style="height: 50px"
-              class="pa-0 mt-1 text text-center"
-            >
-              ريال
-              <v-chip
-                style="display: block"
-                small
-                class="text px-1"
-                color="blue"
-                text-color="white"
-              >
-                تحويل
-              </v-chip>
-            </v-card-text>
+            <v-card-text class="pa-0 mt-1 text text-center"> ريال </v-card-text>
           </v-col>
           <v-col class="px-1">
             <v-row justify="center" no-gutters class="fill-height">
               <span>2</span>
             </v-row>
-            <v-card-text
-              style="height: 50px"
-              class="pa-0 mt-1 text text-center"
-            >
-              خيار الدفع
+            <v-card-text class="pa-0 mt-1 text text-center">
+              الحولات المعلقة
             </v-card-text>
           </v-col>
           <v-col class="px-1">
             <v-row justify="center" no-gutters class="fill-height">
               <span>20</span>
             </v-row>
-            <v-card-text
-              style="height: 50px"
-              class="pa-0 mt-1 text text-center"
-            >
-              سجل التحويلات
+            <v-card-text class="pa-0 mt-1 text text-center">
+              السجل 
             </v-card-text>
           </v-col>
         </v-row>
       </v-card>
-      <v-row no-gutters class="mb-3">
-        <v-col class="pl-1">
-          <v-card flat color="deep-purple lighten-1">
-            <v-row justify="center" no-gutters class="fill-height">
-              <span class="card-points-vou-cunt">2</span>
-            </v-row>
-            <v-card-title
-              style="height: 30px"
-              class="pa-0 card-points-vou justify-center"
-            >
-              نقطة
-            </v-card-title>
-          </v-card>
-        </v-col>
-        <v-col class="pr-1">
-          <v-card color="indigo lighten-1" flat>
-            <v-row justify="center" no-gutters class="fill-height">
-              <span class="card-points-vou-cunt">2</span>
-            </v-row>
-            <v-card-title
-              style="height: 30px"
-              class="pa-0 card-points-vou justify-center"
-            >
-              قسيمة
-            </v-card-title>
-          </v-card>
-        </v-col>
-      </v-row>
-      <v-card flat class="pa-2 mb-2">
+     
+      <v-card flat class="pa-2 ">
         <v-row align="center" no-gutters class="fill-height mb-5">
           <v-col class="px-1" v-for="(Fift, i) in FifthhAccess" :key="i">
             <v-row justify="center" no-gutters class="fill-height">
@@ -231,21 +201,7 @@
           </v-col>
         </v-row>
       </v-card>
-      <v-sheet class="mb-2" min-height="200">
-        <v-card-text class="card-titel-follow">متابع : </v-card-text>
-        <v-row class="px-3" no-gutters>
-          <v-col class="pa-1" v-for="i in 18" :key="i" cols="2">
-            <v-row justify="center" no-gutters>
-              <v-avatar size="50px">
-                <img
-                  alt="Avatar"
-                  src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
-                />
-              </v-avatar>
-            </v-row>
-          </v-col>
-        </v-row>
-      </v-sheet>
+  
       <!-- <Services /> -->
     </v-container>
   </div>
@@ -320,32 +276,23 @@ export default {
           RouterName: "/Marketing",
         },
         {
+          link: "المتجر الخاص بك",
+          icon: "mdi-store-edit-outline",
+          class: "MyStore",
+          RouterName: "/StoreProfile",
+        },
+        {
+          link: "أرسل منتجك للجميع",
+          icon: "mdi-message-text-fast-outline",
+          class: "MyMss",
+          RouterName: "/StoreProfile",
+        },
+        {
           link: "إعدادات المتجر",
           icon: "mdi-cog-outline",
           class: "ShopSettings",
           RouterName: "/StoreProfile",
         },
-      ],
-      ThirdAccess: [
-        {
-          title: " ثقة مول ",
-          cunt: "mdi-shopping",
-        },
-        {
-          title: "شارك وأربح",
-          cunt: "mdi-link-box",
-          color: "grey",
-        },
-        {
-          title: "أفتح متجر",
-          cunt: "mdi-handshake ",
-          flib: "  transform: scaleX(-1)",
-          color: "indigo lighten-1 ",
-        },
-        // {
-        //   title: "المرتجع & والإلغاء",
-        //   cunt: "mdi-archive-cancel",
-        // },
       ],
 
       FifthhAccess: [
@@ -389,10 +336,8 @@ export default {
 .client-store {
   background-color: $color-background;
   width: 100%;
-  min-height: 100vh;
-  @media (max-width: 960px) {
-    margin-bottom: 50px;
-  }
+  min-height: 80vh;
+
 }
 .v-list-item__title.text.text-h6 {
   letter-spacing: 0 !important;
@@ -452,6 +397,12 @@ export default {
 .ShopSettings {
   background: linear-gradient(30deg, #757575 50%, #bdbdbd 100%);
 }
+.MyStore {
+  background: linear-gradient(30deg, #ab47bc 50%, #ce93d8 100%);
+}
+.MyMss {
+  background: linear-gradient(30deg, #D81B60 50%, #F48FB1 100%);
+}
 
 .link {
   font-size: 14px !important;
@@ -460,7 +411,7 @@ export default {
   font-family: $fontfamliy3;
   display: flex;
   justify-content: center;
-//   align-items: center;
+  //   align-items: center;
   text-align: center;
   height: 40px;
 }
@@ -469,5 +420,30 @@ export default {
   border-radius: 50%;
   padding: 5px;
   color: #fff !important;
+}
+.btn-noti-cart {
+  color: $color-2 !important;
+  // background-color: #eee;
+  @media (max-width: 600px) {
+    font-size: 25px !important;
+  }
+}
+::v-deep .theme--light.v-badge .v-badge__badge:after {
+  border-width: 0;
+}
+::v-deep span.v-badge__badge {
+  color: #fff !important;
+  background-color: $color-2 !important;
+  // min-width: 15px;
+  height: 18px;
+  // padding: 5px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  border: none;
+  // font-size: 13px !important;
+  @media (max-width: 600px) {
+    font-size: 11px !important;
+  }
 }
 </style>

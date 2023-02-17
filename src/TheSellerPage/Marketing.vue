@@ -1,6 +1,32 @@
 <template>
   <div class="Marketing">
-    <v-container class="container">
+    <!-- small Screen Tabs  -->
+    <div class="hidden-md-and-up">
+      <v-app-bar flat fixed color="#fc624d" dark>
+        <v-btn
+          :to="{
+            name: 'MainStorePage',
+            params: { MyCar: 'إعلاناتي' },
+          }"
+          icon
+        >
+          <v-icon> mdi-home </v-icon>
+        </v-btn>
+        <v-toolbar-title class="pr-1 titel">الرئيسية</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn
+          :to="{
+            name: 'MainStorePage',
+            params: { MyCar: 'إعلاناتي' },
+          }"
+          icon
+        >
+          <v-icon> mdi-arrow-left </v-icon>
+        </v-btn>
+      </v-app-bar>
+      <v-sheet height="56"></v-sheet>
+    </div>
+    <v-container class="pa-0">
       <v-sheet>
         <v-card-title class="welcom-text">
           مرحباً بك في مركز التسويق والعروضات
@@ -13,10 +39,10 @@
           <v-chip outlined @click="window = 0"> الخصومات </v-chip>
           <v-chip outlined @click="window = 1"> القسائم </v-chip>
         </v-chip-group>
-        <v-window v-model="window" vertical reverse>
+        <v-window v-model="window">
           <v-window-item class="" style="min-height: 100vh" :value="0">
             <v-row no-gutters>
-              <v-col cols="12" class="pb-2">
+              <v-col cols="12" class="pa-2">
                 <v-text-field
                   class="pa-0"
                   v-model="search"
@@ -42,6 +68,7 @@
                       v-on="on"
                       max-height="700"
                       class="overflow-hidden"
+                      outlined
                     >
                       <!-- Products main Img  -->
                       <v-img
@@ -56,15 +83,10 @@
                       <v-card-text class="detail pa-1 text-truncate">
                         <span>{{ Car.company }} {{ Car.name }}</span>
                       </v-card-text>
-                      <v-card-actions class="pa-2">
-                        <v-card-text
-                          class="price pa-0 red--text text--lighten-2"
-                        >
-                          {{ Car.payment }}
-                          <span class="grey--text text--darken-3">ريال</span>
-                        </v-card-text>
-                        <span class="cat text-end pa-0"> الفئه </span>
-                      </v-card-actions>
+                      <v-card-text class="price justify-center pa-0">
+                        {{ Car.payment }}
+                        <span class="grey--text text--darken-3">ريال</span>
+                      </v-card-text>
                       <v-card-actions class="pa-2">
                         <v-card-text class="text pa-0 grey--text">
                           في المخزون
@@ -100,14 +122,17 @@
                         <v-card-title class="detail pa-2 text-truncate">
                           <span>{{ Car.company }} {{ Car.name }}</span>
                           <v-spacer></v-spacer>
-                          <span class="green--text">
+                        </v-card-title>
+                        <v-row class="px-2" align="center" no-gutters>
+                          <span class="stocked">
+                            في المخزن
+                            <span class="mx-2 red--text">{{ Car.id }} </span>
+                          </span>
+                          <v-spacer></v-spacer>
+                          <span class="price">
                             {{ Car.payment }}
                           </span>
-                        </v-card-title>
-                        <span class="stocked pr-2">
-                          في المخزن
-                          <span class="mx-2 red--text">{{ Car.id }} </span>
-                        </span>
+                        </v-row>
                         <v-sheet width="90%" class="mx-auto">
                           <v-select
                             :items="items"
@@ -297,17 +322,7 @@ export default {
   width: 100%;
   min-height: 100vh;
   font-family: $fontfamliy3 !important;
-  @media (max-width: 600px) {
-    margin-bottom: 50px;
-  }
-  .container {
-    @media (min-width: 960px) {
-      max-width: 1212px !important;
-    }
-    @media (max-width: 450px) {
-      padding: 5px !important;
-    }
-  }
+
   .welcom-text {
     font-family: $fontfamliy3;
     color: grey;
@@ -332,21 +347,16 @@ export default {
   font-family: $fontfamliy3;
   font-weight: 600;
   font-size: 15px !important;
-
-  span {
-    font-weight: 400;
-  }
 }
 .price {
-  font-family: $fontfamliy3;
-  font-weight: 500;
-  font-size: 16px !important;
+  font-family: sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 19px !important;
   display: flex;
-  @media (max-width: 600px) {
-  }
+  color: $color-2 !important;
   span {
-    font-size: 12px !important;
-    font-weight: 600;
+    font-size: 13px !important;
+    margin-right: 2px;
   }
 }
 .btn {
@@ -357,9 +367,9 @@ export default {
   color: $fontcolorlinks !important;
 }
 .stocked {
-  font-family: $fontfamliy3;
-  font-size: 14px;
-  font-weight: 500;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .cat {
@@ -398,21 +408,15 @@ Voucher .text {
 .btn {
   font-family: $fontfamliy3 !important;
   letter-spacing: 0 !important;
-  color: #fff !important;
+  color: $fontcolor !important;
   font-size: 14px !important;
   font-weight: 600 !important;
   padding: 0 6px !important ;
   min-width: 50px !important;
-
-  @media (max-width: 600px) {
-    font-size: 13px !important;
-    // width: ;
-    min-width: 35px !important;
-  }
-  @media (max-width: 400px) {
-    font-size: 12px !important;
-    // width: ;
-    min-width: 22px !important;
-  }
+}
+.titel {
+  font-family: $fontfamliy3 !important;
+  letter-spacing: 0;
+  font-size: 18px !important;
 }
 </style>

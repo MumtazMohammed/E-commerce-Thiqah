@@ -1,7 +1,32 @@
 <template>
   <div class="ShowRoomAddNewCar">
-    <v-container>
-      <v-sheet flat color="transparent" min-height="400">
+    <div class="hidden-md-and-up">
+      <v-app-bar flat fixed color="#fc624d" dark>
+        <v-btn
+          :to="{
+            name: 'MainStorePage',
+            params: { MyCar: 'إعلاناتي' },
+          }"
+          icon
+        >
+          <v-icon> mdi-home </v-icon>
+        </v-btn>
+        <v-toolbar-title class="pr-1 titel">الرئيسية</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn
+          :to="{
+            name: 'MainStorePage',
+            params: { MyCar: 'إعلاناتي' },
+          }"
+          icon
+        >
+          <v-icon> mdi-arrow-left </v-icon>
+        </v-btn>
+      </v-app-bar>
+      <v-sheet height="56"></v-sheet>
+    </div>
+    <v-container class="pa-0">
+      <v-sheet color="transparent" min-height="400">
         <v-card-actions class="justify-center">
           <v-btn
             mn-width="170"
@@ -22,37 +47,39 @@
             نفذت الكمية
           </v-btn>
         </v-card-actions>
-        <v-card flat class="pa-3">
-          <v-card-actions class="justify-center">
-            <div class="image-preview mx-1" v-for="(imag, i) in 7" :key="i">
-              <div v-if="imageData.length <= 0">
-                <v-icon> mdi-plus </v-icon>
-                <span>صورة الغلاف</span>
+        <v-card tile flat class="pa-3">
+          <v-row no-gutters>
+            <v-col class="pa-1" cols="4" v-for="(imag, i) in 7" :key="i">
+              <div class="image-preview">
+                <div v-if="imageData.length <= 0">
+                  <v-icon> mdi-plus </v-icon>
+                  <span>صورة الغلاف</span>
+                </div>
+                <div class="preview" v-if="imageData.length > 0">
+                  <img :src="imageData" />
+                </div>
+                <label class="cover-image-input" for="file"></label>
+                <v-btn
+                  v-if="imageData.length > 0"
+                  icon
+                  small
+                  class="btn"
+                  @click="imageData = ''"
+                >
+                  <v-icon> mdi-close </v-icon>
+                </v-btn>
+                <input
+                  @change="previewImage"
+                  accept="image/*"
+                  type="file"
+                  id="file"
+                  class="custom-file-input"
+                />
               </div>
-              <div class="preview" v-if="imageData.length > 0">
-                <img :src="imageData" />
-              </div>
-              <label class="cover-image-input" for="file"></label>
-              <v-btn
-                v-if="imageData.length > 0"
-                icon
-                small
-                class="btn"
-                @click="imageData = ''"
-              >
-                <v-icon> mdi-close </v-icon>
-              </v-btn>
-              <input
-                @change="previewImage"
-                accept="image/*"
-                type="file"
-                id="file"
-                class="custom-file-input"
-              />
-            </div>
-          </v-card-actions>
+            </v-col>
+          </v-row>
         </v-card>
-        <v-card flat class="pa-3 mt-2">
+        <v-card tile flat class="pa-3 mt-2">
           <v-col cols="12" class="pb-0">
             <v-text-field placeholder="أسم المنتج "></v-text-field>
           </v-col>
@@ -167,7 +194,7 @@
             </v-col>
           </v-col>
         </v-card>
-        <v-card flat class="pa-3 mt-2">
+        <v-card tile flat class="pa-3 mt-2">
           <v-col cols="12" class="py-0">
             <v-textarea
               solo
@@ -177,7 +204,7 @@
             ></v-textarea>
           </v-col>
         </v-card>
-        <v-card flat class="pa-3 pb-6 mt-2">
+        <v-card tile flat class="pa-3 pb-6 mt-2">
           <div>
             <v-card-text class="pa-2"> رقم المنتج: </v-card-text>
             <v-text-field dense hide-details=""></v-text-field>
@@ -1063,7 +1090,6 @@ export default {
     opacity: 0;
   }
   .image-preview {
-    width: 100px;
     height: 100px;
 
     // box-shadow: 0 0 0 1px rgb(207, 207, 207);
@@ -1161,5 +1187,10 @@ export default {
 }
 ::v-deep .price .v-input__slot {
   padding-left: 0px !important;
+}
+.titel {
+  font-family: $fontfamliy3 !important;
+  letter-spacing: 0;
+  font-size: 18px !important;
 }
 </style>

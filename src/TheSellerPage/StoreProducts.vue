@@ -1,8 +1,34 @@
 <template>
   <div class="TheShowRoomPage">
-    <v-container class="container">
+    <!-- small Screen Tabs  -->
+    <div class="hidden-md-and-up">
+      <v-app-bar flat fixed color="#fc624d" dark>
+        <v-btn
+          :to="{
+            name: 'MainStorePage',
+            params: { MyCar: 'إعلاناتي' },
+          }"
+          icon
+        >
+          <v-icon> mdi-home </v-icon>
+        </v-btn>
+        <v-toolbar-title class="pr-1 titel">الرئيسية</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn
+          :to="{
+            name: 'MainStorePage',
+            params: { MyCar: 'إعلاناتي' },
+          }"
+          icon
+        >
+          <v-icon> mdi-arrow-left </v-icon>
+        </v-btn>
+      </v-app-bar>
+      <v-sheet height="56"></v-sheet>
+    </div>
+    <v-container class="pa-0">
       <v-sheet
-        class="pa-sm-5 pa-2 pa-md-5 pa-xl-5"
+        class="pa-sm-5 pa-2 pa-md-5 pa-xl-5 transparent"
         outlined
         max-width="100%"
         min-height="700"
@@ -69,6 +95,7 @@
               }"
               height="100%"
               class="overflow-hidden"
+              flat
             >
               <v-card-actions>
                 <!-- Products main Img  -->
@@ -162,14 +189,11 @@ export default {
     font-family: $fontfamliy3;
     font-size: 13px !important;
   }
-  .container {
-    @media (min-width: 960px) {
-      max-width: 1212px !important;
-    }
-    @media (max-width: 450px) {
-      padding: 5px !important;
-    }
-  }
+}
+.titel {
+  font-family: $fontfamliy3 !important;
+  letter-spacing: 0;
+  font-size: 18px !important;
 }
 ::v-deep .v-slide-group__content {
   justify-content: center;

@@ -1,182 +1,133 @@
 <template>
   <div class="BusinessInsights">
-    <v-container class="container">
-      <v-sheet class="pa-3" color="" elevation="0" max-width="100%">
-        <v-row class="pa-0" style="flex-wrap: wrap">
-          <v-col cols="12" lg="6" md="6" sm="12" class="pa-2">
-            <v-card dark flat class="pb-2">
-              <v-card-text class="card-text"> المبيعات </v-card-text>
-              <v-sparkline
-                :labels="labels"
-                :value="value"
-                :smooth="1"
-                :padding="12"
-                :line-width="13"
-                :gradient="['#fc624d', '#FF7043', '#FFCCBC']"
-                type="bars"
-                auto-draw
-                stroke-linecap="round"
-                color="grey"
-              >
-              </v-sparkline>
-            </v-card>
-          </v-col>
-          <v-col cols="12" lg="6" md="6" sm="12" class="pa-2">
-            <v-card dark flat class="pb-2">
-              <v-card-text class="card-text"> الطلبات </v-card-text>
-              <v-sparkline
-                :labels="labels"
-                :value="value"
-                :smooth="1"
-                :padding="12"
-                :line-width="13"
-                :gradient="['#fc624d', '#FF7043', '#FFCCBC']"
-                type="bars"
-                auto-draw
-                stroke-linecap="round"
-                color="grey"
-              >
-              </v-sparkline>
-            </v-card>
-          </v-col>
-          <v-col cols="12" lg="6" md="6" sm="12" class="pa-2">
-            <v-card height="100%" dark flat>
-              <v-card-text class="card-text"> الزائرين </v-card-text>
-              <v-sparkline
-                :value="value"
-                :labels="labels"
-                :smooth="7"
-                :padding="13"
-                :line-width="6"
-                stroke-linecap="round"
-                :gradient="['#fc624d', '#FF7043', '#FFCCBC']"
-                type="trend"
-                auto-line-width="true"
-                auto-draw
-                color="grey"
-              >
-              </v-sparkline>
-            </v-card>
-          </v-col>
-          <v-col cols="6" sm="6" md="3" lg="3">
-            <v-card dark>
-              <v-card-title class="justify-center">
-                <div class="text">
-                  <span class="span success"></span>
-                  التقييمات الايجابية
-                </div>
-              </v-card-title>
-              <v-sheet
-                class="d-flex align-center justify-center overflow-hidden"
-                width="100%"
-              >
-                <VueApexCharts
-                  height="180"
-                  width="155"
-                  :options="NegativeRatingOptions"
-                  VueApexCharts
-                  :series="NegativeSeriesRating"
-                ></VueApexCharts>
-              </v-sheet>
-            </v-card>
-          </v-col>
-          <v-col cols="6" sm="6" md="3" lg="3">
-            <v-card dark>
-              <v-card-title class="justify-center">
-                <div class="text">
-                  <span class="span error"></span>
-                  التقييمات السلبية
-                </div>
-              </v-card-title>
-              <v-sheet
-                class="d-flex align-center justify-center overflow-hidden"
-                width="100%"
-              >
-                <VueApexCharts
-                  height="180"
-                  width="155"
-                  :options="PositiveRatingOptions"
-                  VueApexCharts
-                  :series="PositiveSeriesRating"
-                ></VueApexCharts>
-              </v-sheet>
-            </v-card>
-          </v-col>
-          <v-col cols="12">
-            <v-sheet
-              dark
-              rounded="lg"
-              class="mx-auto overflow-hidden"
-              max-width="100%"
+    <!-- small Screen Tabs  -->
+    <div class="hidden-md-and-up">
+      <v-app-bar flat fixed color="#fc624d" dark>
+        <v-btn
+          :to="{
+            name: 'MainStorePage',
+            params: { MyCar: 'إعلاناتي' },
+          }"
+          icon
+        >
+          <v-icon> mdi-home </v-icon>
+        </v-btn>
+        <v-toolbar-title class="pr-1 titel">الرئيسية</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn
+          :to="{
+            name: 'MainStorePage',
+            params: { MyCar: 'إعلاناتي' },
+          }"
+          icon
+        >
+          <v-icon> mdi-arrow-left </v-icon>
+        </v-btn>
+      </v-app-bar>
+      <v-sheet height="56"></v-sheet>
+    </div>
+    <v-container class="pa-0">
+      <v-row no-gutters class="pa-0" style="flex-wrap: wrap">
+        <v-col cols="12" lg="6" md="6" sm="12" class="pa-2">
+          <v-card dark flat class="pb-2">
+            <v-card-text class="card-text"> المبيعات </v-card-text>
+            <v-sparkline
+              :labels="labels"
+              :value="value"
+              :smooth="1"
+              :padding="12"
+              :line-width="13"
+              :gradient="['#fc624d', '#FF7043', '#FFCCBC']"
+              type="bars"
+              auto-draw
+              stroke-linecap="round"
+              color="grey"
             >
-              <v-slide-group
-                dark
-                center-active
-                v-model="model"
-                class="py-4"
-                show-arrows
-              >
-                <v-slide-item
-                  v-for="(Product, i) in Products"
-                  :key="i"
-                  v-slot="{ active, toggle }"
-                >
-                  <v-card
-                    outlined
-                    :color="active ? 'grey darken-2' : ''"
-                    class="ma-2"
-                    height="200"
-                    width="180"
-                    @click="toggle"
-                  >
-                    <!-- Products main Img  -->
-                    <v-img
-                      fullscreen
-                      height="120px"
-                      class="grey darken-3"
-                      :src="getimageUrl(Product.folder, Product.image)"
-                      :lazy-src="getimageUrl(Product.folder, Product.image)"
-                      :alt="getimageUrl(Product.folder, Product.image)"
-                    ></v-img>
-                    <v-card-text class="detail pa-1 text-truncate">
-                      <span>{{ Product.company }} {{ Product.name }}</span>
-                    </v-card-text>
-                    <v-card-actions class="pa-0">
-                      <v-card-text class="price-cat pa-1">
-                        {{ Product.payment }}
-                        <span class="mr-1">ريال</span>
-                      </v-card-text>
-                      <v-card-text class="price-cat text-end pa-1">
-                        الفئه
-                      </v-card-text>
-                    </v-card-actions>
-                  </v-card>
-                </v-slide-item>
-              </v-slide-group>
-              <v-expand-transition>
-                <v-sheet v-if="model != null" tile>
-                  <v-simple-table>
-                    <template v-slot:default>
-                      <thead>
-                        <tr>
-                          <th class="text-left">Name</th>
-                          <th class="text-left">Calories</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>هونداي ألنترا</td>
-                          <td>5511</td>
-                        </tr>
-                      </tbody>
-                    </template>
-                  </v-simple-table>
-                </v-sheet>
-              </v-expand-transition>
+            </v-sparkline>
+          </v-card>
+        </v-col>
+        <v-col cols="12" lg="6" md="6" sm="12" class="pa-2">
+          <v-card dark flat class="pb-2">
+            <v-card-text class="card-text"> الطلبات </v-card-text>
+            <v-sparkline
+              :labels="labels"
+              :value="value"
+              :smooth="1"
+              :padding="12"
+              :line-width="13"
+              :gradient="['#fc624d', '#FF7043', '#FFCCBC']"
+              type="bars"
+              auto-draw
+              stroke-linecap="round"
+              color="grey"
+            >
+            </v-sparkline>
+          </v-card>
+        </v-col>
+        <v-col cols="12" lg="6" md="6" sm="12" class="pa-2">
+          <v-card height="100%" dark flat>
+            <v-card-text class="card-text"> الزائرين </v-card-text>
+            <v-sparkline
+              :value="value"
+              :labels="labels"
+              :smooth="7"
+              :padding="13"
+              :line-width="6"
+              stroke-linecap="round"
+              :gradient="['#fc624d', '#FF7043', '#FFCCBC']"
+              type="trend"
+              auto-line-width="true"
+              auto-draw
+              color="grey"
+            >
+            </v-sparkline>
+          </v-card>
+        </v-col>
+        <v-col cols="6" sm="6" md="3" lg="3" class="pa-2">
+          <v-card dark>
+            <v-card-title class="justify-center">
+              <div class="text">
+                <span class="span success"></span>
+                التقييمات الايجابية
+              </div>
+            </v-card-title>
+            <v-sheet
+              class="d-flex align-center justify-center overflow-hidden"
+              width="100%"
+            >
+              <VueApexCharts
+                height="180"
+                width="155"
+                :options="NegativeRatingOptions"
+                VueApexCharts
+                :series="NegativeSeriesRating"
+              ></VueApexCharts>
             </v-sheet>
-          </v-col>
-        </v-row>
-      </v-sheet>
+          </v-card>
+        </v-col>
+        <v-col cols="6" sm="6" md="3" lg="3" class="pa-2">
+          <v-card dark>
+            <v-card-title class="justify-center">
+              <div class="text">
+                <span class="span error"></span>
+                التقييمات السلبية
+              </div>
+            </v-card-title>
+            <v-sheet
+              class="d-flex align-center justify-center overflow-hidden"
+              width="100%"
+            >
+              <VueApexCharts
+                height="180"
+                width="155"
+                :options="PositiveRatingOptions"
+                VueApexCharts
+                :series="PositiveSeriesRating"
+              ></VueApexCharts>
+            </v-sheet>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -285,17 +236,6 @@ export default {
 .BusinessInsights {
   width: 100%;
   min-height: 100vh;
-  @media (max-width: 600px) {
-    margin-bottom: 50px;
-  }
-  .container {
-    @media (min-width: 960px) {
-      max-width: 1212px !important;
-    }
-    @media (max-width: 450px) {
-      padding: 5px !important;
-    }
-  }
   .card-text {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0 !important;
@@ -364,7 +304,9 @@ export default {
   color: #fff !important;
 }
 
-.div-p {
-  position: absolute;
+.titel {
+  font-family: $fontfamliy3 !important;
+  letter-spacing: 0;
+  font-size: 18px !important;
 }
 </style>

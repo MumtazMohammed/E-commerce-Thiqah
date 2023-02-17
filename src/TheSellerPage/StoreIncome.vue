@@ -1,13 +1,39 @@
 <template>
   <div class="PasswordChange">
-    <v-container class="container">
+    <!-- small Screen Tabs  -->
+    <div class="hidden-md-and-up">
+      <v-app-bar flat fixed color="#fc624d" dark>
+        <v-btn
+          :to="{
+            name: 'MainStorePage',
+            params: { MyCar: 'إعلاناتي' },
+          }"
+          icon
+        >
+          <v-icon> mdi-home </v-icon>
+        </v-btn>
+        <v-toolbar-title class="pr-1 titel">الرئيسية</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn
+          :to="{
+            name: 'MainStorePage',
+            params: { MyCar: 'إعلاناتي' },
+          }"
+          icon
+        >
+          <v-icon> mdi-arrow-left </v-icon>
+        </v-btn>
+      </v-app-bar>
+      <v-sheet height="56"></v-sheet>
+    </div>
+    <v-container class="pa-0">
       <v-toolbar tile flat>
         <v-menu
           ref="menu"
           v-model="menu"
           :close-on-content-click="false"
           :return-value.sync="date"
-          transition="scale-transition"
+          transition="fade-transition"
           offset-x
           left
           max-width="290px"
@@ -16,12 +42,12 @@
           <template v-slot:activator="{ on, attrs }">
             <v-card-title v-bind="attrs" v-on="on" class="pa-0 title">
               <v-chip class="title" color="light-blue" label text-color="white">
-                التاريخ :
+                شهر -
                 <span class="mx-1" v-text="date"></span>
               </v-chip>
             </v-card-title>
           </template>
-          <v-date-picker v-model="date" type="month" no-title scrollable>
+          <v-date-picker color="primary" v-model="date" type="month" no-title scrollable>
             <v-spacer></v-spacer>
             <v-btn text color="primary" @click="menu = false"> Cancel </v-btn>
             <v-btn text color="primary" @click="$refs.menu.save(date)">
@@ -30,50 +56,27 @@
           </v-date-picker>
         </v-menu>
         <v-spacer></v-spacer>
-        <v-btn
-          small
-          class="print-text"
-          color="blue-grey lighten-4"
-          elevation="0"
-        >
-          طباعة
-          <v-icon right> mdi-printer-outline </v-icon>
+        <v-btn icon>
+          <v-icon size="30" color=" "> mdi-printer-outline </v-icon>
         </v-btn>
       </v-toolbar>
       <div>
-        <v-data-table
-          :headers="headers"
-          :items="desserts"
-          :page.sync="page"
-          :items-per-page="itemsPerPage"
-          hide-default-footer
-          class="elevation-1 rounded-0"
-          @page-count="pageCount = $event"
-        >
-          <template v-slot:item.TotalPrice="{ item }">
-            <v-chip label small color="light-blue lighten-2" dark>
-              {{ item.TotalPrice }}
-            </v-chip>
+        <v-simple-table fixed-header class="table">
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-right title">اليوم</th>
+                <th class="text-right title">الدخل</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in desserts" :key="item.name">
+                <td>{{ item.name }}</td>
+                <td>{{ item.calories }}</td>
+              </tr>
+            </tbody>
           </template>
-          <template v-slot:item.ratio="{ item }">
-            <v-chip label small color="orange lighten-2" dark>
-              {{ item.ratio }}
-            </v-chip>
-          </template>
-          <template v-slot:item.CustomerNetProfit="{ item }">
-            <v-chip label small color="green accent-4" dark>
-              {{ item.CustomerNetProfit }}
-            </v-chip>
-          </template>
-        </v-data-table>
-        <div v-if="itemsPerPage > 10" class="text-center pt-2">
-          <v-pagination
-            class="elevation-0"
-            circle
-            v-model="page"
-            :length="pageCount"
-          ></v-pagination>
-        </div>
+        </v-simple-table>
       </div>
     </v-container>
   </div>
@@ -104,84 +107,44 @@ export default {
       ],
       desserts: [
         {
-          name: "0122112442",
-          date: "05.25 ص ب",
-          quantity: 3,
-          TotalPrice: 24,
-          ratio: 4.0,
-          CustomerNetProfit: "1%",
+          name: "Frozen Yogurt",
+          calories: 159,
         },
         {
-          name: "0122112442",
-          date: "15/8/2022",
-          quantity: 1,
-          TotalPrice: 37,
-          ratio: 4.3,
-          CustomerNetProfit: "1%",
+          name: "Ice cream sandwich",
+          calories: 237,
         },
         {
-          name: "0122112442",
-          date: "15/8/2022",
-          quantity: 1,
-          TotalPrice: 23,
-          ratio: 6.0,
-          CustomerNetProfit: "7%",
+          name: "Eclair",
+          calories: 262,
         },
         {
-          name: "0122112442",
-          date: "15/8/2022",
-          quantity: 2,
-          TotalPrice: 67,
-          ratio: 4.3,
-          CustomerNetProfit: "8%",
+          name: "Cupcake",
+          calories: 305,
         },
         {
-          name: "0122112442",
-          date: "15/8/2022",
-          quantity: 2,
-          TotalPrice: 49,
-          ratio: 3.9,
-          CustomerNetProfit: "16%",
+          name: "Gingerbread",
+          calories: 356,
         },
         {
-          name: "0122112442",
-          date: "15/8/2022",
-          quantity: 1,
-          TotalPrice: 94,
-          ratio: 0.0,
-          CustomerNetProfit: "0%",
+          name: "Jelly bean",
+          calories: 375,
         },
         {
-          name: "0122112442",
-          date: "15/8/2022",
-          quantity: 1,
-          TotalPrice: 98,
-          ratio: 0,
-          CustomerNetProfit: "2%",
+          name: "Lollipop",
+          calories: 392,
         },
         {
-          name: "0122112442",
-          date: "15/8/2022",
-          quantity: 2,
-          TotalPrice: 87,
-          ratio: 6.5,
-          CustomerNetProfit: "45%",
+          name: "Honeycomb",
+          calories: 408,
         },
         {
-          name: "0122112442",
-          date: "15/8/2022",
-          quantity: 1,
-          TotalPrice: 51,
-          ratio: 4.9,
-          CustomerNetProfit: "22%",
+          name: "Donut",
+          calories: 452,
         },
         {
-          name: "0122112442",
-          date: "15/8/2022",
-          quantity: 2,
-          TotalPrice: 65,
-          ratio: 7,
-          CustomerNetProfit: "6%",
+          name: "KitKat",
+          calories: 518,
         },
       ],
     };
@@ -200,11 +163,9 @@ export default {
 @import "@/scss/mixin";
 .PasswordChange {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   // @include flexcenter;
-  @media (max-width: 600px) {
-    margin-bottom: 50px;
-  }
+
   .title {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0 !important;
@@ -215,14 +176,6 @@ export default {
     height: 0.5px;
     background-color: rgb(231, 231, 231);
     display: block;
-  }
-  .container {
-    @media (min-width: 960px) {
-      max-width: 1212px !important;
-    }
-    @media (max-width: 450px) {
-      padding: 5px !important;
-    }
   }
 }
 ::v-deep th.text-start {
@@ -249,10 +202,10 @@ export default {
   justify-content: center;
   color: $fontcolorlinks;
 }
-.print-text {
+
+.titel {
   font-family: $fontfamliy3 !important;
-  font-size: 13px !important;
-  letter-spacing: 0 !important;
-  font-weight: 600;
+  letter-spacing: 0;
+  font-size: 18px !important;
 }
 </style>
