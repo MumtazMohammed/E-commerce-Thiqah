@@ -1,7 +1,7 @@
 <template>
   <div class="client-store">
     <v-card
-      style="background: linear-gradient(180deg, #2196f3 0%, #f8f9fa 100%)"
+      style="background: linear-gradient(180deg, #fc624d 0%, #f8f9fa 100%)"
       flat
       class="mx-auto grey"
       tile
@@ -16,16 +16,35 @@
           <v-col cols="8">
             <v-list-item color="grey">
               <v-list-item-content>
-                <v-list-item-title class="text text-h6"
-                  >محمد أمين
+                <v-list-item-title class="text mb-2 text-h6">
+                  محمد أمين
                 </v-list-item-title>
-                <v-list-item-subtitle> j </v-list-item-subtitle>
+                <v-list-item-subtitle>
+                  <v-card
+                    class="overflow-hidden"
+                    flat
+                    rounded="sm"
+                    max-width="170"
+                  >
+                    <v-row align="center" class="fill-height" no-gutters>
+                      <span class="store-with-thiah white--text red">
+                        ثقة مول
+                      </span>
+                      <v-icon color="red" class="mx-1">
+                        mdi-check-decagram
+                      </v-icon>
+                      <span class="store-with-thiah black--text">
+                        بائع مرخص
+                      </span>
+                    </v-row>
+                  </v-card>
+                </v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
           </v-col>
           <v-spacer></v-spacer>
           <v-btn icon class="white">
-            <v-icon color="#fc624d">mdi-dots-horizontal </v-icon>
+            <v-icon color="blue">mdi-dots-horizontal </v-icon>
           </v-btn>
         </v-row>
         <v-row align="center" no-gutters class="fill-height mt-6">
@@ -35,7 +54,8 @@
               v-text="First.cunt"
             ></v-card-text>
             <v-card-text
-              class="pa-0 mt-1 text text-center"
+              style="height: 60px"
+              class="pa-2 text text-center"
               v-text="First.title"
             ></v-card-text>
           </v-col>
@@ -61,7 +81,7 @@
                 <v-icon
                   :style="Second.flib"
                   class="pa- text-center"
-                  color="blue"
+                  color="#fc624d"
                   size="27"
                   v-text="Second.cunt"
                 ></v-icon>
@@ -77,53 +97,24 @@
       </v-card>
       <v-card flat class="pa-2 mb-2">
         <v-row align="center" no-gutters class="fill-height">
-          <v-col class="px-1">
+          <v-col cols="3" class="px-1" v-for="item in MenuLinks" :key="item">
             <v-card
               flat
-              :to="{
-                name: 'SmallScreenClientCartPage',
-                params: { Cart: 'مشترياتي' },
-              }"
+              rounded="lg"
+              class="my-1 menu-card"
+              link
+              exact-path
+              :to="item.RouterName"
             >
-              <v-row justify="center" no-gutters class="fill-height">
+              <v-row no-gutters class="pa-0 pt-1 justify-center">
                 <v-icon
-                  style="
-                    padding: 5px;
-                    border-radius: 50%;
-                    background-color: #fc624d;
-                  "
-                  class="grey lighten-3"
-                  color="#fc624d"
-                  size="27"
-                  v-text="`mdi-cart-outline`"
+                  :class="item.class"
+                  class="icon"
+                  v-text="item.icon"
                 ></v-icon>
               </v-row>
-              <v-card-text
-                class="pa-0 mt-2 text text-center"
-                v-text="`سلة التسوق `"
-              ></v-card-text>
+              <span class="link mt-2" v-text="item.link"></span>
             </v-card>
-          </v-col>
-          <v-col class="px-1" v-for="(Third, i) in ThirdAccess" :key="i">
-            <v-row justify="center" no-gutters class="fill-height">
-              <v-icon
-                :style="Third.flib"
-                style="
-                  padding: 5px;
-                  border-radius: 50%;
-                  background-color: #fc624d;
-                "
-                class="pa- text-center"
-                :class="Third.color"
-                color="white"
-                size="27"
-                v-text="Third.cunt"
-              ></v-icon>
-            </v-row>
-            <v-card-text
-              class="pa-0 mt-2 text text-center"
-              v-text="Third.title"
-            ></v-card-text>
           </v-col>
         </v-row>
       </v-card>
@@ -270,10 +261,10 @@ export default {
     return {
       drawer: true,
       FirstAccess: [
-        { title: "المفضلة", cunt: "1" },
-        { title: "شوهدت مؤخرا", cunt: "50" },
-        { title: "النقاط", cunt: "1" },
-        { title: "القسائم", cunt: "1" },
+        { title: "طلبات جديدة", cunt: "1" },
+        { title: "أعلى منتجات تم بيعها", cunt: "1" },
+        { title: "عدد الزائرين", cunt: "50" },
+        { title: "المتابعين", cunt: "1" },
       ],
       SecondAccess: [
         {
@@ -295,6 +286,44 @@ export default {
           title: "تقييمات العملاء",
           cunt: "mdi-comment-multiple",
           flib: "  transform: scaleX(-1)",
+        },
+      ],
+      MenuLinks: [
+        {
+          link: "المنتجات",
+          icon: "mdi-package-variant",
+          class: "MyProduct",
+          RouterName: "/StoreProducts",
+        },
+        {
+          link: "المبيعات",
+          icon: "mdi-point-of-sale",
+          class: "MySales",
+          RouterName: "/MyOrder",
+        },
+        {
+          link: "الدخل",
+          icon: "mdi-cash",
+          class: "MyIncome",
+          RouterName: "/StoreIncome",
+        },
+        {
+          link: "رؤى الأعمال",
+          icon: "mdi-finance",
+          class: "MyBusinessInsights",
+          RouterName: "/BusinessInsights",
+        },
+        {
+          link: "تسويق",
+          icon: "mdi-percent-circle",
+          class: "MyMarketingCentre",
+          RouterName: "/Marketing",
+        },
+        {
+          link: "إعدادات المتجر",
+          icon: "mdi-cog-outline",
+          class: "ShopSettings",
+          RouterName: "/StoreProfile",
         },
       ],
       ThirdAccess: [
@@ -399,5 +428,46 @@ export default {
   color: #fff !important;
   font-size: 23px !important;
   font-weight: 700;
+}
+.store-with-thiah {
+  font-family: $fontfamliy3;
+  letter-spacing: 0 !important;
+  padding: 5px;
+}
+.MyProduct {
+  background: linear-gradient(30deg, #536dfe 50%, #8c9eff 100%);
+}
+.MySales {
+  background: linear-gradient(30deg, #f57c00 50%, #fb8c00 100%);
+}
+.MyBusinessInsights {
+  background: linear-gradient(30deg, #00b0ff 50%, #40c4ff 100%);
+}
+.MyMarketingCentre {
+  background: linear-gradient(30deg, #dd2c00 50%, #ff3d00 100%);
+}
+.MyIncome {
+  background: linear-gradient(30deg, #43a047 50%, #66bb6a 100%);
+}
+.ShopSettings {
+  background: linear-gradient(30deg, #757575 50%, #bdbdbd 100%);
+}
+
+.link {
+  font-size: 14px !important;
+  letter-spacing: 0;
+  color: $fontcolor !important;
+  font-family: $fontfamliy3;
+  display: flex;
+  justify-content: center;
+//   align-items: center;
+  text-align: center;
+  height: 40px;
+}
+.icon {
+  font-size: 30px !important;
+  border-radius: 50%;
+  padding: 5px;
+  color: #fff !important;
 }
 </style>

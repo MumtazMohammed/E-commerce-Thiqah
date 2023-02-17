@@ -2,7 +2,7 @@
   <div class="Sellerstore">
     <v-card flat tile class="overflow-hidden">
       <v-app-bar
-        absolute
+        app
         color="#fc624d"
         shrink-on-scroll
         prominent

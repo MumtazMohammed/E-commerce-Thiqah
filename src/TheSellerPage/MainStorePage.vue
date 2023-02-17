@@ -1,6 +1,6 @@
 <template>
   <div class="TheShowRoomPage">
-    <v-container class="container pa-2">
+    <v-container class="container hidden-sm-and-down pa-2">
       <v-dialog v-model="dialog" fullscreen>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
@@ -297,14 +297,19 @@
         </v-col>
       </v-row>
     </v-container>
+    <div class="hidden-md-and-up">
+      <TheSellerPageSmallScreen />
+    </div>
   </div>
 </template>
 <script>
 import ShowRoomUserCars from "../data-json/All-Car.json";
+import TheSellerPageSmallScreen from "./TheSellerPageSmallScreen.vue";
+
 // import VueApexCharts from "vue-apexcharts";
 export default {
   name: "MainStorePage",
-  components: {},
+  components: { TheSellerPageSmallScreen },
   data() {
     return {
       ToDolist: false,
@@ -505,8 +510,5 @@ export default {
   font-weight: 600;
   z-index: 5;
   // opacity: 0.7;
-}
-.container {
-  // padding: 0px !important;
 }
 </style>
