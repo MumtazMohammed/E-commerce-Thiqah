@@ -3,155 +3,180 @@
     <v-container class="py-2 pb-1 px-2 px-md-1 px-lg-1 px-sm-1">
       <!-- <v-card class="mx-auto" style="margin-top: -20px; z-index: 8" height="30" width="80%">
       </v-card> -->
-      <v-card flat color="#f8f9fa" class="pa-1">
-        <swiper class="swiperR" :options="swiperOption">
-          <swiper-slide>
-            <v-card class="my-2 mb-3" color="transparent" elevation="0">
-              <v-row no-gutters justify="center" align="center">
-                <v-icon
-                  style="border-radius: 5px"
-                  size="30"
-                  color="#eee"
-                  class="green darken-1 pa-1"
-                >
-                  mdi-taxi
-                </v-icon>
-              </v-row>
-              <v-card-text class="text mt-2 pa-0"> توصيل </v-card-text>
-            </v-card>
-            <v-card color="transparent" elevation="0">
-              <v-row no-gutters justify="center" align="center">
-                <v-icon
-                  style="border-radius: 5px"
-                  size="30"
-                  color="#eee"
-                  class="green accent-4 pa-1"
-                >
-                  mdi-cart-variant
-                </v-icon>
-                <v-card-text class="text mt-2 pa-0"> سوبر ماركت </v-card-text>
-              </v-row>
-            </v-card>
-          </swiper-slide>
-          <swiper-slide>
-            <v-card class="my-2 mb-3" color="transparent" elevation="0">
-              <v-row no-gutters justify="center" align="center">
-                <v-icon
-                  style="border-radius: 5px"
-                  size="30"
-                  color="#eee"
-                  class="deep-purple lighten-1 pa-1"
-                >
-                  mdi-car
-                </v-icon>
-              </v-row>
-              <v-card-text class="text mt-2 pa-0"> معرض السيارات </v-card-text>
-            </v-card>
-            <v-card color="transparent" elevation="0">
-              <v-row no-gutters justify="center" align="center">
-                <v-icon
-                  style="border-radius: 5px"
-                  size="30"
-                  color="#eee"
-                  class="yellow darken-4 pa-1"
-                >
-                  mdi-food
-                </v-icon>
-              </v-row>
-              <v-card-text class="text mt-2 pa-0"> المطاعم </v-card-text>
-            </v-card>
-          </swiper-slide>
-          <swiper-slide>
-            <v-card class="my-2 mb-3" color="transparent" elevation="0">
-              <v-row no-gutters justify="center" align="center">
-                <v-icon
-                  style="border-radius: 5px"
-                  size="30"
-                  color="#eee"
-                  class="indigo lighten-1 pa-1"
-                >
-                  mdi-home-silo
-                </v-icon>
-              </v-row>
-              <v-card-text class="text mt-2 pa-0"> العقارات </v-card-text>
-            </v-card>
-            <v-card color="transparent" elevation="0">
-              <v-row no-gutters justify="center" align="center">
-                <v-icon
-                  style="border-radius: 5px"
-                  size="30"
-                  color="#eee"
-                  class="pink darken-1 pa-1"
-                >
-                  mdi-shopping
-                </v-icon>
-              </v-row>
-              <v-card-text class="text mt-2 pa-0"> ثقة مول </v-card-text>
-            </v-card>
-          </swiper-slide>
-          <swiper-slide>
-            <v-card class="my-2 mb-3" color="transparent" elevation="0">
-              <v-row no-gutters justify="center" align="center">
-                <v-icon
-                  style="border-radius: 5px"
-                  size="30"
-                  color="#eee"
-                  class="blue darken-1 pa-1"
-                >
-                  mdi-earth
-                </v-icon>
-              </v-row>
-              <v-card-text class="text mt-2 pa-0"> السفريات </v-card-text>
-            </v-card>
-            <v-card color="transparent" elevation="0">
-              <v-row no-gutters justify="center" align="center">
-                <v-icon
-                  style="border-radius: 5px"
-                  size="30"
-                  color="#eee"
-                  class="blue-grey darken-2 pa-1"
-                >
-                  mdi-cellphone-message
-                </v-icon>
-              </v-row>
-              <v-card-text class="text mt-2 pa-0">فواتير & رصيد </v-card-text>
-            </v-card>
-          </swiper-slide>
-          <swiper-slide>
-            <v-card class="my-2 mb-3" color="transparent" elevation="0">
-              <v-row no-gutters justify="center" align="center">
-                <v-icon
-                  style="border-radius: 5px"
-                  size="30"
-                  color="#eee"
-                  class="brown lighten-1 pa-1"
-                >
-                  mdi-cog-transfer
-                </v-icon>
-              </v-row>
-              <v-card-text class="text mt-2 pa-0"> خدمات هندسية </v-card-text>
-            </v-card>
-            <v-card color="transparent" elevation="0">
-              <v-row no-gutters justify="center" align="center">
-                <v-icon
-                  style="border-radius: 5px"
-                  size="30"
-                  color="#eee"
-                  class="teal accent-4 pa-1"
-                >
-                  mdi-code-greater-than-or-equal
-                </v-icon>
-              </v-row>
-              <v-card-text class="text mt-2 pa-0">خدمات برمجية </v-card-text>
-            </v-card>
-          </swiper-slide>
-          <div
-            class="swiper-pagination swiper-pagination-bullets"
-            slot="pagination"
-          ></div>
-        </swiper>
-      </v-card>
-
+      <v-row no-gutters>
+        <v-col>
+          <v-card class="my-2" color="transparent" elevation="0">
+            <v-row no-gutters justify="center" align="center">
+              <v-icon
+                style="border-radius: 50%"
+                size="30"
+                color="#eee"
+                class="green elevation-3 darken-1 pa-1"
+              >
+                mdi-taxi
+              </v-icon>
+            </v-row>
+            <v-card-text style="height: 40px" class="text px-1 mt-1 pa-0">
+              توصيل
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col>
+          <v-card class="my-2" color="transparent" elevation="0">
+            <v-row no-gutters justify="center" align="center">
+              <v-icon
+                style="border-radius: 50%"
+                size="30"
+                color="#eee"
+                class="deep-purple elevation-3 lighten-1 pa-1"
+              >
+                mdi-car
+              </v-icon>
+            </v-row>
+            <v-card-text style="height: 40px" class="text px-1 mt-1 pa-0">
+              معرض السيارات
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col>
+          <v-card class="my-2" color="transparent" elevation="0">
+            <v-row no-gutters justify="center" align="center">
+              <v-icon
+                style="border-radius: 50%"
+                size="30"
+                color="#eee"
+                class="indigo elevation-3 lighten-1 pa-1"
+              >
+                mdi-home-silo
+              </v-icon>
+            </v-row>
+            <v-card-text style="height: 40px" class="text px-1 mt-1 pa-0">
+              العقارات
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col>
+          <v-card class="my-2" color="transparent" elevation="0">
+            <v-row no-gutters justify="center" align="center">
+              <v-icon
+                style="border-radius: 50%"
+                size="30"
+                color="#eee"
+                class="blue elevation-3 darken-1 pa-1"
+              >
+                mdi-earth
+              </v-icon>
+            </v-row>
+            <v-card-text style="height: 40px" class="text px-1 mt-1 pa-0">
+              السفريات
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col>
+          <v-card class="my-2" color="transparent" elevation="0">
+            <v-row no-gutters justify="center" align="center">
+              <v-icon
+                style="border-radius: 50%"
+                size="30"
+                color="#eee"
+                class="brown elevation-3 lighten-1 pa-1"
+              >
+                mdi-cog-transfer
+              </v-icon>
+            </v-row>
+            <v-card-text style="height: 40px" class="text px-1 mt-1 pa-0">
+              خدمات هندسية
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+      <v-row no-gutters class="mb-3">
+        <v-col>
+          <v-card color="transparent" elevation="0">
+            <v-row no-gutters justify="center" align="center">
+              <v-icon
+                style="border-radius: 50%"
+                size="30"
+                color="#eee"
+                class="green elevation-3 accent-4 pa-1"
+              >
+                mdi-cart-variant
+              </v-icon>
+              <v-card-text style="height: 40px" class="text px-1 mt-1 pa-0">
+                سوبر ماركت
+              </v-card-text>
+            </v-row>
+          </v-card>
+        </v-col>
+        <v-col>
+          <v-card color="transparent" elevation="0">
+            <v-row no-gutters justify="center" align="center">
+              <v-icon
+                style="border-radius: 50%"
+                size="30"
+                color="#eee"
+                class="yellow elevation-3 darken-4 pa-1"
+              >
+                mdi-food
+              </v-icon>
+            </v-row>
+            <v-card-text style="height: 40px" class="text mt-1 px-1 pa-0">
+              المطاعم
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col>
+          <v-card color="transparent" elevation="0">
+            <v-row no-gutters justify="center" align="center">
+              <v-icon
+                style="border-radius: 50%"
+                size="30"
+                color="#eee"
+                class="pink elevation-3 darken-1 pa-1"
+              >
+                mdi-shopping
+              </v-icon>
+            </v-row>
+            <v-card-text style="height: 40px" class="text mt-1 px-1 pa-0">
+              ثقة مول
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col>
+          <v-card color="transparent" elevation="0">
+            <v-row no-gutters justify="center" align="center">
+              <v-icon
+                style="border-radius: 50%"
+                size="30"
+                color="#eee"
+                class="blue-grey elevation-3 darken-2 pa-1"
+              >
+                mdi-cellphone-message
+              </v-icon>
+            </v-row>
+            <v-card-text style="height: 40px" class="text mt-1 pa-0 px-1"
+              >فواتير & رصيد
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col>
+          <v-card color="transparent" elevation="0">
+            <v-row no-gutters justify="center" align="center">
+              <v-icon
+                style="border-radius: 50%"
+                size="30"
+                color="#eee"
+                class="teal elevation-3 accent-4 pa-1"
+              >
+                mdi-code-greater-than-or-equal
+              </v-icon>
+            </v-row>
+            <v-card-text style="height: 40px" class="text mt-1 pa-0 px-1"
+              >خدمات برمجية
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
       <v-img
         class=""
         max-height="300"
@@ -163,13 +188,9 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 export default {
   name: "CarShape",
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
+  components: {},
   data() {
     return {
       items: [
@@ -219,23 +240,6 @@ export default {
           ServicColor: "deep-orange--text",
         },
       ],
-
-      swiperOption: {
-        initialSlide: 0,
-        freeMode: false,
-        effect: "card",
-        // spaceBetween: 6,
-        autoplay: false,
-        loop: false,
-        slidesPerView: 4,
-        loopFillGroupWithBlank: false,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-          dynamicBullets: true,
-          type: "progressbar",
-        },
-      },
     };
   },
   methods: {
@@ -261,29 +265,7 @@ export default {
   font-weight: 600;
   text-align: center;
   @media (max-width: 600px) {
-    font-size: 13px !important;
-  }
-}
-
-.swiperR {
-  height: 182px;
-
-  .swiper-slide {
-    height: 152px;
-  }
-}
-::v-deep .swiper-container-horizontal > .swiper-pagination-progressbar {
-  top: 95% !important;
-  width: 50px;
-  height: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #eee;
-
-  span.swiper-pagination-progressbar-fill {
-    background-color: $color-2;
+    font-size: 12px !important;
   }
 }
 </style>

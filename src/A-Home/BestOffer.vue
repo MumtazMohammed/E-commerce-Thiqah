@@ -1,5 +1,5 @@
 <template>
-  <div class="BestOffer my-2">
+  <div class="BestOffer py-2">
     <v-container class="container py-0">
       <v-card tile color="transparent" flat class="card-wrapping">
         <div class="pa-2 align-center d-flex font-weight-bold tital">

@@ -319,8 +319,8 @@
               value="nearby"
               class="pa-0"
             >
-              <span class="mt-1 btn">مراسلة</span>
-              <v-icon color="green" size="19">mdi-message-outline</v-icon>
+              <!-- <span class="mt-1 btn">مراسلة</span> -->
+              <v-icon color="green" size="40">mdi-wechat</v-icon>
             </v-btn>
             <v-divider vertical style="height: 80% !important"></v-divider>
             <v-btn
@@ -329,8 +329,8 @@
               value="nearby"
               class="pa-0"
             >
-              <span class="mt-1 btn">المتجر</span>
-              <v-avatar rounded="" size="19px" color="transparent">
+              <!-- <span class="mt-1 btn">المتجر</span> -->
+              <v-avatar size="40" color="transparent">
                 <img
                   src="../assets/showroom/orignal-1615322218-744.png"
                   alt="alt"

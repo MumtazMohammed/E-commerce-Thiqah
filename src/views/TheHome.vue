@@ -1,5 +1,5 @@
 <template>
-  <v-main class="main">
+  <v-main class=" main">
     <NavBar />
     <OutAdvertisement />
     <Services />

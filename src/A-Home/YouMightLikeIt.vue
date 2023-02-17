@@ -1,5 +1,5 @@
 <template>
-  <div class="SpicalShowRoom mt-2">
+  <div class="SpicalShowRoom py-2">
     <v-container class="pa-0">
       <div class="ont-weight-bold pa-2 tital">
         قد تنال على

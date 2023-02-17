@@ -134,12 +134,12 @@
     <v-app-bar
       class="hidden-md-and-up"
       app
-      color="#eee"
+      color="#f8f9fa"
       fixed
       flat
       style="z-index: 17"
     >
-      <v-row no-gutters align="center">
+      <v-row class="px-2" no-gutters align="center">
         <v-col>
           <v-dialog
             v-model="dialog"
@@ -152,8 +152,9 @@
                 v-bind="attrs"
                 v-on="on"
                 flat
+                width="100%"
                 height="35px"
-                color="#fff"
+                color="#eee"
                 class="search-small-screen mr-1 ml-3"
               >
                 <v-row
@@ -239,12 +240,7 @@
         <v-col cols="4">
           <v-row justify="end" no-gutters class="pa-0 pt-1">
             <!-- cart shopping  -->
-            <!-- <v-spacer></v-spacer>
-            <v-spacer></v-spacer>
-            <v-spacer></v-spacer>
-            <v-spacer></v-spacer>
-            <v-spacer></v-spacer>
-            <v-spacer></v-spacer> -->
+
             <v-badge bordered left overlap content="425" class="">
               <v-btn
                 :to="{
@@ -255,7 +251,7 @@
                 class="btn-noti-cart mx-0"
                 icon
               >
-                <v-icon class="btn-noti-cart-icon">mdi-cart-outline</v-icon>
+                <v-icon >mdi-cart</v-icon>
               </v-btn>
             </v-badge>
             <!-- notification btn -->
@@ -270,7 +266,7 @@
                 class="btn-noti-cart"
                 icon
               >
-                <v-icon class="btn-noti-cart-icon"> mdi-forum-outline </v-icon>
+                <v-icon size="28"> mdi-wechat </v-icon>
               </v-btn>
             </v-badge>
           </v-row>
@@ -448,12 +444,7 @@ a {
     font-size: 11px !important;
   }
 }
-.btn-noti-cart-icon {
-  font-size: 26px !important;
-  @media (max-width: 600px) {
-    // font-size: 23px !important;
-  }
-}
+
 ::v-deep .v-toolbar__content .v-btn.v-btn--icon.v-size--default {
   width: 37px !important;
   height: 37px !important;

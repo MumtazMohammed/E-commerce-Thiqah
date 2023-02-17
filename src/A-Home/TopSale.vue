@@ -1,5 +1,5 @@
 <template>
-  <div class="BestOffer my-2">
+  <div class="BestOffer py-2">
     <v-container class="container py-0">
       <div class="pa-2 font-weight-bold tital">
         الأعلى

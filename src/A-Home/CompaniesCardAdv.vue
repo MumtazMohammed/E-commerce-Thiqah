@@ -1,5 +1,5 @@
 <template>
-  <div class="SpicalShowRoom">
+  <div class="SpicalShowRoom py-2">
     <v-container class="pa-1">
       <div class="pa-2 tital">
         الشركات

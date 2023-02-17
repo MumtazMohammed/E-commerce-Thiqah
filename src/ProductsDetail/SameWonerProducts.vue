@@ -1,5 +1,5 @@
 <template>
-  <div class="DailyOffer mt-2 grey lighten-2">
+  <div class="DailyOffer mt-2">
     <v-container class="py-0">
       <div class="pa-2 d-flex font-weight-bold tital">
         من نفس
@@ -21,7 +21,7 @@
               }"
               width="100%"
               min-height="220"
-              style="overflow: hidden; background-color: #eee"
+              style="overflow: hidden; background-color: #fff"
               outlined
             >
               <div v-if="Product.discountPercent" class="best-price-tag">
@@ -70,7 +70,7 @@
             max-width="190px"
             min-height="220"
             router
-            color="transparent"
+            color="white"
             class="overflow-hidden d-flex flex-column justify-center align-center"
           >
             <v-card-text class="text-center py-1 card-text-seeMore">

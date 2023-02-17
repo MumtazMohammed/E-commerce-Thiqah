@@ -1,5 +1,5 @@
 <template>
-  <div class="Registration mt-2">
+  <div class="Registration py-2">
     <v-container class="py-0 px-1">
       <div class="tital pa-2">
         جميع
