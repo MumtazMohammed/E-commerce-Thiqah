@@ -1,137 +1,143 @@
 <template>
   <div class="TheShowRoomPage grey lighten-3">
-    <ShowRoomBtnsNavgition />
-    <div class="router">
-      <router-view> </router-view>
-    </div>
-    <!-- bottom navigation for seller -->
-    <div class="hidden-md-and-up">
-      <v-bottom-navigation
-        :class="active ? 'nav-top' : ''"
-        height="50"
-        class="first-nav elevation-0"
-        background-color="white"
-        active-class="blue--text"
-        light
-        flat
-        fixed
-        grow
-      >
-        <v-btn
-          :to="{
-            name: 'MainStorePage',
-            params: { MyCar: 'إعلاناتي' },
-          }"
+    <div class="hidden-sm-and-down">
+      <ShowRoomBtnsNavgition />
+      <div class="router">
+        <router-view> </router-view>
+      </div>
+      <!-- bottom navigation for seller -->
+      <div class="hidden-md-and-up">
+        <v-bottom-navigation
+          :class="active ? 'nav-top' : ''"
+          height="50"
+          class="first-nav elevation-0"
+          background-color="white"
+          active-class="blue--text"
+          light
+          flat
+          fixed
+          grow
         >
-          <span class="text">الرئيسية</span>
-          <v-icon>mdi-home-variant </v-icon>
-        </v-btn>
+          <v-btn
+            :to="{
+              name: 'MainStorePage',
+              params: { MyCar: 'إعلاناتي' },
+            }"
+          >
+            <span class="text">الرئيسية</span>
+            <v-icon>mdi-home-variant </v-icon>
+          </v-btn>
 
-        <v-btn @click.stop="dialog = true">
-          <span class="text">القائمة</span>
-          <v-icon>mdi-dots-grid </v-icon>
-        </v-btn>
+          <v-btn @click.stop="dialog = true">
+            <span class="text">القائمة</span>
+            <v-icon>mdi-dots-grid </v-icon>
+          </v-btn>
 
-        <v-btn to="/MyOrder">
-          <span class="text">الطلبات</span>
-          <v-icon>mdi-truck-delivery </v-icon>
-        </v-btn>
-        <v-btn v-if="!active" @click="active = !active">
-          <span class="text">المزيد</span>
-          <v-icon>mdi-chevron-down </v-icon>
-        </v-btn>
-        <v-btn v-else @click="active = !active">
-          <span class="text">رجوع</span>
-          <v-icon>mdi-chevron-up </v-icon>
-        </v-btn>
-      </v-bottom-navigation>
-      <v-bottom-navigation
-        height="50"
-        background-color="white"
-        active-class="blue--text"
-        class="elevation-0"
-        light
-        flat
-        fixed
-        grow
-      >
-        <!-- <v-btn to="/">
+          <v-btn to="/MyOrder">
+            <span class="text">الطلبات</span>
+            <v-icon>mdi-truck-delivery </v-icon>
+          </v-btn>
+          <v-btn v-if="!active" @click="active = !active">
+            <span class="text">المزيد</span>
+            <v-icon>mdi-chevron-down </v-icon>
+          </v-btn>
+          <v-btn v-else @click="active = !active">
+            <span class="text">رجوع</span>
+            <v-icon>mdi-chevron-up </v-icon>
+          </v-btn>
+        </v-bottom-navigation>
+        <v-bottom-navigation
+          height="50"
+          background-color="white"
+          active-class="blue--text"
+          class="elevation-0"
+          light
+          flat
+          fixed
+          grow
+        >
+          <!-- <v-btn to="/">
         <span class="text">الرئيسية</span>
         <v-icon>mdi-home-variant </v-icon>
       </v-btn> -->
 
-        <v-btn
-          :to="{
-            name: 'SmallScreenNotification',
-            params: { Notfication: 'الأشعارات' },
-          }"
-        >
-          <span class="text">الدردشة</span>
-          <v-icon>mdi-forum-outline </v-icon>
-        </v-btn>
-        <v-btn to="/TheShowRoomPage">
-          <span class="text">تعليق الزبون</span>
-          <v-icon>mdi-comment-multiple </v-icon>
-        </v-btn>
-        <v-btn to="/TheUserPageView">
-          <span class="text"> إعلان</span>
-          <v-icon>mdi-square-rounded </v-icon>
-        </v-btn>
-        <v-btn to="/TheUserPageView">
-          <span class="text"> مساعدة</span>
-          <v-icon>mdi-tooltip-question </v-icon>
-        </v-btn>
-      </v-bottom-navigation>
-    </div>
-    <!-- menue small screen -->
-    <v-dialog no-click-animation persistent v-model="dialog" max-width="300">
-      <v-card class="pa-3" color="grey lighten-3">
-        <v-card-actions
-          class="flex-wrap justify-space-around card-actions pa-0"
-        >
-          <v-card
-            flat
-            @click="dialog = false"
-            rounded="lg"
-            class="my-1 menu-card"
-            v-for="item in MenuLinks"
-            :key="item"
-            link
-            width="45%"
-            exact-path
-            :to="item.RouterName"
-          >
-            <v-row no-gutters class="pa-0 pt-1 justify-center">
-              <v-icon
-                :class="item.class"
-                class="icon"
-                v-text="item.icon"
-              ></v-icon>
-            </v-row>
-            <span class="link mt-2" v-text="item.link"></span>
-          </v-card>
-        </v-card-actions>
-        <v-card-actions class="pa-2">
           <v-btn
-            elevation="0"
-            class="close-dialog"
-            block
-            @click="dialog = false"
+            :to="{
+              name: 'SmallScreenNotification',
+              params: { Notfication: 'الأشعارات' },
+            }"
           >
-            إغلاق
+            <span class="text">الدردشة</span>
+            <v-icon>mdi-forum-outline </v-icon>
           </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+          <v-btn to="/TheShowRoomPage">
+            <span class="text">تعليق الزبون</span>
+            <v-icon>mdi-comment-multiple </v-icon>
+          </v-btn>
+          <v-btn to="/TheUserPageView">
+            <span class="text"> إعلان</span>
+            <v-icon>mdi-square-rounded </v-icon>
+          </v-btn>
+          <v-btn to="/TheUserPageView">
+            <span class="text"> مساعدة</span>
+            <v-icon>mdi-tooltip-question </v-icon>
+          </v-btn>
+        </v-bottom-navigation>
+      </div>
+      <!-- menue small screen -->
+      <v-dialog no-click-animation persistent v-model="dialog" max-width="300">
+        <v-card class="pa-3" color="grey lighten-3">
+          <v-card-actions
+            class="flex-wrap justify-space-around card-actions pa-0"
+          >
+            <v-card
+              flat
+              @click="dialog = false"
+              rounded="lg"
+              class="my-1 menu-card"
+              v-for="item in MenuLinks"
+              :key="item"
+              link
+              width="45%"
+              exact-path
+              :to="item.RouterName"
+            >
+              <v-row no-gutters class="pa-0 pt-1 justify-center">
+                <v-icon
+                  :class="item.class"
+                  class="icon"
+                  v-text="item.icon"
+                ></v-icon>
+              </v-row>
+              <span class="link mt-2" v-text="item.link"></span>
+            </v-card>
+          </v-card-actions>
+          <v-card-actions class="pa-2">
+            <v-btn
+              elevation="0"
+              class="close-dialog"
+              block
+              @click="dialog = false"
+            >
+              إغلاق
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </div>
+    <div class="hidden-md-and-up">
+      <TheSellerPageSmallScreen />
+    </div>
   </div>
 </template>
 <script>
 // import Cars from "./ShowRoomCars.vue";
 // import Info from "./ShowRoomCarsInfo.vue";
 import ShowRoomBtnsNavgition from "./StoreNavigation.vue";
+import TheSellerPageSmallScreen from "./TheSellerPageSmallScreen.vue";
 export default {
   name: "TheShowRoomPage",
-  components: { ShowRoomBtnsNavgition },
+  components: { ShowRoomBtnsNavgition, TheSellerPageSmallScreen },
   data() {
     return {
       active: false,
