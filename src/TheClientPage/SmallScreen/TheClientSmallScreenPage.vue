@@ -176,7 +176,35 @@
           </v-col>
         </v-row>
       </v-card>
-      <v-card flat class="pa-2">
+      <v-row no-gutters class="mb-3">
+        <v-col class="pl-1">
+          <v-card flat color="deep-purple lighten-1">
+            <v-row justify="center" no-gutters class="fill-height">
+              <span class="card-points-vou-cunt">2</span>
+            </v-row>
+            <v-card-title
+              style="height: 30px"
+              class="pa-0 card-points-vou justify-center"
+            >
+              نقطة
+            </v-card-title>
+          </v-card>
+        </v-col>
+        <v-col class="pr-1">
+          <v-card color="indigo lighten-1" flat>
+            <v-row justify="center" no-gutters class="fill-height">
+              <span class="card-points-vou-cunt">2</span>
+            </v-row>
+            <v-card-title
+              style="height: 30px"
+              class="pa-0 card-points-vou justify-center"
+            >
+              قسيمة
+            </v-card-title>
+          </v-card>
+        </v-col>
+      </v-row>
+      <v-card flat class="pa-2 mb-2">
         <v-row align="center" no-gutters class="fill-height mb-5">
           <v-col class="px-1" v-for="(Fift, i) in FifthhAccess" :key="i">
             <v-row justify="center" no-gutters class="fill-height">
@@ -211,7 +239,21 @@
           </v-col>
         </v-row>
       </v-card>
-
+      <v-sheet class="mb-2" min-height="200">
+        <v-card-text class="card-titel-follow">متابع : </v-card-text>
+        <v-row class="px-3" no-gutters>
+          <v-col class="pa-1" v-for="i in 18" :key="i" cols="2">
+            <v-row justify="center" no-gutters>
+              <v-avatar size="50px">
+                <img
+                  alt="Avatar"
+                  src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
+                />
+              </v-avatar>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-sheet>
       <!-- <Services /> -->
     </v-container>
   </div>
@@ -336,5 +378,24 @@ export default {
   font-family: $fontfamliy3 !important;
   font-weight: 600;
   font-size: 17px;
+}
+.card-titel-follow {
+  letter-spacing: 0 !important;
+  font-family: $fontfamliy3 !important;
+  font-weight: 500;
+  font-size: 17px;
+}
+.card-points-vou {
+  letter-spacing: 0 !important;
+  font-family: $fontfamliy3 !important;
+  color: #fff !important;
+  font-size: 17px !important;
+  font-weight: 500;
+}
+.card-points-vou-cunt {
+  font-family: sans-serif !important;
+  color: #fff !important;
+  font-size: 23px !important;
+  font-weight: 700;
 }
 </style>

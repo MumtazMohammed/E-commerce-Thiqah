@@ -15,7 +15,7 @@
             <v-list-item-subtitle>
               <v-card class="overflow-hidden" flat rounded="sm" max-width="170">
                 <v-row align="center" class="fill-height" no-gutters>
-                  <span class="store-with-thiah red"> ثقة مول </span>
+                  <span class="store-with-thiah white--text red"> ثقة مول </span>
                   <v-icon color="red" class="mx-1">mdi-check-decagram</v-icon>
                   <span class="store-with-thiah black--text">بائع مرخص</span>
                 </v-row>
@@ -131,7 +131,6 @@ export default {
 .store-with-thiah {
   font-family: $fontfamliy3;
   letter-spacing: 0 !important;
-  color: #fff !important;
   padding: 5px;
 }
 ::v-deep .v-avatar.rounded-0 {
