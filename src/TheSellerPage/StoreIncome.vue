@@ -26,7 +26,7 @@
       </v-app-bar>
       <v-sheet height="56"></v-sheet>
     </div>
-    <v-container class="pa-0">
+    <v-container class="">
       <v-toolbar tile flat>
         <v-menu
           ref="menu"
@@ -47,7 +47,13 @@
               </v-chip>
             </v-card-title>
           </template>
-          <v-date-picker color="primary" v-model="date" type="month" no-title scrollable>
+          <v-date-picker
+            color="primary"
+            v-model="date"
+            type="month"
+            no-title
+            scrollable
+          >
             <v-spacer></v-spacer>
             <v-btn text color="primary" @click="menu = false"> Cancel </v-btn>
             <v-btn text color="primary" @click="$refs.menu.save(date)">

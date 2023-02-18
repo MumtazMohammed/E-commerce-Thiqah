@@ -251,7 +251,7 @@
                 class="btn-noti-cart mx-0"
                 icon
               >
-                <v-icon >mdi-cart</v-icon>
+                <v-icon>mdi-cart</v-icon>
               </v-btn>
             </v-badge>
             <!-- notification btn -->

@@ -183,7 +183,7 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .Notification {
-  width: 100%;
+  width: fit-content;
   // padding: $padding;
   position: fixed;
   bottom: 5px;

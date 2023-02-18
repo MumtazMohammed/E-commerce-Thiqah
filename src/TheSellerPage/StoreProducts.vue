@@ -66,18 +66,6 @@
                 <v-chip outlined class="text">موقف</v-chip>
                 <v-chip outlined class="text">متميز</v-chip>
               </v-chip-group>
-              <v-spacer></v-spacer>
-              <v-chip
-                outlined
-                class="text"
-                :to="{
-                  name: 'AddNewProducts',
-                  params: { AddNewCar: 'إضافة منتج جديد' },
-                }"
-              >
-                إضافة منتج
-                <v-icon right size="17">mdi-folder-plus-outline</v-icon>
-              </v-chip>
             </v-card-actions>
           </v-col>
           <v-col

@@ -15,14 +15,18 @@
             <v-list-item-subtitle>
               <v-card class="overflow-hidden" flat rounded="sm" max-width="170">
                 <v-row align="center" class="fill-height" no-gutters>
-                  <span class="store-with-thiah white--text red"> ثقة مول </span>
+                  <span class="store-with-thiah white--text red">
+                    ثقة مول
+                  </span>
                   <v-icon color="red" class="mx-1">mdi-check-decagram</v-icon>
                   <span class="store-with-thiah black--text">بائع مرخص</span>
                 </v-row>
               </v-card>
             </v-list-item-subtitle>
             <v-card-actions class="justify-center">
-              <v-btn min-width="80px" dark class="red btn" rounded="pll">متابعة</v-btn>
+              <v-btn min-width="80px" dark class="red btn" rounded="pll"
+                >متابعة</v-btn
+              >
               <v-btn min-width="80px" class="btn" rounded="pll">مراسلة</v-btn>
             </v-card-actions>
           </v-list-item-content>
@@ -140,7 +144,7 @@ export default {
     width: 120px !important;
   }
 }
-::v-deep .v-list-item.v-list-item--two-line{
+::v-deep .v-list-item.v-list-item--two-line {
   min-height: 40px !important;
 }
 </style>

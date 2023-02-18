@@ -374,9 +374,6 @@ export default {
 .TheShowRoomPage {
   width: 100%;
   min-height: 100vh;
-  @media (max-width: 960px) {
-    margin-bottom: 50px;
-  }
 
   .text-offer {
     letter-spacing: 0 !important;

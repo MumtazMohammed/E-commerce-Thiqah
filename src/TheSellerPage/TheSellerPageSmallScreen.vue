@@ -90,8 +90,8 @@
               exact-path
               router
               :to="{
-                name: 'SmallScreenClientOrderPage',
-                params: { Order: 'مشترياتي' },
+                name: 'MyOrder',
+                params: { Order: 'الطلبات' },
               }"
             >
               <v-row justify="center" no-gutters class="fill-height">
@@ -109,6 +109,43 @@
                 v-text="Second.title"
               ></v-card-text>
             </v-card>
+          </v-col>
+        </v-row>
+      </v-card>
+      <v-card flat class="pa-2 mb-2">
+        <v-row align="center" no-gutters class="fill-height mb-5">
+          <v-col class="px-1" v-for="(Fift, i) in FifthhAccess" :key="i">
+            <v-row justify="center" no-gutters class="fill-height">
+              <v-icon
+                :style="Fift.flib"
+                color="grey darken-2"
+                size="27"
+                v-text="Fift.cunt"
+              ></v-icon>
+            </v-row>
+            <v-card-text
+              style="height: 45px"
+              class="pa-0 mt-1 text text-center"
+              v-text="Fift.title"
+            ></v-card-text>
+          </v-col>
+        </v-row>
+        <v-row align="center" no-gutters class="fill-height">
+          <v-col class="px-1" v-for="(Sixth, i) in SixthAccess" :key="i">
+            <v-row justify="center" no-gutters class="fill-height">
+              <v-icon
+                :style="Sixth.flib"
+                class="pa- text-center"
+                color="grey darken-2"
+                size="27"
+                v-text="Sixth.cunt"
+              ></v-icon>
+            </v-row>
+            <v-card-text
+              style="height: 45px"
+              class="pa-0 mt-1 text text-center"
+              v-text="Sixth.title"
+            ></v-card-text>
           </v-col>
         </v-row>
       </v-card>
@@ -160,48 +197,11 @@
               <span>20</span>
             </v-row>
             <v-card-text class="pa-0 mt-1 text text-center">
-              السجل 
+              السجل
             </v-card-text>
           </v-col>
         </v-row>
       </v-card>
-     
-      <v-card flat class="pa-2 ">
-        <v-row align="center" no-gutters class="fill-height mb-5">
-          <v-col class="px-1" v-for="(Fift, i) in FifthhAccess" :key="i">
-            <v-row justify="center" no-gutters class="fill-height">
-              <v-icon
-                :style="Fift.flib"
-                color="grey darken-2"
-                size="27"
-                v-text="Fift.cunt"
-              ></v-icon>
-            </v-row>
-            <v-card-text
-              class="pa-0 mt-1 text text-center"
-              v-text="Fift.title"
-            ></v-card-text>
-          </v-col>
-        </v-row>
-        <v-row align="center" no-gutters class="fill-height">
-          <v-col class="px-1" v-for="(Sixth, i) in SixthAccess" :key="i">
-            <v-row justify="center" no-gutters class="fill-height">
-              <v-icon
-                :style="Sixth.flib"
-                class="pa- text-center"
-                color="grey darken-2"
-                size="27"
-                v-text="Sixth.cunt"
-              ></v-icon>
-            </v-row>
-            <v-card-text
-              class="pa-0 mt-1 text text-center"
-              v-text="Sixth.title"
-            ></v-card-text>
-          </v-col>
-        </v-row>
-      </v-card>
-  
       <!-- <Services /> -->
     </v-container>
   </div>
@@ -282,10 +282,10 @@ export default {
           RouterName: "/StoreProfile",
         },
         {
-          link: "أرسل منتجك للجميع",
-          icon: "mdi-message-text-fast-outline",
+          link: "إضافة منتج ",
+          icon: "mdi-file-plus",
           class: "MyMss",
-          RouterName: "/StoreProfile",
+          RouterName: "/AddNewProducts",
         },
         {
           link: "إعدادات المتجر",
@@ -297,27 +297,28 @@ export default {
 
       FifthhAccess: [
         {
-          title: "  تقييمي ",
-          cunt: "mdi-comment-text-outline",
-          flib: "  transform: scaleX(-1)",
+          title: "أرسل منتجك أو عروضك للجميع",
+          cunt: "mdi-file-plus",
+          // flib: "  transform: scaleX(-1)",
         },
         {
-          title: "مساعدة ",
-          cunt: "mdi-help-circle-outline",
+          title: "أصنع عضوية للمتجر",
+          cunt: "mdi-card-account-details-star-outline ",
         },
+
         {
-          title: "شوهدت مؤخرا",
-          cunt: "mdi-history ",
+          title: "أنضم الى ثقة مول",
+          cunt: "mdi-set-all ",
         },
       ],
       SixthAccess: [
         {
-          title: " عضوية",
-          cunt: "mdi-card-account-details-star-outline ",
-        },
-        {
           title: " تعبئة رصيد",
           cunt: "mdi-cellphone-arrow-down mdi-rotate-180 ",
+        },
+        {
+          title: "إعلن منتجك لدينا ",
+          cunt: "mdi-flash",
         },
         {
           title: "خدمة العملاء",
@@ -337,7 +338,6 @@ export default {
   background-color: $color-background;
   width: 100%;
   min-height: 80vh;
-
 }
 .v-list-item__title.text.text-h6 {
   letter-spacing: 0 !important;
@@ -401,7 +401,7 @@ export default {
   background: linear-gradient(30deg, #ab47bc 50%, #ce93d8 100%);
 }
 .MyMss {
-  background: linear-gradient(30deg, #D81B60 50%, #F48FB1 100%);
+  background: linear-gradient(30deg, #d81b60 50%, #f48fb1 100%);
 }
 
 .link {

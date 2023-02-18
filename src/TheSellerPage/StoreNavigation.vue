@@ -36,6 +36,7 @@
           class=""
           color="grey lighten-2"
           max-width="200px"
+          to="/StoreProfile"
         >
           <v-card-actions class="pa-1">
             <v-avatar size="30" color="grey"> </v-avatar>
@@ -100,6 +101,12 @@ export default {
           RouterName: "/MyOrder",
         },
         {
+          link: "إضافة منتج",
+          icon: "mdi-point-of-sale",
+          class: "MySales",
+          RouterName: "/AddNewProducts",
+        },
+        {
           link: "الدخل",
           icon: "mdi-cash",
           class: "MyIncome",
@@ -117,12 +124,12 @@ export default {
           class: "MyMarketingCentre",
           RouterName: "/Marketing",
         },
-        {
-          link: "إعدادات المتجر",
-          icon: "mdi-cog-outline",
-          class: "ShopSettings",
-          RouterName: "/StoreProfile",
-        },
+        // {
+        //   link: "إعدادات المتجر",
+        //   icon: "mdi-cog-outline",
+        //   class: "ShopSettings",
+        //   RouterName: "/StoreProfile",
+        // },
       ],
     };
   },

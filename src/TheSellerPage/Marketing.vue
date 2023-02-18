@@ -26,7 +26,7 @@
       </v-app-bar>
       <v-sheet height="56"></v-sheet>
     </div>
-    <v-container class="pa-0">
+    <v-container class="">
       <v-sheet>
         <v-card-title class="welcom-text">
           مرحباً بك في مركز التسويق والعروضات

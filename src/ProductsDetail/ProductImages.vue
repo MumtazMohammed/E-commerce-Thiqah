@@ -234,10 +234,12 @@
                   elevation="0"
                   height="30"
                   min-width="35"
+                  @click="Quantity++"
                 >
                   <v-icon size="17">mdi-plus</v-icon>
                 </v-btn>
                 <v-text-field
+                  v-model="Quantity"
                   solo
                   dense
                   flat
@@ -250,6 +252,7 @@
                   elevation="0"
                   height="30"
                   min-width="35"
+                  @click="Quantity--"
                 >
                   <v-icon size="17">mdi-minus</v-icon>
                 </v-btn>
@@ -692,10 +695,7 @@ export default {
   -webkit-appearance: none;
   margin: 0;
 }
-/* Firefox */
-::v-deep input[type="number"] {
-  -moz-appearance: textfield;
-}
+
 ::v-deep .v-text-field.v-text-field--solo.v-input--dense > .v-input__control {
   min-height: 30px !important;
 }
@@ -714,10 +714,7 @@ export default {
     font-weight: 600 !important;
   }
 }
-// select
-::v-deep .theme--light.v-chip--active:before {
-  // opacity: 0 !important;
-}
+
 ::v-deep .v-banner__wrapper {
   padding: 0 5px !important;
 }
