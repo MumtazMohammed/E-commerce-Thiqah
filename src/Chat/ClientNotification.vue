@@ -4,7 +4,7 @@
       <v-btn
         large
         @click.stop="chat = true"
-        class="white--text open-message"
+        class="white--text open-message rounded-b-0"
         color="error"
         depressed
       >
@@ -186,7 +186,7 @@ export default {
   width: fit-content;
   // padding: $padding;
   position: fixed;
-  bottom: 5px;
+  bottom: 0px;
   z-index: 50;
   right: 13px;
 }

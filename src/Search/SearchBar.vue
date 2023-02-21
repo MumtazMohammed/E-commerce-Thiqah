@@ -132,14 +132,7 @@
     </v-container>
     <!-- small screen nave  -->
     <v-card class="hidden-md-and-up supporter" flat></v-card>
-    <v-app-bar
-      class="hidden-md-and-up"
-      app
-      color="#f8f9fa"
-      fixed
-      flat
-      style="z-index: 17"
-    >
+    <v-app-bar class="hidden-md-and-up" app color="#f8f9fa" fixed flat>
       <v-row class="px-2" no-gutters align="center">
         <v-col cols="7">
           <v-dialog

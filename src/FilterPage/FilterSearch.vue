@@ -11,6 +11,7 @@
               class="filtertion-btn ma-0"
               v-bind="attrs"
               v-on="on"
+              large
             >
               السعر
               <v-icon
@@ -46,6 +47,7 @@
               class="filtertion-btn ma-0"
               v-bind="attrs"
               v-on="on"
+              large
             >
               المنطقة
               <v-icon
@@ -92,6 +94,7 @@
               class="filtertion-btn ma-0"
               v-bind="attrs"
               v-on="on"
+              large
             >
               الحالة
               <v-icon
@@ -118,151 +121,20 @@
             </v-list-item>
           </v-list>
         </v-menu>
-
         <v-btn
           width="25%"
           class="filtertion-btn ma-0"
           @click="(drawer = !drawer), filter == false"
           elevation="0"
+          large
         >
           فلتر
           <v-icon right>mdi-filter-variant</v-icon>
         </v-btn>
       </v-btn-toggle>
-      <v-dialog v-model="filter" persistent fullscreen>
-        <v-sheet color="white" style="height: 100vh; overflow-y: scroll">
-          <v-card
-            class="pa-2"
-            tile
-            flat
-            style="height: calc(100vh - 50px); overflow-y: scroll"
-          >
-            <div>
-              <v-card-text class="pa-2 text"> المناطق </v-card-text>
-              <v-row no-gutters>
-                <v-col class="" cols="12">
-                  <v-chip-group column multiple>
-                    <v-chip filter class="chip" small v-for="i in 10" :key="i">
-                      تعز
-                    </v-chip>
-                  </v-chip-group>
-                </v-col>
-              </v-row>
-            </div>
-            <v-divider class="mt-3"></v-divider>
-            <div>
-              <v-card-text class="pa-2 text"> ألوان </v-card-text>
-              <v-row no-gutters class="justify-space-between">
-                <v-col>
-                  <v-chip-group column multiple>
-                    <v-chip
-                      v-for="PerColor in Colors"
-                      :key="PerColor"
-                      color=""
-                      class="chip"
-                      :class="PerColor.Colors"
-                      small
-                      filter
-                      outlined
-                    >
-                      {{ PerColor.ColorText }}
-                    </v-chip>
-                  </v-chip-group>
-                </v-col>
-              </v-row>
-            </div>
-            <v-divider class="mt-3"></v-divider>
-            <div>
-              <v-card-text class="pa-2 text"> السعر </v-card-text>
-              <v-card-actions class="">
-                <v-text-field
-                  type="number"
-                  dense
-                  hide-details=""
-                  outlined
-                  placeholder="من"
-                ></v-text-field>
-                <v-icon class="mx-2" color="primary"
-                  >mdi-arrow-left-thin</v-icon
-                >
-                <v-text-field
-                  type="number"
-                  dense
-                  hide-details=""
-                  outlined
-                  placeholder="الى"
-                ></v-text-field>
-              </v-card-actions>
-            </div>
-            <v-divider class="mt-3"></v-divider>
-            <div>
-              <v-card-text class="pa-2 text"> الفئات </v-card-text>
-              <v-row no-gutters>
-                <v-col class="" cols="12">
-                  <v-chip-group column multiple>
-                    <v-chip filter class="chip" small v-for="i in 10" :key="i">
-                      تعز
-                    </v-chip>
-                  </v-chip-group>
-                </v-col>
-              </v-row>
-            </div>
-            <v-divider class="mt-3"></v-divider>
-            <div>
-              <v-card-text class="pa-2 text"> العلامة التجارية </v-card-text>
-              <v-row no-gutters>
-                <v-col class="" cols="12">
-                  <v-chip-group column multiple>
-                    <v-chip filter class="chip" small v-for="i in 10" :key="i">
-                      تعز
-                    </v-chip>
-                  </v-chip-group>
-                </v-col>
-              </v-row>
-            </div>
-            <v-divider class="mt-3"></v-divider>
-            <div class="mb-4">
-              <v-card-text class="pa-2 text"> الحالة </v-card-text>
-              <v-row no-gutters>
-                <v-col class="" cols="12">
-                  <v-chip-group column multiple>
-                    <v-chip filter class="chip" small v-for="i in 3" :key="i">
-                      تعز
-                    </v-chip>
-                  </v-chip-group>
-                </v-col>
-              </v-row>
-            </div>
-          </v-card>
-          <v-sheet color="white" height="50px">
-            <v-row no-gutters>
-              <v-col cols="6" class="pa-2">
-                <v-btn
-                  block
-                  elevation="0"
-                  class="btn"
-                  @click="filterdialog = false"
-                >
-                  عرض
-                </v-btn>
-              </v-col>
-              <v-col cols="6" class="pa-2">
-                <v-btn block elevation="0" class="btn" @click="filter = false">
-                  إلغاء
-                </v-btn>
-              </v-col>
-            </v-row>
-          </v-sheet>
-        </v-sheet>
-      </v-dialog>
-      <v-navigation-drawer v-model="drawer" app right>
-        <v-sheet color="white" style="height: 100vh; overflow-y: scroll">
-          <v-card
-            class="pa-2"
-            tile
-            flat
-            style="height: calc(100vh - 50px); overflow-y: scroll"
-          >
+      <v-navigation-drawer v-model="drawer" app right hide-overlay>
+        <v-sheet color="white">
+          <v-card class="pa-2" tile flat>
             <div>
               <v-card-text class="pa-2 text"> المناطق </v-card-text>
               <v-row no-gutters>
@@ -654,7 +526,7 @@ export default {
 ::v-deep .v-slide-group__content {
   justify-content: center;
 }
-// ::v-deep.v-navigation-drawer__content {
-//   z-index: 21 !important;
-// }
+::v-deep .v-navigation-drawer__content {
+  z-index: 21 !important;
+}
 </style>

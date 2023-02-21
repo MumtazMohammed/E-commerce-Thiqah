@@ -2,11 +2,12 @@
   <div class="Products">
     <TheNavBar />
     <v-container class="pt-0">
+      <!-- small screen  -->
       <v-sheet
         style="height: calc(100vh - 106px); overflow-y: auto"
         class="hidden-md-and-up"
       >
-        <v-banner style="z-index: 2" class="pa-0" sticky>
+        <v-banner style="z-index: 8" class="pa-0" sticky>
           <FilterSearch />
         </v-banner>
         <v-row no-gutters>
@@ -74,10 +75,10 @@
           </v-col>
         </v-row>
       </v-sheet>
+      <!-- big screen  -->
       <v-sheet
         v-scroll.self="onScroll"
-        max-height="100vh"
-        class="transparent overflow-y-auto py-2 hidden-sm-and-down"
+        class="transparent py-2 hidden-sm-and-down"
       >
         <v-row no-gutters>
           <v-col cols="3">
@@ -115,8 +116,8 @@
                       background-color: transparent;
                       position: relative;
                     "
-                    color=""
-                    outlined
+                    flat
+                    tile
                   >
                     <div v-if="Product.discountPercent" class="best-price-tag">
                       <small class="discountPercent">
@@ -154,7 +155,7 @@
         </v-row>
       </v-sheet>
     </v-container>
-    <FixedBottomNav class="hidden-sm-and-up" />
+    <FixedBottomNav class="hidden-md-and-up" />
   </div>
 </template>
 
