@@ -4,7 +4,7 @@
       <v-container fluid>
         <v-row>
           <!-- side tabs   -->
-          <v-col cols="2" class="py-0 pr-0">
+          <v-col cols="2" class="pt-0 pr-0">
             <v-sheet
               class="overflow-auto example"
               color="white"
@@ -45,12 +45,12 @@
                   <v-icon> mdi-home </v-icon>
                 </v-tab>
                 <!-- <v-tab
-                  :to="link.RouterName"
-                  v-for="link in Toplinks"
-                  :key="link"
-                >
-                  {{ link.link }}
-                </v-tab> -->
+                    :to="link.RouterName"
+                    v-for="link in Toplinks"
+                    :key="link"
+                  >
+                    {{ link.link }}
+                  </v-tab> -->
                 <v-tab
                   link
                   :to="link.RouterName"
@@ -65,7 +65,7 @@
             </v-sheet>
           </v-col>
           <!-- router   -->
-          <v-col cols="8" class="pa-0">
+          <v-col cols="8" class="pt-0">
             <v-sheet
               class="overflow-y-auto example"
               color="transparent"
@@ -76,7 +76,7 @@
             </v-sheet>
           </v-col>
           <!-- new order  -->
-          <v-col cols="2" class="py-0 pl-0">
+          <v-col cols="2" class="pt-0 pl-0">
             <v-sheet rounded="0" class="overflow-y-auto example" height="100vh">
               <v-banner sticky>
                 <v-card-title class="Marketing-text justify-center white py-2">
@@ -132,10 +132,10 @@
                         </v-card-text>
                       </v-col>
                       <!-- <v-spacer></v-spacer>
-                      <span class="price-cat pt-0 pa-1">
-                        {{ Car.payment }}
-                        <span>ريال</span>
-                      </span> -->
+                        <span class="price-cat pt-0 pa-1">
+                          {{ Car.payment }}
+                          <span>ريال</span>
+                        </span> -->
                     </v-row>
                     <v-divider></v-divider>
                   </v-card>
@@ -344,7 +344,6 @@ export default {
       });
     },
   },
-
   methods: {
     getimageUrl(FolderName, ImageName) {
       let image = require.context("@/assets/");
@@ -359,7 +358,6 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/virables";
 @import "@/scss/mixin";
-
 .Marketing-text {
   font-family: $fontfamliy3;
   letter-spacing: 0 !important;
@@ -402,15 +400,12 @@ a {
   color: $fontcolorlinks;
   font-family: $fontfamliy3;
 }
-
 .offers-card::-webkit-scrollbar {
   width: 0.5em;
 }
-
 .offers-card::-webkit-scrollbar-track {
   background-color: #eee;
 }
-
 .offers-card::-webkit-scrollbar-thumb {
   background-color: darkgrey;
 }
@@ -424,7 +419,21 @@ a {
   padding: 0 !important;
   border: 0 !important;
 }
+// .example::-webkit-scrollbar {
+//   display: none;
+// }
 .example::-webkit-scrollbar {
-  display: none;
+  width: 0.5em;
+}
+
+.example::-webkit-scrollbar-track {
+  //   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+}
+
+.example::-webkit-scrollbar-thumb {
+  background-color: #E0E0E0;
+  border-radius: 3px;
+  
 }
 </style>

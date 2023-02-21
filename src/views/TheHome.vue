@@ -5,7 +5,8 @@
     <Services />
     <TheCategorieSmallScreen />
     <BestOffer />
-    <DailyOffer />
+    <ThiqahMall />
+    <!-- <DailyOffer /> -->
     <TopSale />
     <CompaniesCardAdv />
     <YouMightLikeIt />
@@ -19,7 +20,8 @@ import NavBar from "../NavBar/TheNavBar.vue";
 import TheCategorieSmallScreen from "../A-Home/TheCategorieSmallScreen.vue";
 import OutAdvertisement from "@/Advertisement/OutAdvertisement.vue";
 import BestOffer from "../A-Home/BestOffer.vue";
-import DailyOffer from "../A-Home/DailyOffer.vue";
+// import DailyOffer from "../A-Home/DailyOffer.vue";
+import ThiqahMall from "../A-Home/ThiqahMall.vue";
 import TopSale from "../A-Home/TopSale.vue";
 import Services from "../A-Home/Services.vue";
 import CompaniesCardAdv from "../A-Home/CompaniesCardAdv.vue";
@@ -35,11 +37,12 @@ const components = {
   CompaniesCardAdv,
   TheCategorieSmallScreen,
   BestOffer,
-  DailyOffer,
+  // DailyOffer,
   TopSale,
   YouMightLikeIt,
   NavBar,
   FixedBottomNav,
+  ThiqahMall,
 };
 export default {
   name: "Home",
