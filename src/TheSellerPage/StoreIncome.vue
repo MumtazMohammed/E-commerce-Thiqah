@@ -26,7 +26,7 @@
       </v-app-bar>
       <v-sheet height="56"></v-sheet>
     </div>
-    <v-container class="">
+    <v-container class="pa-0">
       <v-toolbar tile flat>
         <v-menu
           ref="menu"

@@ -1,19 +1,19 @@
 <template>
   <div class="client-store">
     <v-card
-      style="background: linear-gradient(180deg, #fc624d 0%, #f8f9fa 100%)"
+      style="background: linear-gradient(180deg, #ff5722 0%, #eee 100%)"
       flat
       class="mx-auto grey"
       tile
     >
-      <v-container>
+      <v-container class="py-0">
         <v-row align="center" no-gutters class="fill-height">
           <v-avatar class="profile" color="grey" size="60">
             <v-img
               src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
             ></v-img>
           </v-avatar>
-          <v-col cols="7">
+          <v-col cols="7" md="10" sm="9" lg="10">
             <v-list-item color="grey">
               <v-list-item-content>
                 <v-list-item-title class="text mb-2 text-h6">
@@ -79,11 +79,12 @@
         </v-row>
       </v-container>
     </v-card>
-    <v-container class="py-0">
-      <v-card flat class="pa-2 mb-2">
-        <v-card-text class="pt-2 card-titel"> طلبات العملاء </v-card-text>
+    <v-container class="pt-0">
+      <!-- order  -->
+      <v-card rounded="lg" flat class="pa-2 my-3">
+        <v-card-text class="pa-3 card-titel"> طلبات العملاء </v-card-text>
         <v-row align="center" no-gutters class="fill-height">
-          <v-col class="px-2" v-for="(Second, i) in SecondAccess" :key="i">
+          <v-col class="px-2" v-for="(Second, i) in Order" :key="i">
             <v-card
               flat
               link
@@ -112,44 +113,8 @@
           </v-col>
         </v-row>
       </v-card>
-      <v-card flat class="pa-2 mb-2">
-        <v-row align="center" no-gutters class="fill-height mb-5">
-          <v-col class="px-1" v-for="(Fift, i) in FifthhAccess" :key="i">
-            <v-row justify="center" no-gutters class="fill-height">
-              <v-icon
-                :style="Fift.flib"
-                color="grey darken-2"
-                size="27"
-                v-text="Fift.cunt"
-              ></v-icon>
-            </v-row>
-            <v-card-text
-              style="height: 45px"
-              class="pa-0 mt-1 text text-center"
-              v-text="Fift.title"
-            ></v-card-text>
-          </v-col>
-        </v-row>
-        <v-row align="center" no-gutters class="fill-height">
-          <v-col class="px-1" v-for="(Sixth, i) in SixthAccess" :key="i">
-            <v-row justify="center" no-gutters class="fill-height">
-              <v-icon
-                :style="Sixth.flib"
-                class="pa- text-center"
-                color="grey darken-2"
-                size="27"
-                v-text="Sixth.cunt"
-              ></v-icon>
-            </v-row>
-            <v-card-text
-              style="height: 45px"
-              class="pa-0 mt-1 text text-center"
-              v-text="Sixth.title"
-            ></v-card-text>
-          </v-col>
-        </v-row>
-      </v-card>
-      <v-card flat class="pa-2 mb-2">
+      <!-- links   -->
+      <v-card rounded="lg" flat class="pa-2 my-3">
         <v-row align="center" no-gutters class="fill-height">
           <v-col cols="3" class="px-1" v-for="item in MenuLinks" :key="item">
             <v-card
@@ -172,7 +137,63 @@
           </v-col>
         </v-row>
       </v-card>
-      <v-card flat class="pa-2 mb-2">
+      <!-- Marketing Tools  -->
+      <v-card rounded="lg" flat class="pa-2 my-3">
+        <v-card-text class="pa-3 card-titel">أدوات التسويق </v-card-text>
+        <v-row align="center" no-gutters class="fill-height">
+          <v-col
+            cols="4"
+            sm="3"
+            class="pa-2"
+            v-for="item in MarketingTools"
+            :key="item"
+          >
+            <v-card
+              flat
+              rounded="lg"
+              class="my-1 menu-card"
+              link
+              exact-path
+              :to="item.RouterName"
+            >
+              <v-row no-gutters class="pa-0 pt-1 justify-center">
+                <v-avatar
+                  class="profile"
+                  color="deep-orange lighten-5"
+                  size="50"
+                >
+                  <v-icon size="30" color="deep-orange">
+                    {{ item.icon }}
+                  </v-icon>
+                </v-avatar>
+              </v-row>
+              <span class="link mt-2" v-text="item.title"></span>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-card>
+      <!-- second row card  -->
+      <v-card rounded="lg" flat class="pa-2 my-3">
+        <v-row align="center" no-gutters class="fill-height mb-5">
+          <v-col class="px-1" v-for="(Fift, i) in FifthhAccess" :key="i">
+            <v-row justify="center" no-gutters class="fill-height">
+              <v-icon
+                :style="Fift.flib"
+                color="grey darken-2"
+                size="27"
+                v-text="Fift.cunt"
+              ></v-icon>
+            </v-row>
+            <v-card-text
+              style="height: 45px"
+              class="pa-0 mt-1 text text-center"
+              v-text="Fift.title"
+            ></v-card-text>
+          </v-col>
+        </v-row>
+      </v-card>
+      <!-- wallet  -->
+      <v-card rounded="lg" flat class="pa-2 my-3 mb-1">
         <v-card-text class="pt-2 card-titel">
           محفظتي
           <v-icon size="22" color="#fc624d" class="mr-1">mdi-wallet</v-icon>
@@ -202,7 +223,6 @@
           </v-col>
         </v-row>
       </v-card>
-      <!-- <Services /> -->
     </v-container>
   </div>
 </template>
@@ -222,7 +242,7 @@ export default {
         { title: "عدد الزائرين", cunt: "50" },
         { title: "المتابعين", cunt: "1" },
       ],
-      SecondAccess: [
+      Order: [
         {
           title: "طلبات جديدة",
           cunt: "mdi-basket",
@@ -253,7 +273,7 @@ export default {
         },
         {
           link: "المبيعات",
-          icon: "mdi-point-of-sale",
+          icon: "mdi-storefront",
           class: "MySales",
           RouterName: "/MyOrder",
         },
@@ -283,7 +303,7 @@ export default {
         },
         {
           link: "إضافة منتج ",
-          icon: "mdi-file-plus",
+          icon: "mdi-plus",
           class: "MyMss",
           RouterName: "/AddNewProducts",
         },
@@ -294,24 +314,15 @@ export default {
           RouterName: "/StoreProfile",
         },
       ],
-
       FifthhAccess: [
-        {
-          title: "أرسل منتجك أو عروضك للجميع",
-          cunt: "mdi-file-plus",
-          // flib: "  transform: scaleX(-1)",
-        },
         {
           title: "أصنع عضوية للمتجر",
           cunt: "mdi-card-account-details-star-outline ",
         },
-
         {
           title: "أنضم الى ثقة مول",
           cunt: "mdi-set-all ",
         },
-      ],
-      SixthAccess: [
         {
           title: " تعبئة رصيد",
           cunt: "mdi-cellphone-arrow-down mdi-rotate-180 ",
@@ -326,6 +337,47 @@ export default {
           flib: "  transform: scaleX(-1)",
         },
       ],
+      MarketingTools: [
+        {
+          icon: "mdi-star-circle-outline",
+          title: "متميز",
+          describe: "جذب انتباه المتسوقين في منتجاتك وإظهار منتجك في اول البحث",
+        },
+        {
+          icon: "mdi-ticket-confirmation",
+          title: "القسائم",
+          describe:
+            "زيادة الطلبات من خلال تقديم أسعار مخفضة للمشترين عند الشراء باستخدام القسائم",
+        },
+        {
+          icon: "mdi-label-percent",
+          title: "عروض الخصم",
+          describe: "ضع خصومات على منتجاتك لزيادة المبيعات",
+        },
+        {
+          icon: "mdi-handshake-outline",
+          title: "صفقة الحزمة",
+          describe:
+            "زيادة متوسط الإنفاق لكل طلب من خلال تقديم خصومات على حزمة المنتج",
+        },
+        {
+          icon: "mdi-basket-plus",
+          title: "صفقة إضافية",
+          describe:
+            "بيع المزيد من المنتجات من خلال تقديم خصومات إضافية أو هدايا مجانية بحد أدنى من الشراء",
+        },
+        {
+          icon: "mdi-home-lightning-bolt",
+          title: "تخفيضات صادمة  لمتجرك ",
+          describe:
+            "عزز مبيعات المنتج من خلال إنشاء عروض خصم محدودة الوقت في متجرك",
+        },
+        {
+          icon: "mdi-truck-delivery",
+          title: "تخفيض في رسوم الشحن",
+          describe: "قم بتعيين خصومات على رسوم الشحن لجذب المتسوقين لشراء منك",
+        },
+      ],
       mini: true,
     };
   },
@@ -335,9 +387,9 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .client-store {
-  background-color: $color-background;
+  background-color: #eee;
   width: 100%;
-  min-height: 80vh;
+  min-height: 100vh;
 }
 .v-list-item__title.text.text-h6 {
   letter-spacing: 0 !important;
@@ -353,7 +405,7 @@ export default {
   letter-spacing: 0 !important;
   font-family: $fontfamliy3 !important;
   font-weight: 600;
-  font-size: 17px;
+  font-size: 15px;
 }
 .card-titel-follow {
   letter-spacing: 0 !important;

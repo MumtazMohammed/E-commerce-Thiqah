@@ -1,8 +1,8 @@
 <template>
   <div class="TheShowRoomPage grey lighten-3">
     <div class="">
-      <ShowRoomBtnsNavgition class="hidden-sm-and-down" />
-      <div class="router">
+      <TheSellerPageBigScreen class="hidden-sm-and-down" />
+      <div class="router hidden-md-and-up">
         <router-view> </router-view>
       </div>
     </div>
@@ -11,10 +11,11 @@
 <script>
 // import Cars from "./ShowRoomCars.vue";
 // import Info from "./ShowRoomCarsInfo.vue";
-import ShowRoomBtnsNavgition from "./StoreNavigation.vue";
+import TheSellerPageBigScreen from "./TheSellerPageBigScreen.vue";
+
 export default {
   name: "TheShowRoomPage",
-  components: { ShowRoomBtnsNavgition },
+  components: {  TheSellerPageBigScreen },
   data() {
     return {
       active: false,

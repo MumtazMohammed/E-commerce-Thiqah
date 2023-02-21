@@ -26,276 +26,304 @@
       </v-app-bar>
       <v-sheet height="56"></v-sheet>
     </div>
-    <v-container class="">
-      <v-sheet>
-        <v-card-title class="welcom-text">
-          مرحباً بك في مركز التسويق والعروضات
-        </v-card-title>
-        <v-chip-group
-          v-model="selection"
-          active-class="blue--text text--accent-4"
-          mandatory
-        >
-          <v-chip outlined @click="window = 0"> الخصومات </v-chip>
-          <v-chip outlined @click="window = 1"> القسائم </v-chip>
-        </v-chip-group>
-        <v-window v-model="window">
-          <v-window-item class="" style="min-height: 100vh" :value="0">
-            <v-row no-gutters>
-              <v-col cols="12" class="pa-2">
-                <v-text-field
-                  class="pa-0"
-                  v-model="search"
-                  placeholder="  أبحث عن أسم المنتج ؟ "
-                  hide-details="true"
-                  append-icon="mdi-magnify"
-                  @focus="ShowSerachCardvisble = true"
-                ></v-text-field>
-              </v-col>
-              <v-col
-                v-for="(Car, i) in ShowRoomUserCars"
-                :key="i"
-                cols="6"
-                sm="4"
-                md="3"
-                lg="2"
-                class="pa-2"
+    <!-- events  -->
+    <v-sheet rounded="lg" class="">
+      <v-card-title class="welcom-text"> المنسبات </v-card-title>
+      <!-- new events  -->
+      <div>
+        <v-card-subtitle> منسبات جديد </v-card-subtitle>
+        <v-row no-gutters>
+          <v-col>events</v-col>
+          <v-col>events</v-col>
+        </v-row>
+      </div>
+      <!-- Thiqh events  -->
+      <div>
+        <v-card-subtitle class="text">
+          انضم إلى أحداث ثـقـة الرسمي
+        </v-card-subtitle>
+        <v-row align="center" no-gutters>
+          <v-col class="pa-2" md="6" lg="6" sm="6" cols="6">
+            <v-hover v-slot="{ hover }">
+              <v-card
+                color="#FAFAFA"
+                :elevation="hover ? 3 : 0"
+                class="mx-auto"
               >
-                <v-dialog no-click-animation persistent width="400">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-card
-                      v-bind="attrs"
-                      v-on="on"
-                      max-height="700"
-                      class="overflow-hidden"
-                      outlined
-                    >
-                      <!-- Products main Img  -->
+                <v-row align="center" no-gutters>
+                  <v-col>
+                    <v-avatar class="profile" color="transparent" size="70">
                       <v-img
-                        fullscreen
-                        height="130"
-                        class="grey darken-4"
-                        :src="getimageUrl(Car.folder, Car.image)"
-                        :lazy-src="getimageUrl(Car.folder, Car.image)"
-                        alt="getimageUrl(showroom.folder, showroom.ShowroomImg)"
+                        src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
                       ></v-img>
-                      <!-- Products detail -->
-                      <v-card-text class="detail pa-1 text-truncate">
-                        <span>{{ Car.company }} {{ Car.name }}</span>
-                      </v-card-text>
-                      <v-card-text class="price justify-center pa-0">
-                        {{ Car.payment }}
-                        <span class="grey--text text--darken-3">ريال</span>
-                      </v-card-text>
-                      <v-card-actions class="pa-2">
-                        <v-card-text class="text pa-0 grey--text">
-                          في المخزون
-                        </v-card-text>
-                        <span class="cat text-end pa-0"> 457 </span>
-                      </v-card-actions>
-                    </v-card>
-                  </template>
-                  <!-- set the offer price  -->
-                  <template v-slot:default="dialog">
-                    <v-card min-height="300">
-                      <v-carousel
-                        height="210px"
-                        width="100%"
-                        touch
-                        hide-delimiters
-                        class="overflow--hidden"
-                      >
-                        <v-carousel-item
-                          v-for="(singleImage, x) in Car.images"
-                          :key="x"
-                        >
-                          <v-img
-                            class="grey darken-3"
-                            aspect-ratio="1.9"
-                            contain
-                            :src="getimageUrl(Car.folder, singleImage)"
-                          >
-                          </v-img>
-                        </v-carousel-item>
-                      </v-carousel>
-                      <div>
-                        <v-card-title class="detail pa-2 text-truncate">
-                          <span>{{ Car.company }} {{ Car.name }}</span>
-                          <v-spacer></v-spacer>
-                        </v-card-title>
-                        <v-row class="px-2" align="center" no-gutters>
-                          <span class="stocked">
-                            في المخزن
-                            <span class="mx-2 red--text">{{ Car.id }} </span>
-                          </span>
-                          <v-spacer></v-spacer>
-                          <span class="price">
-                            {{ Car.payment }}
-                          </span>
-                        </v-row>
-                        <v-sheet width="90%" class="mx-auto">
-                          <v-select
-                            :items="items"
-                            placeholder="أختار نوع العرض"
-                            persistent-hint
-                          ></v-select>
-                        </v-sheet>
-                        <v-card flat class="my-1">
-                          <span class="disc-text"> قيمة الخصم </span>
-                          <v-text-field
-                            hide-details
-                            solo-inverted
-                            dense
-                            tile
-                            flat
-                            class="mx-3"
-                            v-model="offer"
-                          >
-                          </v-text-field>
-                        </v-card>
-                        <v-card flat class="my-1">
-                          <span class="disc-text"> الكمية</span>
-                          <v-text-field
-                            hide-details
-                            solo-inverted
-                            dense
-                            flat
-                            class="mx-3"
-                            v-model="offer"
-                          >
-                          </v-text-field>
-                        </v-card>
-                      </div>
-                      <v-divider></v-divider>
-                      <v-card-actions>
-                        <v-btn
-                          outlined
-                          class="btn"
-                          text
-                          @click="dialog.value = false"
-                        >
-                          نشر العرض
-                        </v-btn>
-                        <v-spacer></v-spacer>
-                        <v-btn
-                          outlined
-                          class="btn"
-                          text
-                          @click="dialog.value = false"
-                        >
-                          إلغاء
-                        </v-btn>
-                      </v-card-actions>
-                    </v-card>
-                  </template>
-                </v-dialog>
-              </v-col>
-            </v-row>
-          </v-window-item>
-          <v-window-item class="" style="min-height: 100vh" :value="1">
-            <v-row no-gutters>
-              <v-col cols="12" class="pa-2">
-                <v-card-title class="justify-center welcom-text">
-                  أختر نوع القسيمة
-                </v-card-title>
-              </v-col>
-              <v-col cols="12" class="pa-2">
-                <v-card
-                  width="350"
-                  flat
-                  style="border: 2px dashed #ffd54f !important"
-                  color="amber lighten-5"
-                  class="mx-auto"
-                >
-                  <v-row no-gutters>
-                    <v-col>
-                      <v-card-subtitle class="text pa-0 pr-1">
-                        خصم <span class="mx-1"><span>20</span>%</span>
-                      </v-card-subtitle>
-                      <v-card-text class="pa-0 pr-1 text">
-                        أنفق
-                        <span class="mx-1">
-                          52<v-icon size="17">mdi-currency-rial</v-icon>
-                        </span>
-                        كحد أدنى
-                      </v-card-text>
-                      <v-card-text class="pa-0 pr-1 text">
-                        متاح حتى
-                        <span>10/2/2020</span>
-                      </v-card-text>
-                    </v-col>
-                    <v-col style="margin: auto 0; text-align: center" cols="3">
-                      <v-btn
-                        small
-                        dark
-                        class="deep-orange btn lighten-1"
-                        elevation="0"
-                      >
-                        أخذ
-                      </v-btn>
-                    </v-col>
-                  </v-row>
-                </v-card>
-              </v-col>
-              <v-col cols="12" class="pa-2">
-                <v-card
-                  width="350"
-                  flat
-                  style="border: 2px dashed #ffd54f !important"
-                  color="amber lighten-5"
-                  class="mx-auto"
-                >
-                  <v-row no-gutters>
-                    <v-col>
-                      <v-card-subtitle class="text pa-0 pr-1">
-                        خصم <span class="mx-1"><span>20</span>%</span>
-                      </v-card-subtitle>
-                      <v-card-text class="pa-0 pr-1 text">
-                        أنفق
-                        <span class="mx-1">
-                          52<v-icon size="17">mdi-currency-rial</v-icon>
-                        </span>
-                        كحد أدنى
-                      </v-card-text>
-                      <v-card-text class="pa-0 pr-1 text">
-                        متاح حتى
-                        <span>10/2/2020</span>
-                      </v-card-text>
-                    </v-col>
-                    <v-col style="margin: auto 0; text-align: center" cols="3">
-                      <v-btn
-                        small
-                        dark
-                        class="deep-orange btn lighten-1"
-                        elevation="0"
-                      >
-                        أخذ
-                      </v-btn>
-                    </v-col>
-                  </v-row>
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-window-item>
-        </v-window>
-      </v-sheet>
-    </v-container>
+                    </v-avatar>
+                  </v-col>
+                  <v-col cols="9">
+                    <v-card-title class="pa-0 text">
+                      حملة المنتجات
+                    </v-card-title>
+                    <v-card-subtitle
+                      class="pa-0 pt-3 grey--text text--darken-1"
+                    >
+                      انضم إلى حملات ثـقـة الرسمية للوصول إلى المزيد من
+                      المتسوقين
+                    </v-card-subtitle>
+                  </v-col>
+                </v-row>
+              </v-card>
+            </v-hover>
+          </v-col>
+          <v-col class="pa-2" md="6" lg="6" sm="6" cols="12">
+            <v-hover v-slot="{ hover }">
+              <v-card
+                color="#FAFAFA"
+                :elevation="hover ? 3 : 0"
+                class="mx-auto"
+              >
+                <v-row align="center" no-gutters>
+                  <v-col>
+                    <v-avatar class="profile" color="transparent" size="70">
+                      <v-img
+                        src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
+                      ></v-img>
+                    </v-avatar>
+                  </v-col>
+                  <v-col cols="9">
+                    <v-card-title class="pa-0 text">
+                      حملة المنتجات
+                    </v-card-title>
+                    <v-card-subtitle
+                      class="pa-0 pt-3 grey--text text--darken-1"
+                    >
+                      انضم إلى حملات ثـقـة الرسمية للوصول إلى المزيد من
+                      المتسوقين
+                    </v-card-subtitle>
+                  </v-col>
+                </v-row>
+              </v-card>
+            </v-hover>
+          </v-col>
+        </v-row>
+      </div>
+    </v-sheet>
+    <!-- Marketing Tools  -->
+    <v-sheet rounded="lg" class="my-2">
+      <v-card-title class="welcom-text"> أدوات التسويق </v-card-title>
+      <div>
+        <v-card-subtitle>زيادة مبيعاتك من خلال الترويج</v-card-subtitle>
+        <v-row no-gutters>
+          <v-col
+            class="pa-2"
+            md="4"
+            lg="4"
+            sm="6"
+            cols="12"
+            v-for="(Tool, i) in MarketingTools"
+            :key="i"
+          >
+            <v-hover v-slot="{ hover }">
+              <v-card
+                color="#FAFAFA"
+                :elevation="hover ? 3 : 0"
+                class="mx-auto"
+                height="100%"
+              >
+                <v-row class="fill-height" align="center" no-gutters>
+                  <v-col class="text-center">
+                    <v-avatar
+                      class="profile"
+                      color="light-blue lighten-5"
+                      size="50"
+                    >
+                      <v-icon size="30" color="light-blue  ">
+                        {{ Tool.icon }}
+                      </v-icon>
+                    </v-avatar>
+                  </v-col>
+                  <v-col cols="9">
+                    <v-card-title class="pa-0 text">
+                      {{ Tool.title }}
+                    </v-card-title>
+                    <v-card-subtitle
+                      style="font-size: 13px"
+                      class="pa-0 pt-3 grey--text text--darken-1"
+                    >
+                      {{ Tool.describe }}
+                    </v-card-subtitle>
+                  </v-col>
+                </v-row>
+              </v-card>
+            </v-hover>
+          </v-col>
+        </v-row>
+      </div>
+      <!-- Engage with Your Shoppers  -->
+      <div>
+        <v-card-subtitle> كن أقرب للمتسوقين</v-card-subtitle>
+        <v-row no-gutters>
+          <v-col
+            class="pa-2"
+            md="4"
+            lg="4"
+            sm="6"
+            cols="12"
+            v-for="(Shoppers, i) in EngageShoppers"
+            :key="i"
+          >
+            <v-hover v-slot="{ hover }">
+              <v-card
+                color="#FAFAFA"
+                :elevation="hover ? 3 : 0"
+                class="mx-auto"
+                height="100%"
+              >
+                <v-row class="fill-height" align="center" no-gutters>
+                  <v-col class="text-center">
+                    <v-avatar class="profile" color="teal lighten-5" size="50">
+                      <v-icon size="30" color="teal">
+                        {{ Shoppers.icon }}
+                      </v-icon>
+                    </v-avatar>
+                  </v-col>
+                  <v-col cols="9">
+                    <v-card-title class="pa-0 text">
+                      {{ Shoppers.title }}
+                    </v-card-title>
+                    <v-card-subtitle
+                      style="font-size: 13px"
+                      class="pa-0 pt-3 grey--text text--darken-1"
+                    >
+                      {{ Shoppers.describe }}
+                    </v-card-subtitle>
+                  </v-col>
+                </v-row>
+              </v-card>
+            </v-hover>
+          </v-col>
+        </v-row>
+      </div>
+      <!--  Increase Your Shop customer  -->
+      <div>
+        <v-card-subtitle>
+          زيادة حركة الزوار على متجرك أو منتجاتك
+        </v-card-subtitle>
+        <v-row no-gutters>
+          <v-col
+            class="pa-2"
+            md="4"
+            lg="4"
+            sm="6"
+            cols="12"
+            v-for="(Customer, i) in IncreaseCustomer"
+            :key="i"
+          >
+            <v-hover v-slot="{ hover }">
+              <v-card
+                color="#FAFAFA"
+                :elevation="hover ? 3 : 0"
+                class="mx-auto"
+                height="100%"
+              >
+                <v-row class="fill-height" align="center" no-gutters>
+                  <v-col class="text-center">
+                    <v-avatar
+                      class="profile"
+                      color="orange  lighten-5"
+                      size="50"
+                    >
+                      <v-icon size="30" color="orange   ">
+                        {{ Customer.icon }}
+                      </v-icon>
+                    </v-avatar>
+                  </v-col>
+                  <v-col cols="9">
+                    <v-card-title class="pa-0 text">
+                      {{ Customer.title }}
+                    </v-card-title>
+                    <v-card-subtitle
+                      style="font-size: 13px"
+                      class="pa-0 pt-3 grey--text text--darken-1"
+                    >
+                      {{ Customer.describe }}
+                    </v-card-subtitle>
+                  </v-col>
+                </v-row>
+              </v-card>
+            </v-hover>
+          </v-col>
+        </v-row>
+      </div>
+    </v-sheet>
   </div>
 </template>
 <script>
-import ShowRoomUserCars from "../data-json/All-Car.json";
 export default {
   name: "Marketing",
   data() {
     return {
-      dialog: false,
-      toggle_exclusive: undefined,
-      neighborhoods: [],
-      ShowRoomUserCars,
-      items: ["Foo", "Bar", "Fizz", "Buzz"],
-      offer: 0,
-      selection: 0,
-      window: 0,
+      MarketingTools: [
+        {
+          icon: "mdi-star-circle-outline",
+          title: "متميز",
+          describe:
+            "جذب انتباه المتسوقين في منتجاتك وإظهار منتجك في اول البحث",
+        },
+        {
+          icon: "mdi-ticket-confirmation",
+          title: "القسائم",
+          describe:
+            "زيادة الطلبات من خلال تقديم أسعار مخفضة للمشترين عند الشراء باستخدام القسائم",
+        },
+        {
+          icon: "mdi-label-percent",
+          title: "عروض الخصم",
+          describe: "ضع خصومات على منتجاتك لزيادة المبيعات",
+        },
+        {
+          icon: "mdi-handshake-outline",
+          title: "صفقة الحزمة",
+          describe:
+            "زيادة متوسط الإنفاق لكل طلب من خلال تقديم خصومات على حزمة المنتج",
+        },
+        {
+          icon: "mdi-basket-plus",
+          title: "صفقة إضافية",
+          describe:
+            "بيع المزيد من المنتجات من خلال تقديم خصومات إضافية أو هدايا مجانية بحد أدنى من الشراء",
+        },
+        {
+          icon: "mdi-home-lightning-bolt",
+          title: "تخفيضات صادمة  لمتجرك ",
+          describe:
+            "عزز مبيعات المنتج من خلال إنشاء عروض خصم محدودة الوقت في متجرك",
+        },
+        {
+          icon: "mdi-truck-delivery",
+          title: "تخفيض في رسوم الشحن",
+          describe: "قم بتعيين خصومات على رسوم الشحن لجذب المتسوقين لشراء منك",
+        },
+      ],
+      EngageShoppers: [
+        {
+          icon: "mdi-gift",
+          title: "متابعة  + جائزة",
+          describe:
+            "شجع المتسوقين على متابعة متجرك بمكافأة قسائم المتابعين الجدد",
+        },
+        {
+          icon: "mdi-comment-check",
+          title: " تقييم + الجائزة",
+          describe: "اجذب العملاء لترك تقييمات أفضل من خلال مكافأة عملات ثقة .",
+        },
+      ],
+      IncreaseCustomer: [
+        {
+          icon: "mdi-store",
+          title: "أنضم مع ثقة مول ",
+          describe:
+            "زيادة المبيعات والزوار من خلال عرض منتجاتك ومتجرك بطاب  ثقة مول وترخيص متجرك",
+        },
+      ],
     };
   },
   methods: {
@@ -397,13 +425,10 @@ export default {
   color: $fontcolorlinks !important;
   // font-weight: 600;
 }
-Voucher .text {
+.text {
   font-family: $fontfamliy3 !important;
   letter-spacing: 0 !important;
-  color: $fontcolorlinks !important;
-  @media (max-width: 600px) {
-    font-size: 13px !important;
-  }
+  font-size: 17px !important;
 }
 .btn {
   font-family: $fontfamliy3 !important;

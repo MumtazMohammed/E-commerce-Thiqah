@@ -28,7 +28,7 @@
     </div>
     <v-container class="pa-0">
       <v-row no-gutters class="pa-0" style="flex-wrap: wrap">
-        <v-col cols="12" lg="6" md="6" sm="12" class="pa-2">
+        <v-col cols="12" lg="12" md="6" sm="12" class="pa-2">
           <v-card dark flat class="pb-2">
             <v-card-text class="card-text"> المبيعات </v-card-text>
             <v-sparkline
@@ -83,7 +83,7 @@
             </v-sparkline>
           </v-card>
         </v-col>
-        <v-col cols="6" sm="6" md="3" lg="3" class="pa-2">
+        <v-col cols="6" sm="6" md="6" lg="6" class="pa-2">
           <v-card dark>
             <v-card-title class="justify-center">
               <div class="text">
@@ -105,7 +105,7 @@
             </v-sheet>
           </v-card>
         </v-col>
-        <v-col cols="6" sm="6" md="3" lg="3" class="pa-2">
+        <v-col cols="6" sm="6" md="6" lg="6" class="pa-2">
           <v-card dark>
             <v-card-title class="justify-center">
               <div class="text">

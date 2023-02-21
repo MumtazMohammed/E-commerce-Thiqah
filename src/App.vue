@@ -22,17 +22,17 @@
     </v-btn>
     <ClientNotification class="hidden-sm-and-down" />
     <!-- this the footer page  -->
-    <Footer />
+    <!-- <Footer /> -->
   </v-app>
 </template>
 
 <script>
-import Footer from "./footer/footer.vue";
+// import Footer from "./footer/footer.vue";
 import ClientNotification from "./Chat/ClientNotification.vue";
 export default {
   name: "App",
   components: {
-    Footer,
+    // Footer,
     ClientNotification,
   },
   data() {
@@ -117,5 +117,8 @@ export default {
   @media (max-width: 600px) {
     transform: scale(0.8);
   }
+}
+.example::-webkit-scrollbar {
+  display: none;
 }
 </style>

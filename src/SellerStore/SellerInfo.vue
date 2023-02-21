@@ -1,5 +1,5 @@
 <template>
-  <v-card class="AboutStore">
+  <v-card rounded="lg" class="AboutStore overflow-hidden">
     <v-row no-gutters>
       <v-avatar tile size="140">
         <v-img
@@ -8,7 +8,7 @@
       </v-avatar>
       <v-col cols="">
         <v-list-item two-line>
-          <v-list-item-content>
+          <v-list-item-content class="py-0"> 
             <v-list-item-title class="store-name mb-2">
               محمد أمين الحريبي
             </v-list-item-title>

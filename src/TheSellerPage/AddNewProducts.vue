@@ -26,429 +26,415 @@
       </v-app-bar>
       <v-sheet height="56"></v-sheet>
     </div>
-    <v-container class="">
-      <v-card tile flat class="mx-auto" min-height="600">
-        <v-window v-model="step" style="min-height: 548px">
-          <!-- select the categories and fill the goods name & number -->
-          <v-window-item :value="1">
-            <v-card flat tile class="pa-2">
-              <div>
-                <span class="add-text">
-                  <span class="red--text ml-1">*</span>
-                  اختيار فئة المنتج .
-                </span>
-                <v-chip-group active-class="blue white--text" column>
-                  <v-chip
-                    text-color="black"
-                    @click.stop="CategoryOne = !CategoryOne"
-                    v-text="item.title"
-                    v-for="item in Categories"
-                    :key="item.id"
-                  >
-                  </v-chip>
-                </v-chip-group>
+    <v-container class="pa-0 ">
+      <!-- Add the the images  -->
+      <v-sheet rounded="lg" class="pa-2 ma-2">
+        <v-row no-gutters class="pa-0">
+          <v-col class="pa-1" cols="4" sm="4" md="2" lg="2">
+            <v-card class="">
+              <div class="image-preview ma-1">
+                <div v-if="imageData.length <= 0">
+                  <v-icon> mdi-plus </v-icon>
+                </div>
+                <div class="preview" v-if="imageData.length > 0">
+                  <img :src="imageData" />
+                </div>
+                <label class="cover-image-input" for="file"></label>
+                <v-btn
+                  v-if="imageData.length > 0"
+                  icon
+                  small
+                  class="btn"
+                  @click="imageData = ''"
+                >
+                  <v-icon> mdi-close </v-icon>
+                </v-btn>
+                <input
+                  @change="previewImage"
+                  accept="image/*"
+                  type="file"
+                  id="file"
+                  class="custom-file-input"
+                />
               </div>
-              <div v-if="CategoryOne">
-                <span class="add-text">
-                  <span class="red--text ml-1">*</span>
-                  حدد الفئة المناسبة لمنتجك.
-                </span>
-                <v-chip-group active-class="blue white--text" column>
-                  <v-chip
-                    @click.stop="NameAndNumber = !NameAndNumber"
-                    text-color="black"
-                    v-text="item.title"
-                    v-for="item in Categories"
-                    :key="item.id"
-                  >
-                  </v-chip>
-                </v-chip-group>
-              </div>
-              <v-col v-if="NameAndNumber" cols="12" class="pa-2">
-                <span class="add-text">
-                  <span class="red--text ml-1">*</span>
-                  اسم المنتج & رقم المنتج.
-                </span>
-                <v-text-field
-                  class="ma-0 pa-0"
-                  hide-details
-                  placeholder="أسم المنتج *"
-                  v-model="ProductName"
-                ></v-text-field>
-                <v-text-field
-                  class="ma-0"
-                  hide-details
-                  placeholder="رقم المنتج *"
-                  v-model="ProductNumber"
-                ></v-text-field>
-              </v-col>
+              <span class="photo-text">صورة الغلاف</span>
             </v-card>
-          </v-window-item>
-          <!-- Add the the images  -->
-          <v-window-item :value="2">
-            <div>
-              <span class="add-text pa-3">
-                <span class="red--text ml-1">*</span>
-                قم بتحميل صورة أمامية واضحة لمنتجك .
-              </span>
-              <v-row no-gutters class="pa-0">
-                <v-col class="pa-2 mx-auto" cols="">
-                  <div class="image-preview ma-1">
-                    <div v-if="imageData.length <= 0">
-                      <v-icon> mdi-plus </v-icon>
-                      <span>صورة الغلاف</span>
-                    </div>
-                    <div class="preview" v-if="imageData.length > 0">
-                      <img :src="imageData" />
-                    </div>
-                    <label class="cover-image-input" for="file"></label>
-                    <v-btn
-                      v-if="imageData.length > 0"
-                      icon
-                      small
-                      class="btn"
-                      @click="imageData = ''"
-                    >
-                      <v-icon> mdi-close </v-icon>
-                    </v-btn>
-                    <input
-                      @change="previewImage"
-                      accept="image/*"
-                      type="file"
-                      id="file"
-                      class="custom-file-input"
-                    />
-                  </div>
-                </v-col>
-              </v-row>
-            </div>
-            <div>
-              <span class="add-text pa-3">
-                <span class="red--text ml-1">*</span>
-                قم بتحميل 3 صور للمنتج على الاقل .
-              </span>
-              <v-row no-gutters class="pa-0">
-                <v-col class="pa-2" cols="4" v-for="(imag, i) in 3" :key="i">
-                  <div class="image-preview ma-1">
-                    <div v-if="imageData.length <= 0">
-                      <v-icon> mdi-plus </v-icon>
-                      <span>صورة الغلاف</span>
-                    </div>
-                    <div class="preview" v-if="imageData.length > 0">
-                      <img :src="imageData" />
-                    </div>
-                    <label class="cover-image-input" for="file"></label>
-                    <v-btn
-                      v-if="imageData.length > 0"
-                      icon
-                      small
-                      class="btn"
-                      @click="imageData = ''"
-                    >
-                      <v-icon> mdi-close </v-icon>
-                    </v-btn>
-                    <input
-                      @change="previewImage"
-                      accept="image/*"
-                      type="file"
-                      id="file"
-                      class="custom-file-input"
-                    />
-                  </div>
-                </v-col>
-              </v-row>
-            </div>
-            <div>
-              <span class="add-text pa-3">
-                <span class="red--text ml-1">*</span>
-                ماهية ألوان منتجك .
-              </span>
-              <v-row no-gutters class="pa-0">
-                <v-col class="pa-2" cols="4" v-for="(imag, i) in 3" :key="i">
-                  <div class="image-preview ma-1">
-                    <div v-if="imageData.length <= 0">
-                      <v-icon> mdi-plus </v-icon>
-                      <span>صورة المنتج يظهر بها الوان اذا توفر</span>
-                    </div>
-                    <div class="preview" v-if="imageData.length > 0">
-                      <img :src="imageData" />
-                    </div>
-                    <label class="cover-image-input" for="file"></label>
-                    <v-btn
-                      v-if="imageData.length > 0"
-                      icon
-                      small
-                      class="btn"
-                      @click="imageData = ''"
-                    >
-                      <v-icon> mdi-close </v-icon>
-                    </v-btn>
-                    <input
-                      @change="previewImage"
-                      accept="image/*"
-                      type="file"
-                      id="file"
-                      class="custom-file-input"
-                    />
-                  </div>
-                  <v-text-field
-                    class="ma-1"
-                    dense
-                    outlined
-                    flat
-                    label="ألون"
-                    solo
-                    hide-details
-                  ></v-text-field>
-                </v-col>
-              </v-row>
-            </div>
-          </v-window-item>
-
-          <!--  fill the  Information -->
-          <v-window-item :value="3">
-            <v-card flat class="pa-2">
-              <v-card-actions class="py-4 px-0">
-                <v-checkbox
-                  hide-details=""
-                  class="ma-0 pa-0"
-                  color="success"
-                  v-model="size"
-                ></v-checkbox>
-                <span
-                  class="pa-0"
-                  :class="size == true ? 'success--text' : 'grey--text '"
-                >
-                  هل يوجد مقاسات للمنتج :
-                </span>
-              </v-card-actions>
-              <v-card
-                v-if="size"
-                class="mr-2"
-                style="overflow: hidden"
-                outlined
-                max-width="230"
-              >
-                <v-card-actions class="pa-0">
-                  <v-btn
-                    class="px-1"
-                    tile
-                    elevation="0"
-                    height="30"
-                    min-width="35"
-                    @click="Quantity++"
-                  >
-                    <v-icon size="17">mdi-plus</v-icon>
-                  </v-btn>
-                  <v-text-field
-                    v-model="Quantity"
-                    solo
-                    dense
-                    flat
-                    hide-details
-                    placeholder="كم عدد المقاسات"
-                    type="number"
-                  ></v-text-field>
-                  <v-btn
-                    class="px-1"
-                    tile
-                    elevation="0"
-                    height="30"
-                    min-width="35"
-                    @click="Quantity--"
-                  >
-                    <v-icon size="17">mdi-minus</v-icon>
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-              <v-row no-gutters v-if="size">
-                <v-col class="pa-2" cols="6" md="3" lg="3" sm="4">
-                  <v-text-field
-                    placeholder="المقاس ( 1 )"
-                    hide-details
-                    outlined
-                    dense
-                  ></v-text-field>
-                </v-col>
-              </v-row>
-              <v-card-actions class="py-4 px-0">
-                <v-checkbox
-                  hide-details=""
-                  class="ma-0 pa-0"
-                  color="success"
-                  v-model="model"
-                ></v-checkbox>
-                <v-card-text
-                  class="pa-0"
-                  :class="model == true ? 'success--text' : 'grey--text '"
-                >
-                  هل يوجد موديل للمنتج :
-                </v-card-text>
-              </v-card-actions>
-              <div v-if="model">
-                <v-card
-                  class="mr-2"
-                  style="overflow: hidden"
-                  outlined
-                  max-width="230"
-                >
-                  <v-card-actions class="pa-0">
-                    <v-btn
-                      class="px-1"
-                      tile
-                      elevation="0"
-                      height="30"
-                      min-width="35"
-                      @click="Quantity++"
-                    >
-                      <v-icon size="17">mdi-plus</v-icon>
-                    </v-btn>
-                    <v-text-field
-                      v-model="Quantity"
-                      solo
-                      dense
-                      flat
-                      hide-details
-                      placeholder="كم عدد الموديلات"
-                      type="number"
-                    ></v-text-field>
-                    <v-btn
-                      class="px-1"
-                      tile
-                      elevation="0"
-                      height="30"
-                      min-width="35"
-                      @click="Quantity--"
-                    >
-                      <v-icon size="17">mdi-minus</v-icon>
-                    </v-btn>
-                  </v-card-actions>
-                </v-card>
-                <v-row no-gutters>
-                  <v-col class="pa-2" cols="6" md="3" lg="3" sm="4">
-                    <v-text-field
-                      placeholder="موديل ( 1 )"
-                      hide-details
-                      outlined
-                      dense
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-              </div>
-              <v-card-actions class="py-4 px-0">
-                <v-checkbox
-                  hide-details=""
-                  color="success"
-                  class="ma-0 pa-0"
-                  v-model="flavor"
-                ></v-checkbox>
-                <v-card-text
-                  class="pa-0"
-                  :class="flavor == true ? 'success--text' : 'grey--text '"
-                >
-                  هل يوجد نكهات للمنتج :
-                </v-card-text>
-              </v-card-actions>
-              <div v-if="flavor">
-                <v-card
-                  class="mr-2"
-                  style="overflow: hidden"
-                  outlined
-                  max-width="230"
-                >
-                  <v-card-actions class="pa-0">
-                    <v-btn
-                      class="px-1"
-                      tile
-                      elevation="0"
-                      height="30"
-                      min-width="35"
-                      @click="Quantity++"
-                    >
-                      <v-icon size="17">mdi-plus</v-icon>
-                    </v-btn>
-                    <v-text-field
-                      v-model="Quantity"
-                      solo
-                      dense
-                      flat
-                      hide-details
-                      placeholder="كم عدد النكات"
-                      type="number"
-                    ></v-text-field>
-                    <v-btn
-                      class="px-1"
-                      tile
-                      elevation="0"
-                      height="30"
-                      min-width="35"
-                      @click="Quantity--"
-                    >
-                      <v-icon size="17">mdi-minus</v-icon>
-                    </v-btn>
-                  </v-card-actions>
-                </v-card>
-                <v-row no-gutters>
-                  <v-col class="pa-2" cols="6" md="3" lg="3" sm="4">
-                    <v-text-field
-                      placeholder="نكهة ( 1 )"
-                      hide-details
-                      outlined
-                      dense
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-              </div>
-            </v-card>
-            <v-col cols="12" class="pa-2">
-              <v-textarea
-                outlined
-                flat
-                placeholder=" تفاصيل المنتج"
-              ></v-textarea>
-            </v-col>
-            <v-card flat class=" ">
-              <div style="flex-basis: 40%">
-                <v-card-text class="pa-2"> رقم المنتج: </v-card-text>
-                <v-text-field dense hide-details=""></v-text-field>
-              </div>
-              <div style="flex-basis: 40%">
-                <v-card-text class="pa-2"> السعر: </v-card-text>
-                <v-text-field
-                  type="number"
-                  suffix="ريال"
-                  dense
-                  hide-details=""
-                ></v-text-field>
-              </div>
-              <div style="flex-basis: 40%">
-                <v-card-text class="pa-2"> الكمية: </v-card-text>
-                <v-text-field
-                  type="number"
-                  dense
-                  hide-details=""
-                ></v-text-field>
-              </div>
-            </v-card>
-          </v-window-item>
-        </v-window>
-
-        <v-divider></v-divider>
-
-        <v-card-actions>
-          <v-btn :disabled="step === 1" text @click="step--"> الرجوع </v-btn>
-          <v-spacer></v-spacer>
-          <v-btn
-            :disabled="step === 3"
-            color="primary"
-            depressed
-            @click="step++"
+          </v-col>
+          <v-col
+            class="pa-1"
+            cols="4"
+            sm="4"
+            md="2"
+            lg="2"
+            v-for="(imag, i) in 2"
+            :key="i"
           >
-            التالي
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-
+            <v-card class="">
+              <div class="image-preview ma-1">
+                <div v-if="imageData.length <= 0">
+                  <v-icon> mdi-plus </v-icon>
+                </div>
+                <div class="preview" v-if="imageData.length > 0">
+                  <img :src="imageData" />
+                </div>
+                <label class="cover-image-input" for="file"></label>
+                <v-btn
+                  v-if="imageData.length > 0"
+                  icon
+                  small
+                  class="btn"
+                  @click="imageData = ''"
+                >
+                  <v-icon> mdi-close </v-icon>
+                </v-btn>
+                <input
+                  @change="previewImage"
+                  accept="image/*"
+                  type="file"
+                  id="file"
+                  class="custom-file-input"
+                />
+              </div>
+              <span class="photo-text">صورة {{ i + 1 }}</span>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-sheet>
+      <!-- fill the goods name -->
+      <v-sheet rounded="lg" class="ma-2 py-2">
+        <div>
+          <v-card-title class="add-text pa-0 mx-2">
+            أسم المنتج
+            <span class="red--text">*</span>
+            <v-spacer></v-spacer>
+            <div>
+              <span class="text-cunt">
+                {{ ProductName.length }}
+                / 120
+              </span>
+            </div>
+          </v-card-title>
+          <v-text-field
+            solo
+            flat
+            dense
+            placeholder="إدخل أسم المنتج"
+            class="ma-0 pa-0"
+            hide-details
+            v-model="ProductName"
+          ></v-text-field>
+        </div>
+      </v-sheet>
+      <!-- fill the goods description   -->
+      <v-sheet rounded="lg" class="ma-2 py-2">
+        <div>
+          <v-card-title class="add-text pa-0 mx-2">
+            وصف المنتج
+            <span class="red--text">*</span>
+            <v-spacer></v-spacer>
+            <div>
+              <span class="text-cunt">
+                {{ ProductDescription.length }}
+                / 3000
+              </span>
+            </div>
+          </v-card-title>
+          <v-textarea
+            solo
+            flat
+            dense
+            placeholder="إدخل وصف المنتج"
+            class="ma-0 pa-0"
+            hide-details
+            v-model="ProductDescription"
+            rows="5"
+          ></v-textarea>
+        </div>
+      </v-sheet>
+      <!-- categories Big Screen   -->
+      <v-sheet rounded="lg" class="ma-2 py-2">
+        <v-card-title class="add-text pa-2">
+          فئة المنتج
+          <span class="red--text ml-1">*</span>
+        </v-card-title>
+        <v-row no-gutters>
+          <v-col class="px-2" cols="12" md="4" lg="4">
+            <v-sheet
+              class="overflow-y-auto"
+              color="grey lighten-3"
+              height="200"
+            >
+              <v-chip-group active-class="blue white--text" column>
+                <v-chip
+                  text-color="black"
+                  @click.stop="CategoryOne = !CategoryOne"
+                  v-text="item.title"
+                  v-for="item in Categories"
+                  :key="item.id"
+                >
+                </v-chip>
+              </v-chip-group>
+            </v-sheet>
+          </v-col>
+          <v-col class="px-2" cols="12" md="4" lg="4" v-if="CategoryOne">
+            <v-sheet
+              color="grey lighten-3"
+              class="overflow-y-auto"
+              height="200"
+            >
+              <v-chip-group active-class="blue white--text" column>
+                <v-chip
+                  @click.stop="NameAndNumber = !NameAndNumber"
+                  text-color="black"
+                  v-text="item.title"
+                  v-for="item in Categories"
+                  :key="item.id"
+                >
+                </v-chip>
+              </v-chip-group>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-sheet>
+      <!-- variation Big Screen   -->
+      <v-sheet rounded="lg" class="ma-2 py-2">
+        <v-card-title class="add-text pa-2">
+          تفاوت
+          <span class="red--text ml-1">*</span>
+          <v-spacer></v-spacer>
+          <v-btn color="blue" class="text" text>تعديل</v-btn>
+        </v-card-title>
+        <v-row no-gutters>
+          <!-- Color or Edit  -->
+          <v-col class="pa-1" cols="12" md="4" lg="4">
+            <v-sheet
+              class="overflow-y-auto"
+              color="grey lighten-3"
+              min-height="200"
+            >
+              <v-row no-gutters class="pa-1">
+                <span class="text mr-2"> الألوان </span>
+                <v-spacer></v-spacer>
+                <v-btn color="blue" class="text" text>تعديل</v-btn>
+              </v-row>
+              <v-divider></v-divider>
+              <v-row no-gutters class="pa-2">
+                <v-col class="pa-1" cols="3" v-for="i in 2" :key="i">
+                  <v-card flat class="text pa-1 text-center"> الألوان </v-card>
+                </v-col>
+                <v-col class="pa-1" cols="3">
+                  <v-card
+                    color="transparent"
+                    flat
+                    class="text pa-1 text-center"
+                  >
+                    أكثر
+                    <v-icon color="blue">mdi-plus</v-icon>
+                  </v-card>
+                </v-col>
+              </v-row>
+              <v-row no-gutters class="pa-2">
+                <v-col class="pa-1" cols="12">
+                  <v-switch
+                    hide-details
+                    class="ma-0"
+                    v-model="switch1"
+                    label="إضافة صور (للألوان)"
+                  ></v-switch>
+                  <v-card-subtitle style="margin-right: 44px" class="pa-0">
+                    سوف يتم إظهار الصورة عند الظغط على (للألوان)
+                  </v-card-subtitle>
+                </v-col>
+              </v-row>
+              <v-row no-gutters v-if="switch1">
+                <v-col class="pa-1" cols="4" v-for="(imag, i) in 2" :key="i">
+                  <div class="image-pre-variation ma-1">
+                    <div v-if="imageData.length <= 0">
+                      <v-icon> mdi-plus </v-icon>
+                    </div>
+                    <div class="pre-variation" v-if="imageData.length > 0">
+                      <img :src="imageData" />
+                    </div>
+                    <label class="cover-image-input" for="file"></label>
+                    <v-btn
+                      v-if="imageData.length > 0"
+                      icon
+                      small
+                      class="btn"
+                      @click="imageData = ''"
+                    >
+                      <v-icon> mdi-close </v-icon>
+                    </v-btn>
+                    <input
+                      @change="previewImage"
+                      accept="image/*"
+                      type="file"
+                      id="file"
+                      class="custom-file-input"
+                    />
+                    <span class="text mr-2"> الألوان </span>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-sheet>
+          </v-col>
+          <!-- Size or Edit  -->
+          <v-col class="pa-1" cols="12" md="4" lg="4">
+            <v-sheet
+              class="overflow-y-auto"
+              color="grey lighten-3"
+              min-height="200"
+            >
+              <v-row no-gutters class="pa-1">
+                <span class="text mr-2"> المقاس </span>
+                <v-spacer></v-spacer>
+                <v-btn color="blue" class="text" text>تعديل</v-btn>
+              </v-row>
+              <v-divider></v-divider>
+              <v-row no-gutters class="pa-2">
+                <v-col class="pa-1" cols="3" v-for="i in 2" :key="i">
+                  <v-card flat class="text pa-1 text-center"> الألوان </v-card>
+                </v-col>
+                <v-col class="pa-1" cols="3">
+                  <v-card
+                    color="transparent"
+                    flat
+                    class="text pa-1 text-center"
+                  >
+                    أكثر
+                    <v-icon color="blue">mdi-plus</v-icon>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-sheet>
+      <!-- set price individually Big Screen   -->
+      <v-sheet rounded="lg" class="ma-2 py-2">
+        <v-card-title class="add-text pa-2">
+          تحديد السعر بشكل فردي
+          <span class="red--text ml-1">*</span>
+          <v-spacer></v-spacer>
+        </v-card-title>
+        <v-row
+          style="border-bottom: 1px solid #eee"
+          align="center"
+          class="pa-2 grey lighten-4"
+          no-gutters
+        >
+          <v-col class="px-2 text-center">النوع</v-col>
+          <v-col class="px-2 text-center"> السعر </v-col>
+          <v-col class="px-2 text-center"> مخزون </v-col>
+        </v-row>
+        <v-row
+          style="border-bottom: 1px solid #eee"
+          align="center"
+          class="pa-2"
+          no-gutters
+        >
+          <v-col>اسود</v-col>
+          <v-col class="px-2">
+            <v-text-field
+              outlined
+              hide-details
+              dense
+              type="number"
+              suffix="ريال"
+            ></v-text-field>
+          </v-col>
+          <v-col class="px-2">
+            <v-text-field
+              outlined
+              hide-details
+              dense
+              type="number"
+              suffix="قطعة"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+        <v-row
+          style="border-bottom: 1px solid #eee"
+          align="center"
+          class="pa-2"
+          no-gutters
+        >
+          <v-col>اسود</v-col>
+          <v-col class="px-2">
+            <v-text-field
+              outlined
+              hide-details
+              dense
+              type="number"
+              suffix="ريال"
+            ></v-text-field>
+          </v-col>
+          <v-col class="px-2">
+            <v-text-field
+              outlined
+              hide-details
+              dense
+              type="number"
+              suffix="قطعة"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+        <v-row align="center" class="pa-2" no-gutters>
+          <v-col>اسود</v-col>
+          <v-col class="px-2">
+            <v-text-field
+              outlined
+              hide-details
+              dense
+              type="number"
+              suffix="ريال"
+            ></v-text-field>
+          </v-col>
+          <v-col class="px-2">
+            <v-text-field
+              outlined
+              hide-details
+              dense
+              type="number"
+              suffix="قطعة"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+      </v-sheet>
+      <v-sheet rounded="lg" class="ma-2 py-2">
+        <v-card-title class="add-text pa-2">
+          تحديد السعر والمخزون للجميع
+          <span class="red--text ml-1">*</span>
+          <v-spacer></v-spacer>
+        </v-card-title>
+        <v-row
+          style="border-bottom: 1px solid #eee"
+          align="center"
+          class="pa-2"
+          no-gutters
+        >
+          <v-col md="6" lg="6" sm="6" cols="12" class="pa-2">
+            <v-text-field
+              outlined
+              hide-details
+              dense
+              placeholder="ريال السعر ( 99999.99 ~ 0.10 )"
+              type="number"
+              suffix="ريال"
+            ></v-text-field>
+          </v-col>
+          <v-col md="6" lg="6" sm="6" cols="12" class="pa-2">
+            <v-text-field
+              outlined
+              hide-details
+              placeholder="المخزون ( 10000 ~ 1 )"
+              dense
+              type="number"
+              suffix="قطعة"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+      </v-sheet>
       <!-- Save Or cancel -->
       <v-card-actions class="justify-center pa-4" v-if="step === 3">
         <v-btn
@@ -472,8 +458,9 @@ export default {
   data() {
     return {
       // checkbox
+      switch1: false,
       ProductName: "",
-      ProductNumber: "",
+      ProductDescription: "",
       color: false,
       size: false,
       model: false,
@@ -1270,35 +1257,21 @@ export default {
   font-family: $fontfamliy3 !important;
   letter-spacing: 0;
   width: 100%;
-  min-height: calc(100vh - 128px);
 
   .add-text {
+    font-family: $fontfamliy3 !important;
     font-size: 20px;
-    line-height: 1.5;
-    color: $fontcolorlinks;
+    color: $fontcolor;
     letter-spacing: 0;
-    span {
-      font-size: 25px !important;
+    @media (max-width: 700px) {
+      font-size: 17px;
+      span {
+        font-size: 25px;
+      }
     }
-  }
-  .categories-text {
-    font-size: 14px;
-    height: 20px;
-    color: $fontcolorlinks;
-    letter-spacing: 0;
-    font-family: $fontfamliy3 !important;
-  }
-
-  .next-btn {
-    font-size: 18px;
-    color: $fontcolorlinks;
-    letter-spacing: 0;
-    font-weight: 500;
-    font-family: $fontfamliy3 !important;
-  }
-
-  ::v-deep .v-input__slot {
-    padding: 0 10px !important;
+    span {
+      font-size: 30px;
+    }
   }
   ::v-deep .theme--light.v-list-item--active:before {
     opacity: 0;
@@ -1308,9 +1281,9 @@ export default {
     margin: 0 auto;
     // box-shadow: 0 0 0 1px rgb(207, 207, 207);
     // border: 1.5px #fc624d;
-    box-shadow: 0 0 0 1px #fc624d;
+    // box-shadow: 0 0 0 1px #fc624d;
     position: relative;
-    border-radius: 5px;
+    // border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1331,26 +1304,26 @@ export default {
       align-items: center;
       flex-direction: column;
     }
-    span {
-      font-size: 14px;
-      color: $fontcolorlinks;
-      letter-spacing: 0;
-      font-weight: 600;
-      font-family: $fontfamliy3 !important;
-      margin-top: 5px;
-      display: block;
-      text-align: center;
-    }
+  }
+  .photo-text {
+    font-size: 14px;
+    color: $fontcolor;
+    letter-spacing: 0;
+    font-weight: 600;
+    font-family: sans-serif !important;
+    display: block !important;
+    text-align: center;
+    padding: 5px 5px;
   }
   .preview {
     width: 100%;
     height: 100%;
-    box-shadow: 0 0 0 2px rgb(255, 255, 255);
+    // box-shadow: 0 0 0 2px rgb(255, 255, 255);
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
-    background-color: rgb(255, 255, 255);
+    // border-radius: 5px;
+    // background-color: rgb(255, 255, 255);
     img {
       max-width: 80%;
       max-height: 100%;
@@ -1384,7 +1357,11 @@ export default {
   display: none;
 }
 ::v-deep .theme--light.v-input input::placeholder {
-  color: black;
+  color: rgb(122, 122, 122);
+  font-size: 14px !important;
+}
+::v-deep .v-text-field__suffix {
+  font-size: 14px !important;
 }
 
 .titel {
@@ -1392,23 +1369,82 @@ export default {
   letter-spacing: 0;
   font-size: 18px !important;
 }
-.card-wrap {
-  min-height: calc(100vh - 180px);
-  @media (max-width: 600px) {
-    min-height: calc(100vh - 110px);
-  }
+.text-cunt {
+  font-size: 17px !important;
+  color: $fontcolorlinks;
+  letter-spacing: 0.5px;
+  font-weight: 600 !important;
+  font-family: sans-serif !important;
+}
+.text {
+  letter-spacing: 0px;
+  font-weight: 500 !important;
+  font-family: $fontfamliy3 !important;
 }
 //
 ::v-deep .v-text-field.v-text-field--solo.v-input--dense > .v-input__control {
   min-height: 30px !important;
 }
-::v-deep .v-text-field.v-text-field--solo .v-input__control input {
-  text-align: center;
-}
+// ::v-deep .v-text-field.v-text-field--solo .v-input__control input {
+//   text-align: center;
+// }
 /* Chrome, Safari, Edge, Opera */
 ::v-deep input::-webkit-outer-spin-button,
 ::v-deep input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+// variation  imag
+.image-pre-variation {
+  height: 100px;
+  margin: 0 auto;
+  // box-shadow: 0 0 0 1px rgb(207, 207, 207);
+  // border: 1.5px #fc624d;
+  background-color: #fc624d;
+  position: relative;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .v-icon {
+    font-size: 23px;
+    color: #ffffff;
+  }
+  .v-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    color: $color-2 !important;
+  }
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  span {
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 0;
+    font-weight: 600;
+    font-family: $fontfamliy3 !important;
+    margin-top: 5px;
+    display: block;
+    text-align: center;
+  }
+}
+.pre-variation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  img {
+    max-width: 80%;
+    max-height: 100%;
+  }
 }
 </style>
