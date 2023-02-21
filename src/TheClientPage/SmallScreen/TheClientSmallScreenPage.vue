@@ -42,7 +42,7 @@
               </v-btn>
             </v-badge>
             <v-btn depressed width="36" height="36" fab class="btn-noti-cart">
-              <v-icon size="30">mdi-dots-vertical </v-icon>
+              <v-icon >mdi-dots-vertical </v-icon>
             </v-btn>
           </v-row>
         </v-row>

@@ -32,11 +32,11 @@
                   params: { Cart: 'سلة التسوق ' },
                 }"
                 depressed
-                class="btn-noti-cart"
+                class="btn-noti-cart deep-orange lighten-5"
                 icon
                 large
               >
-                <v-icon class="btn-noti-cart-icon">mdi-cart-outline</v-icon>
+                <v-icon class="btn-noti-cart-icon">mdi-cart</v-icon>
               </v-btn>
             </v-badge>
             <!-- notification btn -->
@@ -130,6 +130,7 @@
         </v-card>
       </v-row>
     </v-container>
+    <!-- small screen nave  -->
     <v-card class="hidden-md-and-up supporter" flat></v-card>
     <v-app-bar
       class="hidden-md-and-up"
@@ -140,7 +141,7 @@
       style="z-index: 17"
     >
       <v-row class="px-2" no-gutters align="center">
-        <v-col>
+        <v-col cols="7">
           <v-dialog
             v-model="dialog"
             fullscreen
@@ -237,8 +238,9 @@
             </v-card>
           </v-dialog>
         </v-col>
+        <v-spacer></v-spacer>
         <v-col cols="4">
-          <v-row justify="end" no-gutters class="pa-0 pt-1">
+          <v-row justify="space-around" no-gutters class="pa-0 pt-1">
             <!-- cart shopping  -->
 
             <v-badge bordered left overlap content="425" class="">
@@ -248,14 +250,15 @@
                   params: { Cart: 'سلة التسوق ' },
                 }"
                 depressed
-                class="btn-noti-cart mx-0"
-                icon
+                class="btn-noti-cart deep-orange lighten-5"
+                fab
+                small
               >
                 <v-icon>mdi-cart</v-icon>
               </v-btn>
             </v-badge>
             <!-- notification btn -->
-            <v-badge bordered left overlap content="445" class="mr-4">
+            <v-badge bordered left overlap content="445" class="">
               <v-btn
                 :to="{
                   name: 'SmallScreenNotification',
@@ -263,10 +266,11 @@
                 }"
                 exact-path
                 depressed
-                class="btn-noti-cart"
-                icon
+                class="btn-noti-cart deep-orange lighten-5"
+                fab
+                small
               >
-                <v-icon size="28"> mdi-wechat </v-icon>
+                <v-icon> mdi-bell </v-icon>
               </v-btn>
             </v-badge>
           </v-row>
@@ -422,9 +426,6 @@ a {
 .btn-noti-cart {
   color: $color-2 !important;
   // background-color: #eee;
-  @media (max-width: 600px) {
-    font-size: 25px !important;
-  }
 }
 ::v-deep .theme--light.v-badge .v-badge__badge:after {
   border-width: 0;

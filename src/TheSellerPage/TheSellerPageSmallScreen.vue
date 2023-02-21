@@ -57,11 +57,11 @@
                 class="btn-noti-cart"
                 fab
               >
-                <v-icon size="30"> mdi-bell </v-icon>
+                <v-icon > mdi-bell </v-icon>
               </v-btn>
             </v-badge>
             <v-btn depressed width="36" height="36" fab class="btn-noti-cart">
-              <v-icon size="30">mdi-dots-vertical </v-icon>
+              <v-icon >mdi-dots-vertical </v-icon>
             </v-btn>
           </v-row>
         </v-row>
@@ -483,7 +483,6 @@ export default {
   color: $color-2 !important;
   // background-color: #eee;
   @media (max-width: 600px) {
-    font-size: 25px !important;
   }
 }
 ::v-deep .theme--light.v-badge .v-badge__badge:after {
