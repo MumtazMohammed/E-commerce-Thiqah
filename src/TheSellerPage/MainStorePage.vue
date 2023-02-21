@@ -218,7 +218,6 @@
 <script>
 import ShowRoomUserCars from "../data-json/All-Car.json";
 import TheSellerPageSmallScreen from "./TheSellerPageSmallScreen.vue";
-
 // import VueApexCharts from "vue-apexcharts";
 export default {
   name: "MainStorePage",

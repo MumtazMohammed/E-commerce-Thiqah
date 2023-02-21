@@ -1,32 +1,52 @@
 <template>
   <div class="client-store">
+    <!-- client Card -->
     <v-card
-      style="background: linear-gradient(180deg, #ffccbc 0%, #f8f9fa 100%)"
+      style="background: linear-gradient(180deg, #ffccbc 0%, #eee 100%)"
       flat
       class="mx-auto grey"
       tile
     >
       <v-container>
-        <v-row align="center" no-gutters class="fill-height">
+        <!-- client Card -->
+        <v-row align="center" justify="center" no-gutters class="fill-height">
           <v-avatar class="profile" color="grey" size="60">
             <v-img
               src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
             ></v-img>
           </v-avatar>
-          <v-col cols="8">
+          <v-col cols="7" md="10" sm="9" lg="10">
             <v-list-item color="grey">
               <v-list-item-content>
                 <v-list-item-title class="text text-h6"
-                  >محمد أمين</v-list-item-title
-                >
+                  >محمد أمي
+                </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-col>
-          <v-spacer></v-spacer>
-          <v-btn icon class="white">
-            <v-icon color="#fc624d">mdi-dots-horizontal </v-icon>
-          </v-btn>
+          <v-row justify="space-around" no-gutters>
+            <v-badge bordered left overlap content="3">
+              <v-btn
+                :to="{
+                  name: 'SmallScreenNotification',
+                  params: { Notfication: 'الأشعارات' },
+                }"
+                exact-path
+                depressed
+                width="36"
+                height="36"
+                class="btn-noti-cart"
+                fab
+              >
+                <v-icon> mdi-bell </v-icon>
+              </v-btn>
+            </v-badge>
+            <v-btn depressed width="36" height="36" fab class="btn-noti-cart">
+              <v-icon size="30">mdi-dots-vertical </v-icon>
+            </v-btn>
+          </v-row>
         </v-row>
+        <!-- quick information  -->
         <v-row align="center" no-gutters class="fill-height mt-6">
           <v-col v-for="(First, i) in FirstAccess" :key="i">
             <v-card-text
@@ -42,7 +62,9 @@
       </v-container>
     </v-card>
     <v-container class="py-0">
-      <v-card flat class="pa-2 mb-2">
+      <!-- order  -->
+
+      <v-card flat class="pa-2 my-2">
         <v-card-text class="pt-2 card-titel"> طلبياتي </v-card-text>
         <v-row align="center" no-gutters class="fill-height">
           <v-col class="px-1" v-for="(Second, i) in SecondAccess" :key="i">
@@ -74,7 +96,8 @@
           </v-col>
         </v-row>
       </v-card>
-      <v-card flat class="pa-2 mb-2">
+      <!-- row for card and other  -->
+      <v-card flat class="pa-2 my-2">
         <v-row align="center" no-gutters class="fill-height">
           <v-col class="px-1">
             <v-card
@@ -126,9 +149,10 @@
           </v-col>
         </v-row>
       </v-card>
-      <v-card flat class="pa-2 mb-2">
+      <!-- wallet  -->
+      <v-card flat class="pa-2 my-2">
         <v-card-text class="pt-2 card-titel">
-          محفظتي
+          رصيدي
           <v-icon size="22" color="#fc624d" class="mr-1">mdi-wallet</v-icon>
         </v-card-text>
         <v-row align="center" no-gutters class="fill-height">
@@ -176,35 +200,8 @@
           </v-col>
         </v-row>
       </v-card>
-      <v-row no-gutters class="mb-3">
-        <v-col class="pl-1">
-          <v-card flat color="deep-purple lighten-1">
-            <v-row justify="center" no-gutters class="fill-height">
-              <span class="card-points-vou-cunt">2</span>
-            </v-row>
-            <v-card-title
-              style="height: 30px"
-              class="pa-0 card-points-vou justify-center"
-            >
-              نقطة
-            </v-card-title>
-          </v-card>
-        </v-col>
-        <v-col class="pr-1">
-          <v-card color="indigo lighten-1" flat>
-            <v-row justify="center" no-gutters class="fill-height">
-              <span class="card-points-vou-cunt">2</span>
-            </v-row>
-            <v-card-title
-              style="height: 30px"
-              class="pa-0 card-points-vou justify-center"
-            >
-              قسيمة
-            </v-card-title>
-          </v-card>
-        </v-col>
-      </v-row>
-      <v-card flat class="pa-2 mb-2">
+      <!-- wallet  -->
+      <v-card flat class="pa-2 my-2">
         <v-row align="center" no-gutters class="fill-height mb-5">
           <v-col class="px-1" v-for="(Fift, i) in FifthhAccess" :key="i">
             <v-row justify="center" no-gutters class="fill-height">
@@ -239,7 +236,7 @@
           </v-col>
         </v-row>
       </v-card>
-      <v-sheet class="mb-2" min-height="200">
+      <v-sheet class="my-2" min-height="200">
         <v-card-text class="card-titel-follow">متابع : </v-card-text>
         <v-row class="px-3" no-gutters>
           <v-col class="pa-1" v-for="i in 18" :key="i" cols="2">
@@ -356,7 +353,7 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .client-store {
-  background-color: $color-background;
+  background-color: #eee;
   width: 100%;
   min-height: 100vh;
   @media (max-width: 960px) {
@@ -385,17 +382,30 @@ export default {
   font-weight: 500;
   font-size: 17px;
 }
-.card-points-vou {
-  letter-spacing: 0 !important;
-  font-family: $fontfamliy3 !important;
+
+::v-deep span.v-badge__badge {
   color: #fff !important;
-  font-size: 17px !important;
-  font-weight: 500;
+  background-color: $color-2 !important;
+  // min-width: 15px;
+  height: 18px;
+  // padding: 5px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  border: 0 !important;
+  // font-size: 13px !important;
+  @media (max-width: 600px) {
+    font-size: 11px !important;
+  }
 }
-.card-points-vou-cunt {
-  font-family: sans-serif !important;
-  color: #fff !important;
-  font-size: 23px !important;
-  font-weight: 700;
+::v-deep .theme--light.v-badge .v-badge__badge:after {
+  border: 0 !important;
+}
+.btn-noti-cart {
+  color: $color-2 !important;
+  // background-color: #eee;
+  @media (max-width: 600px) {
+    font-size: 20px !important;
+  }
 }
 </style>

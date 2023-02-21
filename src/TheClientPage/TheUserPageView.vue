@@ -25,7 +25,7 @@ export default {
 @import "../scss/mixin";
 #inspire {
   width: 100%;
-  min-height: 80vh;
+  min-height: 100vh;
   background-color: #eee;
 }
 </style>

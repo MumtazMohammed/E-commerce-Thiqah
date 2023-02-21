@@ -1,7 +1,7 @@
 <template>
   <div class="client-store">
     <v-card
-      style="background: linear-gradient(180deg, #ff5722 0%, #eee 100%)"
+      style="background: linear-gradient(180deg, #ff7043 0%, #fbe9e7 80%)"
       flat
       class="mx-auto grey"
       tile
@@ -43,26 +43,27 @@
             </v-list-item>
           </v-col>
           <v-spacer></v-spacer>
-          <v-badge bordered left overlap content="3">
-            <v-btn
-              :to="{
-                name: 'SmallScreenNotification',
-                params: { Notfication: 'الأشعارات' },
-              }"
-              exact-path
-              depressed
-              width="36"
-              height="36"
-              class="btn-noti-cart"
-              fab
-            >
-              <v-icon size="30"> mdi-wechat </v-icon>
+          <v-row justify="space-around" no-gutters>
+            <v-badge bordered left overlap content="3">
+              <v-btn
+                :to="{
+                  name: 'SmallScreenNotification',
+                  params: { Notfication: 'الأشعارات' },
+                }"
+                exact-path
+                depressed
+                width="36"
+                height="36"
+                class="btn-noti-cart"
+                fab
+              >
+                <v-icon size="30"> mdi-bell </v-icon>
+              </v-btn>
+            </v-badge>
+            <v-btn depressed width="36" height="36" fab class="btn-noti-cart">
+              <v-icon size="30">mdi-dots-vertical </v-icon>
             </v-btn>
-          </v-badge>
-          <v-spacer></v-spacer>
-          <v-btn depressed width="36" height="36" fab class="btn-noti-cart">
-            <v-icon size="30">mdi-dots-horizontal </v-icon>
-          </v-btn>
+          </v-row>
         </v-row>
         <v-row align="center" no-gutters class="fill-height mt-6">
           <v-col v-for="(First, i) in FirstAccess" :key="i">
@@ -81,8 +82,8 @@
     </v-card>
     <v-container class="pt-0">
       <!-- order  -->
-      <v-card rounded="lg" flat class="pa-2 my-3">
-        <v-card-text class="pa-3 card-titel"> طلبات العملاء </v-card-text>
+      <!-- <v-card rounded="lg" flat class="pa-2 my-3">
+        <v-card-text class="pa-3 card-titel"> الوظائف الأساسية</v-card-text>
         <v-row align="center" no-gutters class="fill-height">
           <v-col class="px-2" v-for="(Second, i) in Order" :key="i">
             <v-card
@@ -112,11 +113,14 @@
             </v-card>
           </v-col>
         </v-row>
-      </v-card>
+      </v-card> -->
       <!-- links   -->
-      <v-card rounded="lg" flat class="pa-2 my-3">
+      <v-card rounded="lg" flat class="pa-1 py-2 mb-3">
+        <v-card-text class="pa-2 pt-0 card-titel">
+          الوظائف الأساسية</v-card-text
+        >
         <v-row align="center" no-gutters class="fill-height">
-          <v-col cols="3" class="px-1" v-for="item in MenuLinks" :key="item">
+          <v-col class="px-1" v-for="item in MenuLinks" :key="item">
             <v-card
               flat
               rounded="lg"
@@ -127,7 +131,31 @@
             >
               <v-row no-gutters class="pa-0 pt-1 justify-center">
                 <v-icon
-                  :class="item.class"
+                  :color="item.class"
+                  class="icon"
+                  v-text="item.icon"
+                ></v-icon>
+              </v-row>
+              <span class="link mt-2" v-text="item.link"></span>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-card>
+      <!-- links   -->
+      <v-card rounded="lg" flat class="pa-1 py-2 my-3">
+        <v-row align="center" no-gutters class="fill-height">
+          <v-col class="px-1" v-for="item in MyStore" :key="item">
+            <v-card
+              flat
+              rounded="lg"
+              class="my-1 menu-card"
+              link
+              exact-path
+              :to="item.RouterName"
+            >
+              <v-row no-gutters class="pa-0 pt-1 justify-center">
+                <v-icon
+                  :color="item.class"
                   class="icon"
                   v-text="item.icon"
                 ></v-icon>
@@ -173,9 +201,14 @@
         </v-row>
       </v-card>
       <!-- second row card  -->
-      <v-card rounded="lg" flat class="pa-2 my-3">
-        <v-row align="center" no-gutters class="fill-height mb-5">
-          <v-col class="px-1" v-for="(Fift, i) in FifthhAccess" :key="i">
+      <v-card rounded="lg" flat class="pa-2 mt-3">
+        <v-row align="center" no-gutters class="fill-height">
+          <v-col
+            cols="4"
+            class="pa-2"
+            v-for="(Fift, i) in FifthhAccess"
+            :key="i"
+          >
             <v-row justify="center" no-gutters class="fill-height">
               <v-icon
                 :style="Fift.flib"
@@ -185,41 +218,9 @@
               ></v-icon>
             </v-row>
             <v-card-text
-              style="height: 45px"
               class="pa-0 mt-1 text text-center"
               v-text="Fift.title"
             ></v-card-text>
-          </v-col>
-        </v-row>
-      </v-card>
-      <!-- wallet  -->
-      <v-card rounded="lg" flat class="pa-2 my-3 mb-1">
-        <v-card-text class="pt-2 card-titel">
-          محفظتي
-          <v-icon size="22" color="#fc624d" class="mr-1">mdi-wallet</v-icon>
-        </v-card-text>
-        <v-row align="center" no-gutters class="fill-height">
-          <v-col class="px-1 text-center">
-            <v-row justify="center" no-gutters class="fill-height">
-              <span>0.00</span>
-            </v-row>
-            <v-card-text class="pa-0 mt-1 text text-center"> ريال </v-card-text>
-          </v-col>
-          <v-col class="px-1">
-            <v-row justify="center" no-gutters class="fill-height">
-              <span>2</span>
-            </v-row>
-            <v-card-text class="pa-0 mt-1 text text-center">
-              الحولات المعلقة
-            </v-card-text>
-          </v-col>
-          <v-col class="px-1">
-            <v-row justify="center" no-gutters class="fill-height">
-              <span>20</span>
-            </v-row>
-            <v-card-text class="pa-0 mt-1 text text-center">
-              السجل
-            </v-card-text>
           </v-col>
         </v-row>
       </v-card>
@@ -266,57 +267,85 @@ export default {
       ],
       MenuLinks: [
         {
-          link: "المنتجات",
-          icon: "mdi-package-variant",
-          class: "MyProduct",
-          RouterName: "/StoreProducts",
-        },
-        {
-          link: "المبيعات",
-          icon: "mdi-storefront",
-          class: "MySales",
-          RouterName: "/MyOrder",
-        },
-        {
-          link: "الدخل",
-          icon: "mdi-cash",
-          class: "MyIncome",
-          RouterName: "/StoreIncome",
-        },
-        {
-          link: "رؤى الأعمال",
-          icon: "mdi-finance",
-          class: "MyBusinessInsights",
-          RouterName: "/BusinessInsights",
-        },
-        {
-          link: "تسويق",
-          icon: "mdi-percent-circle",
-          class: "MyMarketingCentre",
-          RouterName: "/Marketing",
-        },
-        {
-          link: "المتجر الخاص بك",
-          icon: "mdi-store-edit-outline",
-          class: "MyStore",
-          RouterName: "/StoreProfile",
-        },
-        {
-          link: "إضافة منتج ",
-          icon: "mdi-plus",
-          class: "MyMss",
+          link: "إضافة  ",
+          icon: "mdi-basket-plus",
+          class: "indigo accent-3",
           RouterName: "/AddNewProducts",
         },
         {
-          link: "إعدادات المتجر",
-          icon: "mdi-cog-outline",
-          class: "ShopSettings",
+          link: "المنتجات",
+          icon: "mdi-basket",
+          class: "yellow darken-4",
+          RouterName: "/StoreProducts",
+        },
+        {
+          link: "الطلبات",
+          icon: "mdi-clipboard-text",
+          class: "yellow darken-3",
+          RouterName: "/MyOrder",
+        },
+        {
+          link: "التقييمات",
+          icon: "mdi-comment-text",
+          class: "light-blue accent-4",
+          RouterName: "/MyOrder",
+        },
+        {
+          link: "رصيدي",
+          icon: "mdi-wallet",
+          class: "green accent-4",
+          RouterName: "/StoreIncome",
+        },
+        // {
+        //   link: "رؤى الأعمال",
+        //   icon: "mdi-finance",
+        //   class: "MyBusinessInsights",
+        //   RouterName: "/BusinessInsights",
+        // },
+        // {
+        //   link: "تسويق",
+        //   icon: "mdi-percent-circle",
+        //   class: "MyMarketingCentre",
+        //   RouterName: "/Marketing",
+        // },
+        // {
+        //   link: "المتجر الخاص بك",
+        //   icon: "mdi-store-edit-outline",
+        //   class: "MyStore",
+        //   RouterName: "/StoreProfile",
+        // },
+
+        // {
+        //   link: "إعدادات المتجر",
+        //   icon: "mdi-cog-outline",
+        //   class: "ShopSettings",
+        //   RouterName: "/StoreProfile",
+        // },
+      ],
+      MyStore: [
+        {
+          link: "رؤى الأعمال",
+          icon: "mdi-chart-line",
+          class: "indigo accent-2",
+          RouterName: "/BusinessInsights",
+        },
+
+        {
+          link: "المتجر  ",
+          icon: "mdi-store-edit-outline",
+          class: "pink lighten-1",
+          RouterName: "/StoreProfile",
+        },
+        {
+          link: "إعدادات ",
+          icon: "mdi-cog",
+          class: "grey darken-2",
           RouterName: "/StoreProfile",
         },
       ],
       FifthhAccess: [
         {
-          title: "أصنع عضوية للمتجر",
+          title: " عضوية للمتجر",
           cunt: "mdi-card-account-details-star-outline ",
         },
         {
@@ -328,7 +357,7 @@ export default {
           cunt: "mdi-cellphone-arrow-down mdi-rotate-180 ",
         },
         {
-          title: "إعلن منتجك لدينا ",
+          title: "إعلن  لدينا ",
           cunt: "mdi-flash",
         },
         {
@@ -387,7 +416,7 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .client-store {
-  background-color: #eee;
+  background-color: #fbe9e7;
   width: 100%;
   min-height: 100vh;
 }
@@ -404,8 +433,9 @@ export default {
 .card-titel {
   letter-spacing: 0 !important;
   font-family: $fontfamliy3 !important;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 550;
+  font-size: 16px;
+  color: $fontcolor !important;
 }
 .card-titel-follow {
   letter-spacing: 0 !important;
@@ -431,30 +461,6 @@ export default {
   letter-spacing: 0 !important;
   padding: 5px;
 }
-.MyProduct {
-  background: linear-gradient(30deg, #536dfe 50%, #8c9eff 100%);
-}
-.MySales {
-  background: linear-gradient(30deg, #f57c00 50%, #fb8c00 100%);
-}
-.MyBusinessInsights {
-  background: linear-gradient(30deg, #00b0ff 50%, #40c4ff 100%);
-}
-.MyMarketingCentre {
-  background: linear-gradient(30deg, #dd2c00 50%, #ff3d00 100%);
-}
-.MyIncome {
-  background: linear-gradient(30deg, #43a047 50%, #66bb6a 100%);
-}
-.ShopSettings {
-  background: linear-gradient(30deg, #757575 50%, #bdbdbd 100%);
-}
-.MyStore {
-  background: linear-gradient(30deg, #ab47bc 50%, #ce93d8 100%);
-}
-.MyMss {
-  background: linear-gradient(30deg, #d81b60 50%, #f48fb1 100%);
-}
 
 .link {
   font-size: 14px !important;
@@ -465,13 +471,13 @@ export default {
   justify-content: center;
   //   align-items: center;
   text-align: center;
-  height: 40px;
+  // height: 40px;
 }
 .icon {
   font-size: 30px !important;
-  border-radius: 50%;
-  padding: 5px;
-  color: #fff !important;
+  // border-radius: 50%;
+  // padding: 5px;
+  // color: #fff !important;
 }
 .btn-noti-cart {
   color: $color-2 !important;

@@ -3,7 +3,7 @@
     <NavBar />
     <div class="car-reviw">
       <v-container class="pa-0">
-        <v-row no-gutters class="mt-md-2 mt-lg-2">
+        <v-row no-gutters class="">
           <v-col cols="12">
             <ProductImages />
           </v-col>

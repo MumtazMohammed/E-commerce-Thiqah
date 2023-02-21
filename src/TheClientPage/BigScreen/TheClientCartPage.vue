@@ -5,7 +5,7 @@
         <v-icon right class="link-icon"> mdi-cart-plus </v-icon>
         سلة التسوق
       </v-card-title>
-      <v-sheet height="600" class="overflow-y-auto pt-1">
+      <v-sheet height="640" class="overflow-y-auto pt-1">
         <v-row no-gutters class="">
           <v-col cols="12" md="8" lg="8" sm="8" xl="8">
             <v-row no-gutters>
