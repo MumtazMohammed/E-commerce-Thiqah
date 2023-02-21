@@ -10,13 +10,12 @@
     <CompaniesCardAdv />
     <YouMightLikeIt />
     <FixedBottomNav class="hidden-md-and-up" />
-    <Footer />
   </v-main>
 </template>
 
 <script>
 import FixedBottomNav from "../NavBar/FixedBottomNav.vue";
-import NavBar from "@/NavBar/TheNavBar.vue";
+import NavBar from "../NavBar/TheNavBar.vue";
 import TheCategorieSmallScreen from "../A-Home/TheCategorieSmallScreen.vue";
 import OutAdvertisement from "@/Advertisement/OutAdvertisement.vue";
 import BestOffer from "../A-Home/BestOffer.vue";
@@ -29,7 +28,6 @@ import YouMightLikeIt from "../A-Home/YouMightLikeIt.vue";
 import DateCar from "../data-json/car-data.json";
 import AllDateCar from "../data-json/All-Car.json";
 import CarType from "../data-json/CarType.json";
-import Footer from "../footer/footer.vue";
 
 const components = {
   OutAdvertisement,
@@ -42,7 +40,6 @@ const components = {
   YouMightLikeIt,
   NavBar,
   FixedBottomNav,
-  Footer,
 };
 export default {
   name: "Home",
