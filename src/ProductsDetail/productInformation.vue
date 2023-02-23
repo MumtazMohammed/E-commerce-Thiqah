@@ -1,16 +1,6 @@
 <template>
   <!-- this component will be under the image  -->
   <div class="ContactSeller">
-    <!-- here the product name  -->
-    <v-col cols="12" class="pa-1">
-      <p class="ProductName d-block text-truncate ma-0">
-        {{ getCarInfo.company }} {{ getCarInfo.name }}
-        {{ getCarInfo.modle }}
-      </p>
-    </v-col>
-    <!-- <v-col cols="12" class="py-2">
-      <ShareSaveReport />
-    </v-col> -->
     <!-- here the Price Info   -->
     <v-row no-gutters align="center" justify="space-between" class="pa-1">
       <p class="ma-0 price">
@@ -29,9 +19,19 @@
       <v-spacer></v-spacer>
       <v-chip class="discount-tag mx-1 justify-center">
         <span>9%</span>
-        <span>خصم</span>
       </v-chip>
     </v-row>
+    <!-- here the product name  -->
+    <v-col cols="12" class="pa-1">
+      <p class="ProductName d-block text-truncate ma-0">
+        {{ getCarInfo.company }} {{ getCarInfo.name }}
+        {{ getCarInfo.modle }}
+      </p>
+    </v-col>
+    <!-- <v-col cols="12" class="py-2">
+      <ShareSaveReport />
+    </v-col> -->
+
     <!-- here are the rating and sales Info   -->
     <v-row align="center" no-gutters class="pa-1">
       <p class="ma-0">التقيمات</p>
@@ -203,7 +203,7 @@ export default {
 .ProductName {
   font-family: $fontfamliy3 !important;
   color: $fontcolor !important;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0 !important;
   font-size: 23px !important;
   width: 100%;
@@ -265,11 +265,7 @@ p {
     font-size: 13px;
   }
 }
-.discount-tag span:last-child {
-  font-family: $fontfamliy3 !important;
-  margin-right: 3px;
-  color: #fff !important;
-}
+
 ::v-deep ::v-deep .theme--light.v-btn:before {
   background-color: rgba(255, 255, 255, 0);
   transition: all 0.3s 0s ease;

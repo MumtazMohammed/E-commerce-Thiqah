@@ -49,14 +49,12 @@
         <!-- quick information  -->
         <v-row align="center" no-gutters class="fill-height mt-6">
           <v-col v-for="(First, i) in FirstAccess" :key="i">
-            <v-card-text
-              class="pa-0 text-center"
-              v-text="First.cunt"
-            ></v-card-text>
-            <v-card-text
-              class="pa-0 mt-1 text text-center"
-              v-text="First.title"
-            ></v-card-text>
+            <v-card-text class="pa-0 text-center">
+              {{ First.cunt }}
+            </v-card-text>
+            <v-card-text class="pa-0 mt-1 text text-center">
+              {{ First.title }}
+            </v-card-text>
           </v-col>
         </v-row>
       </v-container>
@@ -83,14 +81,16 @@
                   class="pa- text-center"
                   color="#fc624d"
                   size="27"
-                  v-text="Second.cunt"
-                ></v-icon>
+                >
+                  {{ Second.cunt }}
+                </v-icon>
               </v-row>
               <v-card-text
                 style="height: 45px"
                 class="pa-0 mt-2 text text-center"
-                v-text="Second.title"
-              ></v-card-text>
+              >
+                {{ Second.title }}
+              </v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -204,17 +204,13 @@
         <v-row align="center" no-gutters class="fill-height mb-5">
           <v-col class="px-1" v-for="(Fift, i) in FifthhAccess" :key="i">
             <v-row justify="center" no-gutters class="fill-height">
-              <v-icon
-                :style="Fift.flib"
-                color="grey darken-2"
-                size="27"
-                v-text="Fift.cunt"
-              ></v-icon>
+              <v-icon :style="Fift.flib" color="grey darken-2" size="27">
+                {{ Fift.cunt }}
+              </v-icon>
             </v-row>
-            <v-card-text
-              class="pa-0 mt-1 text text-center"
-              v-text="Fift.title"
-            ></v-card-text>
+            <v-card-text class="pa-0 mt-1 text text-center"
+              >{{ Fift.title }}
+            </v-card-text>
           </v-col>
         </v-row>
         <v-row align="center" no-gutters class="fill-height">
@@ -225,13 +221,13 @@
                 class="pa- text-center"
                 color="grey darken-2"
                 size="27"
-                v-text="Sixth.cunt"
-              ></v-icon>
+              >
+                {{ Sixth.cunt }}
+              </v-icon>
             </v-row>
-            <v-card-text
-              class="pa-0 mt-1 text text-center"
-              v-text="Sixth.title"
-            ></v-card-text>
+            <v-card-text class="pa-0 mt-1 text text-center">
+              {{ Sixth.title }}
+            </v-card-text>
           </v-col>
         </v-row>
       </v-card>

@@ -84,7 +84,7 @@
                     <small class="text-truncate">ريال</small>
                   </strong>
                   <!-- if the product contain any promotion -->
-                  <v-card-actions class="py-1 px-0">
+                  <v-card-actions class="py-1 px-1">
                     <!-- free delivery  -->
                     <span class="span-text">
                       <!-- <v-icon>mdi-moped</v-icon> -->
@@ -200,8 +200,7 @@ export default {
   }
   .span-text {
     font-family: $fontfamliy3 !important;
-    font-size: 12px !important;
-    border-radius: 2px;
+    font-size: 11px !important;
     // padding: 2px;
     @media (max-width: 600px) {
       padding: 0px;
@@ -303,23 +302,14 @@ export default {
 }
 @media (max-width: 600px) {
 }
-::v-deep
-  button.v-icon.notranslate.v-icon--link.material-icons.theme--light.orange--text {
-  font-size: 23px !important;
-  padding: 1px !important;
-}
-::v-deep
-  button.v-icon.notranslate.v-icon--link.material-icons.theme--light.orange--text {
-  font-size: 23px !important;
-  padding: 1px !important;
-  @media (max-width: 600px) {
-    font-size: 17px !important;
-  }
-}
+
 ::v-deep
   button.v-icon.notranslate.v-icon--link.material-icons.theme--light.orange--text.text--darken-1 {
-  font-size: 15px !important;
+  font-size: 14px !important;
   padding: 1px !important;
+  @media (max-width: 600px) {
+    font-size: 13px !important;
+  }
 }
 .divider {
   display: block;

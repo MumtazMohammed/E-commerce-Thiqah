@@ -2,7 +2,7 @@
   <div class="product">
     <v-row no-gutters class="justify-space-around">
       <!-- small devices image -->
-      <v-col xs="12" sm="12" md="6" class="hidden-sm-and-up">
+      <v-col xs="12" sm="12" md="6" class="hidden-md-and-up">
         <div>
           <v-dialog
             class="overflow--hidden"
@@ -16,7 +16,7 @@
                 color="transparent"
                 style="overflow: hidden; position: relative"
               >
-                <span large label class="discount-tag">
+                <span large label class="featured-tag">
                   <v-row
                     no-gutters
                     style="
@@ -109,7 +109,7 @@
                 color="transparent"
                 style="overflow: hidden; position: relative"
               >
-                <span large label class="discount-tag">
+                <span large label class="featured-tag">
                   <v-row
                     no-gutters
                     style="
@@ -124,7 +124,7 @@
                 <v-carousel
                   delimiter-icon="mdi-minus"
                   v-model="customerIMageNoBig"
-                  height="460px"
+                  max-height="100%"
                 >
                   <v-carousel-item
                     v-for="(singleImage, x) in getCarInfo.images"
@@ -280,7 +280,7 @@
             grow
           >
             <v-chip
-              color="red "
+              color="red darken-1"
               text-color="white"
               @click="sheet = !sheet"
               class="addToCartAndChat-SmallScreen-btn mx-1 mr-2"
@@ -291,7 +291,6 @@
               "
             >
               إضافة الى السلة
-              <v-icon size="22" right>mdi-cart-plus</v-icon>
             </v-chip>
             <v-chip
               @click="sheet = !sheet"
@@ -302,10 +301,9 @@
                 max-width: 170px;
                 justify-content: center;
               "
-              class="addToCartAndChat-SmallScreen-btn mx-1"
+              class="addToCartAndChat-SmallScreen-btn pa-3 mx-1"
             >
               شراء الان
-              <v-icon size="22" right>mdi-cart-outline</v-icon>
             </v-chip>
             <v-spacer></v-spacer>
             <!-- <v-btn
@@ -322,8 +320,8 @@
               value="nearby"
               class="pa-0"
             >
-              <!-- <span class="mt-1 btn">مراسلة</span> -->
-              <v-icon color="green" size="40">mdi-wechat</v-icon>
+              <span class="mt-1 btn">مراسلة</span>
+              <v-icon color="" size="24">mdi-forum-outline</v-icon>
             </v-btn>
             <v-divider vertical style="height: 80% !important"></v-divider>
             <v-btn
@@ -627,7 +625,7 @@ export default {
   }
 }
 .big-screen-img {
-  @media (max-width: 600px) {
+  @media (max-width: 960px) {
     display: none !important;
   }
 }
@@ -679,8 +677,9 @@ export default {
   }
 }
 ::v-deep .v-chip.v-size--default {
+  border-radius: 20px !important;
   @media (max-width: 960px) {
-    height: 37px;
+    height: 40px;
   }
   // border-radius: 2px !important;
 }
@@ -746,7 +745,7 @@ export default {
 ::v-deep .v-chip-group .v-slide-group__content {
   padding: 4px !important;
 }
-.discount-tag {
+.featured-tag {
   width: 40px;
   height: 60px;
   border-bottom-left-radius: 20px;
@@ -765,7 +764,7 @@ export default {
   background-color: $color-2;
   font-family: $fontfamliy3 !important;
   letter-spacing: 0 !important;
-  z-index: 5;
+  z-index: 2;
   @media (max-width: 600px) {
   }
   .v-icon {
