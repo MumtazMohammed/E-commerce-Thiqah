@@ -265,8 +265,7 @@ export default {
         {
           icon: "mdi-star-circle-outline",
           title: "متميز",
-          describe:
-            "جذب انتباه المتسوقين في منتجاتك وإظهار منتجك في اول البحث",
+          describe: "جذب انتباه المتسوقين في منتجاتك وإظهار منتجك في اول البحث",
         },
         {
           icon: "mdi-ticket-confirmation",

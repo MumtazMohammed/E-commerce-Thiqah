@@ -15,7 +15,7 @@
           v-for="i in 6"
           :key="i"
         >
-          <v-card outlined to="/SellerStorePage" class="mx-auto">
+          <v-card flat to="/SellerStorePage" class="mx-auto">
             <v-img height="150" contain src="../assets/outsrc/adidas-logo.png">
             </v-img>
             <!-- <v-card-text class="py-2" style="position: relative">
@@ -80,7 +80,6 @@ export default {
   background-color: $color-background;
   .tital {
     position: relative;
-    text-align: center;
     font-family: $fontfamliy3;
     font-size: 22px;
     color: $color-2;
@@ -93,50 +92,6 @@ export default {
       font-size: 17px;
     }
   }
-  // .tital::before {
-  //   content: "";
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 0;
-  //   opacity: 0.9;
-  //   background-color: #eee;
-  //   width: 40%;
-  //   height: 2.2px;
-  //   @media (max-width: 850px) {
-  //     width: 35%;
-  //   }
-  //   @media (max-width: 650px) {
-  //     width: 30%;
-  //   }
-  //   @media (max-width: 430px) {
-  //     width: 25%;
-  //   }
-  //   @media (max-width: 360px) {
-  //     width: 20%;
-  //   }
-  // }
-  // .tital::after {
-  //   content: "";
-  //   position: absolute;
-  //   top: 50%;
-  //   right: 0;
-  //   opacity: 0.9;
-  //   background-color: #eee;
-  //   width: 40%;
-  //   height: 2.2px;
-  //   @media (max-width: 850px) {
-  //     width: 35%;
-  //   }
-  //   @media (max-width: 650px) {
-  //     width: 30%;
-  //   }
-  //   @media (max-width: 430px) {
-  //     width: 25%;
-  //   }
-  //   @media (max-width: 360px) {
-  //     width: 20%;
-  //   }
-  // }
 }
 
 .brand {

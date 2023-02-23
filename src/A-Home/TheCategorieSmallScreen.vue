@@ -1,10 +1,7 @@
 <template>
   <div class="Registration py-2">
     <v-container class="py-0 px-1">
-      <div class="tital pa-2">
-        جميع
-        <strong class="mx-1">الفئات</strong>
-      </div>
+      <div class="tital pa-2">الفئات</div>
       <!-- <span class="line my-3 mx-auto"></span> -->
       <swiper class="swiperR" :options="swiperOption">
         <swiper-slide v-for="(Categorie, index) in Categories" :key="index">
@@ -243,7 +240,6 @@ export default {
   }
   .tital {
     position: relative;
-    text-align: center;
     font-family: $fontfamliy3;
     font-size: 22px;
     color: $color-2;
@@ -257,44 +253,6 @@ export default {
       font-size: 17px;
     }
   }
-  // .tital::before {
-  //   content: "";
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 0;
-  //   opacity: 0.9;
-  //   background-color: #eee;
-  //   width: 40%;
-  //   height: 2.2px;
-  //   @media (max-width: 850px) {
-  //     width: 35%;
-  //   }
-  //   @media (max-width: 650px) {
-  //     width: 30%;
-  //   }
-  //   @media (max-width: 430px) {
-  //     width: 26% !important;
-  //   }
-  // }
-  // .tital::after {
-  //   content: "";
-  //   position: absolute;
-  //   top: 50%;
-  //   right: 0;
-  //   opacity: 0.9;
-  //   background-color: #eee;
-  //   width: 40%;
-  //   height: 2.2px;
-  //   @media (max-width: 850px) {
-  //     width: 35%;
-  //   }
-  //   @media (max-width: 650px) {
-  //     width: 30%;
-  //   }
-  //   @media (max-width: 430px) {
-  //     width: 26%;
-  //   }
-  // }
 }
 ::v-deep .v-avatar {
   @media (max-width: 600px) {

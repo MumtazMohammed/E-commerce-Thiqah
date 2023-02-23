@@ -42,7 +42,7 @@
               </v-btn>
             </v-badge>
             <v-btn depressed width="36" height="36" fab class="btn-noti-cart">
-              <v-icon >mdi-dots-vertical </v-icon>
+              <v-icon>mdi-dots-vertical </v-icon>
             </v-btn>
           </v-row>
         </v-row>
@@ -63,7 +63,6 @@
     </v-card>
     <v-container class="py-0">
       <!-- order  -->
-
       <v-card flat class="pa-2 my-2">
         <v-card-text class="pt-2 card-titel"> طلبياتي </v-card-text>
         <v-row align="center" no-gutters class="fill-height">
@@ -96,7 +95,7 @@
           </v-col>
         </v-row>
       </v-card>
-      <!-- row for card and other  -->
+      <!-- row for cart and other  -->
       <v-card flat class="pa-2 my-2">
         <v-row align="center" no-gutters class="fill-height">
           <v-col class="px-1">
@@ -117,13 +116,13 @@
                   class="grey lighten-3"
                   color="#fc624d"
                   size="27"
-                  v-text="`mdi-cart-outline`"
-                ></v-icon>
+                >
+                  mdi-cart-outline
+                </v-icon>
               </v-row>
-              <v-card-text
-                class="pa-0 mt-2 text text-center"
-                v-text="`سلة التسوق `"
-              ></v-card-text>
+              <v-card-text class="pa-0 mt-2 text text-center">
+                سلة التسوق
+              </v-card-text>
             </v-card>
           </v-col>
           <v-col class="px-1" v-for="(Third, i) in ThirdAccess" :key="i">
@@ -139,13 +138,13 @@
                 :class="Third.color"
                 color="white"
                 size="27"
-                v-text="Third.cunt"
-              ></v-icon>
+              >
+                {{ Third.cunt }}
+              </v-icon>
             </v-row>
-            <v-card-text
-              class="pa-0 mt-2 text text-center"
-              v-text="Third.title"
-            ></v-card-text>
+            <v-card-text class="pa-0 mt-2 text text-center">
+              {{ Third.title }}
+            </v-card-text>
           </v-col>
         </v-row>
       </v-card>

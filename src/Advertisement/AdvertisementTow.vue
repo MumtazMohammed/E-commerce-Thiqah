@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="wrap">
+  <v-sheet color="#f8f9fa">
     <!-- advertisement  -->
     <v-container class="pa-2 pa-md-0 pa-lg-0 pa-sm-1">
       <!-- TheAdv -->

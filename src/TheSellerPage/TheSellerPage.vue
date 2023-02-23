@@ -15,7 +15,7 @@ import TheSellerPageBigScreen from "./TheSellerPageBigScreen.vue";
 
 export default {
   name: "TheShowRoomPage",
-  components: {  TheSellerPageBigScreen },
+  components: { TheSellerPageBigScreen },
   data() {
     return {
       active: false,

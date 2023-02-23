@@ -1,5 +1,5 @@
 <template>
-  <div class="Product-Ratings mb-2">
+  <div class="Product-Ratings">
     <!-- Product Ratings  -->
     <v-sheet color="orange lighten-5" class="overflow--hidden">
       <v-card-text class="pa-3 tital">تـقـييـات الـمـنـتج</v-card-text>

@@ -57,11 +57,11 @@
                 class="btn-noti-cart"
                 fab
               >
-                <v-icon > mdi-bell </v-icon>
+                <v-icon> mdi-bell </v-icon>
               </v-btn>
             </v-badge>
             <v-btn depressed width="36" height="36" fab class="btn-noti-cart">
-              <v-icon >mdi-dots-vertical </v-icon>
+              <v-icon>mdi-dots-vertical </v-icon>
             </v-btn>
           </v-row>
         </v-row>

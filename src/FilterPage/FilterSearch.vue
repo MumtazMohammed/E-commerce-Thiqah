@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- fillter small screen from 600px and down -->
+    <!-- fillter small screen from 960px and down -->
     <div class="hidden-md-and-up filtertion">
       <v-btn-toggle dense style="width: 100%" group v-model="toggle_none">
         <!-- price  -->
@@ -252,137 +252,119 @@
         </v-sheet>
       </v-navigation-drawer>
     </div>
+    <!-- fillter big screen from 960px and up -->
     <div class="hidden-sm-and-down">
-      <v-card-title class="text pa-2">
+      <!-- <v-card-title class="text pa-2">
         <v-icon right color="primary" size="16">mdi-filter-outline</v-icon>
         تصفية البحث
-      </v-card-title>
-      <v-expansion-panels light focusable tile accordion flat multiple>
-        <v-expansion-panel>
-          <v-expansion-panel-header color="transparent" class="text">
-            المناطق
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
-            <v-row no-gutters>
-              <v-col>
-                <v-chip-group multiple column>
-                  <v-chip filter class="chip" small v-for="i in 10" :key="i">
-                    تعز
-                  </v-chip>
-                </v-chip-group>
-              </v-col>
-            </v-row>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-        <v-expansion-panel>
-          <v-expansion-panel-header class="text">
-            ألوان
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
-            <v-row no-gutters>
-              <v-col>
-                <v-chip-group column>
-                  <v-chip
-                    v-for="PerColor in Colors"
-                    :key="PerColor"
-                    color=""
-                    class="chip"
-                    :class="PerColor.Colors"
-                    small
-                    filter
-                    outlined
-                  >
+      </v-card-title> -->
+      <v-list dense class="pt-0 transparent">
+        <!-- places -->
+        <v-subheader class="title">المناطق</v-subheader>
+        <v-list-item-group v-model="selectedItem" color="primary">
+          <v-list-item v-for="i in 5" :key="i">
+            <v-list-item-content>
+              <v-list-item-title class="text">تعز</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+        <!-- Color -->
+        <v-subheader class="title">ألوان</v-subheader>
+        <v-list-item-group v-model="selectedItem" color="primary">
+          <v-row no-gutters>
+            <v-col cols="" v-for="PerColor in Colors" :key="PerColor">
+              <v-list-item>
+                <v-list-item-content>
+                  <v-list-item-title class="text">
                     {{ PerColor.ColorText }}
-                  </v-chip>
-                </v-chip-group>
-              </v-col>
-            </v-row>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-        <v-expansion-panel>
-          <v-expansion-panel-header class="text">
-            الفئات
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
-            <v-row no-gutters>
-              <v-col>
-                <v-chip-group multiple column>
-                  <v-chip filter class="chip" small v-for="i in 10" :key="i">
-                    تعز
-                  </v-chip>
-                </v-chip-group>
-              </v-col>
-            </v-row>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-        <v-expansion-panel>
-          <v-expansion-panel-header class="text">
-            السعر
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
-            <v-row no-gutters class="mt-1">
-              <v-col>
-                <v-text-field
-                  type="number"
-                  dense
-                  hide-details=""
-                  outlined
-                  placeholder="من"
-                ></v-text-field>
-              </v-col>
-              <v-col class="text-center">
-                <v-icon color="primary"> mdi-arrow-left-thin </v-icon>
-              </v-col>
-              <v-col>
-                <v-text-field
-                  type="number"
-                  dense
-                  hide-details=""
-                  outlined
-                  placeholder="الى"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" class="pa-3">
-                <v-btn small block elevation="0" color="primary" class="text">
-                  بحث
-                </v-btn>
-              </v-col>
-            </v-row>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-        <v-expansion-panel>
-          <v-expansion-panel-header class="text">
-            العلامة التجارية
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
-            <v-row no-gutters>
-              <v-col>
-                <v-chip-group multiple column>
-                  <v-chip filter class="chip" small v-for="i in 10" :key="i">
-                    تعز
-                  </v-chip>
-                </v-chip-group>
-              </v-col>
-            </v-row>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-        <v-expansion-panel>
-          <v-expansion-panel-header class="text">
-            الحالة
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
-            <v-row no-gutters>
-              <v-col>
-                <v-chip-group multiple column>
-                  <v-chip filter class="chip" small v-for="i in 3" :key="i">
-                    تعز
-                  </v-chip>
-                </v-chip-group>
-              </v-col>
-            </v-row>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-      </v-expansion-panels>
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-col>
+          </v-row>
+        </v-list-item-group>
+        <!-- Categories -->
+        <v-subheader class="title">الفئات</v-subheader>
+        <v-list-item-group v-model="selectedItem">
+          <v-row no-gutters>
+            <v-col v-for="i in 10" :key="i">
+              <v-list-item>
+                <v-list-item-content>
+                  <v-list-item-title class="text">
+                    محمد أمين شمسان الحريبي
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-col>
+          </v-row>
+        </v-list-item-group>
+        <!-- Price -->
+        <v-subheader class="title">السعر</v-subheader>
+        <v-list-item-group v-model="selectedItem">
+          <v-row no-gutters align="center" class="">
+            <v-col class="mx-1">
+              <v-text-field
+                type="number"
+                dense
+                hide-details=""
+                outlined
+                placeholder="من"
+              ></v-text-field>
+            </v-col>
+            -
+            <v-col class="mx-1">
+              <v-text-field
+                type="number"
+                dense
+                tile
+                hide-details=""
+                outlined
+                placeholder="الى"
+              ></v-text-field>
+            </v-col>
+            <v-col cols="12" class="pa-3">
+              <v-btn
+                block
+                height="32"
+                x-small
+                elevation="0"
+                color="primary"
+                class="text"
+              >
+                <v-icon color="white"> mdi-menu-left </v-icon>
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-list-item-group>
+        <!-- brands -->
+        <v-subheader class="title"> العلامة التجارية </v-subheader>
+        <v-list-item-group v-model="selectedItem">
+          <v-row no-gutters>
+            <v-col v-for="i in 10" :key="i">
+              <v-list-item>
+                <v-list-item-content>
+                  <v-list-item-title class="text">
+                    محمد أمين شمسان الحريبي
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-col>
+          </v-row>
+        </v-list-item-group>
+        <!-- condition  -->
+        <v-subheader class="title"> الحالة</v-subheader>
+        <v-list-item-group v-model="selectedItem">
+          <v-row no-gutters>
+            <v-col v-for="i in 3" :key="i">
+              <v-list-item>
+                <v-list-item-content>
+                  <v-list-item-title class="text"> الحريبي </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-col>
+          </v-row>
+        </v-list-item-group>
+      </v-list>
     </div>
   </div>
 </template>
@@ -433,11 +415,6 @@ export default {
 @import "@/scss/mixin";
 
 .filtertion {
-  // position: fixed;
-  // z-index: 18;
-  // left: 0px;
-  // right: 0px;
-  // top: 55.5px;
   background-color: #eee;
 }
 .filtertion-btn {
@@ -473,12 +450,16 @@ export default {
   font-family: $fontfamliy3;
   letter-spacing: 0 !important;
   font-size: 14px !important;
-  color: $color-2;
+  color: $fontcolorlinks;
   font-weight: 600;
 }
-.ac {
-  background-color: $color-2;
-  color: #fff !important;
+
+::v-deep .v-subheader.title.theme--light.title {
+  font-family: $fontfamliy3 !important;
+  letter-spacing: 0 !important;
+  font-size: 14px !important;
+  color: $fontcolor;
+  font-weight: 600;
 }
 .chip {
   font-family: $fontfamliy3 !important;
@@ -488,11 +469,9 @@ export default {
 ::v-deep .theme--light.v-chip--active:before {
   opacity: 0 !important;
 }
-// ::v-deep .v-input--selection-controls__input {
-//   margin-right: 3px;
-//   @media (max-width: 600px) {
-//     margin-right: 7px;
-//   }
+::v-deep .v-list--dense .v-list-item {
+  min-height: 32px;
+}
 // }
 // ::v-deep .v-chip.v-size--default {
 //   height: 30px;
@@ -515,9 +494,6 @@ export default {
     min-width: 22px !important;
     width: 22px !important;
   }
-}
-::v-deep .v-expansion-panel-content__wrap {
-  padding: 0px 10px 10px;
 }
 ::v-deep label.v-label.theme--light {
   font-family: $fontfamliy3;

@@ -5,81 +5,132 @@
         قد تنال على
         <strong class="mx-1">إعجابك</strong>
       </div>
-      <v-sheet class="transparent">
+      <v-sheet color="#eee" class="pa-2">
         <v-row no-gutters>
           <v-col
             cols="6"
-            md="2"
-            sm="3"
+            md="3"
+            sm="4"
             lg="2"
-            class="pa-2"
+            class="pa-1"
             v-for="Product in Products"
             :key="Product.id"
           >
-            <div style="position: relative">
-              <h1 class="ribbon">متميز</h1>
-              <v-card
-                :to="{
-                  name: 'ShowTheProduct',
-                  params: {
-                    carName: Product.name,
-                    carShape: Product.Shape,
-                    carId: Product.id,
-                    Company: Product.folder,
-                  },
-                }"
-                min-height="220px"
-                width="100%"
-                style="
-                  overflow: hidden;
-                  background-color: transparent;
-                  position: relative;
-                "
-                color=""
-                outlined
-              >
-                <div v-if="Product.discountPercent" class="best-price-tag">
-                  <small class="discountPercent">
-                    {{ Product.discountPercent }}-
-                  </small>
-                </div>
-                <v-img
-                  height="130"
-                  :src="getimageUrl(Product.folder, Product.image)"
-                ></v-img>
-                <v-card-text
-                  class="d-inline-block card-text py-1 pa-2 text-truncate"
+            <v-hover v-slot="{ hover }">
+              <div style="position: relative">
+                <h1 class="ribbon">متميز</h1>
+                <v-card
+                  :to="{
+                    name: 'ShowTheProduct',
+                    params: {
+                      carName: Product.name,
+                      carShape: Product.Shape,
+                      carId: Product.id,
+                      Company: Product.folder,
+                    },
+                  }"
+                  :elevation="hover ? 3 : 0"
+                  min-height="250px"
+                  width="100%"
+                  style="
+                    overflow: hidden;
+                    background-color: #fff;
+                    position: relative;
+                  "
+                  rounded="lg"
                 >
-                  {{ Product.name }} {{ Product.company }}
-                </v-card-text>
-                <v-card-actions class="py-0 justify-center">
-                  <!-- <strong
-                    class="grey--text text--lighten-1 PriceBefore text-truncate"
+                  <div v-if="Product.discountPercent" class="best-price-tag">
+                    <small class="discountPercent">
+                      {{ Product.discountPercent }}-
+                    </small>
+                  </div>
+                  <v-img
+                    height="150"
+                    :src="getimageUrl(Product.folder, Product.image)"
+                  ></v-img>
+                  <!--  product name  -->
+                  <v-card-text
+                    style="
+                      display: -webkit-box;
+                      -webkit-line-clamp: 2;
+                      -webkit-box-orient: vertical;
+                      overflow: hidden;
+                    "
+                    class="card-text py-1 pa-2"
                   >
-                    {{ Product.payment }}
-                    <small class="text-truncate">ريال</small>
-                  </strong> -->
-                  <strong class="PriceAfter text-truncate">
+                    <!-- if this product at thiqah mall  -->
+                    <span
+                      style="
+                        background-color: #ff3d00;
+                        border-radius: 3px;
+                        font-weight: 600;
+                        font-size: 12px;
+                        padding: 1px;
+                      "
+                      class="white--text ml-1"
+                    >
+                      ثـقـة مـول
+                    </span>
+
+                    {{ Product.name }} {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }}
+                  </v-card-text>
+                  <strong class="PriceAfter pa-2 text-truncate">
                     {{ Product.payment }}
                     <small class="text-truncate">ريال</small>
                   </strong>
-                </v-card-actions>
-                <v-card-actions class="py-1 justify-space-between">
-                  <p class="ma-0 sold-info text-truncate">
-                    <span>{{ Product.id }} </span>بيعت
-                  </p>
-                  <span class="sold-info">
-                    {{ Product.location }}
-                  </span>
-                </v-card-actions>
-              </v-card>
-            </div>
+                  <!-- if the product contain any promotion -->
+                  <v-card-actions class="py-1 px-0">
+                    <!-- free delivery  -->
+                    <span class="span-text">
+                      <!-- <v-icon>mdi-moped</v-icon> -->
+                      توصيل مجاناً
+                    </span>
+                    <!-- divider -->
+                    <span class="divider mx-1"></span>
+                    <!-- Discount coupon  -->
+                    <span class="span-text"> قسيمة <span>50%</span> </span>
+                    <!-- divider -->
+                    <span class="divider mx-1"></span>
+                    <!-- free coins  -->
+                    <span class="span-text"> <span>20</span> نقطه </span>
+                  </v-card-actions>
+                  <!-- how many sold and rating  -->
+                  <v-card-actions class="pa-0">
+                    <p class="ma-0 sold-info text-truncate">
+                      <span class="span">({{ Product.id }})</span>بيعت
+                    </p>
+                    <!-- divider -->
+                    <span class="divider mx-1"></span>
+                    <!-- rating  -->
+                    <v-rating
+                      v-model="rating"
+                      half-increments
+                      small
+                      background-color="orange darken-1"
+                      color="orange darken-1"
+                      readonly
+                    ></v-rating>
+                    <span class="span">({{ Product.id }})</span>
+                  </v-card-actions>
+                  <!-- location -->
+                  <v-card-actions class="pt-0 pb justify-end">
+                    <span class="sold-info">
+                      {{ Product.location }}
+                    </span>
+                  </v-card-actions>
+                </v-card>
+              </div>
+            </v-hover>
           </v-col>
-          <v-col cols="12" class="mt-2">
-            <v-card-actions class="justify-center pb-3">
-              <v-btn text elevation="0" width="190" class="seeMoreBtn">
-                المزيد
-                <v-icon right size="16">mdi-dots-horizontal</v-icon>
+          <v-col cols="12">
+            <v-card-actions class="justify-center">
+              <v-btn outlined color="#fc624d" width="300" class="seeMoreBtn">
+                تـحـمـيـل الـمـزيـد
               </v-btn>
             </v-card-actions>
           </v-col>
@@ -96,6 +147,7 @@ export default {
   data() {
     return {
       Products,
+      rating: 3.6,
     };
   },
   methods: {
@@ -121,7 +173,7 @@ export default {
   }
   .tital {
     position: relative;
-    text-align: center;
+    // text-align: center;
     font-family: $fontfamliy3;
     font-size: 22px;
     color: $color-2;
@@ -134,72 +186,37 @@ export default {
       font-size: 17px;
     }
   }
-  // .tital::before {
-  //   content: "";
-  //   position: absolute;
-  //   top: 50%;
-  //   left: 0;
-  //   opacity: 0.9;
-  //   background-color: #eee;
-  //   width: 40%;
-  //   height: 2.2px;
-  //   @media (max-width: 850px) {
-  //     width: 35%;
-  //   }
-  //   @media (max-width: 650px) {
-  //     width: 30%;
-  //   }
-  //   @media (max-width: 430px) {
-  //     width: 17%;
-  //   }
-  // }
-  // .tital::after {
-  //   content: "";
-  //   position: absolute;
-  //   top: 50%;
-  //   right: 0;
-  //   opacity: 0.9;
-  //   background-color: #eee;
-  //   width: 40%;
-  //   height: 2.2px;
-  //   @media (max-width: 850px) {
-  //     width: 35%;
-  //   }
-  //   @media (max-width: 650px) {
-  //     width: 30%;
-  //   }
-  //   @media (max-width: 430px) {
-  //     width: 17%;
-  //   }
-  // }
   .sold-info {
     font-family: $fontfamliy3 !important;
     font-size: 13px !important;
-    font-weight: 600 !important;
-    color: $fontcolorlinks;
-    span {
-      color: #000000 !important;
-      margin-left: 5px;
-      font-size: 14px !important;
-      letter-spacing: 1.5px !important;
+    font-weight: 500 !important;
+    color: $fontcolor !important;
+  }
+  .span {
+    font-family: sans-serif !important;
+    margin-left: 5px;
+    font-size: 13px !important;
+    letter-spacing: 1.5px !important;
+  }
+  .span-text {
+    font-family: $fontfamliy3 !important;
+    font-size: 12px !important;
+    border-radius: 2px;
+    // padding: 2px;
+    @media (max-width: 600px) {
+      padding: 0px;
     }
   }
   .card-text {
     font-family: $fontfamliy3 !important;
     color: $fontcolor !important;
     letter-spacing: 0 !important;
-    font-size: 15px !important;
-    // font-weight: 600 !important;
+    font-size: 13.5px !important;
   }
-  // .PriceBefore {
-  //   font-size: 14px !important;
-  //   text-decoration: line-through;
-  // }
   .PriceAfter {
-    font-size: 18px !important;
-    display: block !important;
+    font-size: 17px !important;
     color: $color-2;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
     font-family: sans-serif !important;
   }
   .best-price-tag {
@@ -239,11 +256,7 @@ export default {
   .seeMoreBtn {
     letter-spacing: 0 !important;
     font-size: 17px;
-    font-family: serif !important;
-    color: $fontcolorlinks;
-    font-weight: 600 !important;
-    font-family: sans-serif !important;
-    // background-color: !important;
+    font-family: $fontfamliy3 !important;
   }
 }
 //
@@ -289,5 +302,31 @@ export default {
   box-shadow: inset -1px 2px 2px rgba(0, 0, 0, 0.3);
 }
 @media (max-width: 600px) {
+}
+::v-deep
+  button.v-icon.notranslate.v-icon--link.material-icons.theme--light.orange--text {
+  font-size: 23px !important;
+  padding: 1px !important;
+}
+::v-deep
+  button.v-icon.notranslate.v-icon--link.material-icons.theme--light.orange--text {
+  font-size: 23px !important;
+  padding: 1px !important;
+  @media (max-width: 600px) {
+    font-size: 17px !important;
+  }
+}
+::v-deep
+  button.v-icon.notranslate.v-icon--link.material-icons.theme--light.orange--text.text--darken-1 {
+  font-size: 15px !important;
+  padding: 1px !important;
+}
+.divider {
+  display: block;
+  height: 12px;
+  // width: 2px;
+  padding: 1px;
+  background-color: #ffab91;
+  border-radius: 2px;
 }
 </style>

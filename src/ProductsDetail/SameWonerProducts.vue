@@ -1,5 +1,5 @@
 <template>
-  <div class="DailyOffer mt-2">
+  <div class="DailyOffer pt-2">
     <v-container class="py-0">
       <div class="pa-2 d-flex font-weight-bold tital">
         من نفس

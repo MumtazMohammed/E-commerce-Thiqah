@@ -428,12 +428,11 @@ a {
 
 .example::-webkit-scrollbar-track {
   //   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
 .example::-webkit-scrollbar-thumb {
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
   border-radius: 3px;
-  
 }
 </style>

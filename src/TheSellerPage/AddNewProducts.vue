@@ -26,7 +26,7 @@
       </v-app-bar>
       <v-sheet height="56"></v-sheet>
     </div>
-    <v-container class="pa-0 ">
+    <v-container class="pa-0">
       <!-- Add the the images  -->
       <v-sheet rounded="lg" class="pa-2 ma-2">
         <v-row no-gutters class="pa-0">

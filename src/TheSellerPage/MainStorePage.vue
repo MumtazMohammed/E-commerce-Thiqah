@@ -218,7 +218,6 @@
 <script>
 import ShowRoomUserCars from "../data-json/All-Car.json";
 import TheSellerPageSmallScreen from "./TheSellerPageSmallScreen.vue";
-// import VueApexCharts from "vue-apexcharts";
 export default {
   name: "MainStorePage",
   components: { TheSellerPageSmallScreen },
@@ -249,16 +248,6 @@ export default {
           ToDoNumber: 0,
         },
       ],
-      value: [0, 2, 5, 9, 5, 10, 3],
-      labels: [
-        "السبت",
-        "الأحد",
-        "الأثنين",
-        "الثلاثاء",
-        "الأربعاء",
-        "الخميس",
-        "الجمعة",
-      ],
     };
   },
   computed: {
@@ -286,7 +275,6 @@ export default {
 .TheShowRoomPage {
   width: 100%;
   min-height: 100vh;
-
   .text-offer {
     letter-spacing: 0 !important;
     font-family: $fontfamliy3;
@@ -370,7 +358,6 @@ export default {
   letter-spacing: 0 !important;
   font-weight: 500;
   font-size: 20px;
-
   .v-icon {
     @media (max-width: 600px) {
       font-size: 22px !important;
@@ -398,15 +385,12 @@ export default {
 ::v-deep .theme--light.v-timeline:before {
   right: 24px !important;
 }
-
 .offers-card::-webkit-scrollbar {
   width: 0.5em;
 }
-
 .offers-card::-webkit-scrollbar-track {
   background-color: #eee;
 }
-
 .offers-card::-webkit-scrollbar-thumb {
   background-color: darkgrey;
 }

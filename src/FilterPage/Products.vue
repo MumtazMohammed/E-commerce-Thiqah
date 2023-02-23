@@ -1,11 +1,12 @@
 <template>
   <div class="Products">
     <TheNavBar />
-    <v-container class="pt-0">
+    <v-container class="pa-0">
       <!-- small screen  -->
       <v-sheet
         style="height: calc(100vh - 106px); overflow-y: auto"
         class="hidden-md-and-up"
+        color="#eee"
       >
         <v-banner style="z-index: 8" class="pa-0" sticky>
           <FilterSearch />
@@ -13,80 +14,138 @@
         <v-row no-gutters>
           <v-col
             cols="6"
-            md="2"
-            sm="3"
-            lg="2"
-            class="pa-2"
+            md="3"
+            sm="4"
+            lg="3"
+            class="pa-1"
             v-for="Product in Products"
             :key="Product.id"
           >
-            <div style="position: relative">
-              <h1 class="ribbon">متميز</h1>
-              <v-card
-                :to="{
-                  name: 'ShowTheProduct',
-                  params: {
-                    carName: Product.name,
-                    carShape: Product.Shape,
-                    carId: Product.id,
-                    Company: Product.folder,
-                  },
-                }"
-                min-height="220px"
-                width="100%"
-                style="
-                  overflow: hidden;
-                  background-color: transparent;
-                  position: relative;
-                "
-                color=""
-                outlined
-              >
-                <div v-if="Product.discountPercent" class="best-price-tag">
-                  <small class="discountPercent">
-                    {{ Product.discountPercent }}-
-                  </small>
-                </div>
-                <v-img
-                  height="130"
-                  :src="getimageUrl(Product.folder, Product.image)"
-                ></v-img>
-                <v-card-text
-                  class="d-inline-block card-text py-1 pa-2 text-truncate"
+            <v-hover v-slot="{ hover }">
+              <div style="position: relative">
+                <h1 class="ribbon">متميز</h1>
+                <v-card
+                  :to="{
+                    name: 'ShowTheProduct',
+                    params: {
+                      carName: Product.name,
+                      carShape: Product.Shape,
+                      carId: Product.id,
+                      Company: Product.folder,
+                    },
+                  }"
+                  :elevation="hover ? 3 : 0"
+                  min-height="250px"
+                  width="100%"
+                  style="
+                    overflow: hidden;
+                    background-color: #fff;
+                    position: relative;
+                  "
+                  rounded="lg"
                 >
-                  {{ Product.name }} {{ Product.company }}
-                </v-card-text>
-                <v-card-actions class="py-0 justify-center">
-                  <strong class="PriceAfter text-truncate">
+                  <div v-if="Product.discountPercent" class="best-price-tag">
+                    <small class="discountPercent">
+                      {{ Product.discountPercent }}-
+                    </small>
+                  </div>
+                  <v-img
+                    height="130"
+                    :src="getimageUrl(Product.folder, Product.image)"
+                  ></v-img>
+                  <!--  product name  -->
+                  <v-card-text
+                    style="
+                      display: -webkit-box;
+                      -webkit-line-clamp: 2;
+                      -webkit-box-orient: vertical;
+                      overflow: hidden;
+                    "
+                    class="card-text py-1 pa-0"
+                  >
+                    <!-- if this product at thiqah mall  -->
+                    <span
+                      style="
+                        background-color: #ff3d00;
+                        border-radius: 3px;
+                        font-weight: 600;
+                        font-size: 12px;
+                      "
+                      class="white--text ml-1"
+                    >
+                      ثـقـة مـول
+                    </span>
+
+                    {{ Product.name }} {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }}
+                  </v-card-text>
+                  <strong class="PriceAfter pa-0 text-truncate">
                     {{ Product.payment }}
                     <small class="text-truncate">ريال</small>
                   </strong>
-                </v-card-actions>
-                <v-card-actions class="py-1 justify-space-between">
-                  <p class="ma-0 sold-info text-truncate">
-                    <span>{{ Product.id }} </span>بيعت
-                  </p>
-                  <span class="sold-info">
-                    {{ Product.location }}
-                  </span>
-                </v-card-actions>
-              </v-card>
-            </div>
+                  <!-- if the product contain any promotion -->
+                  <v-card-actions class="py-1 px-0">
+                    <!-- free delivery  -->
+                    <span class="span-text">
+                      <!-- <v-icon>mdi-moped</v-icon> -->
+                      توصيل مجاناً
+                    </span>
+                    <!-- divider -->
+                    <span class="divider mx-1"></span>
+                    <!-- Discount coupon  -->
+                    <span class="span-text"> قسيمة <span>50%</span> </span>
+                    <!-- divider -->
+                    <span class="divider mx-1"></span>
+                    <!-- free coins  -->
+                    <span class="span-text"> <span>20</span> نقطه </span>
+                  </v-card-actions>
+                  <!-- how many sold and rating  -->
+                  <v-card-actions class="py-0 px-0">
+                    <p class="ma-0 sold-info text-truncate">
+                      <span class="span">({{ Product.id }})</span>بيعت
+                    </p>
+                    <!-- divider -->
+                    <span class="divider mx-1"></span>
+                    <!-- rating  -->
+                    <v-rating
+                      v-model="rating"
+                      half-increments
+                      small
+                      background-color="orange darken-1"
+                      color="orange darken-1"
+                      readonly
+                    ></v-rating>
+                    <span class="span">({{ Product.id }})</span>
+                  </v-card-actions>
+                  <!-- location -->
+                  <v-card-actions class="pt-0 pb justify-end">
+                    <span class="sold-info">
+                      {{ Product.location }}
+                    </span>
+                  </v-card-actions>
+                </v-card>
+              </div>
+            </v-hover>
           </v-col>
         </v-row>
       </v-sheet>
       <!-- big screen  -->
       <v-sheet
         v-scroll.self="onScroll"
-        class="transparent py-2 hidden-sm-and-down"
+        class="pa-2 hidden-sm-and-down"
+        color="#eee"
       >
         <v-row no-gutters>
-          <v-col cols="3">
+          <v-col cols="2">
             <v-banner class="pa-0" sticky>
               <FilterSearch />
             </v-banner>
           </v-col>
-          <v-col cols="9">
+          <v-col cols="10">
             <v-row no-gutters>
               <v-col
                 cols="6"
@@ -97,58 +156,119 @@
                 v-for="Product in Products"
                 :key="Product.id"
               >
-                <div style="position: relative">
-                  <h1 class="ribbon">متميز</h1>
-                  <v-card
-                    :to="{
-                      name: 'ShowTheProduct',
-                      params: {
-                        carName: Product.name,
-                        carShape: Product.Shape,
-                        carId: Product.id,
-                        Company: Product.folder,
-                      },
-                    }"
-                    min-height="220px"
-                    width="100%"
-                    style="
-                      overflow: hidden;
-                      background-color: transparent;
-                      position: relative;
-                    "
-                    flat
-                    tile
-                  >
-                    <div v-if="Product.discountPercent" class="best-price-tag">
-                      <small class="discountPercent">
-                        {{ Product.discountPercent }}-
-                      </small>
-                    </div>
-                    <v-img
-                      height="130"
-                      :src="getimageUrl(Product.folder, Product.image)"
-                    ></v-img>
-                    <v-card-text
-                      class="d-inline-block card-text py-1 pa-2 text-truncate"
+                <v-hover v-slot="{ hover }">
+                  <div style="position: relative">
+                    <h1 class="ribbon">متميز</h1>
+                    <v-card
+                      :to="{
+                        name: 'ShowTheProduct',
+                        params: {
+                          carName: Product.name,
+                          carShape: Product.Shape,
+                          carId: Product.id,
+                          Company: Product.folder,
+                        },
+                      }"
+                      :elevation="hover ? 3 : 0"
+                      min-height="250px"
+                      width="100%"
+                      style="
+                        overflow: hidden;
+                        background-color: #fff;
+                        position: relative;
+                      "
+                      rounded="lg"
                     >
-                      {{ Product.name }} {{ Product.company }}
-                    </v-card-text>
-                    <v-card-actions class="py-0 justify-center">
-                      <strong class="PriceAfter text-truncate">
+                      <div
+                        v-if="Product.discountPercent"
+                        class="best-price-tag"
+                      >
+                        <small class="discountPercent">
+                          {{ Product.discountPercent }}-
+                        </small>
+                      </div>
+                      <v-img
+                        height="150"
+                        :src="getimageUrl(Product.folder, Product.image)"
+                      ></v-img>
+                      <!--  product name  -->
+                      <v-card-text
+                        style="
+                          display: -webkit-box;
+                          -webkit-line-clamp: 2;
+                          -webkit-box-orient: vertical;
+                          overflow: hidden;
+                        "
+                        class="card-text py-1 pa-2"
+                      >
+                        <!-- if this product at thiqah mall  -->
+                        <span
+                          style="
+                            background-color: #ff3d00;
+                            border-radius: 3px;
+                            font-weight: 600;
+                            font-size: 12px;
+                            padding: 1px;
+                          "
+                          class="white--text ml-1"
+                        >
+                          ثـقـة مـول
+                        </span>
+
+                        {{ Product.name }} {{ Product.company }}
+                        {{ Product.name }} {{ Product.company }}
+                        {{ Product.name }} {{ Product.company }}
+                        {{ Product.name }} {{ Product.company }}
+                        {{ Product.name }} {{ Product.company }}
+                        {{ Product.name }} {{ Product.company }}
+                      </v-card-text>
+                      <strong class="PriceAfter pa-2 text-truncate">
                         {{ Product.payment }}
                         <small class="text-truncate">ريال</small>
                       </strong>
-                    </v-card-actions>
-                    <v-card-actions class="py-1 justify-space-between">
-                      <p class="ma-0 sold-info text-truncate">
-                        <span>{{ Product.id }} </span>بيعت
-                      </p>
-                      <span class="sold-info">
-                        {{ Product.location }}
-                      </span>
-                    </v-card-actions>
-                  </v-card>
-                </div>
+                      <!-- if the product contain any promotion -->
+                      <v-card-actions class="py-1">
+                        <!-- free delivery  -->
+                        <span class="span-text">
+                          <!-- <v-icon>mdi-moped</v-icon> -->
+                          توصيل مجاناً
+                        </span>
+                        <!-- divider -->
+                        <span class="divider mx-1"></span>
+                        <!-- Discount coupon  -->
+                        <span class="span-text"> قسيمة <span>50%</span> </span>
+                        <!-- divider -->
+                        <span class="divider mx-1"></span>
+                        <!-- free coins  -->
+                        <span class="span-text"> <span>20</span> نقطه </span>
+                      </v-card-actions>
+                      <!-- how many sold and rating  -->
+                      <v-card-actions class="py-0">
+                        <p class="ma-0 sold-info text-truncate">
+                          <span class="span">({{ Product.id }})</span>بيعت
+                        </p>
+                        <!-- divider -->
+                        <span class="divider mx-1"></span>
+                        <!-- rating  -->
+                        <v-rating
+                          v-model="rating"
+                          half-increments
+                          small
+                          background-color="orange darken-1"
+                          color="orange darken-1"
+                          readonly
+                        ></v-rating>
+                        <span class="span">({{ Product.id }})</span>
+                      </v-card-actions>
+                      <!-- location -->
+                      <v-card-actions class="pt-0 pb justify-end">
+                        <span class="sold-info">
+                          {{ Product.location }}
+                        </span>
+                      </v-card-actions>
+                    </v-card>
+                  </div>
+                </v-hover>
               </v-col>
             </v-row>
           </v-col>
@@ -170,6 +290,7 @@ export default {
   data() {
     return {
       Products,
+      rating: 3.6,
       items: ["Foo", "Bar", "Fizz", "Buzz"],
       filterdialog: null,
       admins: [
@@ -200,19 +321,30 @@ export default {
   width: 100%;
   min-height: 70vh;
   background-color: $color-background;
+  padding-bottom: 10px;
   @media (max-width: 600px) {
     margin-bottom: 50px;
+    padding-bottom: 0px;
   }
   .sold-info {
     font-family: $fontfamliy3 !important;
     font-size: 13px !important;
-    font-weight: 600 !important;
-    color: $fontcolorlinks !important;
-    span {
-      color: #000000 !important;
-      margin-left: 5px;
-      font-size: 14px !important;
-      letter-spacing: 1.5px !important;
+    font-weight: 500 !important;
+    color: $fontcolor !important;
+  }
+  .span {
+    font-family: sans-serif !important;
+    margin-left: 5px;
+    font-size: 13px !important;
+    letter-spacing: 1.5px !important;
+  }
+  .span-text {
+    font-family: $fontfamliy3 !important;
+    font-size: 12px !important;
+    border-radius: 2px;
+    // padding: 2px;
+    @media (max-width: 600px) {
+      padding: 0px;
     }
   }
   // .seeMoreBtn {
@@ -226,35 +358,14 @@ export default {
   font-family: $fontfamliy3 !important;
   color: $fontcolor !important;
   letter-spacing: 0 !important;
-  font-size: 15px !important;
+  font-size: 13.5px !important;
   // font-weight: 600 !important;
 }
-
-// ::v-deep .overflow-y-auto.transparent.v-sheet.theme--light::-webkit-scrollbar {
-//   display: none;
-// }
-.sold-info {
-  font-family: $fontfamliy3 !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  color: $fontcolorlinks;
-  span {
-    color: $color-2 !important;
-    margin-left: 5px;
-    font-size: 14px !important;
-    letter-spacing: 1.5px !important;
-  }
-}
-.card-text {
-  font-family: $fontfamliy3 !important;
-  color: $fontcolor !important;
-  font-size: 13px !important;
-}
-
 .PriceAfter {
   font-size: 17px !important;
   color: $color-2;
   font-weight: 600 !important;
+  font-family: sans-serif !important;
 }
 .best-price-tag {
   position: absolute;
@@ -352,5 +463,31 @@ export default {
   padding: 0 !important;
   border: 0 !important;
   z-index: 50;
+}
+::v-deep
+  button.v-icon.notranslate.v-icon--link.material-icons.theme--light.orange--text {
+  font-size: 23px !important;
+  padding: 1px !important;
+}
+::v-deep
+  button.v-icon.notranslate.v-icon--link.material-icons.theme--light.orange--text {
+  font-size: 23px !important;
+  padding: 1px !important;
+  @media (max-width: 600px) {
+    font-size: 17px !important;
+  }
+}
+::v-deep
+  button.v-icon.notranslate.v-icon--link.material-icons.theme--light.orange--text.text--darken-1 {
+  font-size: 15px !important;
+  padding: 1px !important;
+}
+.divider {
+  display: block;
+  height: 12px;
+  // width: 2px;
+  padding: 1px;
+  background-color: #ffab91;
+  border-radius: 2px;
 }
 </style>

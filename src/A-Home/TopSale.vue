@@ -1,12 +1,7 @@
 <template>
   <div class="BestOffer py-2">
     <v-container class="container py-0">
-      <div class="pa-2 font-weight-bold tital">
-        الأعلى
-        <strong class="mx-">مبيعاً</strong>
-        <!-- لهذا
-        <strong class="mx-">الشهر</strong> -->
-      </div>
+      <div class="pa-2 tital">الأعلى مبيعاً</div>
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide v-for="(Product, index) in VerifiedCar" :key="index">
           <v-card
@@ -21,7 +16,7 @@
             }"
             width="100%"
             height="195"
-            outlined
+            flat
             style="overflow: hidden; position: relative"
           >
             <v-img
@@ -205,8 +200,8 @@ export default {
     span {
       font-family: sans-serif !important;
       font-size: 17px;
-      font-weight: 600;
-      color: $color-2;
+      font-weight: 700;
+      color: $fontcolor;
     }
   }
   .PriceAfter {
