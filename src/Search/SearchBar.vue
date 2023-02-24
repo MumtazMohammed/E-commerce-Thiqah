@@ -134,7 +134,7 @@
     <v-card class="hidden-md-and-up supporter" flat></v-card>
     <v-app-bar class="hidden-md-and-up" app color="#f8f9fa" fixed flat>
       <v-row class="px-2" no-gutters align="center">
-        <v-col cols="7">
+        <v-col cols="8">
           <v-dialog
             v-model="dialog"
             fullscreen
@@ -148,21 +148,23 @@
                 flat
                 width="100%"
                 height="35px"
-                color="#eee"
+                color="#fff"
+                rounded="lg"
                 class="search-small-screen mr-1 ml-3"
               >
                 <v-row
                   align="center"
+                  justify="space-between"
                   style="height: 100%"
                   no-gutters
                   class="pa-0"
                 >
-                  <v-icon color="grey lighten-1" size="20" class="mr-1"
-                    >mdi-magnify</v-icon
-                  >
                   <span class="pa-1 icon-small-screen-text">
                     على ماذا تبحث...
                   </span>
+                  <v-icon color="deep-orange lighten-1" size="24" class="ml-1">
+                    mdi-magnify mdi-rotate-90
+                  </v-icon>
                 </v-row>
               </v-card>
             </template>
@@ -233,10 +235,10 @@
         </v-col>
         <v-spacer></v-spacer>
         <v-col cols="4">
-          <v-row justify="space-around" no-gutters class="pa-0 pt-1">
+          <v-row justify="end" no-gutters class="pa-0 pt-1">
             <!-- cart shopping  -->
-
-            <v-badge bordered left overlap content="425" class="">
+            <v-spacer></v-spacer>
+            <v-badge bordered left overlap content="12" class="">
               <v-btn
                 :to="{
                   name: 'SmallScreenClientCartPage',
@@ -244,14 +246,15 @@
                 }"
                 depressed
                 class="btn-noti-cart deep-orange lighten-5"
-                fab
-                small
+                icon
               >
                 <v-icon>mdi-cart</v-icon>
               </v-btn>
             </v-badge>
+            <v-spacer></v-spacer>
+
             <!-- notification btn -->
-            <v-badge bordered left overlap content="445" class="">
+            <v-badge bordered left overlap content="10" class="">
               <v-btn
                 :to="{
                   name: 'SmallScreenNotification',
@@ -260,8 +263,7 @@
                 exact-path
                 depressed
                 class="btn-noti-cart deep-orange lighten-5"
-                fab
-                small
+                icon
               >
                 <v-icon> mdi-bell </v-icon>
               </v-btn>
@@ -363,7 +365,9 @@ a {
     display: none;
   }
 }
-
+.search-small-screen {
+  box-shadow: 0 0 0 1px #ff5722 !important;
+}
 .v-text-field::v-deep .v-label.theme--light {
   font-family: $fontfamliy3 !important;
   font-weight: 500;

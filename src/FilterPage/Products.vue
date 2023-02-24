@@ -16,7 +16,7 @@
             cols="6"
             md="3"
             sm="4"
-            lg="3"
+            lg="2"
             class="pa-1"
             v-for="Product in Products"
             :key="Product.id"
@@ -50,7 +50,7 @@
                     </small>
                   </div>
                   <v-img
-                    height="130"
+                    height="150"
                     :src="getimageUrl(Product.folder, Product.image)"
                   ></v-img>
                   <!--  product name  -->
@@ -61,7 +61,7 @@
                       -webkit-box-orient: vertical;
                       overflow: hidden;
                     "
-                    class="card-text py-1 pa-0"
+                    class="card-text py-1 pa-2"
                   >
                     <!-- if this product at thiqah mall  -->
                     <span
@@ -70,6 +70,7 @@
                         border-radius: 3px;
                         font-weight: 600;
                         font-size: 12px;
+                        padding: 1px;
                       "
                       class="white--text ml-1"
                     >
@@ -78,17 +79,13 @@
 
                     {{ Product.name }} {{ Product.company }} {{ Product.name }}
                     {{ Product.company }} {{ Product.name }}
-                    {{ Product.company }} {{ Product.name }}
-                    {{ Product.company }} {{ Product.name }}
-                    {{ Product.company }} {{ Product.name }}
-                    {{ Product.company }}
                   </v-card-text>
-                  <strong class="PriceAfter pa-0 text-truncate">
+                  <strong class="PriceAfter py-1 pt-0 pa-2 text-truncate">
                     {{ Product.payment }}
                     <small class="text-truncate">ريال</small>
                   </strong>
                   <!-- if the product contain any promotion -->
-                  <v-card-actions class="py-1 px-0">
+                  <v-card-text class="py-1 pa-2 text-truncate">
                     <!-- free delivery  -->
                     <span class="span-text">
                       <!-- <v-icon>mdi-moped</v-icon> -->
@@ -102,24 +99,18 @@
                     <span class="divider mx-1"></span>
                     <!-- free coins  -->
                     <span class="span-text"> <span>20</span> نقطه </span>
-                  </v-card-actions>
+                  </v-card-text>
                   <!-- how many sold and rating  -->
-                  <v-card-actions class="py-0 px-0">
-                    <p class="ma-0 sold-info text-truncate">
-                      <span class="span">({{ Product.id }})</span>بيعت
-                    </p>
+                  <v-card-actions class="py-0 pa-2">
+                    <!-- rating  -->
+                    <v-icon size="17" color="amber">mdi-star</v-icon>
+                    <span class="span">3.5</span>
                     <!-- divider -->
                     <span class="divider mx-1"></span>
-                    <!-- rating  -->
-                    <v-rating
-                      v-model="rating"
-                      half-increments
-                      small
-                      background-color="orange darken-1"
-                      color="orange darken-1"
-                      readonly
-                    ></v-rating>
-                    <span class="span">({{ Product.id }})</span>
+                    <!-- sold Info  -->
+                    <p class="ma-0 sold-info text-truncate">
+                      <span class="span ml-1">({{ Product.id }})</span>بيعت
+                    </p>
                   </v-card-actions>
                   <!-- location -->
                   <v-card-actions class="pt-0 pb justify-end">
@@ -151,7 +142,7 @@
                 cols="6"
                 md="3"
                 sm="4"
-                lg="3"
+                lg="2"
                 class="pa-1"
                 v-for="Product in Products"
                 :key="Product.id"
@@ -217,17 +208,14 @@
 
                         {{ Product.name }} {{ Product.company }}
                         {{ Product.name }} {{ Product.company }}
-                        {{ Product.name }} {{ Product.company }}
-                        {{ Product.name }} {{ Product.company }}
-                        {{ Product.name }} {{ Product.company }}
-                        {{ Product.name }} {{ Product.company }}
+                        {{ Product.name }}
                       </v-card-text>
-                      <strong class="PriceAfter pa-2 text-truncate">
+                      <strong class="PriceAfter py-1 pt-0 pa-2 text-truncate">
                         {{ Product.payment }}
                         <small class="text-truncate">ريال</small>
                       </strong>
                       <!-- if the product contain any promotion -->
-                      <v-card-actions class="py-1">
+                      <v-card-text class="py-1 pa-2 text-truncate">
                         <!-- free delivery  -->
                         <span class="span-text">
                           <!-- <v-icon>mdi-moped</v-icon> -->
@@ -241,24 +229,18 @@
                         <span class="divider mx-1"></span>
                         <!-- free coins  -->
                         <span class="span-text"> <span>20</span> نقطه </span>
-                      </v-card-actions>
+                      </v-card-text>
                       <!-- how many sold and rating  -->
-                      <v-card-actions class="py-0">
-                        <p class="ma-0 sold-info text-truncate">
-                          <span class="span">({{ Product.id }})</span>بيعت
-                        </p>
+                      <v-card-actions class="py-0 pa-2">
+                        <!-- rating  -->
+                        <v-icon size="17" color="amber">mdi-star</v-icon>
+                        <span class="span">3.5</span>
                         <!-- divider -->
                         <span class="divider mx-1"></span>
-                        <!-- rating  -->
-                        <v-rating
-                          v-model="rating"
-                          half-increments
-                          small
-                          background-color="orange darken-1"
-                          color="orange darken-1"
-                          readonly
-                        ></v-rating>
-                        <span class="span">({{ Product.id }})</span>
+                        <!-- sold Info  -->
+                        <p class="ma-0 sold-info text-truncate">
+                          <span class="span ml-1">({{ Product.id }})</span>بيعت
+                        </p>
                       </v-card-actions>
                       <!-- location -->
                       <v-card-actions class="pt-0 pb justify-end">
@@ -483,11 +465,11 @@ export default {
   padding: 1px !important;
 }
 .divider {
-  display: block;
+  display: inline-block;
   height: 12px;
   // width: 2px;
   padding: 1px;
-  background-color: #ffab91;
+  background-color: #e0e0e0;
   border-radius: 2px;
 }
 </style>

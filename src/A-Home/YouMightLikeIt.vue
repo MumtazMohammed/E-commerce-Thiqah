@@ -1,5 +1,5 @@
 <template>
-  <div class="SpicalShowRoom py-2">
+  <div class="SpicalShowRoom py-md-2 py-lg-2">
     <v-container class="pa-0">
       <div class="ont-weight-bold pa-2 tital">
         قد تنال على
@@ -30,7 +30,7 @@
                     },
                   }"
                   :elevation="hover ? 3 : 0"
-                  min-height="250px"
+                  min-height="315"
                   width="100%"
                   style="
                     overflow: hidden;
@@ -74,17 +74,13 @@
 
                     {{ Product.name }} {{ Product.company }} {{ Product.name }}
                     {{ Product.company }} {{ Product.name }}
-                    {{ Product.company }} {{ Product.name }}
-                    {{ Product.company }} {{ Product.name }}
-                    {{ Product.company }} {{ Product.name }}
-                    {{ Product.company }}
                   </v-card-text>
-                  <strong class="PriceAfter pa-2 text-truncate">
+                  <strong class="PriceAfter py-1 pt-0 pa-2 text-truncate">
                     {{ Product.payment }}
                     <small class="text-truncate">ريال</small>
                   </strong>
                   <!-- if the product contain any promotion -->
-                  <v-card-actions class="py-1 px-1">
+                  <v-card-text class="py-1 pa-2 text-truncate">
                     <!-- free delivery  -->
                     <span class="span-text">
                       <!-- <v-icon>mdi-moped</v-icon> -->
@@ -98,31 +94,25 @@
                     <span class="divider mx-1"></span>
                     <!-- free coins  -->
                     <span class="span-text"> <span>20</span> نقطه </span>
-                  </v-card-actions>
+                  </v-card-text>
                   <!-- how many sold and rating  -->
-                  <v-card-actions class="pa-0">
-                    <p class="ma-0 sold-info text-truncate">
-                      <span class="span">({{ Product.id }})</span>بيعت
-                    </p>
+                  <v-card-actions class="py-0 pa-2">
+                    <!-- rating  -->
+                    <v-icon size="17" color="amber">mdi-star</v-icon>
+                    <span class="span">3.5</span>
                     <!-- divider -->
                     <span class="divider mx-1"></span>
-                    <!-- rating  -->
-                    <v-rating
-                      v-model="rating"
-                      half-increments
-                      small
-                      background-color="orange darken-1"
-                      color="orange darken-1"
-                      readonly
-                    ></v-rating>
-                    <span class="span">({{ Product.id }})</span>
+                    <!-- sold Info  -->
+                    <p class="ma-0 sold-info text-truncate">
+                      <span class="span ml-1">({{ Product.id }})</span>بيعت
+                    </p>
                   </v-card-actions>
                   <!-- location -->
-                  <v-card-actions class="pt-0 pb justify-end">
+                  <v-row no-gutters class="px-2 justify-end">
                     <span class="sold-info">
                       {{ Product.location }}
                     </span>
-                  </v-card-actions>
+                  </v-row>
                 </v-card>
               </div>
             </v-hover>
@@ -194,7 +184,7 @@ export default {
   }
   .span {
     font-family: sans-serif !important;
-    margin-left: 5px;
+    // margin-left: 5px;
     font-size: 13px !important;
     letter-spacing: 1.5px !important;
   }
@@ -312,11 +302,11 @@ export default {
   }
 }
 .divider {
-  display: block;
+  display: inline-block;
   height: 12px;
   // width: 2px;
   padding: 1px;
-  background-color: #ffab91;
+  background-color: #e0e0e0;
   border-radius: 2px;
 }
 </style>
