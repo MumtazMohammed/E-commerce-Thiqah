@@ -20,7 +20,7 @@
             style="overflow: hidden; position: relative"
           >
             <v-img
-              max-height="100"
+              height="100"
               style="overflow: hidden"
               :src="getimageUrl(Product.folder, Product.image)"
             >

@@ -35,7 +35,7 @@
                     },
                   }"
                   :elevation="hover ? 3 : 0"
-                  min-height="250px"
+                  min-height="315"
                   width="100%"
                   style="
                     overflow: hidden;
@@ -161,7 +161,7 @@
                         },
                       }"
                       :elevation="hover ? 3 : 0"
-                      min-height="250px"
+                      min-height="315"
                       width="100%"
                       style="
                         overflow: hidden;

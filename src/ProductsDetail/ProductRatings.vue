@@ -1,7 +1,8 @@
 <template>
   <div class="Product-Ratings">
     <!-- Product Ratings  -->
-    <v-sheet color="orange lighten-5" class="overflow--hidden">
+    <v-divider></v-divider>
+    <v-sheet color="#f8f9fa" class="overflow--hidden">
       <v-card-text class="pa-3 tital">تـقـييـات الـمـنـتج</v-card-text>
       <v-col cols="12" class="py-0">
         <strong class="pb-1">
@@ -17,7 +18,7 @@
           readonly
         ></v-rating>
       </v-col>
-      <v-col cols="12" class="pa-0">
+      <!-- <v-col cols="12" class="pa-0">
         <v-chip-group
           class="filter-rating"
           mandatory
@@ -31,7 +32,7 @@
           <v-chip small> <span class="ml-2">(20)</span> 4 نجوم </v-chip>
           <v-chip small> <span class="ml-2">(20)</span> 5 نجوم </v-chip>
         </v-chip-group>
-      </v-col>
+      </v-col> -->
       <!-- If no rating  -->
       <v-col cols="12">
         <v-card-text class="text-center no-rating">
@@ -40,7 +41,7 @@
       </v-col>
       <!--  rating  -->
       <v-col cols="12" class="pa-2">
-        <v-card color="#fff" tile outlined height="auto" class="comment">
+        <v-card color="#eee" outlined height="auto" class="comment pa-2">
           <v-card-actions class="pa-0">
             <div class="">
               <v-card-text class="pa-0 Customer-name"> محمد أمين </v-card-text>
@@ -64,9 +65,7 @@
               فهو يساعد المتصفح على فهم المحتوى أكثر وبالإضافة إلى الألوان التي
               ستجعل موقعك ذا إحساس عالي. التنوين، وهو على ثلاث أشكال: تنوين ضم
               وتنوين فتح وتنوين كسر هذا نص عشوائي الشكل والمبنى، من المهم أن
-              يكون الموقع جاذبا من الناحية البصرية فهو يساعد المتصفح على فهم
-              المحتوى أكثر وبالإضافة إلى الألوان التي ستجعل موقعك ذا إحساس عالي.
-              التنوين، وهو على ثلاث أشكال: تنوين
+              يكون الموقع جاذبا من الناحية البصرية
             </v-card-subtitle>
           </v-sheet>
           <!-- big screen customer img  -->
@@ -119,26 +118,24 @@
               transition="dialog-bottom-transition"
             >
               <template v-slot:activator="{ on, attrs }">
-                <v-sheet class="mt-1" color="grey lighten-2 ">
-                  <v-avatar
-                    v-bind="attrs"
-                    v-on="on"
-                    v-for="(singleImage, x) in getCarInfo.images"
-                    :key="x"
-                    class="ma-1"
-                    rounded
-                    size="40"
-                    color="grey darken-2"
-                  >
-                    <v-img :src="getimageUrl(getCarInfo.folder, singleImage)">
-                    </v-img>
-                  </v-avatar>
-                  <v-avatar rounded class="ma-1" size="40" color="black">
-                    <span class="white--text">
-                      + {{ getCarInfo.images.length - 1 }}
-                    </span>
-                  </v-avatar>
-                </v-sheet>
+                <v-avatar
+                  v-bind="attrs"
+                  v-on="on"
+                  v-for="(singleImage, x) in getCarInfo.images"
+                  :key="x"
+                  class="ma-1"
+                  rounded
+                  size="50"
+                  color="grey darken-2"
+                >
+                  <v-img :src="getimageUrl(getCarInfo.folder, singleImage)">
+                  </v-img>
+                </v-avatar>
+                <v-avatar rounded class="ma-1" size="50" color="black">
+                  <span class="white--text">
+                    + {{ getCarInfo.images.length - 1 }}
+                  </span>
+                </v-avatar>
               </template>
               <v-card color="grey darken-4">
                 <v-toolbar tile dark flat color="grey darken-3">

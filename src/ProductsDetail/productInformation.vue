@@ -1,8 +1,27 @@
 <template>
   <!-- this component will be under the image  -->
   <div class="ContactSeller">
+    <!-- here the product name  -->
+    <v-col cols="12" class="pa-2">
+      <p class="ProductName ma-0">
+        {{ getCarInfo.company }} {{ getCarInfo.name }}
+        {{ getCarInfo.modle }}
+        {{ getCarInfo.company }} {{ getCarInfo.name }}
+        {{ getCarInfo.modle }}
+        {{ getCarInfo.company }} {{ getCarInfo.name }}
+        {{ getCarInfo.modle }}
+        {{ getCarInfo.company }} {{ getCarInfo.name }}
+        {{ getCarInfo.modle }}
+        {{ getCarInfo.company }} {{ getCarInfo.name }}
+        {{ getCarInfo.modle }}
+        {{ getCarInfo.company }} {{ getCarInfo.name }}
+        {{ getCarInfo.modle }}
+        {{ getCarInfo.company }} {{ getCarInfo.name }}
+        {{ getCarInfo.modle }}
+      </p>
+    </v-col>
     <!-- here the Price Info   -->
-    <v-row no-gutters align="center" justify="space-between" class="pa-1">
+    <v-row no-gutters align="center" justify="space-between" class="pa-2 py-0">
       <p class="ma-0 price">
         {{ getCarInfo.payment }}
         <span> ريال </span>
@@ -21,13 +40,6 @@
         <span>9%</span>
       </v-chip>
     </v-row>
-    <!-- here the product name  -->
-    <v-col cols="12" class="pa-1">
-      <p class="ProductName d-block text-truncate ma-0">
-        {{ getCarInfo.company }} {{ getCarInfo.name }}
-        {{ getCarInfo.modle }}
-      </p>
-    </v-col>
     <!-- <v-col cols="12" class="py-2">
       <ShareSaveReport />
     </v-col> -->
@@ -206,9 +218,13 @@ export default {
   font-weight: 400;
   letter-spacing: 0 !important;
   font-size: 23px !important;
-  width: 100%;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  text-align: justify;
+  overflow: hidden;
   @media (max-width: 600px) {
-    font-size: 17px !important;
+    font-size: 18px !important;
   }
 }
 .price {

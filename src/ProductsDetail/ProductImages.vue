@@ -13,7 +13,7 @@
           >
             <template v-slot:activator="{ on, attrs }">
               <v-banner
-                color="transparent"
+                color="grey darken-2"
                 style="overflow: hidden; position: relative"
               >
                 <span large label class="featured-tag">
@@ -30,7 +30,7 @@
                 </span>
                 <v-carousel
                   v-model="customerIMageNo"
-                  height="420px"
+                  height="300px"
                   delimiter-icon="mdi-minus"
                   :show-arrows="false"
                 >
@@ -41,7 +41,7 @@
                     <v-img
                       v-bind="attrs"
                       v-on="on"
-                      max-height="420"
+                      max-height="300"
                       :src="getimageUrl(getCarInfo.folder, singleImage)"
                     >
                     </v-img>
@@ -557,7 +557,8 @@ export default {
 ::v-deep .v-carousel__controls {
   height: 36px;
   border-radius: 3px;
-  @media (max-width: 600px) {
+  @media (max-width: 960px) {
+    border-radius: 0px;
     height: 30px;
   }
 }
@@ -715,7 +716,7 @@ export default {
 }
 
 ::v-deep .v-banner__wrapper {
-  padding: 0 5px !important;
+  padding: 0 0.1px !important;
 }
 ::v-deep .v-banner__content {
   padding: 0px !important;

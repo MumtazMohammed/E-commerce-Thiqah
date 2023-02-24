@@ -114,7 +114,7 @@
                   </v-avatar>
                 </v-list-item-avatar> -->
                 <v-list-item-content>
-                  <v-list-item-title v-text="CarData.name"> </v-list-item-title>
+                  <v-list-item-title> {{ CarData.name }}</v-list-item-title>
                   <!-- <v-spacer></v-spacer>
                   <v-list-item-subtitle>
                     {{ CarData.id }}
@@ -147,8 +147,8 @@
                 v-on="on"
                 flat
                 width="100%"
-                height="35px"
-                color="#fff"
+                height="30px"
+                color="#EEE"
                 rounded="lg"
                 class="search-small-screen mr-1 ml-3"
               >
@@ -162,7 +162,7 @@
                   <span class="pa-1 icon-small-screen-text">
                     على ماذا تبحث...
                   </span>
-                  <v-icon color="deep-orange lighten-1" size="24" class="ml-1">
+                  <v-icon color="grey darken-1" size="24" class="ml-1">
                     mdi-magnify mdi-rotate-90
                   </v-icon>
                 </v-row>
@@ -215,7 +215,8 @@
                     :key="CarData.id"
                   >
                     <v-list-item-content>
-                      <v-list-item-title v-text="CarData.name">
+                      <v-list-item-title>
+                        {{ CarData.name }}
                       </v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
@@ -245,7 +246,7 @@
                   params: { Cart: 'سلة التسوق ' },
                 }"
                 depressed
-                class="btn-noti-cart deep-orange lighten-5"
+                class="btn-noti-cart grey lighten-3"
                 icon
               >
                 <v-icon>mdi-cart</v-icon>
@@ -262,7 +263,7 @@
                 }"
                 exact-path
                 depressed
-                class="btn-noti-cart deep-orange lighten-5"
+                class="btn-noti-cart grey lighten-3"
                 icon
               >
                 <v-icon> mdi-bell </v-icon>
@@ -366,7 +367,7 @@ a {
   }
 }
 .search-small-screen {
-  box-shadow: 0 0 0 1px #ff5722 !important;
+  // box-shadow: 0 0 0 1px #ffccbc !important;
 }
 .v-text-field::v-deep .v-label.theme--light {
   font-family: $fontfamliy3 !important;
