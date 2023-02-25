@@ -21,7 +21,7 @@
       </p>
     </v-col>
     <!-- here the Price Info   -->
-    <v-row no-gutters align="center" justify="space-between" class="pa-2 py-0">
+    <v-row no-gutters align="center" justify="space-between" class="pa-2 ">
       <p class="ma-0 price">
         {{ getCarInfo.payment }}
         <span> ريال </span>
@@ -45,7 +45,7 @@
     </v-col> -->
 
     <!-- here are the rating and sales Info   -->
-    <v-row align="center" no-gutters class="pa-1">
+    <v-row align="center" no-gutters class="pa-2">
       <p class="ma-0">التقيمات</p>
       <span class="grey--text number text--darken-1 mr-1"> 9 </span>
       <v-divider vertical class="mx-2"></v-divider>
@@ -67,9 +67,9 @@
       <ShareSaveReport />
     </v-row>
     <!-- here are the vouchers -->
-    <v-menu max-width="700" bottom left>
+    <v-menu max-width="700"  bottom left>
       <template v-slot:activator="{ on, attrs }">
-        <v-card-actions class="pa-1 py-4" v-bind="attrs" v-on="on">
+        <v-card-actions class="pa-2" v-bind="attrs" v-on="on">
           <span class="see-more-coupons">القسائم</span>
           <v-sheet class="px-2 transparent d-flex" width="100%">
             <v-card color="#eee" flat v-for="i in 3" :key="i" class="coupons">
@@ -224,7 +224,7 @@ export default {
   text-align: justify;
   overflow: hidden;
   @media (max-width: 600px) {
-    font-size: 18px !important;
+    font-size: 16px !important;
   }
 }
 .price {

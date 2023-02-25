@@ -1,9 +1,8 @@
 <template>
-  <v-sheet color="#fff" class="my-2">
+  <v-sheet color="transparent" class="my-2">
     <!-- advertisement  -->
     <v-container class="pa-0 pa-md-0 pa-lg-0 pa-sm-1">
       <!-- TheAdv -->
-      <v-card flat>
         <swiper class="swiper" :options="swiperOption">
           <swiper-slide v-for="(item, i) in items" :key="i">
             <v-card
@@ -19,7 +18,6 @@
           </swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
-      </v-card>
     </v-container>
   </v-sheet>
 </template>
