@@ -1,11 +1,11 @@
 <template>
-  <div class="SpicalShowRoom py-md-2 py-lg-2">
+  <div class="SpicalShowRoom">
     <v-container class="pa-0">
-      <div class="ont-weight-bold pa-2 tital">
-        قد تنال على
-        <strong class="mx-1">إعجابك</strong>
-      </div>
-      <v-sheet color="#eee" class="pa-2">
+      <v-sheet color="#ECEFF1" class="pa-2">
+        <div class="ont-weight-bold pa-2 tital">
+          قد تنال على
+          <strong class="mx-1">إعجابك</strong>
+        </div>
         <v-row no-gutters>
           <v-col
             cols="6"
@@ -156,8 +156,8 @@ export default {
   width: 100%;
   min-height: 50vh;
   // padding: $padding;
-  background-color: $color-background;
   font-family: $fontfamliy;
+  background-color: $color-background;
   @media (max-width: 960px) {
     margin-bottom: 50px;
   }

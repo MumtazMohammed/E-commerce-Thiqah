@@ -1,6 +1,6 @@
 <template>
-  <div class="DailyOffer pt-2">
-    <v-container class="py-0">
+  <div class="DailyOffer my-2">
+    <v-container class="pa-0">
       <div class="pa-2 d-flex font-weight-bold tital">
         من نفس
         <strong class="mx-1">البائع</strong>
@@ -172,7 +172,7 @@ export default {
 .DailyOffer {
   width: 100%;
   min-height: 30vh;
-  background-color: $color-background;
+  background-color: #fff;
   .swiper {
     height: 245px !important;
     padding: 0 10px;

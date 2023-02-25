@@ -1,8 +1,8 @@
 <template>
-  <div class="car-info py-2">
+  <div class="car-info my-2">
     <div class="store-col">
       <v-sheet
-        class="store-card transparent hidden-sm-and-down pa-2"
+        class="store-card  hidden-sm-and-down pa-2"
         width="100%"
       >
         <v-card-actions class="flex-wrap pa-0">
@@ -31,7 +31,7 @@
       </v-sheet>
     </div>
     <v-divider class="hidden-sm-and-down"></v-divider>
-    <v-sheet tile flat class="detail-card transparent pa-2">
+    <v-sheet tile flat class="detail-card  pa-2">
       <p class="tital black--text text-center mb-0 pa-2">تـفـاصـيل الـمنـتج</p>
       <v-card-text class="pa-2 text">
         الشكل والمبنى، من المهم أن يكون الموقع جاذبا من الناحية البصرية فهو

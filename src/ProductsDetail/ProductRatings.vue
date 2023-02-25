@@ -1,13 +1,25 @@
 <template>
   <div class="Product-Ratings">
     <!-- Product Ratings  -->
-    <v-divider></v-divider>
-    <v-sheet color="#f8f9fa" class="overflow--hidden">
-      <v-card-text class="pa-3 tital">تـقـييـات الـمـنـتج</v-card-text>
-      <v-col cols="12" class="py-0">
+    <v-sheet class="overflow--hidden">
+      <v-row
+        class="pa-2 py-0"
+        no-gutters
+        align="center"
+        justify="space-between"
+      >
+        <span class="tital">
+          التـقـييـات
+          <span>( 20 )</span>
+        </span>
+        <v-btn text>رؤية الكل</v-btn>
+      </v-row>
+
+      <v-col class="px-2 py-0">
         <strong class="pb-1">
-          <span>{{ rating }}</span>
-          من 5
+          <span class="mx-1">{{ rating }}</span>
+          /
+          <span class="mr-1">5</span>
         </strong>
         <v-rating
           v-model="rating"
@@ -41,7 +53,7 @@
       </v-col>
       <!--  rating  -->
       <v-col cols="12" class="pa-2">
-        <v-card color="#eee" outlined height="auto" class="comment pa-2">
+        <v-card flat color="#F5F5F5" height="auto" class="comment pa-2">
           <v-card-actions class="pa-0">
             <div class="">
               <v-card-text class="pa-0 Customer-name"> محمد أمين </v-card-text>
@@ -70,22 +82,18 @@
           </v-sheet>
           <!-- big screen customer img  -->
           <div class="hidden-xs-only">
-            <v-sheet class="mt-1" color="grey lighten-2 ">
-              <v-avatar
-                v-for="(singleImage, x) in getCarInfo.images"
-                :key="x"
-                class="ma-1"
-                rounded
-                size="50"
-                color="grey darken-2"
-                @click="
-                  ActiveImage = getimageUrl(getCarInfo.folder, singleImage)
-                "
-              >
-                <v-img :src="getimageUrl(getCarInfo.folder, singleImage)">
-                </v-img>
-              </v-avatar>
-            </v-sheet>
+            <v-avatar
+              v-for="(singleImage, x) in getCarInfo.images"
+              :key="x"
+              class="ma-1"
+              rounded
+              size="50"
+              color="grey darken-2"
+              @click="ActiveImage = getimageUrl(getCarInfo.folder, singleImage)"
+            >
+              <v-img :src="getimageUrl(getCarInfo.folder, singleImage)">
+              </v-img>
+            </v-avatar>
             <v-btn
               class="close-comment-img"
               color="grey lighten-2"
@@ -168,13 +176,13 @@
           </div>
         </v-card>
       </v-col>
-      <v-col cols="12" class="pa-1">
+      <!-- <v-col cols="12" class="pa-1">
         <v-card-actions class="justify-center pa-0">
           <v-btn dark small class="elevation-0 show-all-btn orange"
             >مشاهدة الكل</v-btn
           >
         </v-card-actions>
-      </v-col>
+      </v-col> -->
     </v-sheet>
   </div>
 </template>
@@ -243,6 +251,10 @@ export default {
   @media (max-width: 400px) {
     font-size: 18px;
   }
+  span {
+    font-family: sans-serif !important;
+    font-size: 17px;
+  }
 }
 .detail-card {
   overflow: hidden;
@@ -266,15 +278,15 @@ export default {
   letter-spacing: 0 !important;
   color: red !important;
 }
-strong {
-  color: #ff5722 !important;
-  font-family: $fontfamliy3;
-  font-size: 20px;
-  margin-bottom: 5px;
-  @media (max-width: 600px) {
-    font-size: 18px;
-  }
-}
+// strong {
+//   color: #ff5722 !important;
+//   font-family: $fontfamliy3;
+//   font-size: 20px;
+//   margin-bottom: 5px;
+//   @media (max-width: 600px) {
+//     font-size: 18px;
+//   }
+// }
 .filter-rating {
   font-family: $fontfamliy3;
   letter-spacing: 0 !important;

@@ -4,22 +4,12 @@
     <div class="car-reviw">
       <v-container class="pa-0">
         <v-row no-gutters class="">
-          <v-col cols="12">
+          <v-col>
             <ProductImages />
-          </v-col>
-          <v-col cols="12" class="transparent">
             <TheSellerStoreInformation />
-          </v-col>
-          <v-col cols="12">
             <ProductRatings />
-          </v-col>
-          <v-col cols="12" class="pa-0">
             <AdvertisementTow />
-          </v-col>
-          <v-col cols="12" class="pa-0">
             <SameWonerProducts />
-          </v-col>
-          <v-col cols="12" class="pa-0">
             <YouMightLikeIt />
           </v-col>
         </v-row>
@@ -88,7 +78,7 @@ export default {
   width: 100%;
   height: auto;
   position: relative;
-
+  background-color: #eee;
   @media (max-width: 600px) {
     // margin-bottom: 50px;
   }

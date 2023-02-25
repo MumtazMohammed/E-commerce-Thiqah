@@ -2,7 +2,7 @@
   <div class="client-store">
     <!-- client Card -->
     <v-card
-      style="background: linear-gradient(180deg, #ffccbc 0%, #eee 100%)"
+      style="background: linear-gradient(180deg, #757575 0%, #e0e0e0 100%)"
       flat
       class="mx-auto grey"
       tile
@@ -49,19 +49,21 @@
         <!-- quick information  -->
         <v-row align="center" no-gutters class="fill-height mt-6">
           <v-col v-for="(First, i) in FirstAccess" :key="i">
-            <v-card-text class="pa-0 text-center">
-              {{ First.cunt }}
-            </v-card-text>
-            <v-card-text class="pa-0 mt-1 text text-center">
-              {{ First.title }}
-            </v-card-text>
+            <v-card color="transparent" flat tile>
+              <v-card-text class="pa-0 text-No text-center">
+                {{ First.cunt }}
+              </v-card-text>
+              <v-card-text class="pa-0 mt-1 text text-center">
+                {{ First.title }}
+              </v-card-text>
+            </v-card>
           </v-col>
         </v-row>
       </v-container>
     </v-card>
     <v-container class="py-0">
       <!-- order  -->
-      <v-card flat class="pa-2 my-2">
+      <v-card flat rounded="lg" class="pa-2 mt-0 mb-3">
         <v-card-text class="pt-2 card-titel"> طلبياتي </v-card-text>
         <v-row align="center" no-gutters class="fill-height">
           <v-col class="px-1" v-for="(Second, i) in SecondAccess" :key="i">
@@ -96,8 +98,9 @@
         </v-row>
       </v-card>
       <!-- row for cart and other  -->
-      <v-card flat class="pa-2 my-2">
+      <v-card rounded="lg" flat class="pa-2 my-3">
         <v-row align="center" no-gutters class="fill-height">
+          <!-- cart btn  -->
           <v-col class="px-1">
             <v-card
               flat
@@ -107,49 +110,78 @@
               }"
             >
               <v-row justify="center" no-gutters class="fill-height">
-                <v-icon
-                  style="
-                    padding: 5px;
-                    border-radius: 50%;
-                    background-color: #fc624d;
-                  "
-                  class="grey lighten-3"
-                  color="#fc624d"
-                  size="27"
-                >
-                  mdi-cart-outline
-                </v-icon>
+                <v-icon color="#fc624d" size="27"> mdi-cart-outline </v-icon>
               </v-row>
               <v-card-text class="pa-0 mt-2 text text-center">
                 سلة التسوق
               </v-card-text>
             </v-card>
           </v-col>
-          <v-col class="px-1" v-for="(Third, i) in ThirdAccess" :key="i">
-            <v-row justify="center" no-gutters class="fill-height">
-              <v-icon
-                :style="Third.flib"
-                style="
-                  padding: 5px;
-                  border-radius: 50%;
-                  background-color: #fc624d;
-                "
-                class="pa- text-center"
-                :class="Third.color"
-                color="white"
-                size="27"
-              >
-                {{ Third.cunt }}
-              </v-icon>
-            </v-row>
-            <v-card-text class="pa-0 mt-2 text text-center">
-              {{ Third.title }}
-            </v-card-text>
+          <!-- thiqah mall btn  -->
+          <v-col class="px-1">
+            <v-card
+              flat
+              :to="{
+                name: 'SmallScreenShare',
+                params: { Share: 'شارك وأربح' },
+              }"
+            >
+              <v-row justify="center" no-gutters class="fill-height">
+                <v-icon
+                  style="border-radius: 50%"
+                  color="deep-orange darken-2"
+                  size="27"
+                >
+                  mdi-shopping
+                </v-icon>
+              </v-row>
+              <v-card-text class="pa-0 mt-2 text text-center">
+                ثقة مول
+              </v-card-text>
+            </v-card>
+          </v-col>
+          <!-- share and wain btn  -->
+          <v-col class="px-1">
+            <v-card
+              flat
+              :to="{
+                name: 'SmallScreenShare',
+                params: { Share: 'شارك وأربح' },
+              }"
+            >
+              <v-row justify="center" no-gutters class="fill-height">
+                <v-icon color="blue-grey darken-1" size="27">
+                  mdi-link-box
+                </v-icon>
+              </v-row>
+              <v-card-text class="pa-0 mt-2 text text-center">
+                شارك وأربح
+              </v-card-text>
+            </v-card>
+          </v-col>
+          <!-- open your store btn  -->
+          <v-col class="px-1">
+            <v-card
+              flat
+              :to="{
+                name: 'SmallScreenShare',
+                params: { Share: 'شارك وأربح' },
+              }"
+            >
+              <v-row justify="center" no-gutters class="fill-height">
+                <v-icon color="blue-grey darken-1" size="27">
+                  mdi-file-sign
+                </v-icon>
+              </v-row>
+              <v-card-text class="pa-0 mt-2 text text-center">
+                ابدأ في البيع
+              </v-card-text>
+            </v-card>
           </v-col>
         </v-row>
       </v-card>
       <!-- wallet  -->
-      <v-card flat class="pa-2 my-2">
+      <v-card rounded="lg" flat class="pa-2 my-3">
         <v-card-text class="pt-2 card-titel">
           رصيدي
           <v-icon size="22" color="#fc624d" class="mr-1">mdi-wallet</v-icon>
@@ -199,8 +231,8 @@
           </v-col>
         </v-row>
       </v-card>
-      <!-- wallet  -->
-      <v-card flat class="pa-2 my-2">
+      <!-- comment help last-seen .....  -->
+      <v-card rounded="lg" flat class="pa-2 my-3">
         <v-row align="center" no-gutters class="fill-height mb-5">
           <v-col class="px-1" v-for="(Fift, i) in FifthhAccess" :key="i">
             <v-row justify="center" no-gutters class="fill-height">
@@ -231,8 +263,9 @@
           </v-col>
         </v-row>
       </v-card>
-      <v-sheet class="my-2" min-height="200">
-        <v-card-text class="card-titel-follow">متابع : </v-card-text>
+      <!-- follow  -->
+      <v-card flat rounded="lg" class="my-2 pa-2" min-height="200">
+        <v-card-text class="pt-2 card-titel">متابع </v-card-text>
         <v-row class="px-3" no-gutters>
           <v-col class="pa-1" v-for="i in 18" :key="i" cols="2">
             <v-row justify="center" no-gutters>
@@ -245,7 +278,7 @@
             </v-row>
           </v-col>
         </v-row>
-      </v-sheet>
+      </v-card>
       <!-- <Services /> -->
     </v-container>
   </div>
@@ -287,28 +320,6 @@ export default {
           cunt: "mdi-archive-cancel",
         },
       ],
-      ThirdAccess: [
-        {
-          title: " ثقة مول ",
-          cunt: "mdi-shopping",
-        },
-        {
-          title: "شارك وأربح",
-          cunt: "mdi-link-box",
-          color: "grey",
-        },
-        {
-          title: "أفتح متجر",
-          cunt: "mdi-handshake ",
-          flib: "  transform: scaleX(-1)",
-          color: "indigo lighten-1 ",
-        },
-        // {
-        //   title: "المرتجع & والإلغاء",
-        //   cunt: "mdi-archive-cancel",
-        // },
-      ],
-
       FifthhAccess: [
         {
           title: "  تقييمي ",
@@ -348,7 +359,7 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .client-store {
-  background-color: #eee;
+  background-color: #e0e0e0;
   width: 100%;
   min-height: 100vh;
   @media (max-width: 960px) {
@@ -362,8 +373,13 @@ export default {
 .text {
   letter-spacing: 0 !important;
   font-family: $fontfamliy3 !important;
-  font-weight: 500;
-  font-size: 14px !important;
+  font-weight: 600;
+  font-size: 13px !important;
+}
+.text-No {
+  font-weight: 600;
+  font-size: 16px !important;
+  font-family: sans-serif !important;
 }
 .card-titel {
   letter-spacing: 0 !important;
@@ -371,13 +387,6 @@ export default {
   font-weight: 600;
   font-size: 17px;
 }
-.card-titel-follow {
-  letter-spacing: 0 !important;
-  font-family: $fontfamliy3 !important;
-  font-weight: 500;
-  font-size: 17px;
-}
-
 ::v-deep span.v-badge__badge {
   color: #fff !important;
   background-color: $color-2 !important;

@@ -1,7 +1,7 @@
 <template>
-  <v-sheet color="#f8f9fa">
+  <v-sheet color="#fff" class="my-2">
     <!-- advertisement  -->
-    <v-container class="pa-2 pa-md-0 pa-lg-0 pa-sm-1">
+    <v-container class="pa-0 pa-md-0 pa-lg-0 pa-sm-1">
       <!-- TheAdv -->
       <v-card flat>
         <swiper class="swiper" :options="swiperOption">
