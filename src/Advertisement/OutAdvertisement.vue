@@ -210,10 +210,10 @@ export default {
       swiperOption: {
         initialSlide: 0,
         freeMode: false,
-        effect: "card",
+        effect: "fade",
         spaceBetween: 10,
         autoplay: {
-          delay: 2500,
+          delay: 5500,
           disableOnInteraction: true,
           stopOnLastSlide: false,
         },

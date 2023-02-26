@@ -17,17 +17,12 @@
         <template v-slot:img="{ props }">
           <v-img
             v-bind="props"
-            gradient="to top right, #fc624d85, #00000071"
+            gradient="to top right, #fc624d, #ffffff00"
           ></v-img>
         </template>
         <v-banner class="pa-0" color="transparent" width="100%">
           <v-container class="pa-0">
-            <v-row
-              justify="center"
-              align="center"
-              no-gutters
-              style="width: 100%"
-            >
+            <v-row justify="center" align="center" no-gutters>
               <v-col cols="9" md="7" sm="8" lg="7" class="pa-0">
                 <v-card
                   height="40"
@@ -62,7 +57,7 @@
                 class="pa-0"
               >
                 <v-btn elevation="0" small fab>
-                  <v-icon>mdi-dots-vertical</v-icon>
+                  <v-icon color="#fc624d">mdi-dots-vertical</v-icon>
                 </v-btn>
               </v-col>
               <v-col cols="12" class="pa-0 mt-4 mt-lg-2 infoo mt-sm-2">
@@ -82,8 +77,9 @@
             background-color="grey lighten-3"
           >
             <v-tab class="tabs-text"> المتجر </v-tab>
-            <v-tab class="tabs-text"> البضائع </v-tab>
-            <v-tab class="tabs-text"> الخصومات </v-tab>
+            <v-tab class="tabs-text"> المنتجات </v-tab>
+            <v-tab class="tabs-text"> الفئة </v-tab>
+            <v-tab class="tabs-text"> الحساب </v-tab>
           </v-tabs>
         </template>
       </v-app-bar>
@@ -92,7 +88,7 @@
         class="overflow-y-auto sheet"
         style="background-color: #f8f9fa"
       >
-        <v-container class="pa-0 pb-2 pt-3" style="min-height: 1000px">
+        <v-container class="pa-0  pt-3" style="max-height: 1000px">
           <v-sheet height="243"></v-sheet>
           <v-tabs-items style="min-height: " v-model="tab">
             <v-tab-item class="">
@@ -101,6 +97,12 @@
             </v-tab-item>
             <v-tab-item>
               <store-products />
+            </v-tab-item>
+            <v-tab-item style="min-height: calc(100vh - 305px)">
+              <span>f</span>
+            </v-tab-item>
+            <v-tab-item>
+              <span>d</span>
             </v-tab-item>
           </v-tabs-items>
         </v-container>
@@ -245,6 +247,9 @@ export default {
 ::v-deep .v-banner__wrapper {
   padding: 0 !important;
   border: 0 !important;
+}
+::v-deep .v-banner__content {
+  padding: 0 !important;
 }
 
 .sheet {

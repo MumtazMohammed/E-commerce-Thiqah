@@ -6,6 +6,7 @@
       :mini-variant.sync="mini"
       permanent
       app
+      expand-on-hover
       right
     >
       <v-list-item class="px-2">
@@ -126,7 +127,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-container class="py-0 transparent" style="overflow: hidden">
-      <v-sheet style="height: calc(100vh - 40px)" rounded="md">
+      <v-sheet class="transparent" style="height: calc(100vh - 40px)" rounded="md">
         <router-view />
       </v-sheet>
     </v-container>

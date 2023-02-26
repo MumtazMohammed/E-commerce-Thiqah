@@ -5,11 +5,29 @@
         <v-icon right class="link-icon"> mdi-cart-plus </v-icon>
         سلة التسوق
       </v-card-title>
-      <v-sheet height="640" class="overflow-y-auto pt-1">
+      <v-sheet height="640" class="overflow-y-auto pt-1 transparent">
         <v-row no-gutters class="">
           <v-col cols="12" md="8" lg="8" sm="8" xl="8">
             <v-row no-gutters>
-              <v-col v-for="i in 2" :key="i" cols="12" class="py-1 px-2">
+              <v-col cols="12" class="pa-2">
+                <v-sheet rounded="md">
+                  <v-card-actions class="justify-space-between">
+                    <v-checkbox
+                      hide-details
+                      class="ma-0 pa-0"
+                      v-model="checkbox"
+                      label="أختيار الكل"
+                    ></v-checkbox>
+                    <v-btn elevation="0" small class="btn2">
+                      <v-icon size="15" color="red lighten-2" right>
+                        mdi-trash-can
+                      </v-icon>
+                      حذف الكل
+                    </v-btn>
+                  </v-card-actions>
+                </v-sheet>
+              </v-col>
+              <v-col v-for="i in 2" :key="i" cols="12" class="pa-2">
                 <v-sheet rounded class="pa-1 grey lighten-2">
                   <v-card-actions class="pa-0">
                     <v-checkbox
@@ -44,19 +62,27 @@
                       class="justify-start flex-wrap align-start pa-0"
                     >
                       <v-col cols="3" class="text--center">
-                        <v-img
-                          height="95"
-                          class="my-auto"
-                          src="@/assets/Mazda/mazda1.jpg"
-                          alt="@/assets/Hyundai/image2.jpg"
-                        >
-                          <v-checkbox
-                            hide-details
-                            value="1"
-                            class="ma-0 pa-0"
-                            v-model="checkbox"
-                          ></v-checkbox>
-                        </v-img>
+                        <v-row no-gutters class="fill-height">
+                          <v-col cols="2" class="text--center">
+                            <v-checkbox
+                              hide-details
+                              value="1"
+                              class="ma-0 pa-0"
+                              v-model="checkbox"
+                            >
+                            </v-checkbox>
+                          </v-col>
+                          <v-col cols="10" class="text--center">
+                            <v-img
+                              height="104"
+                              contain
+                              class="my-auto"
+                              src="@/assets/Mazda/mazda1.jpg"
+                              alt="@/assets/Hyundai/image2.jpg"
+                            >
+                            </v-img>
+                          </v-col>
+                        </v-row>
                       </v-col>
                       <v-col cols="9">
                         <div>

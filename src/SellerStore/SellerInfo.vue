@@ -7,7 +7,7 @@
         ></v-img>
       </v-avatar>
       <v-col cols="">
-        <v-list-item two-line>
+        <v-list-item two-line class="pt-2">
           <v-list-item-content class="py-0">
             <v-list-item-title class="store-name mb-2">
               محمد أمين الحريبي
@@ -23,54 +23,37 @@
                 </v-row>
               </v-card>
             </v-list-item-subtitle>
-            <v-card-actions class="justify-center">
-              <v-btn min-width="80px" dark class="red btn" rounded="pll"
-                >متابعة</v-btn
-              >
-              <v-btn min-width="80px" class="btn" rounded="pll">مراسلة</v-btn>
-            </v-card-actions>
           </v-list-item-content>
         </v-list-item>
+        <v-col class="hidden-md-and-up mx-auto" cols="12" sm="6">
+          <v-row
+            no-gutters
+            class="justify-space-around fill-height align-center"
+          >
+            <v-btn
+              depressed
+              min-width="100px"
+              dark
+              class="red btn"
+              rounded="pll"
+            >
+              متابعة
+            </v-btn>
+            <v-btn depressed min-width="100px" class="btn" rounded="pll">
+              مراسلة
+            </v-btn>
+          </v-row>
+        </v-col>
       </v-col>
       <v-col class="hidden-sm-and-down" cols="3">
-        <v-list-item two-line>
-          <v-list-item-content class="py-1">
-            <v-list-item-title>Two-line item</v-list-item-title>
-            <v-list-item-subtitle>Secondary text</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item two-line>
-          <v-list-item-content class="py-1">
-            <v-list-item-title>Two-line item</v-list-item-title>
-            <v-list-item-subtitle>Secondary text</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item two-line>
-          <v-list-item-content class="py-1">
-            <v-list-item-title>Two-line item</v-list-item-title>
-            <v-list-item-subtitle>Secondary text</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-      </v-col>
-      <v-col class="hidden-sm-and-down" cols="3">
-        <v-list-item two-line>
-          <v-list-item-content class="py-1">
-            <v-list-item-title>Two-line item</v-list-item-title>
-            <v-list-item-subtitle>Secondary text</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item two-line>
-          <v-list-item-content class="py-1">
-            <v-list-item-title>Two-line item</v-list-item-title>
-            <v-list-item-subtitle>Secondary text</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item two-line>
-          <v-list-item-content class="py-1">
-            <v-list-item-title>Two-line item</v-list-item-title>
-            <v-list-item-subtitle>Secondary text</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
+        <v-row no-gutters class="justify-space-around fill-height align-center">
+          <v-btn depressed min-width="80px" dark class="red btn" rounded="pll">
+            متابعة
+          </v-btn>
+          <v-btn depressed min-width="80px" class="btn" rounded="pll">
+            مراسلة
+          </v-btn>
+        </v-row>
       </v-col>
     </v-row>
   </v-card>

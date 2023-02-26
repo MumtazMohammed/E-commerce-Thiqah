@@ -1,5 +1,5 @@
 <template>
-  <div class="DailyOffer my-2">
+  <div class="DailyOffer">
     <v-container class="pa-0">
       <div class="pa-2 d-flex font-weight-bold tital">
         من نفس
@@ -41,26 +41,18 @@
                   {{ Product.name }} {{ Product.company }}
                 </v-card-text>
               </v-row>
-              <v-card-actions class="py-0 justify-center">
-                <!-- <strong
-                  class="grey--text text--lighten-1 PriceBefore text-truncate"
-                >
-                  {{ Product.payment }}
-                  <small class="text-truncate">ريال</small>
-                </strong> -->
-                <strong class="PriceAfter text-truncate">
-                  {{ Product.payment }}
-                  <small class="text-truncate">ريال</small>
-                </strong>
-              </v-card-actions>
-              <v-card-actions class="py-1 justify-space-between">
+              <strong class="PriceAfter text-truncate">
+                {{ Product.payment }}
+                <small class="text-truncate">ريال</small>
+              </strong>
+              <!-- <v-card-actions class="py-1 justify-space-between">
                 <p class="ma-0 sold-info text-truncate">
                   <span>{{ Product.id }} </span>بيعت
                 </p>
                 <span class="sold-info">
                   {{ Product.location }}
                 </span>
-              </v-card-actions>
+              </v-card-actions> -->
             </v-card>
           </div>
         </swiper-slide>
@@ -172,7 +164,7 @@ export default {
 .DailyOffer {
   width: 100%;
   min-height: 30vh;
-  background-color: #fff;
+  // background-color: #fff;
   .swiper {
     height: 245px !important;
     padding: 0 10px;
@@ -259,27 +251,11 @@ export default {
   justify-content: start;
   padding-right: 1px;
 }
-.sold-info {
-  font-family: $fontfamliy3 !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  color: $fontcolorlinks;
-  span {
-    color: $fontcolor !important;
-    margin-left: 5px;
-    font-size: 14px !important;
-    letter-spacing: 1.5px !important;
-  }
-}
-// .PriceBefore {
-//   font-size: 13px !important;
-//   text-decoration: line-through;
-// }
 .PriceAfter {
-  font-size: 18px !important;
+  font-size: 17px !important;
   display: block !important;
   color: $color-2;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   font-family: sans-serif !important;
 }
 .card-text-seeMore {

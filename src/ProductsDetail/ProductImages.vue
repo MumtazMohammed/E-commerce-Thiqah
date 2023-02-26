@@ -399,17 +399,12 @@
                     <p class="Colors-text grey--text text--darken-1">
                       الألوان :
                     </p>
-                    <v-chip-group
-                      active-class="select"
-                      tile
-                      class="mx-auto"
-                      column
-                    >
+                    <v-chip-group active-class="select-img" class="mx-auto" column>
                       <v-chip
                         label
                         v-for="(singleImage, x) in getCarInfo.images"
                         :key="x"
-                        class="px-1"
+                        class="px-1 image-chip"
                       >
                         <v-img
                           width="50"
@@ -705,6 +700,9 @@ export default {
   }
   // border-radius: 2px !important;
 }
+::v-deep .image-chip.v-chip.v-size--default {
+  border-radius: 3px !important;
+}
 ::v-deep
   .v-input.v-input--hide-details.v-input--dense.theme--light.v-text-field.v-text-field--single-line.v-text-field--solo.v-text-field--solo-flat.v-text-field--is-booted.v-text-field--enclosed {
   height: 30px;
@@ -755,7 +753,7 @@ export default {
   border: 0 !important;
 }
 .select-img {
-  background-color: $color-2;
+  // background-color: $color-2;
   box-shadow: 0 0 0px 2px $color-2 !important;
   color: #fff !important;
 }
