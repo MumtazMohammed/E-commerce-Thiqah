@@ -47,11 +47,11 @@
                   },
                 }"
                 width="100%"
-                height="240"
+                height="265"
                 class=""
-                rounded="md"
-                outlined
-                style="overflow: hidden; background-color: #eee"
+                rounded="lg"
+                flat
+                style="overflow: hidden; background-color: #fff"
               >
                 <div v-if="Product.discountPercent" class="best-price-tag">
                   <small class="discountPercent">
@@ -62,20 +62,50 @@
                   height="130"
                   :src="getimageUrl(Product.folder, Product.image)"
                 ></v-img>
+                <!-- Product Name -->
                 <v-row no-gutters>
                   <v-card-text
-                    class="d-block card-text py-1 pa-2 text-truncate"
+                    style="
+                      display: -webkit-box;
+                      -webkit-line-clamp: 2;
+                      -webkit-box-orient: vertical;
+                      overflow: hidden;
+                    "
+                    class="card-text py-1 pa-2"
                   >
-                    {{ Product.name }} {{ Product.company }}
+                    <!-- if this product at thiqah mall  -->
+                    <span
+                      style="
+                        background-color: #ff3d00;
+                        border-radius: 3px;
+                        font-weight: 600;
+                        font-size: 12px;
+                        padding: 1px;
+                      "
+                      class="white--text ml-1"
+                    >
+                      ثـقـة مـول
+                    </span>
+                    {{ Product.name }} {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }} {{ Product.name }}
+                    {{ Product.company }}
                   </v-card-text>
                 </v-row>
+                <!-- Price  -->
                 <v-card-actions class="py-1 justify-center">
                   <strong class="PriceAfter text-truncate">
                     {{ Product.payment }}
                     <small class="text-truncate">ريال</small>
                   </strong>
                 </v-card-actions>
-
+                <!-- Residual   -->
                 <v-card-text class="progress-info pa-0">
                   المتبقي
                   <span class="mr-1">14</span>
@@ -211,12 +241,12 @@ export default {
   background-color: #eeeee4;
 
   .swiper {
-    height: 270px;
+    height: 300px;
     // padding-bottom: 45px;
     padding-right: 5px !important;
     padding-left: 3px;
     .swiper-slide {
-      height: 240px !important;
+      height: 265px !important;
     }
   }
 

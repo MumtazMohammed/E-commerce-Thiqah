@@ -69,7 +69,7 @@
     <!-- here are the vouchers -->
     <v-row no-gutters align="center" class="pa-2">
       <span class="see-more-coupons">القسائم</span>
-      <v-menu max-width="700" bottom left>
+      <v-menu max-width="700" open-on-hover bottom left>
         <template v-slot:activator="{ on, attrs }">
           <v-card
             style="width: fit-content"

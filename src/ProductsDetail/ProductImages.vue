@@ -298,8 +298,8 @@
                 @click="sheet = !sheet"
                 class="addToCartAndChat-SmallScreen-btn mx-1 mr-2"
                 style="
-                  min-width: 125px;
-                  max-width: 180px;
+                  min-width: 110px;
+                  max-width: 150px;
                   justify-content: center;
                 "
               >
@@ -310,7 +310,7 @@
                 color="orange "
                 text-color="white"
                 style="
-                  min-width: 110px !important;
+                  min-width: 90px !important;
                   max-width: 170px;
                   justify-content: center;
                 "

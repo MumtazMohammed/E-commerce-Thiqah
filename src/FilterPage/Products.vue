@@ -6,12 +6,96 @@
       <v-sheet
         style="height: calc(100vh - 106px); overflow-y: auto"
         class="hidden-md-and-up"
-        color="#eee"
+        color="transparent"
       >
         <v-banner style="z-index: 8" class="pa-0" sticky>
           <FilterSearch />
         </v-banner>
         <v-row no-gutters>
+          <!-- Store paid Ad   -->
+          <v-col cols="12">
+            <v-card-title
+              style="font-size: 16px !important"
+              class="pa-2 card-text"
+            >
+              المتجر المتعلق في"<span class="red--text mx-1">سيارة</span>"
+              <v-spacer></v-spacer>
+              <v-btn depressed>المزيد</v-btn>
+            </v-card-title>
+            <v-card
+              max-width="97%"
+              exact-path
+              to="/SellerStorePage"
+              class="pa-2 mb-2 mx-auto"
+              flat
+            >
+              <v-row no-gutters align="center">
+                <v-avatar size="60" color="grey">
+                  <!-- <img src="src" alt="alt"> -->
+                </v-avatar>
+                <!-- Store name and Ad by and total followers -->
+                <v-col cols="5">
+                  <v-list-item three-line class="pl-0">
+                    <v-list-item-content class="card-text">
+                      <v-list-item-title>
+                        عنوان الاعلان عنوان الاعلان عنوان الاعلان
+                      </v-list-item-title>
+                      <v-list-item-subtitle
+                        class="grey--text text--darken-2 my-1"
+                        style="line-height: 1.5 !important"
+                      >
+                        برعاية
+                        <span
+                          >أسم المتجرسم المتجرسم المتجرسم المتجرسم المتجرسم
+                          المتجرسم المتجرسم المتجرسم المتجرسم المتجرسم المتجرسم
+                          المتجرسم المتجرسم المتجر
+                        </span>
+                      </v-list-item-subtitle>
+                      <v-list-item-subtitle
+                        class="grey--text text--darken-2"
+                        style="line-height: 1.5 !important"
+                      >
+                        المتابعين
+                        <span
+                          style="font-family: sans-serif; font-weight: 600"
+                          class="mr-1 red--text text--lighten-2"
+                        >
+                          300
+                        </span>
+                      </v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-col>
+                <!-- total products and total rating for the store -->
+                <v-col>
+                  <v-card-actions class="pa-0 justify-center">
+                    <v-icon color="#fc624d" size="18">mdi-basket</v-icon>
+                    <span style="color: #fc624d" class="mr-1"> 24 </span>
+                  </v-card-actions>
+                  <v-card-text class="pa-0 pt-1 card-text text-center">
+                    منتج
+                  </v-card-text>
+                </v-col>
+                <v-col>
+                  <v-card-actions class="pa-0 justify-center">
+                    <v-icon color="#fc624d" size="18">mdi-star</v-icon>
+                    <span style="color: #fc624d" class="mr-1"> 3.5 </span>
+                  </v-card-actions>
+                  <v-card-text class="pa-0 pt-1 card-text text-center">
+                    التقييم
+                  </v-card-text>
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-col>
+          <v-col cols="12">
+            <v-card-text
+              style="font-size: 16px !important"
+              class="pa-2 card-text"
+            >
+              نتيجة البحث عن "<span class="red--text mx-1">سيارة</span>"
+            </v-card-text>
+          </v-col>
           <v-col
             cols="6"
             md="3"
@@ -126,24 +210,96 @@
       </v-sheet>
       <!-- big screen  -->
       <v-sheet
+        color="transparent"
         v-scroll.self="onScroll"
-        class="pa-2 hidden-sm-and-down"
-        color="#eee"
+        class="pa-2 pt-0 hidden-sm-and-down"
       >
         <v-row no-gutters>
-          <v-col cols="2">
+          <v-col cols="2" class="pl-2">
             <v-banner class="pa-0" sticky>
               <FilterSearch />
             </v-banner>
           </v-col>
           <v-col cols="10">
             <v-row no-gutters>
+              <!-- Store paid Ad   -->
+              <v-col cols="12">
+                <v-card-title
+                  style="font-size: 16px !important"
+                  class="px-1 card-text"
+                >
+                  المتجر المتعلق في"<span class="red--text mx-1">سيارة</span>"
+                  <v-spacer></v-spacer>
+                  <v-btn depressed>المزيد من المتاجر</v-btn>
+                </v-card-title>
+                <v-card exact-path to="/SellerStorePage" class="pa-2" flat tile>
+                  <v-row no-gutters align="center">
+                    <v-avatar size="60" color="grey">
+                      <!-- <img src="src" alt="alt"> -->
+                    </v-avatar>
+                    <!-- Store name and Ad by and total followers -->
+                    <v-col>
+                      <v-list-item three-line>
+                        <v-list-item-content class="card-text">
+                          <v-list-item-title> عنوان الاعلان </v-list-item-title>
+                          <v-list-item-subtitle
+                            class="grey--text text--darken-2 my-1"
+                            style="line-height: 1.5 !important"
+                          >
+                            برعاية <span>أسم المتجر</span>
+                          </v-list-item-subtitle>
+                          <v-list-item-subtitle
+                            class="grey--text text--darken-2"
+                            style="line-height: 1.5 !important"
+                          >
+                            المتابعين
+                            <span
+                              style="font-family: sans-serif; font-weight: 600"
+                              class="mr-1 red--text text--lighten-2"
+                            >
+                              300
+                            </span>
+                          </v-list-item-subtitle>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-col>
+                    <!-- total products and total rating for the store -->
+                    <v-col>
+                      <v-card-actions class="pa-0 justify-center">
+                        <v-icon color="#fc624d" size="18">mdi-basket</v-icon>
+                        <span style="color: #fc624d" class="mr-1"> 24 </span>
+                      </v-card-actions>
+                      <v-card-text class="pa-0 pt-1 card-text text-center">
+                        منتج
+                      </v-card-text>
+                    </v-col>
+                    <v-col>
+                      <v-card-actions class="pa-0 justify-center">
+                        <v-icon color="#fc624d" size="18">mdi-star</v-icon>
+                        <span style="color: #fc624d" class="mr-1"> 3.5 </span>
+                      </v-card-actions>
+                      <v-card-text class="pa-0 pt-1 card-text text-center">
+                        التقييم
+                      </v-card-text>
+                    </v-col>
+                  </v-row>
+                </v-card>
+              </v-col>
+              <!-- Search Result  -->
+              <v-col cols="12">
+                <v-card-text
+                  style="font-size: 16px !important"
+                  class="pr-1 card-text"
+                >
+                  نتيجة البحث عن "<span class="red--text mx-1">سيارة</span>"
+                </v-card-text>
+              </v-col>
               <v-col
                 cols="6"
                 md="3"
                 sm="4"
-                lg="2"
-                class="pa-1"
+                lg="3"
+                class="pa-1 py-2"
                 v-for="Product in Products"
                 :key="Product.id"
               >
@@ -302,7 +458,7 @@ export default {
 .Products {
   width: 100%;
   min-height: 70vh;
-  background-color: $color-background;
+  background-color: #eee;
   padding-bottom: 10px;
   @media (max-width: 600px) {
     margin-bottom: 50px;
@@ -329,18 +485,19 @@ export default {
       padding: 0px;
     }
   }
-  // .seeMoreBtn {
-  //   letter-spacing: 0 !important;
-  //   font-size: 16px;
-  //   font-family: $fontfamliy3;
-  //   color: $color-2;
-  // }
+
+  .col-lg-3 {
+    @media (min-width: 1264px) {
+      flex: 0 0 20% !important;
+      max-width: 20% !important;
+    }
+  }
 }
 .card-text {
   font-family: $fontfamliy3 !important;
   color: $fontcolor !important;
   letter-spacing: 0 !important;
-  font-size: 13.5px !important;
+  font-size: 14px !important;
   // font-weight: 600 !important;
 }
 .PriceAfter {
