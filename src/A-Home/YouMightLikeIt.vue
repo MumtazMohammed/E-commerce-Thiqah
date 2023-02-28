@@ -1,7 +1,7 @@
 <template>
   <div class="SpicalShowRoom">
     <v-container class="pa-0">
-      <v-sheet color="#ECEFF1" class="pa-2">
+      <v-sheet color="#ECEFF1" class="pa-2 pt-0">
         <div class="ont-weight-bold pa-2 tital">
           قد تنال على
           <strong class="mx-1">إعجابك</strong>
@@ -49,29 +49,9 @@
                     :src="getimageUrl(Product.folder, Product.image)"
                   ></v-img>
                   <!--  product name  -->
-                  <v-card-text
-                    style="
-                      display: -webkit-box;
-                      -webkit-line-clamp: 2;
-                      -webkit-box-orient: vertical;
-                      overflow: hidden;
-                    "
-                    class="card-text py-1 pa-2"
-                  >
+                  <v-card-text class="card-text py-1 pa-2">
                     <!-- if this product at thiqah mall  -->
-                    <span
-                      style="
-                        background-color: #ff3d00;
-                        border-radius: 3px;
-                        font-weight: 600;
-                        font-size: 12px;
-                        padding: 1px;
-                      "
-                      class="white--text ml-1"
-                    >
-                      ثـقـة مـول
-                    </span>
-
+                    <span class="white--text ml-1"> ثـقـة مـول </span>
                     {{ Product.name }} {{ Product.company }} {{ Product.name }}
                     {{ Product.company }} {{ Product.name }}
                   </v-card-text>
@@ -201,6 +181,17 @@ export default {
     color: $fontcolor !important;
     letter-spacing: 0 !important;
     font-size: 13.5px !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    span {
+      background-color: #ff3d00;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 12px;
+      padding: 1px;
+    }
   }
   .PriceAfter {
     font-size: 17px !important;

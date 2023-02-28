@@ -130,7 +130,7 @@
                   <v-carousel
                     delimiter-icon="mdi-minus"
                     v-model="customerIMageNoBig"
-                    max-height="100%"
+                    height="522"
                   >
                     <v-carousel-item
                       v-for="(singleImage, x) in getCarInfo.images"
@@ -399,7 +399,11 @@
                     <p class="Colors-text grey--text text--darken-1">
                       الألوان :
                     </p>
-                    <v-chip-group active-class="select-img" class="mx-auto" column>
+                    <v-chip-group
+                      active-class="select-img"
+                      class="mx-auto"
+                      column
+                    >
                       <v-chip
                         label
                         v-for="(singleImage, x) in getCarInfo.images"
@@ -570,8 +574,6 @@ export default {
   align-items: center !important;
 }
 ::v-deep .v-carousel__controls {
-  height: 36px;
-  border-radius: 3px;
   @media (max-width: 960px) {
     border-radius: 0px;
     height: 30px;

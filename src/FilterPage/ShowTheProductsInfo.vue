@@ -5,12 +5,13 @@
       <v-container class="pa-0">
         <v-row no-gutters class="">
           <v-col>
-            <ProductImages />
-            <TheSellerStoreInformation />
-            <ProductRatings />
-            <AdvertisementTow />
-            <SameWonerProducts />
-            <YouMightLikeIt />
+            <product-images />
+            <add-on-deal />
+            <the-seller-store-information />
+            <product-ratings />
+            <advertisement-tow />
+            <same-woner-products />
+            <you-might-like-it />
           </v-col>
         </v-row>
       </v-container>
@@ -25,9 +26,9 @@ import ProductImages from "@/ProductsDetail/ProductImages.vue";
 import TheSellerStoreInformation from "@/ProductsDetail/TheSellerStoreInformation.vue";
 import ProductRatings from "@/ProductsDetail/ProductRatings.vue";
 import SameWonerProducts from "@/ProductsDetail/SameWonerProducts.vue";
+import AddOnDeal from "@/ProductsDetail/AddOnDeal.vue";
 import YouMightLikeIt from "@/A-Home/YouMightLikeIt.vue";
 import AdvertisementTow from "@/Advertisement/AdvertisementTow.vue";
-
 export default {
   name: "ShowTheProductsInfo",
   components: {
@@ -38,6 +39,7 @@ export default {
     YouMightLikeIt,
     SameWonerProducts,
     AdvertisementTow,
+    AddOnDeal,
   },
   data() {
     return {

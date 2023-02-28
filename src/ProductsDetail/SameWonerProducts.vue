@@ -1,10 +1,7 @@
 <template>
   <div class="DailyOffer">
     <v-container class="pa-0">
-      <div class="pa-2 d-flex font-weight-bold tital">
-        من نفس
-        <strong class="mx-1">البائع</strong>
-      </div>
+      <div class="pa-2 d-flex font-weight-bold tital">من نفس المتجر</div>
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide v-for="(Product, index) in getCarInfo" :key="index">
           <div style="position: relative">
@@ -20,9 +17,9 @@
                 },
               }"
               width="100%"
-              min-height="220"
+              min-height="230"
               style="overflow: hidden; background-color: #fff"
-              outlined
+              flat
             >
               <div v-if="Product.discountPercent" class="best-price-tag">
                 <small class="discountPercent">
@@ -34,17 +31,44 @@
                 full-width
                 :src="getimageUrl(Product.folder, Product.image)"
               ></v-img>
+              <!-- Product Name -->
               <v-row no-gutters>
                 <v-card-text
-                  class="d-inline-block card-text py-1 pa-2 text-truncate"
+                  style="
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                  "
+                  class="card-text py-1 pb-0 pa-2"
                 >
-                  {{ Product.name }} {{ Product.company }}
+                  {{ Product.name }} {{ Product.company }} {{ Product.name }}
+                  {{ Product.company }} {{ Product.name }}
+                  {{ Product.company }} {{ Product.name }}
+                  {{ Product.company }} {{ Product.name }}
+                  {{ Product.company }} {{ Product.name }}
+                  {{ Product.company }} {{ Product.name }}
+                  {{ Product.company }} {{ Product.name }}
+                  {{ Product.company }} {{ Product.name }} {{ Product.company }}
                 </v-card-text>
               </v-row>
-              <strong class="PriceAfter text-truncate">
+              <!-- Product price -->
+              <strong class="PriceAfter py-1 pa-2 pb-0 text-truncate">
                 {{ Product.payment }}
                 <small class="text-truncate">ريال</small>
               </strong>
+              <!-- how many sold and rating  -->
+              <v-card-actions class="py-1 pa-2">
+                <!-- rating  -->
+                <v-icon size="17" color="amber">mdi-star</v-icon>
+                <span class="span">3.5</span>
+                <!-- divider -->
+                <span class="divider mx-1"></span>
+                <!-- sold Info  -->
+                <p class="ma-0 sold-info text-truncate">
+                  <span class="span ml-1">({{ Product.id }})</span>بيعت
+                </p>
+              </v-card-actions>
               <!-- <v-card-actions class="py-1 justify-space-between">
                 <p class="ma-0 sold-info text-truncate">
                   <span>{{ Product.id }} </span>بيعت
@@ -60,7 +84,7 @@
           <v-card
             flat
             max-width="190px"
-            min-height="220"
+            min-height="236"
             router
             color="white"
             class="overflow-hidden d-flex flex-column justify-center align-center"
@@ -68,7 +92,7 @@
             <v-card-text class="text-center py-1 card-text-seeMore">
               الكل
             </v-card-text>
-            <v-icon size="17" class="deep-orange--text text--darken-1">
+            <v-icon size="27" class="deep-orange--text mt-1 text--darken-1">
               mdi-plus
             </v-icon>
           </v-card>
@@ -166,10 +190,10 @@ export default {
   min-height: 30vh;
   // background-color: #fff;
   .swiper {
-    height: 245px !important;
+    min-height: 275px !important;
     padding: 0 10px;
     .swiper-slide {
-      height: 220px;
+      min-height: 230px;
     }
   }
   ::v-deep .swiper-container-horizontal > .swiper-pagination-progressbar {
@@ -228,6 +252,18 @@ export default {
   top: 0px;
   z-index: 5;
 }
+.sold-info {
+  font-family: $fontfamliy3 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: $fontcolor !important;
+}
+.span {
+  font-family: sans-serif !important;
+  // margin-left: 5px;
+  font-size: 13px !important;
+  letter-spacing: 1.5px !important;
+}
 ::v-deep .v-responsive__content {
   display: flex;
   justify-content: center;
@@ -261,8 +297,9 @@ export default {
 .card-text-seeMore {
   font-family: $fontfamliy3;
   letter-spacing: 0;
-  font-size: 16px;
-  color: $fontcolorlinks !important;
+  font-size: 18px;
+  font-weight: 600 !important;
+  color: $fontcolor !important;
 }
 .ribbon {
   position: absolute;

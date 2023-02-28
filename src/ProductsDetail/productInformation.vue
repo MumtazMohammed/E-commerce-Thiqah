@@ -20,6 +20,28 @@
         {{ getCarInfo.modle }}
       </p>
     </v-col>
+    <!-- here are the rating and sales Info   -->
+    <v-row align="center" no-gutters class="pa-2">
+      <p class="ma-0">التقيمات</p>
+      <span class="number mr-1"> 9 </span>
+      <v-divider vertical class="mx-2"></v-divider>
+      <v-rating
+        v-model="rating"
+        half-increments
+        background-color="orange"
+        color="orange"
+        small
+        readonly
+      ></v-rating>
+      <!-- <span class="grey--text number text--darken-1 mr-1">
+          {{ rating }}
+        </span> -->
+      <v-divider vertical class="mx-2"></v-divider>
+      <p class="ma-0">المبيعات</p>
+      <span class="number mr-1"> 33 </span>
+      <v-spacer></v-spacer>
+      <ShareSaveReport />
+    </v-row>
     <!-- here the Price Info   -->
     <v-row no-gutters align="center" justify="space-between" class="pa-2">
       <p class="ma-0 price">
@@ -36,50 +58,34 @@
         <span> ريال </span>
       </p>
       <v-spacer></v-spacer>
-      <v-chip class="discount-tag mx-1 justify-center">
+      <v-chip small label class="discount-tag mx-1 justify-center">
         <span>9%</span>
       </v-chip>
     </v-row>
-    <!-- <v-col cols="12" class="py-2">
-      <ShareSaveReport />
-    </v-col> -->
-
-    <!-- here are the rating and sales Info   -->
-    <v-row align="center" no-gutters class="pa-2">
-      <p class="ma-0">التقيمات</p>
-      <span class="grey--text number text--darken-1 mr-1"> 9 </span>
-      <v-divider vertical class="mx-2"></v-divider>
-      <v-rating
-        v-model="rating"
-        half-increments
-        background-color="orange"
-        color="orange"
-        small
-        readonly
-      ></v-rating>
-      <!-- <span class="grey--text number text--darken-1 mr-1">
-          {{ rating }}
-        </span> -->
-      <v-divider vertical class="mx-2"></v-divider>
-      <p class="ma-0">المبيعات</p>
-      <span class="grey--text number text--darken-1 mr-1"> 33 </span>
-      <v-spacer></v-spacer>
-      <ShareSaveReport />
-    </v-row>
-    <!-- here are the vouchers -->
-    <v-row no-gutters align="center" class="pa-2">
-      <span class="see-more-coupons">القسائم</span>
+    <!-- here are the Promotions -->
+    <v-row
+      no-gutters
+      justify="center"
+      justify-xl="start"
+      justify-md="start"
+      justify-lg="start"
+      justify-sm="start"
+      align="center"
+      class="px-2 py-3"
+    >
       <v-menu max-width="700" open-on-hover bottom left>
         <template v-slot:activator="{ on, attrs }">
           <v-card
             style="width: fit-content"
-            class="deep-orange lighten-1 mr-2 px-1"
+            class="yellow promotion-card darken-4 px-3"
             flat
-            rounded="pill"
+            height="30"
+            rounded=""
             v-bind="attrs"
             v-on="on"
           >
-            <v-row no-gutters>
+            <v-row no-gutters class="fill-height" align="center">
+              <span class="text-for-all ml-2">العروض الترويجية :</span>
               <v-col v-for="i in 3" :key="i">
                 <v-card-text class="pa-0 coupons">
                   خصم
@@ -219,6 +225,9 @@ export default {
   -webkit-box-orient: vertical !important;
   text-align: justify;
   overflow: hidden;
+  @media (max-width: 960px) {
+    font-size: 18px !important;
+  }
   @media (max-width: 600px) {
     font-size: 16px !important;
   }
@@ -245,22 +254,14 @@ export default {
 p {
   font-family: $fontfamliy3 !important;
   font-weight: 500;
-  font-size: 14px;
-  @media (max-width: 600px) {
-    font-size: 13px !important;
-  }
-  @media (max-width: 400px) {
-    font-size: 12px !important;
-  }
+  font-size: 16px;
 }
 .number {
-  border-bottom: 1.5px solid rgba(128, 128, 128, 0.718);
-  @media (max-width: 600px) {
-    font-size: 14px !important;
-  }
-  @media (max-width: 400px) {
-    font-size: 12px !important;
-  }
+  font-family: sans-serif !important;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.718);
+  font-size: 15px !important;
+  color: $color-2;
+  font-weight: 600;
 }
 ::v-deep
   button.v-icon.notranslate.v-icon--link.material-icons.theme--light.orange--text {
@@ -360,5 +361,37 @@ p {
 ::v-deep
   span.discount-tag.mx-1.justify-center.v-chip.v-chip--no-color.theme--light.v-size--default {
   height: 30px;
+}
+.text-for-all {
+  font-family: $fontfamliy3 !important;
+  letter-spacing: 0 !important;
+  color: $fontcolorsm !important;
+  // margin: 0 auto !important;
+  font-weight: 500;
+}
+.promotion-card {
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    width: 17px;
+    height: 17px;
+    background-color: rgb(255, 255, 255);
+    right: -11px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    width: 17px;
+    height: 17px;
+    background-color: rgb(255, 255, 255);
+    left: -11px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 </style>
