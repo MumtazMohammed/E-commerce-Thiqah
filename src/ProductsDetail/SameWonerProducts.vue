@@ -1,7 +1,7 @@
 <template>
   <div class="DailyOffer">
     <v-container class="pa-0">
-      <div class="pa-2 d-flex font-weight-bold tital">من نفس المتجر</div>
+      <v-card-text class="pa-2 font-weight-bold tital">من نفس المتجر</v-card-text>
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide v-for="(Product, index) in getCarInfo" :key="index">
           <div style="position: relative">
@@ -234,7 +234,6 @@ export default {
     font-size: 22px;
     color: $color-2;
     pointer-events: none;
-
     @media (max-width: 470px) {
       font-size: 18px;
     }

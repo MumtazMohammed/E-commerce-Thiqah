@@ -3,7 +3,7 @@
     <v-container class="pa-0">
       <p class="ma-0 pa-2 d-flex font-weight-bold tital">
         <v-icon size="28" color="yellow darken-3">mdi-fire</v-icon>
-        صفقة مع المنتج
+        صفقة مع البيعة
       </p>
       <!-- big screen  -->
       <v-row no-gutters class="pa-2 hidden-sm-and-down">
@@ -46,7 +46,7 @@
                 المنبتج عنوان المنبتج
               </v-card-text>
             </div>
-            <!-- product title  -->
+            <!-- select product -->
             <div class="">
               <v-row no-gutters align="center">
                 <v-checkbox
@@ -60,12 +60,14 @@
             </div>
           </v-card>
         </v-col>
-        <v-spacer></v-spacer>
+        <v-col cols="" class="pa-2 text-end">
+          <v-btn text depressed class="text-for-all"> رؤية الكل </v-btn>
+        </v-col>
         <v-divider vertical></v-divider>
-        <v-spacer></v-spacer>
+        <!-- <v-spacer></v-spacer> -->
         <v-col cols="2" class="pa-2 col-price">
           <v-card
-            class="d-flex flex-column align-center justify-center"
+            class="d-flex flex-column justify-center"
             flat
             tile
             min-height="100%"
@@ -82,64 +84,104 @@
               <span class="pa-0 save-price">75 ريال</span>
             </v-card-text>
             <!-- btn add to cart  -->
-            <v-card-text class="pa-1 total-price">
-              توفير :
-              <span class="pa-0 save-price">75 ريال</span>
-            </v-card-text>
+            <v-btn depressed class="red text-for-all" dark>
+              إضافة إلى السلة
+            </v-btn>
           </v-card>
         </v-col>
       </v-row>
       <!-- small screen  -->
       <v-row no-gutters class="pa-2 hidden-md-and-up">
         <v-col cols="4" class="pa-2">
-          <v-card flat min-height="150">
+          <v-card rounded="lg" flat class="grey lighten-4" min-height="50">
             <v-img
               src="https://picsum.photos/500/300?image"
               lazy-src="https://picsum.photos/10/6?image"
-              height="100"
-              contain
+              height="100px"
+              class="mx-auto"
             >
             </v-img>
-            <div class="py-2">
-              <v-card-text class="card-text pa-0">
-                عنوان المنبتج عنوان المنبتج عنوان المنبتج عنوان المنبتج عنوان
-                المنبتج عنوان المنبتج
-              </v-card-text>
+            <div class="text-center">
+              <span
+                class="font-weight-medium grey--text text-decoration-line-through"
+              >
+                203 ريال
+              </span>
+            </div>
+            <div class="text-center py-1">
+              <span
+                class="font-weight-medium font-weight-bold deep-orange--text"
+              >
+                184 ريال
+              </span>
             </div>
           </v-card>
         </v-col>
         <v-icon class="mx-2" color="deep-orange">mdi-plus</v-icon>
         <v-col cols="4" class="pa-2">
-          <v-card flat min-height="150">
+          <v-card
+            rounded="lg"
+            flat
+            class="grey lighten-4 overflow-hidden"
+            min-height="50"
+          >
             <v-img
               src="https://picsum.photos/500/300?image"
               lazy-src="https://picsum.photos/10/6?image"
-              height="100"
-              contain
+              height="100px"
+              class="mx-auto"
             >
-              <span class="how-many-percent"> إضافة الصفقة </span>
+              <!-- <span class="how-many-percent"> إضافة الصفقة </span> -->
+              <span class="how-many-percent">
+                <span style="padding: 0 1px">20</span>%-
+              </span>
             </v-img>
             <!-- product title  -->
-            <div class="pt-1">
-              <v-card-text class="card-text pa-0">
-                عنوان المنبتج عنوان المنبتج عنوان المنبتج عنوان المنبتج عنوان
-                المنبتج عنوان المنبتج
-              </v-card-text>
+            <div class="text-center">
+              <span
+                class="font-weight-medium grey--text text-decoration-line-through"
+              >
+                203 ريال
+              </span>
             </div>
+            <div class="text-center py-1">
+              <span
+                class="font-weight-medium font-weight-bold deep-orange--text"
+              >
+                184 ريال
+              </span>
+            </div>
+            <!-- select product -->
+            <!-- <div class="">
+              <v-row no-gutters align="center">
+                <v-checkbox
+                  v-model="enabled"
+                  hide-details
+                  class="shrink mr-0 mt-0"
+                  dense
+                ></v-checkbox>
+                <span class="card-text grey--text pa-0"> حدد الطلب </span>
+                <v-icon>mdi-menu-down</v-icon>
+              </v-row>
+            </div> -->
           </v-card>
         </v-col>
-        <v-col cols="2" class="pa-2 mr-2">
+        <!-- more btn  -->
+        <v-col class="pa-2">
           <v-card
             class="d-flex align-center justify-center"
             flat
             tile
             height="100%"
           >
-            <!-- more btn  -->
-            <div class="text-center">
-              <v-card-text class="card-text pa-0"> المزيد </v-card-text>
-              <v-icon color="grey">mdi-chevron-down</v-icon>
-            </div>
+            <v-card rounded="lg" class="text-center pa-1">
+              <v-card-text class="card-text pa-0">
+                المزيد
+                <span class="mr-1">1</span>
+                +
+              </v-card-text>
+              <v-icon color="deep-orange">mdi-chevron-down</v-icon>
+            </v-card>
           </v-card>
         </v-col>
         <v-col cols="12" class="pa-2 col-price">
@@ -158,7 +200,7 @@
               </v-card-text>
             </v-col>
             <!-- btn add to cart  -->
-            <v-col cols="6" class="my-auto text-end">
+            <v-col cols="6" class="mt-auto text-end">
               <v-btn small depressed dark class="red darken-1 text-for-all">
                 إضافة الى السلة
               </v-btn>
@@ -224,10 +266,10 @@ export default {
     padding: 0px 3px 0px 8px;
     color: white;
     @media (max-width: 960px) {
-      clip-path: none !important;
+      // clip-path: none !important;
       font-size: 12px !important;
-      padding: 0px 2px !important;
-      border-radius: 3px !important;
+      // padding: 0px 2px !important;
+      // border-radius: 3px !important;
     }
   }
   .total-price {
@@ -258,6 +300,21 @@ export default {
       color: $color-2 !important;
     }
   }
+}
+.befor-price {
+  font-family: sans-serif !important;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 2px;
+  text-decoration: line-through;
+  color: grey !important;
+}
+.after-price {
+  font-family: sans-serif !important;
+  font-size: 13.5px;
+  font-weight: 700;
+  margin: 0 2px;
+  color: $fontcolor !important;
 }
 ::v-deep .col-price.pa-2.col.col-2 {
   flex: 0 0 18%;

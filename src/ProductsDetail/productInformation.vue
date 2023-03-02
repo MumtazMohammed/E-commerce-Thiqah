@@ -225,6 +225,7 @@ export default {
   -webkit-box-orient: vertical !important;
   text-align: justify;
   overflow: hidden;
+  pointer-events: none;
   @media (max-width: 960px) {
     font-size: 18px !important;
   }
