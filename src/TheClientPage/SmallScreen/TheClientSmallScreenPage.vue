@@ -2,7 +2,7 @@
   <div class="client-store">
     <!-- client Card -->
     <v-card
-      style="background: linear-gradient(180deg, #757575 0%, #e0e0e0 100%)"
+      style="background: linear-gradient(180deg, #DCEDC8 0%, #F1F8E9 100%)"
       flat
       class="mx-auto grey"
       tile
@@ -15,11 +15,11 @@
               src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
             ></v-img>
           </v-avatar>
-          <v-col cols="7" md="10" sm="9" lg="10">
+          <v-col cols="6" md="10" sm="9" lg="10">
             <v-list-item color="grey">
               <v-list-item-content>
                 <v-list-item-title class="text text-h6"
-                  >محمد أمي
+                  >محمد أمين شمسان
                 </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
@@ -359,11 +359,11 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .client-store {
-  background-color: #e0e0e0;
+  background-color: #F1F8E9;
   width: 100%;
   min-height: 100vh;
   @media (max-width: 960px) {
-    margin-bottom: 50px;
+    margin-bottom: 49px;
   }
 }
 .v-list-item__title.text.text-h6 {

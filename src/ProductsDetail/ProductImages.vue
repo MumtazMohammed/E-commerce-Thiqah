@@ -33,7 +33,7 @@
                   </span>
                   <v-carousel
                     v-model="customerIMageNo"
-                    height="300px"
+                    height="400px"
                     delimiter-icon="mdi-minus"
                     :show-arrows="false"
                   >
@@ -44,7 +44,7 @@
                       <v-img
                         v-bind="attrs"
                         v-on="on"
-                        max-height="300"
+                        max-height="400"
                         contain
                         :src="getimageUrl(getCarInfo.folder, singleImage)"
                       >

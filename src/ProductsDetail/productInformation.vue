@@ -242,6 +242,9 @@ export default {
   @media (max-width: 600px) {
     font-size: 18px !important;
   }
+  @media (max-width: 450px) {
+    font-size: 15px !important;
+  }
 }
 .if-discount {
   font-size: 19px;
@@ -256,6 +259,9 @@ p {
   font-family: $fontfamliy3 !important;
   font-weight: 500;
   font-size: 16px;
+  @media (max-width: 450px) {
+    font-size: 14px !important;
+  }
 }
 .number {
   font-family: sans-serif !important;
@@ -299,6 +305,9 @@ p {
   font-weight: 600 !important;
   @media (max-width: 600px) {
     font-size: 12px;
+  }
+  @media (max-width: 450px) {
+    font-size: 10px !important;
   }
   span {
     font-family: sans-serif !important;
@@ -369,6 +378,9 @@ p {
   color: $fontcolorsm !important;
   // margin: 0 auto !important;
   font-weight: 500;
+  @media (max-width: 450px) {
+    font-size: 14px !important;
+  }
 }
 .promotion-card {
   position: relative;

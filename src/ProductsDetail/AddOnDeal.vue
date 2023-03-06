@@ -196,7 +196,12 @@
             >
               <v-row no-gutters align="center">
                 <v-col>
-                  <v-row justify="center" align="center" no-gutters>
+                  <v-row
+                    style="flex-direction: column !important"
+                    justify="center"
+                    align="center"
+                    no-gutters
+                  >
                     <!-- Product Img and name  -->
                     <v-avatar tile size="70" color="red">
                       <v-img
@@ -222,9 +227,12 @@
                       -webkit-box-orient: vertical;
                       overflow: hidden;
                     "
-                    class="card-text pl-1 pa-0"
+                    class="card-text px-2 pa-0"
                   >
-                    ، من المهم أن يكون الموقع جاذبا من الناحية البصرية
+                    من المهم أن يكون الموقع جاذبا من الناحية البصرية من المهم أن
+                    يكون الموقع جاذبا من الناحية البصرية من المهم أن يكون الموقع
+                    جاذبا من الناحية البصرية من المهم أن يكون الموقع جاذبا من
+                    الناحية البصرية
                   </v-card-text>
                   <v-card-actions class="justify-space-between pa-0">
                     <v-btn
@@ -272,9 +280,14 @@
             >
               <v-row no-gutters>
                 <v-col>
-                  <v-row justify="center" align="center" no-gutters>
+                  <v-row
+                    style="flex-direction: column !important"
+                    justify="center"
+                    no-gutters
+                    align="center"
+                  >
                     <!-- Product Img and name  -->
-                    <v-avatar tile size="75" color="red">
+                    <v-avatar tile size="70" color="red">
                       <v-img
                         :src="getimageUrl(Product.folder, Product.image)"
                         :lazy-src="getimageUrl(Product.folder, Product.image)"
@@ -299,7 +312,7 @@
                       -webkit-box-orient: vertical;
                       overflow: hidden;
                     "
-                    class="card-text pa-0"
+                    class="card-text px-2 pa-0"
                   >
                     {{ Product.name }} {{ Product.company }} {{ Product.name }}
                     {{ Product.company }} {{ Product.name }}
@@ -346,15 +359,25 @@
           <!-- <v-spacer></v-spacer> -->
         </v-row>
       </v-sheet>
+      <!-- see more btn  -->
       <v-col class="text-center pa-0">
-        <a v-if="!SeeMore" class="text-for-all" @click="SeeMore = !SeeMore">
+        <a
+          v-if="!SeeMore"
+          class="text-for-all grey--text text--darken-2"
+          @click="SeeMore = !SeeMore"
+        >
           رؤية المزيد (<span>{{ VerifiedCar.length }}</span
           >)
         </a>
-        <a v-else class="text-for-all" @click="SeeMore = !SeeMore">
+        <a
+          v-else
+          class="text-for-all grey--text text--darken-2"
+          @click="SeeMore = !SeeMore"
+        >
           رؤية أقل
         </a>
       </v-col>
+      <!-- total price and how much u save  -->
       <v-col cols="12" class="pa-2 col-price">
         <v-row no-gutters align="center">
           <v-col class="pa-2 col-price">
@@ -375,141 +398,6 @@
           </v-btn>
         </v-row>
       </v-col>
-      <!-- small screen  -->
-      <!--  -->
-      <v-dialog
-        class="rounded-0"
-        persistent
-        no-click-animation
-        v-model="dialog"
-        width="1000"
-      >
-        <v-toolbar fixed>
-          <v-toolbar-title>
-            المحدد
-            <span class="mr-2">
-              <span class="deep-orange--text">0</span> /
-              {{ getCarInfo.length }}
-            </span>
-          </v-toolbar-title>
-          <v-spacer></v-spacer>
-          <v-btn depressed dark class="red darken-1 text-for-all">
-            إضافة الى السلة
-          </v-btn>
-          <v-btn @click="dialog = false" icon class="mr-2">
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
-        </v-toolbar>
-        <v-card flat tile height="590" color="grey lighten-2 overflow-y-auto">
-          <v-row no-gutters>
-            <v-col
-              cols="12"
-              v-for="(Product, index) in getCarInfo"
-              :key="index"
-              class="pa-1"
-            >
-              <v-card
-                width="100%"
-                style="overflow: hidden; background-color: #fff"
-                flat
-              >
-                <v-row no-gutters align="center">
-                  <!-- select product -->
-                  <v-checkbox
-                    v-model="enabled"
-                    hide-details
-                    class="shrink mr-2 mt-0"
-                    dense
-                  ></v-checkbox>
-                  <!-- Product Img and name  -->
-                  <v-col cols="8" md="6" lg="6" sm="6">
-                    <v-row no-gutters align="center">
-                      <a
-                        router-link
-                        :to="{
-                          name: 'ShowTheProduct',
-                          params: {
-                            carName: Product.name,
-                            carShape: Product.Shape,
-                            carId: Product.id,
-                            Company: Product.folder,
-                          },
-                        }"
-                      >
-                        <v-img
-                          width="130"
-                          height="100"
-                          contain
-                          :src="getimageUrl(Product.folder, Product.image)"
-                        ></v-img>
-                      </a>
-                      <v-col>
-                        <v-card-text
-                          :to="{
-                            name: 'ShowTheProduct',
-                            params: {
-                              carName: Product.name,
-                              carShape: Product.Shape,
-                              carId: Product.id,
-                              Company: Product.folder,
-                            },
-                          }"
-                          style="
-                            display: -webkit-box;
-                            -webkit-line-clamp: 2;
-                            -webkit-box-orient: vertical;
-                            overflow: hidden;
-                          "
-                          class="card-text py-1 pb-0 pa-2"
-                        >
-                          {{ Product.name }} {{ Product.company }}
-                          {{ Product.name }} {{ Product.company }}
-                          {{ Product.name }} {{ Product.company }}
-                          {{ Product.name }} {{ Product.company }}
-                          {{ Product.name }} {{ Product.company }}
-                          {{ Product.name }} {{ Product.company }}
-                          {{ Product.name }} {{ Product.company }}
-                          {{ Product.name }} {{ Product.company }}
-                          {{ Product.name }}
-                          {{ Product.company }}
-                        </v-card-text>
-                      </v-col>
-                    </v-row>
-                  </v-col>
-                  <v-col>
-                    <v-card-actions class="justify-center pa-0">
-                      <v-btn
-                        depressed
-                        text
-                        class="text-for-all"
-                        color="grey darken-2"
-                      >
-                        تحديد الطلب
-                        <v-icon>mdi-menu-down</v-icon>
-                      </v-btn>
-                    </v-card-actions>
-                  </v-col>
-                  <v-col cols="">
-                    <!-- Product price -->
-                    <strong
-                      class="PriceAfter pb-0 grey--text text-decoration-line-through text-center py-1 pa-2 text-truncate"
-                    >
-                      {{ Product.payment }}
-                      <small class="text-truncate">ريال</small>
-                    </strong>
-                    <strong
-                      class="PriceAfter pt-0 red--text py-1 pa-2 text-center text-truncate"
-                    >
-                      {{ Product.payment }}
-                      <small class="text-truncate">ريال</small>
-                    </strong>
-                  </v-col>
-                </v-row>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-dialog>
     </v-container>
   </div>
 </template>

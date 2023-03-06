@@ -204,7 +204,7 @@ export default {
     transform: translateX(-50%);
     border-radius: 10px;
     overflow: hidden;
-    background-color: #eee;
+    background-color: #ffffff;
 
     span.swiper-pagination-progressbar-fill {
       background-color: $color-2;
