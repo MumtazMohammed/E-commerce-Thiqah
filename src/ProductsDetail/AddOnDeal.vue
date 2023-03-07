@@ -5,6 +5,7 @@
         <v-icon right size="28" color="amber accent-1">mdi-tag</v-icon>
         صفقة مع البيعة
       </p>
+      <!-- big screen  -->
       <v-sheet
         :height="SeeMore ? `auto` : `212`"
         class="overflow-y-hidden hidden-xs-only"
@@ -182,12 +183,13 @@
           <!-- <v-spacer></v-spacer> -->
         </v-row>
       </v-sheet>
+      <!-- small screen  -->
       <v-sheet
-        :height="SeeMore ? `auto` : `244`"
+        :height="SeeMore ? `auto` : `195`"
         class="overflow-y-hidden hidden-sm-and-up"
       >
         <v-row no-gutters align="center" justify="center" class="pa-2">
-          <v-col cols="12" class="pa-2 py-1">
+          <v-col cols="12" class="pa-0 py-1">
             <v-card
               flat
               class="grey lighten-4"
@@ -196,12 +198,14 @@
             >
               <v-row no-gutters align="center">
                 <v-col>
-                  <v-row
-                    style="flex-direction: column !important"
-                    justify="center"
-                    align="center"
-                    no-gutters
-                  >
+                  <v-row justify="space-around" align="center" no-gutters>
+                    <!-- select product -->
+                    <v-checkbox
+                      v-model="enabled"
+                      hide-details
+                      class="shrink mt-0"
+                      dense
+                    ></v-checkbox>
                     <!-- Product Img and name  -->
                     <v-avatar tile size="70" color="red">
                       <v-img
@@ -210,16 +214,9 @@
                       >
                       </v-img>
                     </v-avatar>
-                    <!-- select product -->
-                    <v-checkbox
-                      v-model="enabled"
-                      hide-details
-                      class="shrink mt-0"
-                      dense
-                    ></v-checkbox>
                   </v-row>
                 </v-col>
-                <v-col cols="9">
+                <v-col cols="8">
                   <v-card-text
                     style="
                       display: -webkit-box;
@@ -238,7 +235,8 @@
                     <v-btn
                       depressed
                       text
-                      class="text-for-all"
+                      small
+                      class="text-for-all rounded-0"
                       color="grey darken-2"
                     >
                       تحديد الطلب
@@ -246,15 +244,15 @@
                     </v-btn>
                     <!-- Product price -->
                     <div>
-                      <strong
+                      <!-- <strong
                         class="d-block pb-0 grey--text text-decoration-line-through text-center py-1 pa-2 text-truncate"
                       >
                         120
                         <small class="text-truncate">ريال</small>
-                      </strong>
+                      </strong> -->
                       <strong
                         style="color: #fc624d"
-                        class="d-block pt-0 py-1 pa-2 text-center text-truncate"
+                        class="d-block text-price px-1 pa-0 text-center text-truncate"
                       >
                         110
                         <small class="text-truncate">ريال</small>
@@ -270,7 +268,7 @@
             cols="12"
             v-for="(Product, index) in getCarInfo"
             :key="index"
-            class="pa-2 py-1"
+            class="pa-0 py-1"
           >
             <v-card
               width="100%"
@@ -280,12 +278,14 @@
             >
               <v-row no-gutters>
                 <v-col>
-                  <v-row
-                    style="flex-direction: column !important"
-                    justify="center"
-                    no-gutters
-                    align="center"
-                  >
+                  <v-row justify="space-around" no-gutters align="center">
+                    <!-- select product -->
+                    <v-checkbox
+                      v-model="enabled"
+                      hide-details
+                      class="ma-0"
+                      dense
+                    ></v-checkbox>
                     <!-- Product Img and name  -->
                     <v-avatar tile size="70" color="red">
                       <v-img
@@ -295,16 +295,9 @@
                         <span class="how-many-percent">%20</span>
                       </v-img>
                     </v-avatar>
-                    <!-- select product -->
-                    <v-checkbox
-                      v-model="enabled"
-                      hide-details
-                      class="ma-0"
-                      dense
-                    ></v-checkbox>
                   </v-row>
                 </v-col>
-                <v-col cols="9">
+                <v-col cols="8">
                   <v-card-text
                     style="
                       display: -webkit-box;
@@ -329,23 +322,24 @@
                     <v-btn
                       depressed
                       text
-                      class="text-for-all"
+                      small
+                      class="text-for-all rounded-0"
                       color="grey darken-2"
                     >
                       تحديد الطلب
-                      <v-icon>mdi-menu-down</v-icon>
+                      <v-icon size="18">mdi-menu-down</v-icon>
                     </v-btn>
                     <!-- Product price -->
                     <div>
-                      <strong
+                      <!-- <strong
                         class="d-block pb-0 grey--text text-decoration-line-through text-center py-1 pa-2 text-truncate"
                       >
                         {{ Product.payment }}
                         <small class="text-truncate">ريال</small>
-                      </strong>
+                      </strong> -->
                       <strong
                         style="color: #fc624d"
-                        class="d-block pt-0 py-1 pa-2 text-center text-truncate"
+                        class="d-block text-price pt-0 py-1 pa-2 text-center text-truncate"
                       >
                         {{ Product.payment }}
                         <small class="text-truncate">ريال</small>
@@ -363,7 +357,7 @@
       <v-col class="text-center pa-0">
         <a
           v-if="!SeeMore"
-          class="text-for-all grey--text text--darken-2"
+          class="see-more grey--text text--darken-2"
           @click="SeeMore = !SeeMore"
         >
           رؤية المزيد (<span>{{ VerifiedCar.length }}</span
@@ -371,7 +365,7 @@
         </a>
         <a
           v-else
-          class="text-for-all grey--text text--darken-2"
+          class="see-more grey--text text--darken-2"
           @click="SeeMore = !SeeMore"
         >
           رؤية أقل
@@ -380,7 +374,7 @@
       <!-- total price and how much u save  -->
       <v-col cols="12" class="pa-2 col-price">
         <v-row no-gutters align="center">
-          <v-col class="pa-2 col-price">
+          <v-col class="col-price">
             <!-- price total and price befor  -->
             <v-card-text class="pa-1 total-price">
               المجموع :
@@ -393,7 +387,7 @@
             </v-card-text>
           </v-col>
           <!-- btn add to cart  -->
-          <v-btn depressed class="red text-for-all" dark>
+          <v-btn small depressed class="red text-for-all" dark>
             إضافة إلى السلة
           </v-btn>
         </v-row>
@@ -445,21 +439,7 @@ export default {
   min-height: 20vh;
   background-color: #fff;
   overflow: hidden;
-  .card-text {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    font-family: $fontfamliy3;
-    letter-spacing: 0;
-    font-size: 14px;
-    // color: $fontcolor !important;
-  }
-  .text-for-all {
-    font-family: $fontfamliy3;
-    letter-spacing: 0;
-    font-size: 14px;
-  }
+
   .tital {
     font-family: $fontfamliy3;
     font-size: 22px;
@@ -474,7 +454,7 @@ export default {
     }
   }
 }
-.text-for-all {
+.see-more {
   font-family: $fontfamliy3;
   letter-spacing: 0;
   font-size: 14px;
@@ -482,6 +462,20 @@ export default {
     font-family: sans-serif;
     color: $color-2;
   }
+}
+.text-for-all {
+  font-family: $fontfamliy3;
+  letter-spacing: 0;
+  font-size: 14px;
+
+  @media (max-width: 400px) {
+    font-size: 12px;
+  }
+}
+.text-price {
+  font-family: sans-serif !important;
+  letter-spacing: 0;
+  font-size: 15px;
 }
 .how-many-percent {
   position: absolute;
@@ -513,6 +507,9 @@ export default {
   font-weight: 700 !important;
   margin: 0 2px;
   color: $fontcolor !important;
+  @media (max-width: 600px) {
+    font-size: 15px !important;
+  }
 }
 .save-price {
   font-family: sans-serif !important;
@@ -520,6 +517,9 @@ export default {
   font-weight: 700 !important;
   margin: 0 2px;
   color: $color-2 !important;
+  @media (max-width: 600px) {
+    font-size: 15px !important;
+  }
 }
 .total-price {
   font-family: $fontfamliy3 !important;
@@ -527,6 +527,9 @@ export default {
   color: $fontcolor !important;
   pointer-events: none;
   display: block;
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
 }
 
 ::v-deep .col-price.pa-2.col.col-2 {
@@ -539,6 +542,9 @@ export default {
   letter-spacing: 0;
   font-size: 14px;
   color: $fontcolor !important;
+  @media (max-width: 500px) {
+    font-size: 13px !important;
+  }
 }
 
 ::v-deep .v-dialog.v-dialog--active.v-dialog--persistent {

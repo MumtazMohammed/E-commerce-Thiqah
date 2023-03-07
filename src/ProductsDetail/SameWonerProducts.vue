@@ -7,7 +7,7 @@
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide v-for="(Product, index) in getCarInfo" :key="index">
           <div style="position: relative">
-            <h1 class="ribbon">متميز</h1>
+            <!-- <h1 class="ribbon">متميز</h1> -->
             <v-card
               :to="{
                 name: 'ShowTheProduct',
@@ -19,18 +19,19 @@
                 },
               }"
               width="100%"
-              min-height="230"
-              style="overflow: hidden; background-color: #fff"
-              flat
+              min-height="200"
+              style="overflow: hidden; background-color: transparent"
+              outlined
             >
-              <div v-if="Product.discountPercent" class="best-price-tag">
+              <!-- <div v-if="Product.discountPercent" class="best-price-tag">
                 <small class="discountPercent">
                   {{ Product.discountPercent }}-
                 </small>
-              </div>
+              </div> -->
               <v-img
-                height="130"
+                height="100"
                 full-width
+                class="grey darken-2"
                 :src="getimageUrl(Product.folder, Product.image)"
               ></v-img>
               <!-- Product Name -->
@@ -82,24 +83,8 @@
             </v-card>
           </div>
         </swiper-slide>
-        <swiper-slide>
-          <v-card
-            flat
-            max-width="190px"
-            min-height="236"
-            router
-            color="white"
-            class="overflow-hidden d-flex flex-column justify-center align-center"
-          >
-            <v-card-text class="text-center py-1 card-text-seeMore">
-              الكل
-            </v-card-text>
-            <v-icon size="27" class="deep-orange--text mt-1 text--darken-1">
-              mdi-plus
-            </v-icon>
-          </v-card>
-        </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
+
+        <!-- <div class="swiper-pagination" slot="pagination"></div> -->
       </swiper>
     </v-container>
   </div>
@@ -136,12 +121,12 @@ export default {
         },
         breakpoints: {
           1024: {
-            slidesPerView: 6,
-            slidesPerGroup: 6,
+            slidesPerView: 7,
+            slidesPerGroup: 7,
           },
           768: {
-            slidesPerView: 5,
-            slidesPerGroup: 5,
+            slidesPerView: 6,
+            slidesPerGroup: 6,
           },
           640: {
             slidesPerView: 4,
@@ -156,8 +141,8 @@ export default {
             slidesPerGroup: 3,
           },
           250: {
-            slidesPerView: 2,
-            slidesPerGroup: 2,
+            slidesPerView: 3,
+            slidesPerGroup: 3,
           },
         },
       },
@@ -192,10 +177,10 @@ export default {
   min-height: 30vh;
   // background-color: #fff;
   .swiper {
-    min-height: 275px !important;
+    min-height: 215px !important;
     padding: 0 10px;
     .swiper-slide {
-      min-height: 230px;
+      min-height: 200px;
     }
   }
   ::v-deep .swiper-container-horizontal > .swiper-pagination-progressbar {

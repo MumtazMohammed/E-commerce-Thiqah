@@ -2,24 +2,46 @@
   <!-- this component will be under the image  -->
   <div class="ContactSeller">
     <!-- here the product name  -->
-    <v-col cols="12" class="pa-2">
-      <p class="ProductName ma-0">
-        {{ getCarInfo.company }} {{ getCarInfo.name }}
-        {{ getCarInfo.modle }}
-        {{ getCarInfo.company }} {{ getCarInfo.name }}
-        {{ getCarInfo.modle }}
-        {{ getCarInfo.company }} {{ getCarInfo.name }}
-        {{ getCarInfo.modle }}
-        {{ getCarInfo.company }} {{ getCarInfo.name }}
-        {{ getCarInfo.modle }}
-        {{ getCarInfo.company }} {{ getCarInfo.name }}
-        {{ getCarInfo.modle }}
-        {{ getCarInfo.company }} {{ getCarInfo.name }}
-        {{ getCarInfo.modle }}
-        {{ getCarInfo.company }} {{ getCarInfo.name }}
-        {{ getCarInfo.modle }}
+    <v-row no-gutters>
+      <v-col class="pa-2 py-1">
+        <p class="ProductName ma-0">
+          {{ getCarInfo.company }} {{ getCarInfo.name }}
+          {{ getCarInfo.modle }}
+          {{ getCarInfo.company }} {{ getCarInfo.name }}
+          {{ getCarInfo.modle }}
+          {{ getCarInfo.company }} {{ getCarInfo.name }}
+          {{ getCarInfo.modle }}
+          {{ getCarInfo.company }} {{ getCarInfo.name }}
+          {{ getCarInfo.modle }}
+          {{ getCarInfo.company }} {{ getCarInfo.name }}
+          {{ getCarInfo.modle }}
+          {{ getCarInfo.company }} {{ getCarInfo.name }}
+          {{ getCarInfo.modle }}
+          {{ getCarInfo.company }} {{ getCarInfo.name }}
+          {{ getCarInfo.modle }}
+        </p>
+      </v-col>
+      <span small class="discount-tag ml-1 px-1">
+        <span>25%</span>
+      </span>
+    </v-row>
+    <!-- here the Price Info   -->
+    <v-row no-gutters align="center"  class="pa-2">
+      <p class="ma-0 price">
+        {{ getCarInfo.payment }}
+        <span> ريال </span>
       </p>
-    </v-col>
+      <span class="mx-1 grey--text">-</span>
+      <p class="ma-0 price">
+        {{ getCarInfo.payment }}
+        <span> ريال </span>
+      </p>
+      <v-spacer></v-spacer>
+      <p class="ma-0 if-discount mr-2 grey--text text--lighten-1">
+        {{ getCarInfo.payment }}
+        <span> ريال </span>
+      </p>
+    </v-row>
     <!-- here are the rating and sales Info   -->
     <v-row align="center" no-gutters class="pa-2">
       <p class="ma-0">التقيمات</p>
@@ -42,28 +64,9 @@
       <v-spacer></v-spacer>
       <ShareSaveReport />
     </v-row>
-    <!-- here the Price Info   -->
-    <v-row no-gutters align="center" justify="space-between" class="pa-2">
-      <p class="ma-0 price">
-        {{ getCarInfo.payment }}
-        <span> ريال </span>
-      </p>
-      <span class="mx-1 grey--text">-</span>
-      <p class="ma-0 price">
-        {{ getCarInfo.payment }}
-        <span> ريال </span>
-      </p>
-      <p class="ma-0 if-discount mr-2 grey--text text--lighten-1">
-        {{ getCarInfo.payment }}
-        <span> ريال </span>
-      </p>
-      <v-spacer></v-spacer>
-      <v-chip small label class="discount-tag mx-1 justify-center">
-        <span>9%</span>
-      </v-chip>
-    </v-row>
+
     <!-- here are the Promotions -->
-    <v-sheet color="#eee" class=" py-md-1 py-lg-1 pt-2">
+    <v-sheet color="#eee" class="py-md-1 py-lg-1 pt-2">
       <v-menu max-width="700" open-on-hover bottom left>
         <template v-slot:activator="{ on, attrs }">
           <v-card
@@ -76,13 +79,15 @@
             v-bind="attrs"
             v-on="on"
           >
-            <span class="text-for-all ml-2">العروض الترويجية :</span>
             <v-row no-gutters class="fill-height" align="center">
-              <v-col v-for="i in 3" :key="i">
-                <v-card-text class="pa-0 coupons">
-                  خصم
-                  <span class="mx-1">20%</span>
-                </v-card-text>
+              <span class="text-for-all ml-2">العروض :</span>
+              <v-col class="pa-1" v-for="i in 5" :key="i">
+                <v-sheet dark class="text-center" color="orange">
+                  <v-card-text class="pa-0 coupons">
+                    خصم
+                    <span class="mx-1">20%</span>
+                  </v-card-text>
+                </v-sheet>
               </v-col>
             </v-row>
           </v-card>
@@ -215,7 +220,6 @@ export default {
   display: -webkit-box !important;
   -webkit-line-clamp: 2 !important;
   -webkit-box-orient: vertical !important;
-  text-align: justify;
   overflow: hidden;
   pointer-events: none;
   @media (max-width: 960px) {
@@ -271,7 +275,10 @@ p {
   background-color: $color-2 !important;
   color: #fff !important;
   font-size: 15px !important;
-
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 50% 83%, 0 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: 600;
   @media (max-width: 500px) {
     font-size: 13px;
@@ -292,7 +299,7 @@ p {
   padding: 0px 5px;
   margin: 0 3px;
   font-size: 12px;
-  color: $fontcolor !important;
+  color: $fontcolorsm !important;
   border-radius: 3px;
   font-weight: 600 !important;
   @media (max-width: 600px) {
