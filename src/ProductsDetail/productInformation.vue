@@ -63,29 +63,21 @@
       </v-chip>
     </v-row>
     <!-- here are the Promotions -->
-    <v-row
-      no-gutters
-      justify="center"
-      justify-xl="start"
-      justify-md="start"
-      justify-lg="start"
-      justify-sm="start"
-      align="center"
-      class="px-2 py-3"
-    >
+    <v-sheet color="#eee" class=" py-md-1 py-lg-1 pt-2">
       <v-menu max-width="700" open-on-hover bottom left>
         <template v-slot:activator="{ on, attrs }">
           <v-card
             style="width: fit-content"
-            class="yellow promotion-card darken-4 px-3"
+            class="promotion-card darken-4 pa-2"
             flat
-            height="30"
+            tile
+            min-width="100%"
             rounded=""
             v-bind="attrs"
             v-on="on"
           >
+            <span class="text-for-all ml-2">العروض الترويجية :</span>
             <v-row no-gutters class="fill-height" align="center">
-              <span class="text-for-all ml-2">العروض الترويجية :</span>
               <v-col v-for="i in 3" :key="i">
                 <v-card-text class="pa-0 coupons">
                   خصم
@@ -170,7 +162,7 @@
           </v-row>
         </v-sheet>
       </v-menu>
-    </v-row>
+    </v-sheet>
   </div>
 </template>
 <script>
@@ -300,7 +292,7 @@ p {
   padding: 0px 5px;
   margin: 0 3px;
   font-size: 12px;
-  color: $fontcolorsm !important;
+  color: $fontcolor !important;
   border-radius: 3px;
   font-weight: 600 !important;
   @media (max-width: 600px) {
@@ -375,7 +367,7 @@ p {
 .text-for-all {
   font-family: $fontfamliy3 !important;
   letter-spacing: 0 !important;
-  color: $fontcolorsm !important;
+  color: $fontcolor !important;
   // margin: 0 auto !important;
   font-weight: 500;
   @media (max-width: 450px) {
@@ -384,27 +376,5 @@ p {
 }
 .promotion-card {
   position: relative;
-  &::after {
-    position: absolute;
-    content: "";
-    width: 17px;
-    height: 17px;
-    background-color: rgb(255, 255, 255);
-    right: -11px;
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  &::before {
-    position: absolute;
-    content: "";
-    width: 17px;
-    height: 17px;
-    background-color: rgb(255, 255, 255);
-    left: -11px;
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
 }
 </style>
