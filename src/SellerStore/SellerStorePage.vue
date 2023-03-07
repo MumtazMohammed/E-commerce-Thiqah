@@ -1,79 +1,52 @@
 <template>
   <div class="Sellerstore">
     <v-card flat tile class="overflow-hidden">
-      <v-app-bar
-        absolute
-        color="#6A76AB"
-        shrink-on-scroll
-        prominent
-        src="https://picsum.photos/1920/1080?random"
-        fade-img-on-scroll
-        scroll-target="#scrolling-techniques-3"
-        flat
-        style="z-index: 8; overflow: hidden"
-      >
-        <template v-slot:img="{ props }">
-          <v-img
-            v-bind="props"
-            gradient="to top right, #6A76AB, #ffffff00"
-          ></v-img>
-        </template>
+      <v-app-bar app color="#6A76AB" flat style="z-index: 8; overflow: hidden">
         <v-row no-gutters>
           <v-col cols="12">
             <!-- big screen  -->
-            <v-banner class="pa-0" color="transparent" width="100%">
-              <v-container class="pa-0">
-                <v-row no-gutters justify="center">
-                  <v-btn elevation="0" class="transparent" small fab>
-                    <v-icon color="#ffff">mdi-dots-vertical</v-icon>
-                  </v-btn>
-                  <v-spacer></v-spacer>
-                  <v-card
-                    height="40"
+            <v-container class="pa-0">
+              <v-row no-gutters justify="center">
+                <v-btn elevation="0" class="transparent" small fab>
+                  <v-icon color="#ffff">mdi-dots-vertical</v-icon>
+                </v-btn>
+                <v-spacer></v-spacer>
+                <v-card
+                  height="40"
+                  flat
+                  width="75%"
+                  rounded="sm"
+                  style="overflow: hidden"
+                  class="d-flex px-2 search-card align-center"
+                >
+                  <v-icon size="24" color="#fff" first.length>
+                    mdi-magnify
+                  </v-icon>
+                  <v-text-field
                     flat
-                    width="75%"
-                    rounded="sm"
-                    style="overflow: hidden"
-                    class="d-flex px-2 search-card align-center"
-                  >
-                    <v-icon size="24" color="#fff" first.length>
-                      mdi-magnify
-                    </v-icon>
-                    <v-text-field
-                      flat
-                      dense
-                      hide-details
-                      v-model="first"
-                      dark
-                      label="ابحث في هذا المتجر"
-                      solo
-                    ></v-text-field>
-                  </v-card>
-                  <!-- <v-btn>f</v-btn> -->
-                  <v-spacer></v-spacer>
-                  <v-btn elevation="0" class="transparent" small fab>
-                    <v-icon color="#fff">mdi-arrow-left</v-icon>
-                  </v-btn>
-                </v-row>
-              </v-container>
-            </v-banner>
-          </v-col>
-          <v-col cols="12" class="pa-0 mt-4 mt-lg-2 infoo mt-sm-2">
-            <v-toolbar-title>
-              <v-container class="pa-0">
-                <seller-info />
-              </v-container>
-            </v-toolbar-title>
+                    dense
+                    hide-details
+                    v-model="first"
+                    dark
+                    label="ابحث في هذا المتجر"
+                    solo
+                  ></v-text-field>
+                </v-card>
+                <!-- <v-btn>f</v-btn> -->
+                <v-spacer></v-spacer>
+                <v-btn elevation="0" class="transparent" small fab>
+                  <v-icon color="#fff">mdi-arrow-left</v-icon>
+                </v-btn>
+              </v-row>
+            </v-container>
           </v-col>
         </v-row>
         <template v-slot:extension>
           <v-tabs
-            dense
             v-model="tab"
-            slider-size="3"
-            slider-color="#fc624d"
-            active-class="font-weight-bold black--text"
-            background-color="grey lighten-3"
+            slider-color="#eee"
+            active-class="font-weight-bold "
+            dark
           >
             <v-tab class="tabs-text"> المتجر </v-tab>
             <v-tab class="tabs-text"> المنتجات </v-tab>
@@ -82,13 +55,10 @@
           </v-tabs>
         </template>
       </v-app-bar>
-      <v-sheet
-        id="scrolling-techniques-3"
-        class="overflow-y-auto sheet"
-        style="background-color: #f8f9fa"
-      >
-        <v-container class="pa-0 pt-3" style="max-height: 1000px">
-          <v-sheet height="243"></v-sheet>
+      <v-sheet style="background-color: #f8f9fa">
+        <v-sheet class="supporter"></v-sheet>
+        <seller-info />
+        <v-container class="pa-0 pt-3">
           <v-tabs-items style="min-height: " v-model="tab">
             <v-tab-item class="">
               <store-voucher />
@@ -108,7 +78,7 @@
       </v-sheet>
     </v-card>
     <div class="hidden-md-and-up">
-      <v-sheet height="180"></v-sheet>
+      <v-sheet height="50"></v-sheet>
       <FixedBottomNav />
     </div>
   </div>
@@ -164,7 +134,7 @@ export default {
 @import "@/scss/mixin";
 .Sellerstore {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: $color-background;
 }
 ::v-deep
@@ -250,16 +220,11 @@ export default {
 ::v-deep .v-banner__content {
   padding: 0 !important;
 }
-::v-deep
-  .v-app-bar.v-toolbar--prominent.v-app-bar--shrink-on-scroll.v-app-bar--is-scrolled:not(.v-app-bar--bottom)
-  .v-toolbar__title {
-  padding: 0px !important;
-}
 
-.sheet {
-  height: 100vh;
+.supporter {
+  height: 112px;
   @media (max-width: 960px) {
-    height: calc(100vh - 50px);
+    height: 104px;
   }
 }
 </style>
