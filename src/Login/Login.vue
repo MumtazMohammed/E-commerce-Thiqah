@@ -1,23 +1,26 @@
 <template>
-    <v-card tile flat class="form-box">
+    <v-main tile flat class="form-box">
         <SystemBar />
+        <!-- Logo  -->
+        <v-card-actions class="justify-center py-4">
+            <h3 class="logo-text">ثــــقـــة لتجارة الأكترونية</h3>
+            <v-icon
+                style="
+                    background-color: #fc624d;
+                    padding: 3px;
+                    border-radius: 50%;
+                    color: white;
+                "
+                left
+                size="28"
+                >mdi-shopping</v-icon
+            >
+        </v-card-actions>
+        <!-- Login , sgin up , sgin up as seller -->
         <v-form class="d-flex justify-center form">
             <v-col cols="12" md="8" sm="12" class="px-xs-0">
-                <v-card-actions class="justify-center py-4">
-                    <h3 class="logo-text">ثــــقـــة لتجارة الأكترونية</h3>
-                    <v-icon
-                        style="
-                            background-color: #fc624d;
-                            padding: 3px;
-                            border-radius: 50%;
-                            color: white;
-                        "
-                        left
-                        size="28"
-                        >mdi-shopping</v-icon
-                    >
-                </v-card-actions>
                 <v-card flat color="transparent" class="pa-md-3 pa-lg-3">
+                    <!-- Login component -->
                     <v-row
                         justify="center"
                         v-if="
@@ -110,20 +113,22 @@
                             </v-btn>
                         </v-col>
                     </v-row>
-                    <v-col
+                    <!-- SignUp component -->
+                    <v-sheet
                         cols="12"
                         class="pa-0"
                         v-if="SignUpNormalAccount == true"
                     >
                         <SignUp />
-                    </v-col>
-                    <v-col
+                    </v-sheet>
+                    <!-- Sign Up as Seller -->
+                    <v-sheet
                         cols="12"
                         class="pa-0"
                         v-if="SignUpSellerAccount == true"
                     >
                         <SignUpSeller />
-                    </v-col>
+                    </v-sheet>
                     <v-col cols="12" class="">
                         <v-card-actions class="justify-space-around">
                             <a
@@ -177,7 +182,7 @@
                 </v-card>
             </v-col>
         </v-form>
-    </v-card>
+    </v-main>
 </template>
 <script>
 import SignUp from "../Login/SignUp.vue";

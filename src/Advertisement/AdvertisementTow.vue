@@ -3,21 +3,21 @@
     <!-- advertisement  -->
     <v-container class="pa-0 pa-md-0 pa-lg-0 pa-sm-1">
       <!-- TheAdv -->
-        <swiper class="swiper" :options="swiperOption">
-          <swiper-slide v-for="(item, i) in items" :key="i">
-            <v-card
-              style="position: absolute"
-              width="100%"
-              height="100%"
-              :color="item.color"
-              tile
-              flat
-            >
-            </v-card>
-            <v-img contain :src="item.src" :lazy-src="item.src"> </v-img>
-          </swiper-slide>
-          <div class="swiper-pagination" slot="pagination"></div>
-        </swiper>
+      <swiper class="swiper" :options="swiperOption">
+        <swiper-slide v-for="(item, i) in items" :key="i">
+          <v-card
+            style="position: absolute"
+            width="100%"
+            height="100%"
+            :color="item.color"
+            tile
+            flat
+          >
+          </v-card>
+          <v-img contain :src="item.src" :lazy-src="item.src"> </v-img>
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
     </v-container>
   </v-sheet>
 </template>

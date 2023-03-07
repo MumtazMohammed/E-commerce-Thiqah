@@ -242,7 +242,7 @@ export default {
   @media (max-width: 600px) {
     font-size: 18px !important;
   }
-  @media (max-width: 450px) {
+  @media (max-width: 350px) {
     font-size: 15px !important;
   }
 }
@@ -306,7 +306,7 @@ p {
   @media (max-width: 600px) {
     font-size: 12px;
   }
-  @media (max-width: 450px) {
+  @media (max-width: 350px) {
     font-size: 10px !important;
   }
   span {

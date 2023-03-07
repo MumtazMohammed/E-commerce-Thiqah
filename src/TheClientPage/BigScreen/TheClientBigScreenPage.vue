@@ -127,7 +127,11 @@
       </v-list>
     </v-navigation-drawer>
     <v-container class="py-0 transparent" style="overflow: hidden">
-      <v-sheet class="transparent" style="height: calc(100vh - 40px)" rounded="md">
+      <v-sheet
+        class="transparent"
+        style="height: calc(100vh - 40px)"
+        rounded="md"
+      >
         <router-view />
       </v-sheet>
     </v-container>
