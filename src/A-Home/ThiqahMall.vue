@@ -24,7 +24,7 @@
                   },
                 }"
                 width="100%"
-                height="240"
+                height="250"
                 class=""
                 rounded="lg"
                 flat
@@ -35,7 +35,7 @@
                   :src="getimageUrl(Product.folder, Product.image)"
                 ></v-img>
                 <v-row style="margin-top: -25px" justify="center" no-gutters>
-                  <v-avatar class="elevation-4" size="50" color="#eee" rounded>
+                  <v-avatar class="" size="60" color="#FAFAFA" >
                     <v-img
                       height="50"
                       contain
@@ -155,12 +155,12 @@ export default {
   min-height: 20vh;
   background-color: $color-background;
   .swiper {
-    height: 250px;
+    height: 265px;
     // padding-bottom: 45px;
     padding-right: 5px !important;
     padding-left: 3px;
     .swiper-slide {
-      height: 240px !important;
+      height: 250px !important;
     }
   }
   ::v-deep .swiper-container-horizontal > .swiper-pagination-progressbar {

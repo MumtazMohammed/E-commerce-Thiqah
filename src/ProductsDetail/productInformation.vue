@@ -71,7 +71,7 @@
         <template v-slot:activator="{ on, attrs }">
           <v-card
             style="width: fit-content"
-            class="promotion-card darken-4 pa-2"
+            class="promotion-card"
             flat
             tile
             min-width="100%"
@@ -80,12 +80,12 @@
             v-on="on"
           >
             <v-row no-gutters class="fill-height" align="center">
-              <span class="text-for-all ml-2">العروض :</span>
+              <span class="text-for-all mx-2">العروض :</span>
               <v-col class="pa-1" v-for="i in 5" :key="i">
                 <v-sheet dark class="text-center" color="orange">
                   <v-card-text class="pa-0 coupons">
                     خصم
-                    <span class="mx-1">20%</span>
+                    <span class="mx-">20%</span>
                   </v-card-text>
                 </v-sheet>
               </v-col>
@@ -297,10 +297,8 @@ p {
 .coupons {
   font-family: $fontfamliy3 !important;
   padding: 0px 5px;
-  margin: 0 3px;
   font-size: 12px;
   color: $fontcolorsm !important;
-  border-radius: 3px;
   font-weight: 600 !important;
   @media (max-width: 600px) {
     font-size: 12px;
