@@ -2,29 +2,29 @@
   <div class="client-store">
     <!-- client Card -->
     <v-card
-      style="background: linear-gradient(180deg, #dcedc8 0%, #f1f8e9 100%)"
+      style="background: linear-gradient(180deg, #eeeeee 0%, #efebe9 100%)"
       flat
       class="mx-auto grey"
       tile
     >
       <v-container>
         <!-- client Card -->
-        <v-row align="center" justify="center" no-gutters class="fill-height">
-          <v-avatar class="profile" color="grey" size="60">
+        <v-row align="center" no-gutters class="fill-height">
+          <v-avatar class="profile" color="grey" size="50">
             <v-img
               src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
             ></v-img>
           </v-avatar>
-          <v-col cols="6" md="10" sm="9" lg="10">
+          <v-col cols="7" md="10" sm="9" lg="10">
             <v-list-item color="grey">
               <v-list-item-content>
-                <v-list-item-title class="text text-h6"
-                  >محمد أمين شمسان
+                <v-list-item-title class="user-name">
+                  محمد أمين شمسان
                 </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-col>
-          <v-row justify="space-around" no-gutters>
+          <v-row justify="end" no-gutters>
             <v-badge bordered left overlap content="3">
               <v-btn
                 :to="{
@@ -36,12 +36,12 @@
                 width="36"
                 height="36"
                 class="btn-noti-cart"
-                fab
+                icon
               >
-                <v-icon> mdi-bell </v-icon>
+                <v-icon> mdi-bell-outline </v-icon>
               </v-btn>
             </v-badge>
-            <v-btn depressed width="36" height="36" fab class="btn-noti-cart">
+            <v-btn depressed width="36" height="36" icon class="btn-noti-cart">
               <v-icon>mdi-dots-vertical </v-icon>
             </v-btn>
           </v-row>
@@ -359,7 +359,7 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .client-store {
-  background-color: #f1f8e9;
+  background-color: #efebe9;
   width: 100%;
   min-height: 100vh;
   @media (max-width: 960px) {
@@ -369,6 +369,13 @@ export default {
 .v-list-item__title.text.text-h6 {
   letter-spacing: 0 !important;
   font-family: $fontfamliy3 !important;
+}
+.user-name {
+  letter-spacing: 0 !important;
+  font-family: $fontfamliy3 !important;
+  font-weight: 600;
+  font-size: 16px !important;
+  line-height: 1.7 !important;
 }
 .text {
   letter-spacing: 0 !important;
@@ -386,6 +393,9 @@ export default {
   font-family: $fontfamliy3 !important;
   font-weight: 600;
   font-size: 17px;
+  @media (max-width: 450px) {
+    font-size: 15px;
+  }
 }
 ::v-deep span.v-badge__badge {
   color: #fff !important;

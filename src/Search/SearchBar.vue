@@ -32,11 +32,11 @@
                   params: { Cart: 'سلة التسوق ' },
                 }"
                 depressed
-                class="btn-noti-cart deep-orange lighten-5"
+                class="btn-noti-cart"
                 icon
                 large
               >
-                <v-icon class="btn-noti-cart-icon">mdi-cart</v-icon>
+                <v-icon class="btn-noti-cart-icon">mdi-cart-outline</v-icon>
               </v-btn>
             </v-badge>
             <!-- notification btn -->
@@ -133,7 +133,7 @@
     <!-- small screen nave  -->
     <v-card class="hidden-md-and-up supporter" flat></v-card>
     <v-app-bar class="hidden-md-and-up" app color="#f8f9fa" fixed flat>
-      <v-row class="px-2" no-gutters align="center">
+      <v-row class="px-" align="center">
         <v-col cols="8">
           <v-dialog
             v-model="dialog"
@@ -147,9 +147,9 @@
                 v-on="on"
                 flat
                 width="100%"
-                height="30px"
+                height="40px"
                 color="#EEE"
-                rounded="lg"
+                rounded="sm"
                 class="search-small-screen mr-1 ml-3"
               >
                 <v-row
@@ -169,8 +169,8 @@
               </v-card>
             </template>
             <v-card>
-              <v-toolbar tile color="transparent">
-                <v-card width="100%" flat color="#eee" class="pr-2">
+              <v-toolbar flat tile color="grey lighten-2">
+                <v-card width="100%" flat color="#fff" class="px-2 py-1">
                   <v-card-actions class="pa-0">
                     <v-text-field
                       placeholder="على ماذا تبحث..."
@@ -194,6 +194,7 @@
                     </v-btn>
                   </v-card-actions>
                 </v-card>
+                <v-divider></v-divider>
               </v-toolbar>
               <v-expand-transition>
                 <div v-if="search.length > 0">
@@ -246,10 +247,10 @@
                   params: { Cart: 'سلة التسوق ' },
                 }"
                 depressed
-                class="btn-noti-cart grey lighten-3"
+                class="btn-noti-cart"
                 icon
               >
-                <v-icon>mdi-cart</v-icon>
+                <v-icon>mdi-cart-outline</v-icon>
               </v-btn>
             </v-badge>
             <v-spacer></v-spacer>
@@ -263,10 +264,10 @@
                 }"
                 exact-path
                 depressed
-                class="btn-noti-cart grey lighten-3"
+                class="btn-noti-cart"
                 icon
               >
-                <v-icon> mdi-bell </v-icon>
+                <v-icon> mdi-bell-outline </v-icon>
               </v-btn>
             </v-badge>
           </v-row>
@@ -365,9 +366,6 @@ a {
   @media (max-width: 600px) {
     display: none;
   }
-}
-.search-small-screen {
-  // box-shadow: 0 0 0 1px #ffccbc !important;
 }
 .v-text-field::v-deep .v-label.theme--light {
   font-family: $fontfamliy3 !important;

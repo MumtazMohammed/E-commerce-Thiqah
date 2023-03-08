@@ -26,7 +26,7 @@
       </span>
     </v-row>
     <!-- here the Price Info   -->
-    <v-row no-gutters align="center"  class="pa-2">
+    <v-row no-gutters align="center" class="pa-2">
       <p class="ma-0 price">
         {{ getCarInfo.payment }}
         <span> ريال </span>

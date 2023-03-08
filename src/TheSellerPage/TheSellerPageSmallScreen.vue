@@ -8,7 +8,7 @@
     >
       <v-container class="py-0">
         <v-row align="center" no-gutters class="fill-height">
-          <v-avatar class="profile" color="grey" size="60">
+          <v-avatar class="profile" color="grey" size="50">
             <v-img
               src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
             ></v-img>
@@ -23,14 +23,14 @@
                   <v-card
                     class="overflow-hidden"
                     flat
-                    rounded="sm"
+                    rounded="lg"
                     max-width="170"
                   >
                     <v-row align="center" class="fill-height" no-gutters>
                       <span class="store-with-thiah white--text red">
                         ثقة مول
                       </span>
-                      <v-icon color="red" class="mx-1">
+                      <v-icon size="18" color="red">
                         mdi-check-decagram
                       </v-icon>
                       <span class="store-with-thiah black--text">
@@ -55,12 +55,12 @@
                 width="36"
                 height="36"
                 class="btn-noti-cart"
-                fab
+                icon
               >
                 <v-icon> mdi-bell </v-icon>
               </v-btn>
             </v-badge>
-            <v-btn depressed width="36" height="36" fab class="btn-noti-cart">
+            <v-btn depressed width="36" height="36" icon class="btn-noti-cart">
               <v-icon>mdi-dots-vertical </v-icon>
             </v-btn>
           </v-row>
@@ -459,7 +459,7 @@ export default {
 .store-with-thiah {
   font-family: $fontfamliy3;
   letter-spacing: 0 !important;
-  padding: 5px;
+  padding: 4px 3px;
 }
 
 .link {
@@ -480,7 +480,7 @@ export default {
   // color: #fff !important;
 }
 .btn-noti-cart {
-  color: $color-2 !important;
+  color: #fff !important;
   // background-color: #eee;
   @media (max-width: 600px) {
   }
@@ -489,8 +489,8 @@ export default {
   border-width: 0;
 }
 ::v-deep span.v-badge__badge {
-  color: #fff !important;
-  background-color: $color-2 !important;
+  color: $color-2 !important;
+  background-color: #fff !important;
   // min-width: 15px;
   height: 18px;
   // padding: 5px;
@@ -498,9 +498,10 @@ export default {
   // justify-content: center;
   // align-items: center;
   border: none;
+  font-weight: 600;
   // font-size: 13px !important;
   @media (max-width: 600px) {
-    font-size: 11px !important;
+    // font-size: 11px !important;
   }
 }
 </style>

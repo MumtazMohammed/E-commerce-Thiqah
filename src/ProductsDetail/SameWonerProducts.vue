@@ -1,9 +1,9 @@
 <template>
   <div class="DailyOffer">
     <v-container class="pa-0">
-      <v-card-text class="pa-2 font-weight-bold tital"
-        >من نفس المتجر</v-card-text
-      >
+      <v-card-text class="pa-2 pb-3 font-weight-bold tital">
+        أفضل المختارات من المتجر
+      </v-card-text>
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide v-for="(Product, index) in getCarInfo" :key="index">
           <div style="position: relative">

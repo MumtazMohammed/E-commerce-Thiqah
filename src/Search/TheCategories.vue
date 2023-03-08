@@ -23,7 +23,8 @@
       :key="Category.tital"
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-tab readonly v-bind="attrs" v-on="on" v-text="Category.tital">
+        <v-tab readonly v-bind="attrs" v-on="on">
+          {{ Category.tital }}
         </v-tab>
       </template>
       <v-sheet color="white" tile outlined max-width="100%" width="100%">

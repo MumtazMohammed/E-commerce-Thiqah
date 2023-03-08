@@ -27,6 +27,7 @@
                 height="240"
                 class=""
                 rounded="lg"
+                flat
                 style="overflow: hidden; background-color: #eee"
               >
                 <v-img

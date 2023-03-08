@@ -14,22 +14,22 @@
     <v-sheet class="">
       <v-tabs
         v-model="tab"
-        hide-slider
+        slider-color="#fc624d"
         class="overflow-hidden"
         centered
         grow
         background-color="grey lighten-3"
       >
-        <v-tab href="#tab-1" active-class="links-active" class="links">
+        <v-tab href="#tab-1" active-class="black--text" class="links">
           الكل
         </v-tab>
-        <v-tab href="#tab-2" active-class="links-active" class="links">
+        <v-tab href="#tab-2" active-class="black--text" class="links">
           الشحن
         </v-tab>
-        <v-tab href="#tab-3" active-class="links-active" class="links">
+        <v-tab href="#tab-3" active-class="black--text" class="links">
           مكتمل
         </v-tab>
-        <v-tab href="#tab-4" active-class="links-active" class="links">
+        <v-tab href="#tab-4" active-class="black--text" class="links">
           ملغي
         </v-tab>
       </v-tabs>
@@ -38,7 +38,7 @@
         <v-tab-item
           style="height: calc(100vh - 100px); overflow-y: scroll"
           value="tab-1"
-          class="py-1"
+          class="pa-1"
         >
           <v-col cols="12" class="pa-1">
             <v-sheet rounded class="pa-1 grey lighten-2">
@@ -156,7 +156,7 @@
               </v-card-actions>
             </v-sheet>
           </v-col>
-          <v-col :key="i" cols="12" class="pa-1">
+          <v-col cols="12" class="pa-1">
             <v-sheet rounded class="pa-1 grey lighten-2">
               <v-card-actions class="pa-0 align-center">
                 <v-card-text class="pa-1 store-name">
@@ -258,7 +258,7 @@
         <v-tab-item
           style="height: calc(100vh - 100px); overflow-y: scroll"
           value="tab-2"
-          class="py-1"
+          class="pa-2"
         >
           <v-col v-for="i in 5" :key="i" cols="12" class="pa-1">
             <v-sheet rounded class="pa-1 grey lighten-2">
@@ -362,7 +362,7 @@
         <v-tab-item
           style="height: calc(100vh - 100px); overflow-y: scroll"
           value="tab-3"
-          class="py-1"
+          class="pa-2"
         >
           <v-col v-for="i in 3" :key="i" cols="12" class="pa-1">
             <v-sheet rounded class="pa-1 grey lighten-2">
@@ -431,7 +431,7 @@
         <v-tab-item
           style="height: calc(100vh - 100px); overflow-y: scroll"
           value="tab-4"
-          class="py-1"
+          class="pa-2"
         >
           <v-col cols="12" class="pa-1" v-for="i in 3" :key="i">
             <v-sheet rounded class="pa-1 grey lighten-2">
@@ -551,10 +551,6 @@ export default {
     font-size: 14px !important;
   }
 
-  .links-active {
-    background-color: $color-2 !important;
-    color: #ffffff;
-  }
   .store-name {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0;
@@ -566,11 +562,7 @@ export default {
       font-size: 20px !important;
     }
   }
-  .chat-icon {
-    // color: $color-2 !important;
-  }
-  .cancle-btn {
-  }
+
   .btn1 {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0 !important;

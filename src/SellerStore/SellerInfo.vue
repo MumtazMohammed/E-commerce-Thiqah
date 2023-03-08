@@ -1,5 +1,5 @@
 <template>
-  <v-card  tile color="#6A76AB" rounded="md" class="AboutStore overflow-hidden">
+  <v-card tile color="#6A76AB" rounded="md" class="AboutStore overflow-hidden">
     <v-container class="px-1 pb-1">
       <v-row no-gutters align="center">
         <v-avatar size="80">

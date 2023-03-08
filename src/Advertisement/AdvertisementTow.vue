@@ -16,7 +16,7 @@
           </v-card>
           <v-img contain :src="item.src" :lazy-src="item.src"> </v-img>
         </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
+        <!-- <div class="swiper-pagination" slot="pagination"></div> -->
       </swiper>
     </v-container>
   </v-sheet>
