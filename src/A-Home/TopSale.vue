@@ -17,10 +17,11 @@
             width="100%"
             height="195"
             flat
+            rounded="lg"
             style="overflow: hidden; position: relative"
           >
             <v-img
-              height="100"
+              height="120"
               style="overflow: hidden"
               :src="getimageUrl(Product.folder, Product.image)"
             >
@@ -31,7 +32,6 @@
               </span>
               <span v-if="index == 1" class="top grey lighten-4">
                 <v-icon color="#c0c0c0">mdi-seal</v-icon>
-
                 {{ index + 1 }}
               </span>
               <span v-if="index == 2" class="top grey lighten-4">
@@ -42,16 +42,24 @@
                 <v-icon color="#00BCD4">mdi-seal</v-icon>
                 {{ index + 1 }}
               </span>
+              <v-row
+                style="position: absolute; bottom: 0; right: 0; width: 100%"
+                no-gutters
+                align="end"
+                justify="center"
+              >
+                <span class="sold-text px-3 text-truncate">
+                   المبيعات الشهرية : <span>{{ index + 70 }}</span>
+                </span>
+              </v-row>
             </v-img>
-            <v-card flat tile color="#eee">
               <span class="d-block card-text pa-1 text-truncate">
                 {{ Product.name }} {{ Product.company }} {{ Product.name }}
               </span>
-            </v-card>
             <v-row
-              style="min-height: 20px"
+              style="height: 40px"
               no-gutters
-              align="end"
+              align="center"
               justify="center"
               class=""
             >
@@ -59,16 +67,6 @@
                 {{ Product.payment }}
                 <small class="text-truncate">ريال</small>
               </strong>
-            </v-row>
-            <v-row
-              style="min-height: 30px"
-              no-gutters
-              align="end"
-              justify="center"
-            >
-              <span class="sold-text px-3 text-truncate">
-                عدد المشترين : <span>{{ index + 70 }}</span>
-              </span>
             </v-row>
           </v-card>
         </swiper-slide>
@@ -194,9 +192,13 @@ export default {
     font-family: $fontfamliy3;
     letter-spacing: 0;
     font-size: 14px;
-    color: $fontcolorlinks;
-    background-color: #eee;
-    border-radius: 30px !important;
+    color: $fontcolor;
+    background-color: #ffffffad;
+    // border-radius: 30px !important;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+
     span {
       font-family: sans-serif !important;
       font-size: 17px;

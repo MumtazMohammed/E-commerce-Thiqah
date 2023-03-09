@@ -42,6 +42,44 @@
         <span> ريال </span>
       </p>
     </v-row>
+    <!-- here the Guarantee    -->
+    <v-row no-gutters align="center" class="">
+      <v-sheet width="100%" color="red lighten-5">
+        <!-- product Guarantee  -->
+        <v-list-item two-line class="px-1 py-0">
+          <v-icon color="red darken-2" size="27">mdi-shield-check</v-icon>
+          <v-list-item-content class="pa-0 pr-2">
+            <v-list-item-title class="Guarantee-text">
+              100٪ أصلي
+            </v-list-item-title>
+            <v-list-item-subtitle class="Guarantee-text-tow">
+              ضمان حقيقي أو استرد أموالك
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+        <!-- product Guarantee  -->
+        <v-list-item two-line class="px-1 py-0">
+          <v-icon color="red darken-2" size="27">
+            mdi-chevron-triple-down
+          </v-icon>
+          <v-list-item-content class="pa-0 pr-2">
+            <v-list-item-title class="Guarantee-text">
+              أقل سعر مضمون
+              <v-icon
+                left
+                style="transform: scaleX(-1)"
+                size="19"
+              >
+                mdi-help-circle-outline
+              </v-icon>
+            </v-list-item-title>
+            <v-list-item-subtitle class="Guarantee-text-tow">
+              أوجد خيار أرخص؟ ستحصل عملات معدنية مجانية!
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-sheet>
+    </v-row>
     <!-- here are the rating and sales Info   -->
     <v-row align="center" no-gutters class="pa-2">
       <p class="ma-0">التقيمات</p>
@@ -56,15 +94,14 @@
         readonly
       ></v-rating>
       <!-- <span class="grey--text number text--darken-1 mr-1">
-          {{ rating }}
-        </span> -->
+        {{ rating }}
+      </span> -->
       <v-divider vertical class="mx-2"></v-divider>
       <p class="ma-0">المبيعات</p>
       <span class="number mr-1"> 33 </span>
       <v-spacer></v-spacer>
       <ShareSaveReport />
     </v-row>
-
     <!-- here are the Promotions -->
     <v-sheet color="#eee" class="py-md-1 py-lg-1 pt-2">
       <v-menu max-width="700" open-on-hover bottom left>
@@ -381,5 +418,17 @@ p {
 }
 .promotion-card {
   position: relative;
+}
+::v-deep .px-1.py-0.v-list-item.v-list-item--two-line.theme--light {
+  min-height: 50px !important;
+}
+.Guarantee-text {
+  font-family: $fontfamliy3 !important;
+  letter-spacing: 0 !important;
+}
+.Guarantee-text-tow {
+  font-family: $fontfamliy3 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.5;
 }
 </style>
