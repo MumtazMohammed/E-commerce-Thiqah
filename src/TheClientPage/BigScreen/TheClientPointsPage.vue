@@ -1,123 +1,142 @@
 <template>
-  <div class="UserAdd grey lighten-5">
-    <v-container>
-      <v-card
-        class="mx-auto elevation-3 overflow--hidden"
-        width="100%"
-        color="transparent"
-        height="150px"
-        rounded="lg"
-      >
-        <v-row
-          justify="center"
-          align="center"
-          style="flex-direction: column; height: 100%"
-          no-gutters
-          class="mt-"
-        >
-          <v-spacer></v-spacer>
-
-          <span class="points-No-total"> 8 </span>
-          <span class="points-No-text-total">نقطة</span>
-          <v-spacer></v-spacer>
-          <v-btn
-            text
-            elevation="0"
-            color="grey darken-3"
-            class="points-text-total my-2"
-          >
-            السجل
-          </v-btn>
-        </v-row>
-      </v-card>
-      <v-card-text class="get-text"> 1 نقطة تساوي 50 ريال </v-card-text>
-      <v-card
-        rounded="lg"
-        flat
-        class="my-auto mb-2 overflow--hidden"
-        height="75"
-        color="grey lighten-1"
-      >
+  <div class="UserAdd">
+    <v-sheet class="amber darken-1" width="100%" rounded="lg" flat>
+      <v-card-text class="points-No-text-total text-center">
+        مكافآت العملات المعدنية
+      </v-card-text>
+      <v-row justify="center" align="center" no-gutters class="mb-3">
+        <span class="points-No-total"> 8 </span>
+        <v-avatar class="mr-3" size="50" color="transparent">
+          <img
+            src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/dailycheckin/efa54441c1dd47a845e8c3572f1b65bf.png"
+            alt="alt"
+          />
+        </v-avatar>
+      </v-row>
+      <v-row no-gutters justify="center">
+        <v-btn class="get-points-btn">
+          انقر هنا للحصول على عملة 1 مجانية
+        </v-btn>
+      </v-row>
+      <v-card-text class="get-text white--text">
+        1 نقطة تساوي 50 ريال
+      </v-card-text>
+    </v-sheet>
+    <v-sheet rounded="lg" class="amber darken-1 mt-2 pb-1">
+      <v-card-text class="get-text">
+        كيفية الحصول على عملات مجانية
+      </v-card-text>
+      <v-card tile flat class="ma-2" height="50">
         <v-row style="height: 100%" align="center" no-gutters>
-          <v-col class="pa-2" cols="12">
+          <v-col class="text-center" cols="1">
+            <v-avatar size="30" color="amber darken-1">1</v-avatar>
+          </v-col>
+          <v-col cols="9">
             <v-card-text class="card-text pa-0">
-              شارك وأحصل على نقاط من خلال رابط الخاص قي الاسفل
+              قم بدعوة أشخاص جدد لتسجيل على موقعنا واحصل على
+              <span>30</span> عملة من خلال رابطك الخاص
             </v-card-text>
           </v-col>
-          <!-- <v-col cols="1">
-            <v-icon color="white">mdi-chevron-double-left</v-icon>
-          </v-col> -->
+          <v-col cols="2" class="text-center">
+            <v-btn text color="amber darken-2" class="rounded-0 get-points-btn">
+              الرابط
+            </v-btn>
+          </v-col>
         </v-row>
       </v-card>
-      <v-card
-        rounded="lg"
-        flat
-        class="my-auto mb-2 overflow--hidden"
-        height="75"
-        color="grey lighten-1"
-      >
+      <v-card tile flat class="ma-2" height="50">
         <v-row style="height: 100%" align="center" no-gutters>
-          <v-col class="pa-2" cols="11">
+          <v-col class="text-center" cols="1">
+            <v-avatar size="30" color="amber darken-1">2</v-avatar>
+          </v-col>
+          <v-col cols="9">
             <v-card-text class="card-text pa-0">
-              تسوق على المنتجات المتميزه وأحصل على نقاط
+              قم بترويج بعض المنتجات وأحصل على عملات تفوق حتى<span>300</span>
+              عملة عند قيام الطرف الثالث في الشراء
             </v-card-text>
           </v-col>
-          <v-col cols="1">
-            <v-icon color="white">mdi-chevron-double-left</v-icon>
+          <v-col cols="2" class="text-center">
+            <v-btn text color="amber darken-2" class="rounded-0 get-points-btn">
+              الرابط
+            </v-btn>
           </v-col>
         </v-row>
       </v-card>
-      <v-card
-        height="75"
-        flat
-        rounded="lg"
-        class="mx-auto mb-2 overflow--hidden"
-        color="grey lighten-1"
-      >
+      <v-card tile flat class="ma-2" height="50">
         <v-row style="height: 100%" align="center" no-gutters>
-          <v-col class="pa-2" cols="11">
+          <v-col class="text-center" cols="1">
+            <v-avatar size="30" color="amber darken-1">3</v-avatar>
+          </v-col>
+          <v-col cols="9">
             <v-card-text class="card-text pa-0">
-              قم بي ترويج بعض منتجاتنا وأحصل على <span>300</span> نقطة عند قيام
-              الطرف الثالث في الشراء
+              قم بمتابعة بعض المتاجر وأحصل على
+              <span>10</span>
+              عملات مجانية
             </v-card-text>
           </v-col>
-          <v-col cols="1">
-            <v-icon color="white">mdi-chevron-double-left</v-icon>
+          <v-col cols="2" class="text-center">
+            <v-btn icon color="amber darken-2">
+              <v-icon>mdi-chevron-left</v-icon>
+            </v-btn>
           </v-col>
         </v-row>
       </v-card>
-      <v-card
-        class="mx-auto mt-3 overflow--hidden"
-        width="100%"
-        color="grey lighten-1"
-        style="height: calc(100vh - 530px)"
-        rounded="lg"
-        flat
+    </v-sheet>
+    <v-sheet rounded="lg" class="grey lighten-3 mt-2 overflow-hidden">
+      <v-tabs
+        v-model="tab"
+        slider-color="white"
+        class="overflow-hidden"
+        centered
+        slider-size="3"
+        grow
+        background-color="amber darken-1"
       >
-        <v-row
-          justify="center"
-          align="center"
-          style="flex-direction: column; height: 100%"
-          no-gutters
-          class="mt-"
-        >
-          <v-spacer></v-spacer>
-
-          <v-card
-            color=" grey lighten-2"
-            flat
-            width="90%"
-            class="points-link pa-1"
-          >
-            http://localhost:8080/SmallScreenClientPointsPage/%D9%86%D9%82%D8%A7%D8%B7%D9%8A
+        <v-tab href="#tab-1" active-class="black--text" class="links">
+          كل السجل
+        </v-tab>
+        <v-tab href="#tab-2" active-class="black--text" class="links">
+          أكتسبت
+        </v-tab>
+        <v-tab href="#tab-3" active-class="black--text" class="links">
+          أنفقت
+        </v-tab>
+      </v-tabs>
+      <v-tabs-items v-model="tab" class="transparent">
+        <!-- All hostry  -->
+        <v-tab-item value="tab-1" style="min-height: 100px" class="pa-2">
+          <v-card flat class="overflow-hidden" min-height="50">
+            <v-list-item three-line class="pa-0">
+              <v-avatar tile size="100" color="grey darken-1">1</v-avatar>
+              <v-list-item-content class="py-1 pr-2">
+                <v-list-item-title class="get-points-btn">
+                  محمد أمين شمسان محمد أمين شمسان محمد أمين شمسان محمد أمين
+                  شمسان
+                </v-list-item-title>
+                <v-list-item-subtitle
+                  class="get-points-btn text-truncate d-block"
+                >
+                  محمد أمين شمسان محمد أمين شمسان محمد أمين شمسان محمد أمين
+                </v-list-item-subtitle>
+                <v-list-item-subtitle> 05 / 08 /2022 </v-list-item-subtitle>
+              </v-list-item-content>
+              <v-avatar tile size="40" color="transparent">
+                <span style="font-size: 20px">+</span>
+                <span class="mr-1" style="font-size: 20px">5</span>
+              </v-avatar>
+            </v-list-item>
           </v-card>
-          <v-spacer></v-spacer>
-          <v-btn text elevation="0" class="points-link-copy my-2 white">
-            نسخ الرابط الخاص بك
-          </v-btn>
-        </v-row>
-      </v-card>
-    </v-container>
+        </v-tab-item>
+        <!-- earned coins  -->
+        <v-tab-item style="min-height: 100px" value="tab-2" class="pa-2">
+          earned coins
+        </v-tab-item>
+        <!-- spended coins  -->
+        <v-tab-item style="min-height: 100px" value="tab-3" class="pa-2">
+          spended coins
+        </v-tab-item>
+      </v-tabs-items>
+    </v-sheet>
   </div>
 </template>
 <script>
@@ -151,8 +170,7 @@ export default {
 @import "@/scss/mixin";
 .UserAdd {
   width: 100%;
-  // padding: $padding;
-  height: calc(100vh - 40px);
+  min-height: calc(100vh - 40px);
   .toolbar-title {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0.5px;
@@ -168,34 +186,39 @@ export default {
       margin-left: 5px;
     }
   }
-
   .get-text {
     font-family: $fontfamliy3 !important;
-    letter-spacing: 0.5px;
+    letter-spacing: 0px;
     font-size: 15px !important;
-    color: $fontcolor !important;
+    // color: $fontcolor !important;
     font-weight: 600 !important;
     pointer-events: none;
   }
 }
-.points-text-total {
+.links {
   font-family: $fontfamliy3 !important;
-  letter-spacing: 0.5px;
-  font-weight: 600 !important;
+  letter-spacing: 0;
+  font-weight: 600;
   font-size: 14px !important;
+}
+.get-points-btn {
+  font-family: $fontfamliy3 !important;
+  letter-spacing: 0px;
+  // font-weight: 600 !important;
+  // font-size: 14px !important;
 }
 .points-No-text-total {
   font-family: $fontfamliy3 !important;
-  letter-spacing: 0.5px;
+  letter-spacing: 0px;
   font-weight: 600 !important;
-  font-size: 14px !important;
-  color: $fontcolor;
+  font-size: 16px !important;
+  color: $fontcolorsm !important;
   pointer-events: none;
 }
 .points-No-total {
   font-weight: 600 !important;
   font-size: 45px !important;
-  color: $color-2;
+  color: $fontcolorsm;
   pointer-events: none;
 }
 .points-link {

@@ -1,6 +1,6 @@
 <template>
   <div class="UserAdd">
-    <v-app-bar flat class="mb-5" app>
+    <v-app-bar flat class="mb-5 light-blue" app>
       <v-toolbar-title class="toolbar-title">
         <v-icon size="22">mdi-ticket-percent</v-icon>
         القسائم
@@ -10,9 +10,14 @@
         <v-icon size="30">mdi-arrow-left-thin</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-container class="mt-14 py-1 px-1">
-      <div class="pa-2">
-        <v-row justify="center" align="center" no-gutters class="mt-">
+    <v-sheet height="56"></v-sheet>
+    <v-container class="">
+      <v-card-title class="coupons-recommended-title pa-0 px-1">
+        قسائم موصى بها
+      </v-card-title>
+      <v-sheet rounded="lg" class="light-blue darken-1 my-2 pb-1">
+        <!-- Store Info  -->
+        <v-row justify="center" align="center" no-gutters class="pa-2">
           <v-avatar class="profile" color="transparent" size="30">
             <v-img
               src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
@@ -24,7 +29,7 @@
         </v-row>
         <v-row no-gutters>
           <v-col
-            class="py-2"
+            class="pa-2 py-1"
             md="4"
             lg="4"
             sm="6"
@@ -32,35 +37,39 @@
             v-for="n in 3"
             :key="n"
           >
-            <v-card flat color="#eee" class="card">
+            <v-card flat color="#fff">
               <v-row no-gutters justify="center" class="main">
-                <v-col style="border-left: 1px dashed grey" class="" cols="3">
+                <v-col style="border-left: 2px dashed #eee" class="" cols="3">
                   <v-row
                     align="center"
                     style="height: 100%"
                     justify="center"
                     no-gutters
                   >
-                    <v-avatar class="profile my-auto" color="grey" size="50">
+                    <v-avatar
+                      tile
+                      class="profile my-auto"
+                      color="transparent"
+                      size="70"
+                    >
                       <v-img
                         src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
                       ></v-img>
                     </v-avatar>
                   </v-row>
                 </v-col>
-
-                <v-col class="pr-1" cols="6">
-                  <v-card-subtitle class="text pa-1">
+                <v-col class="pa-1" cols="6">
+                  <v-card-subtitle class="text pa-0">
                     خصم <span class="mx-1 red--text"><span>20</span>%</span>
                   </v-card-subtitle>
-                  <v-card-text class="pa-1 text">
+                  <v-card-text class="pa-0 text">
                     أنفق
                     <span class="mx-1">
                       52<v-icon left size="17">mdi-currency-rial</v-icon>
                     </span>
                     كحد أدنى
                   </v-card-text>
-                  <v-card-text class="pa-1 text">
+                  <v-card-text class="pa-0 text">
                     متاح حتى
                     <span>10/2/2020</span>
                   </v-card-text>
@@ -85,11 +94,13 @@
                 <li></li>
                 <li></li>
                 <li></li>
+                <li></li>
               </ul>
             </v-card>
           </v-col>
         </v-row>
-      </div>
+      </v-sheet>
+
       <v-divider></v-divider>
       <span class="no-more">لا يوجد المزيد</span>
     </v-container>
@@ -128,6 +139,12 @@ export default {
   width: 100%;
   // padding: $padding;
   min-height: 100vh;
+  .coupons-recommended-title {
+    font-family: $fontfamliy3 !important;
+    letter-spacing: 0px;
+    color: $fontcolor !important;
+    font-size: 16px !important;
+  }
   .toolbar-title {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0.5px;
@@ -148,7 +165,7 @@ export default {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0px;
     font-size: 15px !important;
-    color: #343434 !important;
+    color: $fontcolorsm !important;
     // font-weight: 600 !important;
     pointer-events: none;
   }
@@ -166,10 +183,7 @@ export default {
   letter-spacing: 0 !important;
   color: $fontcolorlinks !important;
   font-weight: 600 !important;
-
-  @media (max-width: 600px) {
-    font-size: 14px !important;
-  }
+  font-size: 12px !important;
 }
 .btn {
   font-family: $fontfamliy3 !important;
@@ -194,10 +208,12 @@ export default {
   justify-content: space-between;
   li {
     list-style: none;
-    width: 8px;
-    height: 8px;
-    background-color: #fff;
-    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    background-color: #039be5;
+    transform: rotate(45deg);
     // border-right: 1px solid #42a5f5;
   }
 }

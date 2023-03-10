@@ -34,10 +34,10 @@
                   height="160"
                   :src="getimageUrl(Product.folder, Product.image)"
                 ></v-img>
-                <v-row style="margin-top: -25px" justify="center" no-gutters>
-                  <v-avatar class="" size="60" color="#FAFAFA" >
+                <v-row style="margin-top: -40px" justify="center" no-gutters>
+                  <v-avatar class="" size="75" color="white">
                     <v-img
-                      height="50"
+                      height="65"
                       contain
                       src="../assets/outsrc/adidas-logo.png"
                     ></v-img>

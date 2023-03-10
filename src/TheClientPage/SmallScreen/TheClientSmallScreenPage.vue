@@ -58,6 +58,42 @@
               </v-card-text>
             </v-card>
           </v-col>
+          <v-col>
+            <v-card
+              link
+              router
+              :to="{
+                name: 'SmallScreenClientCouponsPage',
+                params: { coupons: 'قسائم' },
+              }"
+              color="transparent"
+              flat
+              tile
+            >
+              <v-card-text class="pa-0 text-No text-center"> 8 </v-card-text>
+              <v-card-text class="pa-0 mt-1 text text-center">
+                القسائم
+              </v-card-text>
+            </v-card>
+          </v-col>
+          <v-col>
+            <v-card
+              link
+              router
+              :to="{
+                name: 'SmallScreenClientPointsPage',
+                params: { Points: 'نقاط' },
+              }"
+              color="transparent"
+              flat
+              tile
+            >
+              <v-card-text class="pa-0 text-No text-center"> 8 </v-card-text>
+              <v-card-text class="pa-0 mt-1 text text-center">
+                النقاط
+              </v-card-text>
+            </v-card>
+          </v-col>
         </v-row>
       </v-container>
     </v-card>
@@ -296,8 +332,6 @@ export default {
       FirstAccess: [
         { title: "المفضلة", cunt: "1" },
         { title: "شوهدت مؤخرا", cunt: "50" },
-        { title: "النقاط", cunt: "1" },
-        { title: "القسائم", cunt: "1" },
       ],
       SecondAccess: [
         {

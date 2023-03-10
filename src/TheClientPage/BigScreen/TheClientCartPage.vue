@@ -1,6 +1,5 @@
 <template>
   <div class="TheClientCartPage">
-    <v-container>
       <v-card-title class="pa-0 cart-title">
         <v-icon right class="link-icon"> mdi-cart-plus </v-icon>
         سلة التسوق
@@ -333,7 +332,6 @@
           </v-sheet>
         </v-container>
       </v-bottom-sheet>
-    </v-container>
   </div>
 </template>
 <script>

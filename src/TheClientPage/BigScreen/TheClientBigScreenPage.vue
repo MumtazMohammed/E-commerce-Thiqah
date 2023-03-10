@@ -1,5 +1,5 @@
 <template>
-  <v-main class="grey lighten-3">
+  <v-main class="white">
     <SystemBar />
     <v-navigation-drawer
       v-model="drawer"
@@ -126,10 +126,9 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-container class="py-0 transparent" style="overflow: hidden">
+    <v-container class="transparent" style="overflow: hidden">
       <v-sheet
         class="transparent"
-        style="height: calc(100vh - 40px)"
         rounded="md"
       >
         <router-view />
@@ -161,7 +160,7 @@ export default {
 @import "@/scss/mixin";
 #inspire {
   width: 100%;
-  height: 100vh !important;
+  min-height: 100vh !important;
   background-color: #eeeeee;
 
   .user-name {
