@@ -6,7 +6,7 @@
         القسائم
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn to="/TheUserPageView" icon>
+      <v-btn to="/TheUserPageView" color="white" icon>
         <v-icon size="30">mdi-arrow-left-thin</v-icon>
       </v-btn>
     </v-app-bar>
@@ -148,7 +148,7 @@ export default {
   .toolbar-title {
     font-family: $fontfamliy3 !important;
     letter-spacing: 0.5px;
-    color: $fontcolorlinks !important;
+    color: $fontcolorsm !important;
     font-size: 15px !important;
     font-weight: 600;
     display: flex;
@@ -156,7 +156,7 @@ export default {
     align-items: center;
     justify-content: center;
     .v-icon {
-      color: $color-2 !important;
+      color: #01579b !important;
       margin-left: 5px;
     }
   }

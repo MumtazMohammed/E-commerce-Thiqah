@@ -2,7 +2,7 @@
   <div class="client-store">
     <!-- client Card -->
     <v-card
-      style="background: linear-gradient(180deg, #eeeeee 0%, #efebe9 100%)"
+      style="background: linear-gradient(180deg, #eeeeee 0%, #FFE0B2 100%)"
       flat
       class="mx-auto grey"
       tile
@@ -393,7 +393,7 @@ export default {
 @import "@/scss/virables";
 @import "@/scss/mixin";
 .client-store {
-  background-color: #efebe9;
+  background-color: #FFF3E0;
   width: 100%;
   min-height: 100vh;
   @media (max-width: 960px) {
