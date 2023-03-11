@@ -1,6 +1,6 @@
 <template>
   <div class="UserAdd">
-    <v-app-bar flat class="mb-5 light-blue darken-1" app>
+    <v-app-bar flat class="orange darken-2" app>
       <v-toolbar-title class="toolbar-title">
         <!-- <v-icon size="22">mdi-ticket-percent</v-icon> -->
         القسائم
@@ -12,7 +12,7 @@
     </v-app-bar>
     <v-sheet height="56"></v-sheet>
     <v-container class="">
-      <v-card-title class="coupons-recommended-title pa-0 px-1">
+      <v-card-title class="coupons-recommended-title pa-2">
         قسائم موصى بها
       </v-card-title>
       <v-row no-gutters>
@@ -20,10 +20,9 @@
           <v-sheet
             style="position: relative"
             rounded="lg"
-            class="light-blue darken-1 pa-2 pt-0"
+            class="orange darken-2 pa-2 pt-0"
           >
             <!-- if store include in thiqah mall   -->
-              
             <!-- Store Info  -->
             <v-row justify="center" align="center" no-gutters class="pa-2">
               <v-avatar class="profile" color="transparent" size="30">
@@ -33,13 +32,15 @@
               </v-avatar>
               <span class="store-name mr-1"> متجر بهلول </span>
               <v-spacer></v-spacer>
-              <span class="coupons-date"> 
-              ثـقـة مول  
-              </span>
+              <span class="coupons-date"> ثـقـة مول </span>
             </v-row>
             <v-card flat color="#fff">
               <v-row no-gutters justify="center" class="main">
-                <v-col style="border-left: 2px dashed #eee" class="" cols="3">
+                <v-col
+                  style="border-left: 2px dashed #f57c00"
+                  class=""
+                  cols="3"
+                >
                   <v-row
                     align="center"
                     style="height: 100%"
@@ -85,7 +86,7 @@
                       small
                       fab
                       dark
-                      class="light-blue darken-1 btn"
+                      class="orange darken-2 btn"
                       elevation="0"
                     >
                       أخذ
@@ -94,6 +95,92 @@
                 </v-col>
               </v-row>
               <ul class="Voucher">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </v-card>
+          </v-sheet>
+        </v-col>
+      </v-row>
+      <v-card-title class="coupons-recommended-title pa-2">
+        جميع القسائم
+      </v-card-title>
+      <v-row no-gutters>
+        <v-col class="pa-2 py-1" sm="6" cols="12" v-for="n in 3" :key="n">
+          <v-sheet
+            style="position: relative"
+            rounded="lg"
+            class="transparent px-0"
+          >
+            <!-- if store include in thiqah mall   -->
+
+            <!-- Store Info  -->
+            <!-- <v-row justify="center" align="center" no-gutters class="pa-2">
+              <v-avatar class="profile" color="transparent" size="30">
+                <v-img
+                  src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
+                ></v-img>
+              </v-avatar>
+              <span class="store-name mr-1"> متجر بهلول </span>
+              <v-spacer></v-spacer>
+              <span class="coupons-date"> ثـقـة مول </span>
+            </v-row> -->
+            <v-card flat color="#eee">
+              <v-row no-gutters justify="center" class="main">
+                <v-col style="border-left: 2px dashed #fff" class="" cols="3">
+                  <v-row
+                    align="center"
+                    style="height: 100%"
+                    justify="center"
+                    no-gutters
+                  >
+                    <v-avatar
+                      tile
+                      class="profile my-auto"
+                      color="transparent"
+                      size="70"
+                    >
+                      <v-img
+                        src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"
+                      ></v-img>
+                    </v-avatar>
+                  </v-row>
+                </v-col>
+                <v-col class="pa-1" cols="6">
+                  <v-card-subtitle class="text pa-0">
+                    خصم <span class="mx-1 red--text"><span>20</span>%</span>
+                  </v-card-subtitle>
+                  <v-card-text class="pa-0 text">
+                    أنفق
+                    <span class="mx-1">
+                      52<v-icon left size="17">mdi-currency-rial</v-icon>
+                    </span>
+                    كحد أدنى
+                  </v-card-text>
+                  <v-card-text class="pa-0 text">
+                    متاح حتى
+                    <span>10/2/2020</span>
+                  </v-card-text>
+                </v-col>
+                <v-col cols="3">
+                  <v-row
+                    align="center"
+                    style="height: 100%"
+                    justify="center"
+                    no-gutters
+                  >
+                    <v-btn small fab class="white btn" elevation="0">
+                      أخذ
+                    </v-btn>
+                  </v-row>
+                </v-col>
+              </v-row>
+              <ul class="Voucher-all">
                 <li></li>
                 <li></li>
                 <li></li>
@@ -181,7 +268,7 @@ export default {
     padding: 3px 4px;
     font-size: 12px !important;
     color: $fontcolorsm !important;
-    background-color: #FF3D00;
+    background-color: #e53935;
     font-weight: 600 !important;
     pointer-events: none;
     border-radius: 5px;
@@ -197,7 +284,7 @@ export default {
 .btn {
   font-family: $fontfamliy3 !important;
   letter-spacing: 0 !important;
-  color: $fontcolorsm !important;
+  // color: $fontcolorsm !important;
   font-size: 14px !important;
   margin: 0 auto !important;
   font-weight: 600;
@@ -221,7 +308,28 @@ export default {
     height: 6px;
     border-top: 1px solid transparent;
     border-right: 1px solid transparent;
-    background-color: #039be5;
+    background-color: #f57c00;
+    transform: rotate(45deg);
+    // border-right: 1px solid #42a5f5;
+  }
+}
+.Voucher-all {
+  position: absolute;
+  top: 0;
+  left: -3px;
+  padding: 5px 0;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  li {
+    list-style: none;
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    background-color: #fff;
     transform: rotate(45deg);
     // border-right: 1px solid #42a5f5;
   }
@@ -235,6 +343,4 @@ export default {
   font-size: 13px !important;
   color: #f44336 !important;
 }
-
-
 </style>
